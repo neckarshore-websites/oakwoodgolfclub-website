@@ -108,7 +108,7 @@ Aus dem MASCHIN-Audit 2026-04-17 (`docs/reports/2026-04-17-maschin-seo-oakwood.m
 - Organization JSON-LD: name, url, logo, contactPoint, alternateName
 - Offer-Schema für Pricing (55 EUR Einzel, 143 EUR Flight, 10 EUR Referral)
 - OG Title + Twitter Cards vollständig befüllt
-- `dateModified` in JSON-LD + sichtbares "Zuletzt aktualisiert"-Signal auf Blog-Posts
+- `dateModified` in JSON-LD + sichtbares "Zuletzt aktualisiert"-Signal — auf Blog-Posts UND auf Homepage/FAQ/Über-uns (AI-Freshness-Signal auf allen Content-Seiten, nicht nur Blog)
 
 ### Technical SEO
 - Security Headers via `next.config.js`: HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy
@@ -156,10 +156,10 @@ imageAlt: "Alt-Text für das Bild"
 | B3 | Layout-Shell | Nav + Footer + SEO-Meta-Komponente + robots.txt + llms.txt + Security Headers | S | Offen |
 | B4 | Homepage | Hero + Value Prop + Pricing-Cards + FAQ-Teaser + CTA-Section + Organization JSON-LD + Offer-Schema | M | Offen |
 | B5 | Formulare | Kontakt, Signup, Renewal — je Server Action → E-Mail an info@ | M | Offen |
-| B6 | FAQs-Seite | Accordion + FAQPage JSON-LD (15 Q&A, plain text, 120–150 Wörter) | S | Offen |
+| B6 | FAQs-Seite | Accordion + FAQPage JSON-LD (15 Q&A, plain text). **Antworten werden rewritten, nicht 1:1 übernommen** — aktueller Ø 65 Wörter, Ziel 120–150 Wörter pro Antwort mit direktem Eröffnungssatz (AI-Citation-Fenster). | S | Offen |
 | B7 | Über uns | Named Founder, Bio, Gründungsjahr, Thailand-Story, Mitgliederzahl | XS | Offen |
 | B8 | Blog-System | Markdown-Reader, Post-Layout, Kategorie-Listing, Pagination | S | Offen |
-| B9 | Content-Migration | 20 Posts: WordPress-Export → Markdown + Frontmatter, SEO A+B+D | M | Offen |
+| B9 | Content-Migration | 20 Posts: WordPress-Export → Markdown + Frontmatter, SEO A+B+D. **Cleanup-Schritt Pflicht:** Scan auf Legacy-Hosting-URLs (`s522799978.online.de` etc.) und auf rohe Avada-HTML-Fragmente — beides wird entfernt bevor der Post als Markdown committet wird. | M | Offen |
 | B10 | URL-Redirects | `next.config.js` redirects für alle alten WordPress-URLs | S | Offen |
 | B11 | Legal | Impressum, Datenschutz, AGB — statische Seiten | XS | Offen |
 | B12 | Analytics | Vercel Web Analytics einbinden | XS | Offen |
