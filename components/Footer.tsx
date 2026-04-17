@@ -31,6 +31,14 @@ export function Footer() {
               <li><Link href="/ueber-uns" className="hover:text-[var(--color-gold)] transition-colors">Über uns</Link></li>
               <li><Link href="/blog" className="hover:text-[var(--color-gold)] transition-colors">Blog</Link></li>
               <li><Link href="/kontakt" className="hover:text-[var(--color-gold)] transition-colors">Kontakt</Link></li>
+              <li className="pt-3 mt-3 border-t border-white/10">
+                <Link
+                  href="/style-guide"
+                  className="text-[var(--color-parchment)]/50 hover:text-[var(--color-gold)] transition-colors"
+                >
+                  Style Guide <span className="text-xs">(intern)</span>
+                </Link>
+              </li>
             </ul>
           </nav>
 
@@ -51,19 +59,7 @@ export function Footer() {
               </li>
             </ul>
 
-            <p className="mt-6 mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-              Rechtliches
-            </p>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/impressum" className="hover:text-[var(--color-gold)] transition-colors">Impressum</Link></li>
-              <li><Link href="/datenschutz" className="hover:text-[var(--color-gold)] transition-colors">Datenschutz</Link></li>
-              <li><Link href="/agb" className="hover:text-[var(--color-gold)] transition-colors">AGB</Link></li>
-            </ul>
-
-            <p className="mt-6 mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
-              Social
-            </p>
-            <ul className="flex gap-4 text-sm">
+            <ul className="mt-4 flex gap-3 text-sm">
               <li>
                 <a
                   href={SITE.social.facebook}
@@ -92,6 +88,15 @@ export function Footer() {
                   </svg>
                 </a>
               </li>
+            </ul>
+
+            <p className="mt-6 mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+              Rechtliches
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/impressum" className="hover:text-[var(--color-gold)] transition-colors">Impressum</Link></li>
+              <li><Link href="/datenschutz" className="hover:text-[var(--color-gold)] transition-colors">Datenschutz</Link></li>
+              <li><Link href="/agb" className="hover:text-[var(--color-gold)] transition-colors">AGB</Link></li>
             </ul>
           </div>
         </div>
