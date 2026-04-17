@@ -1,6 +1,20 @@
 # Oakwood Golf Club — Website Redesign Briefing
 
-Snapshot taken 2026-04-17 as groundwork for a dedicated OGC session. No build decisions made yet — all 12 scope-questions below need clarification before any code is written. Different from Goldoni: OGC is a **live business** with ~300 paying members, not a marketing site. Planning depth reflects that.
+Snapshot taken 2026-04-17. Scope-Interview abgeschlossen (Session C + D). Alle 12 Scope-Fragen entschieden. Phase-1-Plan steht: `docs/phase-1-plan.md`.
+
+---
+
+## 0. Phase-Architektur (Kurzübersicht)
+
+| Phase | Scope | Status |
+|---|---|---|
+| **Phase 1** | Marketing-Site + Funnel + 20-Post-Blog-Migration | Geplant — `docs/phase-1-plan.md` |
+| Phase 2 | Publishing-Pipeline (E-Mail/Obsidian → LLM → Review → Publish) + Admin-Automatisierung | Roadmap |
+| Später | EN-Version, Stripe-Integration, Handicap-Produkt (eigenes separates Projekt) | Offen |
+
+**Kernentscheidung:** OGC-Phase-1 ist ein Jamstack-Projekt (Marketing-Site + Funnel + Blog), kein Portal-Projekt. Kein Member-Login, kein Handicap-Backend, keine DB zwingend. Scope ist nach Scope-Interview eine Größenordnung kleiner als das ursprüngliche Briefing annahm.
+
+---
 
 ---
 
@@ -89,51 +103,51 @@ Snapshot taken 2026-04-17 as groundwork for a dedicated OGC session. No build de
 
 ## 5. Special Features (aktuell, zu erhalten / migrieren)
 
-| Feature | Beschreibung | Kritikalität |
+| Feature | Beschreibung | Phase-1-Status |
 |---|---|---|
-| Handicap-Verwaltungssystem | Online-Tool: Scorecard-Upload, Score-Tracking, Handicap-Berechnung | **Hoch** — Kerndienst |
-| Mitgliederkarte-Druck | Plastikkarte Kreditkartengröße mit Name + Handicap + Datum | **Hoch** — Platz-Credibility |
-| Interaktive Mitgliederkarte | Google Maps mit geografischer Verteilung der Mitglieder | Mittel — Community-Signal |
-| Blog-System | 16 Jahre Content über 5 Kategorien | Mittel — SEO-Langzeitwert |
-| FAQ-Datenbank | Strukturierte Q&A (Collapse-Plugin) | Mittel — Support-Entlastung |
-| Scorecard-Submission-Portal | Upload / Eingabe durch Member | **Hoch** — Kerndienst |
+| ~~Handicap-Verwaltungssystem~~ | ~~Online-Tool: Scorecard-Upload, Score-Tracking, Handicap-Berechnung~~ | **OUT OF SCOPE Phase 1.** Self-reported beim Signup reicht. Eigenes Handicap-Produkt = Roadmap 2027. |
+| Mitgliederkarte-Druck | Plastikkarte Kreditkartengröße mit Name + Handicap + Datum | Manuell bleibt (Zebra ZC100 + wirmachendruck.de). Kein Code-Scope. |
+| ~~Interaktive Mitgliederkarte~~ | ~~Google Maps mit geografischer Verteilung der Mitglieder~~ | OUT OF SCOPE Phase 1. |
+| Blog-System | 20 Posts (2020–2025), 5 Kategorien | ✅ Migrieren — Markdown-in-Repo, SEO A+B+D |
+| FAQ-Datenbank | Strukturierte Q&A | ✅ Neu bauen — Accordion + FAQPage JSON-LD |
+| ~~Scorecard-Submission-Portal~~ | ~~Upload / Eingabe durch Member~~ | **OUT OF SCOPE Phase 1.** Kein Member-Portal. |
 
 ---
 
-## 6. Scope-Fragen (offen, zu klären in dedizierter Session)
+## 6. Scope-Fragen (alle entschieden — 2026-04-17)
 
-| # | Frage | Optionen / Gedanken |
-|---|-------|---------------------|
-| 6a | **Relaunch-Strategie** | Big-Bang (alles neu gleichzeitig, hohes Risiko) vs. schrittweise Migration (Landing → Info-Seiten → Blog → Member-Portal). **Linus-Empfehlung: schrittweise.** |
-| 6b | **Member-Portal** | (A) Eigenentwicklung Next.js + PostgreSQL; (B) SaaS-Integration (ClubUp, Howdidido, Golfnet); (C) WordPress bleibt für Portal, nur Frontend-Relaunch |
-| 6c | **Payment-Gateway** | Aktueller Provider? (User-Input nötig). Neu: Stripe / PayPal / beides? Wiederkehrend (Subscription) vs. jährlich manuell (wie aktuell "kein Auto-Renewal") |
-| 6d | **Handicap-Berechnung** | Eigenes Backend (muss WHS-konform sein — World Handicap System, komplex) vs. externes System vs. manueller Export. **Ist das aktuelle System WHS-konform?** |
-| 6e | **Content-Migration Blog** | 16 Jahre Posts — alle importieren, kuratieren (Top 20?), oder nur Flagship-Posts? Redirects für alte URLs = SEO-kritisch |
-| 6f | **Mitgliederdaten-Migration** | Export WordPress DB → Anonymisierungs-Prüfung → Import ins neue Schema. DSGVO-Dokumentation des Migrationsvorgangs nötig. **Kein Member darf Daten verlieren.** |
-| 6g | **Mehrsprachigkeit** | DE primär. EN für internationale Mitglieder (aktuell Thailand, Brazil, UK, India, DK, IT — aber: sprechen die Deutsch? Migration-Risiko wenn EN fehlt?) |
-| 6h | **CMS-Wahl** | User-selbst-pflege vs. Payload (selfhosted Headless) vs. Sanity (SaaS) vs. Markdown-in-Repo. User hat wenig Zeit → CMS sinnvoll. |
-| 6i | **Mitgliederkarte-Druck** | Aktueller Dienstleister? Kartendruck-Automatisierung via API möglich? Oder weiter manuell? |
-| 6j | **E-Mail-Workflows** | Welcome, Renewal-Reminder (Member hat kein Auto-Renewal, muss aktiv verlängern → Reminder kritisch), Handicap-Updates. Provider: aktuell? Neu: Resend / Postmark / SendGrid? |
-| 6k | **Analytics** | Vercel Web Analytics (cookieless) oder Plausible (self-hostable, DSGVO-safe) oder Matomo. Business-Betrieb → konkrete Zahlen nötig, nicht nur "gibt es Traffic?" |
-| 6l | **Domain / DNS / Email-MX** | Wo liegt `oakwoodgolfclub.de`? Wer kontrolliert DNS? Email-MX-Records: nicht kaputt machen (analog zu rauhut.com-Lesson) |
+| # | Frage | Entscheidung |
+|---|-------|--------------|
+| 6a | **Relaunch-Strategie** | ✅ Schrittweise, konservativ. Phase 1 = Marketing-Site + Funnel + Blog. |
+| 6b | **Member-Portal** | ✅ Kein Portal Phase 1. Website = Funnel + Content. Outlook bleibt Master-CRM. |
+| 6c | **Payment-Gateway** | ✅ Banküberweisung bleibt (kein Auto-Renewal). Stripe = Option Phase 2 (Kosten-Analyse ausstehend). Lastschrift explizit NEIN. |
+| 6d | **Handicap-Berechnung** | ✅ Self-reported beim Signup — kein WHS-Backend. Eigenes Recreational-Handicap-Produkt = Roadmap 2027, eigenes Projekt. |
+| 6e | **Content-Migration Blog** | ✅ Alle 20 Posts (2020–2025) migrieren. SEO A+B+D Pflicht. C (Content-Qualität) = LLM-Review-Queue. Redirects = Pflicht. |
+| 6f | **Mitgliederdaten-Migration** | ✅ Gestorben. Kein Member-Portal → keine DB-Migration. Outlook bleibt Master. |
+| 6g | **Mehrsprachigkeit** | ✅ DE-only Phase 1+2. EN später wenn Nachfrage quantifiziert. Browser-Translation als Interim. |
+| 6h | **CMS-Wahl** | ✅ Markdown-in-Repo. 20 Posts, 1 Redakteur. Phase-2-Pipeline-kompatibel. |
+| 6i | **Mitgliederkarte-Druck** | ✅ Manuell bleibt (Zebra ZC100 + wirmachendruck.de). Kein API-Scope. |
+| 6j | **E-Mail-Workflows** | ✅ Phase 1: Formulare → strukturierte E-Mail an info@. Transaktionsemail-Provider (Resend/Postmark) = Phase 2. |
+| 6k | **Analytics** | ✅ Vercel Web Analytics (cookieless, DSGVO, kein Cookie-Banner). Konsistent mit rauhut.com. |
+| 6l | **Domain / DNS / Email-MX** | ✅ IONOS, bleibt. DNS-Cutover = nur A+CNAME auf Vercel. MX-Records bleiben unberührt. |
 
 ---
 
-## 7. Tech-Vorschlag (Defaults, zu bestätigen)
+## 7. Tech-Stack (entschieden)
 
 | Layer | Wahl | Begründung |
 |---|---|---|
-| Framework | Next.js 16 | Konsistenz mit rauhut.com, neckarshore.ai, goldoni-website |
+| Framework | Next.js 16 (App Router) | Konsistenz mit rauhut.com, neckarshore.ai, goldoni-website |
 | CSS | Tailwind CSS | Konsistenz |
-| Hosting | Vercel | Git-Push deployt; gleiche Pipeline wie alle anderen Linus-Projekte |
-| DB | PostgreSQL — Supabase Free Tier oder Vercel Postgres | Für Member, Scores, Handicap, Renewals |
-| Payment | Stripe | Industry-Standard; Subscription + One-off beides möglich |
-| CMS | Payload CMS (selfhosted) oder Sanity Free Tier | Member-Portal braucht Struktur; Markdown reicht nicht mehr |
-| Analytics | Vercel Web Analytics oder Plausible | Cookieless, DSGVO-konform |
-| Transaktionsemail | Resend (Default) oder Postmark | Welcome + Renewal-Reminder + Handicap-Updates |
+| Hosting | Vercel | Edge-Deployment → TTFB < 200ms; gleiche Pipeline wie alle Linus-Projekte |
+| CMS | Markdown-in-Repo (`.md` + Frontmatter) | 20 Posts, 1 Redakteur, Phase-2-Pipeline-kompatibel |
+| Analytics | Vercel Web Analytics | Cookieless, DSGVO, kein Cookie-Banner, konsistent mit rauhut.com |
 | Fonts | Self-hosted via `next/font/local` | DSGVO-konform, kein Google-CDN-Fetch |
+| E-Mail (Phase 1) | Server Action → strukturierte E-Mail an info@ | Kein externer Provider nötig für Phase 1 |
+| E-Mail (Phase 2) | Resend oder Postmark | Reminder + Welcome + Renewal-Automatisierung |
+| Payment (Phase 2) | Stripe | Abhängig von Kosten-Analyse (~1.7% bei €55) |
+| DB | Keine in Phase 1 | Kein Member-Portal, Outlook bleibt Master |
 | Lighthouse-Target | 95+ desktop + mobile | Nicht verhandelbar |
-| Membership-Card-Druck | API-Integration falls aktuelle Druckerei eine hat; sonst manueller Export-CSV | Hängt von 6i ab |
 
 ---
 
@@ -165,4 +179,4 @@ Snapshot taken 2026-04-17 as groundwork for a dedicated OGC session. No build de
 - Übertriebene Rasen-Texturen im Hintergrund
 - Karierte Muster (Tartan, Schach)
 - Rot-Grün-Farbschemata Weihnachten-Assoziation
-- Goldene Akzente (wirken nouveau riche)
+- ~~Goldene Akzente (wirken nouveau riche)~~ → **Korrektur (User-Direktive):** Gold ist erlaubt als sparsamer Premium-Akzent (Icon-Farbe, CTA-Hover, Membership-Signal). KEINE Flächenfarbe. Trad-Modern-Golf mit Gold-Akzent ist stärker als ohne — es ist das Signal das den €55-Preis rechtfertigt.
