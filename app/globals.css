@@ -17,7 +17,7 @@
    */
   --color-ink: #0a0a0a;               /* Base text, dark surfaces */
   --color-parchment: #fafafa;         /* Background, cards */
-  --color-muted: #6b7280;             /* Secondary text, borders */
+  --color-muted: #4b5563;             /* Secondary text (AA 6.97:1 on parchment, 5.6:1 on sand/40) */
   --color-border: #e5e7eb;            /* Hairlines, dividers */
   --color-fairway: #1b6640;           /* Primary brand accent */
   --color-fairway-hover: #2a8a52;     /* Hover / secondary accent */
@@ -46,7 +46,9 @@
     font-feature-settings: "ss01", "cv11";
   }
 
-  h1, h2, h3, h4 {
+  /* Use :where() for 0 specificity so Tailwind color utilities override
+     (e.g. `text-parchment` on a dark CTA section cascades into the h2 inside). */
+  :where(h1, h2, h3, h4) {
     font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: -0.01em;
