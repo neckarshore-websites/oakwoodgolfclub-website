@@ -50,6 +50,10 @@ test-results/
 playwright-report/
 lighthouse-reports/
 
+# Scratch / temporary — downloaded references, ad-hoc experiments
+.tmp/
+scratch/
+
 # NEVER commit — member data exports (DSGVO)
 /dumps/
 /member-exports/
