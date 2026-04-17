@@ -76,7 +76,7 @@ export function ContactForm() {
       <div className="flex items-center gap-4">
         <SubmitButton label="Nachricht senden" />
         <p className="text-xs text-[var(--color-muted)]">
-          Wir antworten meist innerhalb von 24 Stunden.
+          Wir antworten meist innerhalb von 48 Stunden.
         </p>
       </div>
     </form>

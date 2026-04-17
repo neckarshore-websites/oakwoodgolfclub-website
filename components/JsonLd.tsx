@@ -45,7 +45,7 @@ export function organizationSchema() {
       areaServed: ["DE", "AT", "CH"],
       availableLanguage: ["de"],
     },
-    sameAs: [SITE.social.facebook, SITE.social.twitter, SITE.social.pinterest],
+    sameAs: [SITE.social.facebook, SITE.social.instagram],
   };
 }
 

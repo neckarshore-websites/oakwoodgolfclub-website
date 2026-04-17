@@ -68,13 +68,14 @@ export function composeContactEmail(data: ContactFormData): EmailComposition {
 const SALUTATION_LABEL: Record<NonNullable<SignupFormData["salutation"]>, string> = {
   herr: "Herr",
   frau: "Frau",
+  divers: "Divers",
+  keine_angabe: "Keine Angabe",
   "": "",
 };
 
 const REFERRAL_LABEL: Record<SignupFormData["referralSource"], string> = {
-  persoenliche_empfehlung: "Persönliche Empfehlung",
-  internetsuche: "Internetsuche",
-  google: "Google",
+  empfehlung: "Empfehlung",
+  internet: "Internet",
   sonstiges: "Sonstiges",
 };
 

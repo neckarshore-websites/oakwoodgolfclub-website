@@ -23,7 +23,7 @@ export default function MitgliedWerdenPage() {
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
         Fülle das Formular aus — wir melden uns in der Regel innerhalb von
-        24 Stunden mit den Zahlungsdetails per Banküberweisung. Die
+        48 Stunden mit den Zahlungsdetails per Banküberweisung. Die
         Mitgliedschaft wird mit dem Zahlungseingang aktiv und läuft 12 Monate
         ab dem von dir gewählten Startmonat.
       </p>

@@ -59,6 +59,40 @@ export function Footer() {
               <li><Link href="/datenschutz" className="hover:text-[var(--color-gold)] transition-colors">Datenschutz</Link></li>
               <li><Link href="/agb" className="hover:text-[var(--color-gold)] transition-colors">AGB</Link></li>
             </ul>
+
+            <p className="mt-6 mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
+              Social
+            </p>
+            <ul className="flex gap-4 text-sm">
+              <li>
+                <a
+                  href={SITE.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Oakwood Golf Club auf Facebook"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[var(--color-parchment)]/80 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                    <path d="M13.5 21v-8.25h2.78l.42-3.25H13.5V7.44c0-.94.26-1.58 1.61-1.58h1.72V2.94c-.3-.04-1.32-.13-2.5-.13-2.48 0-4.18 1.52-4.18 4.3v2.39H7.37v3.25h2.78V21h3.35Z"/>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={SITE.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Oakwood Golf Club auf Instagram"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[var(--color-parchment)]/80 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 

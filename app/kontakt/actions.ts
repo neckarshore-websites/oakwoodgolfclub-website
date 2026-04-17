@@ -45,6 +45,6 @@ export async function submitContactAction(
     ok: true,
     status: "success",
     message:
-      "Wir melden uns in der Regel innerhalb von 24 Stunden per E-Mail.",
+      "Wir melden uns in der Regel innerhalb von 48 Stunden per E-Mail.",
   };
 }

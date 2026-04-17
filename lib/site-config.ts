@@ -19,9 +19,8 @@ export const SITE = {
   phoneDisplay: "+49 (160) 385 9135", // human-readable
   memberCount: 300,
   social: {
-    facebook: "https://www.facebook.com/oakwoodgolfclub/",
-    twitter: "https://twitter.com/oakwoodgolf",
-    pinterest: "https://www.pinterest.com/oakwoodgolfclub/",
+    facebook: "https://www.facebook.com/Oakwoodgolfclub.de/",
+    instagram: "https://www.instagram.com/oakwoodgolfclub.de/",
   },
 } as const;
 

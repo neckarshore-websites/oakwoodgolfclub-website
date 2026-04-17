@@ -68,13 +68,17 @@ export type ContactFormData = z.infer<typeof contactFormSchema>;
 // Signup — new membership. Field set mirrors the legacy WordPress form 1:1
 // so existing members recognise the flow; Phase-2 CRM-import stays trivial.
 
-export const SALUTATION_VALUES = ["herr", "frau"] as const;
+export const SALUTATION_VALUES = [
+  "herr",
+  "frau",
+  "divers",
+  "keine_angabe",
+] as const;
 export type Salutation = (typeof SALUTATION_VALUES)[number];
 
 export const REFERRAL_SOURCE_VALUES = [
-  "persoenliche_empfehlung",
-  "internetsuche",
-  "google",
+  "empfehlung",
+  "internet",
   "sonstiges",
 ] as const;
 export type ReferralSource = (typeof REFERRAL_SOURCE_VALUES)[number];

@@ -50,7 +50,7 @@ export function RenewalForm() {
         name="memberNumber"
         label="Mitgliedsnummer"
         required
-        placeholder="Nummer unbekannt? Beliebige Zahl reicht — wir finden dich über Name + E-Mail."
+        placeholder="Nummer unbekannt? Beliebige Zahl, wir finden dich."
         error={errors.memberNumber}
       />
 
@@ -69,7 +69,7 @@ export function RenewalForm() {
         name="handicap"
         label="Aktuelles Hcp"
         required
-        placeholder="z. B. 18,5"
+        placeholder="18,5"
         inputMode="decimal"
         error={errors.handicap}
       />

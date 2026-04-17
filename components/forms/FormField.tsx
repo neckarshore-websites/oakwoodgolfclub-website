@@ -131,21 +131,40 @@ export function SelectField({ options, ...base }: SelectProps) {
 
   return (
     <FieldShell {...base}>
-      <select
-        id={base.name}
-        name={base.name}
-        required={base.required}
-        defaultValue={base.defaultValue}
-        aria-invalid={base.error ? true : undefined}
-        aria-describedby={errorId}
-        className="w-full rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 text-base text-[var(--color-ink)] focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
-      >
-        {options.map((opt) => (
-          <option key={opt.value} value={opt.value}>
-            {opt.label}
-          </option>
-        ))}
-      </select>
+      <div className="relative">
+        <select
+          id={base.name}
+          name={base.name}
+          required={base.required}
+          defaultValue={base.defaultValue}
+          aria-invalid={base.error ? true : undefined}
+          aria-describedby={errorId}
+          className="w-full cursor-pointer appearance-none rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 pr-9 text-base leading-[1.5] text-[var(--color-ink)] focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
+        >
+          {options.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+        <span
+          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-[var(--color-muted)]"
+          aria-hidden
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M2.5 4.5 6 8l3.5-3.5" />
+          </svg>
+        </span>
+      </div>
     </FieldShell>
   );
 }

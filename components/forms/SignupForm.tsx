@@ -23,12 +23,13 @@ const INITIAL: FormActionState = { ok: null };
 const SALUTATION_OPTIONS = [
   { value: "herr", label: "Herr" },
   { value: "frau", label: "Frau" },
+  { value: "divers", label: "Divers" },
+  { value: "keine_angabe", label: "Möchte ich nicht sagen" },
 ] as const;
 
 const REFERRAL_SOURCE_OPTIONS = [
-  { value: "persoenliche_empfehlung", label: "Persönliche Empfehlung" },
-  { value: "internetsuche", label: "Internetsuche" },
-  { value: "google", label: "Google" },
+  { value: "empfehlung", label: "Empfehlung" },
+  { value: "internet", label: "Internet" },
   { value: "sonstiges", label: "Sonstiges" },
 ] as const;
 
@@ -90,7 +91,7 @@ export function SignupForm() {
         name="handicap"
         label="Hcp"
         required
-        placeholder="z. B. 18,5"
+        placeholder="18,5"
         inputMode="decimal"
         error={errors.handicap}
       />
