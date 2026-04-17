@@ -77,17 +77,17 @@ export default function FaqPage() {
           ))}
         </nav>
 
-        <div className="mt-16 space-y-16">
+        <div className="mt-20 space-y-20 md:space-y-24">
           {grouped.map(({ category, items }) => (
             <section
               key={category}
               id={`kategorie-${category}`}
               aria-labelledby={`heading-${category}`}
-              className="scroll-mt-20"
+              className="scroll-mt-24"
             >
               <h2
                 id={`heading-${category}`}
-                className="mb-6 font-heading text-2xl tracking-tight md:text-3xl"
+                className="mb-8 font-heading text-xl tracking-tight md:text-2xl"
               >
                 {CATEGORY_LABEL[category]}
               </h2>
