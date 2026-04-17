@@ -23,7 +23,7 @@ with the commit that closed them — never delete, keep history for audits.
 | 2 | Sand-Wash Ticken dunkler (post-#2+#5 entscheidbar — User war "unsicher weil Gold dann untergeht") | P2 | XS | User+Linus | Visual-Review | Offen | Warmth/Depth auf Pricing-Section |
 | 3 | Hero-Bild-Option — User liefert Asset (Golfplatz? Gründer? Mitgliederkarte?) | P3 | XS–S | User → Linus | User-Asset | Backlog | Wärme/Vertrautheit im Above-the-fold, Konvention in der Golf-Branche |
 | 4 | Legal-Seiten mit echtem Text (Impressum, Datenschutz, AGB) — Pflicht vor DNS-Cutover | P2 | S | User+Linus | User-Content | Offen | Gesetzliche Pflicht beim Live-Gang |
-| 5 | **B5 Forms mit IONOS SMTP** — Kontakt + Signup + Renewal (Server Action, Nodemailer, Zod-Validation, `.env.example`) | P1 | M | Linus | SMTP-Creds im Vercel-ENV | Offen | Signup/Renewal = Umsatz-Funnel; kritischer Phase-1-Block |
+| 5 | ~~B5 Forms mit IONOS SMTP~~ ✅ Code shipped (Server Actions + Zod + Nodemailer + 3 UI-Forms + Honeypot + `.env.example`). Bleibt offen: **User setzt `SMTP_*`-Env-Vars im Vercel-Projekt** — ohne Creds laufen die Server Actions in Dev-Log-Fallback (Success an User, Composition im Server-Log). Pre-prod Smoke-Test auf Vercel Preview sobald Creds live. | P1 | XS restant | User | SMTP_PASSWORD (IONOS-Mailbox) | In Progress | Signup/Renewal = Umsatz-Funnel |
 | 6 | **B6 FAQs-Seite** — Accordion + FAQPage JSON-LD, 15 Q&A rewritten auf 120–150 Wörter mit direktem Eröffnungssatz (AI-Citation-Fenster) | P1 | S | Linus | WP-Content-Export (19 Pages) | Offen | Haupt-GEO-Asset, MASCHIN-Audit flagte altes Schema als "kaputt" |
 | 7 | **B8 Blog-System** — Markdown-Reader, Post-Layout, Kategorie-Listing, Pagination | P1 | S | Linus | — | Offen | Vorarbeit für B9 Content-Migration |
 | 8 | **B9 Content-Migration** — 20 Posts: WP-Export → Markdown + Frontmatter, SEO A+B+D, Cleanup Legacy-URLs + Avada-HTML | P1 | M | Linus | B8, WP-Export-Tool | Offen | Ranking-Erhalt + 5 Jahre Blog-Substanz |
@@ -58,6 +58,7 @@ with the commit that closed them — never delete, keep history for audits.
 | ~~D8~~ | Lighthouse-Baseline v0.2 — Desktop 100/100/100/100, Mobile 92-96/100/100/100 (LCP variance 2.6-2.9 s) | `d9f4c50`, `159889f` | 2026-04-17 |
 | ~~D9~~ | Handicap-Copy removal (9 files) — UWG/DSGVO truth-align, new FAQ-3 "Warum verarbeitet ihr aktuell keine Handicaps?" | `dd0d7bc` | 2026-04-17 |
 | ~~D10~~ | B12 Vercel Web Analytics + themeColor sync to new fairway | `22af342` | 2026-04-17 |
+| ~~D11~~ | B5 Forms — 3 Server Actions (Kontakt/Signup/Renewal) + Zod schemas + Nodemailer SMTP client + honeypot + `.env.example`. Fallback: when SMTP_* missing, Server Action logs composition server-side and returns ok. Vercel-Analytics guarded on `process.env.VERCEL` to eliminate local console-404. | (pending this commit) | 2026-04-17 |
 
 ---
 

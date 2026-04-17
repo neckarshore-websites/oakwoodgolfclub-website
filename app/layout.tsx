@@ -86,9 +86,12 @@ export default function RootLayout({
         </main>
         <Footer />
         <JsonLd id="org-schema" data={organizationSchema()} />
-        {/* Vercel Web Analytics — cookieless, DSGVO-safe, no consent banner needed.
-            Only emits when deployed on Vercel; no-op in local dev. */}
-        <Analytics />
+        {/* Vercel Web Analytics — cookieless, DSGVO-safe, no consent banner.
+            Guarded on process.env.VERCEL so local `npm run start` does not
+            404 on /_vercel/insights/script.js (triggers a Lighthouse BP
+            warning for stray console errors even though the script itself
+            is server-side a no-op). */}
+        {process.env.VERCEL && <Analytics />}
       </body>
     </html>
   );

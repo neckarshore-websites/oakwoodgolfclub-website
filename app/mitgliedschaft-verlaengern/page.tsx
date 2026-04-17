@@ -1,18 +1,79 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/PagePlaceholder";
+import { RenewalForm } from "@/components/forms/RenewalForm";
 
 export const metadata: Metadata = {
   title: "Mitgliedschaft verlängern",
-  description: "Bestehende Oakwood-Golf-Club-Mitgliedschaft für weitere 12 Monate verlängern.",
+  description:
+    "Bestehende Oakwood-Golf-Club-Mitgliedschaft für weitere 12 Monate verlängern. Kein Auto-Renewal — aktive Verlängerung.",
   alternates: { canonical: "/mitgliedschaft-verlaengern" },
 };
 
 export default function VerlaengernPage() {
   return (
-    <PagePlaceholder
-      title="Mitgliedschaft verlängern"
-      blurb="Das Renewal-Formular wird in B5 gebaut (Server Action → E-Mail an info@). Kein Auto-Renewal — deine Verlängerung wird aktiv durch dich ausgelöst."
-      plannedBlock="Phase 1, B5"
-    />
+    <article className="container-page py-20 md:py-24">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+        Verlängern
+      </p>
+      <h1
+        id="renewal-heading"
+        className="font-heading text-4xl tracking-tight md:text-5xl lg:text-6xl"
+      >
+        Noch ein Jahr dabei.
+      </h1>
+      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
+        Kein Auto-Renewal — jede Verlängerung läuft aktiv durch dich. Fülle
+        das Formular aus, wir schicken dir die neuen Zahlungsdetails innerhalb
+        von 24 Stunden. Neue 12-Monats-Laufzeit beginnt am gewählten Startmonat.
+      </p>
+
+      <div className="mt-14 grid gap-14 md:grid-cols-5">
+        <div className="md:col-span-3">
+          <RenewalForm />
+        </div>
+
+        <aside className="md:col-span-2 md:pl-8 md:border-l md:border-[var(--color-ink)]/10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+            Gut zu wissen
+          </p>
+          <dl className="mt-4 space-y-6 text-sm">
+            <div>
+              <dt className="font-medium text-[var(--color-ink)]">
+                Keine Kündigungsfrist
+              </dt>
+              <dd className="mt-1 text-[var(--color-ink)]/75">
+                Deine Mitgliedschaft endet automatisch nach 12 Monaten. Wenn
+                du nicht verlängerst, passiert nichts — auch keine versteckten
+                Gebühren.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-medium text-[var(--color-ink)]">
+                Mitgliederkarte
+              </dt>
+              <dd className="mt-1 text-[var(--color-ink)]/75">
+                Nach der Verlängerung bekommst du eine aktuelle Karte
+                (neue Gültigkeit) per Post.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-medium text-[var(--color-ink)]">
+                Wechsel Einzel ↔ Flight
+              </dt>
+              <dd className="mt-1 text-[var(--color-ink)]/75">
+                Bei Bedarf in der Auswahl anklicken — kein Extra-Prozess.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-medium text-[var(--color-ink)]">
+                Referral-Bonus einlösen
+              </dt>
+              <dd className="mt-1 text-[var(--color-ink)]/75">
+                Hinweise auf Gutschriften einfach in das Nachrichtenfeld.
+              </dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+    </article>
   );
 }
