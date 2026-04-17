@@ -1,0 +1,17 @@
+---
+title: "Was soll man trainieren?"
+date: "2023-10-13"
+modified: "2024-07-10"
+excerpt: "Was soll man als Amateur trainieren? Die Antwort ist nicht Putten."
+categories:
+  - "Training"
+author: "Oakwood Golf Club"
+draft: false
+---
+####
+
+## ...sondern lange Schläge und Annäherungen
+
+Was soll man als Amateur trainieren? Die Antwort ist nicht Putten.
+Schaut Euch [dieses interessante Video](http://www.youtube.com/watch?v=Zb4CQX2n160) von Oliver Heuler mal an.
+Super empfehlenswert ist zudem [seine Webseite.](http://golfschule.heuler.de/ "Golfschule Heuler")
