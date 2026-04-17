@@ -1,7 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="8" fill="#1b4332"/>
-  <text x="50%" y="50%" dy="0.34em" text-anchor="middle"
-        font-family="Georgia, 'Playfair Display', serif"
-        font-weight="700" font-size="26" fill="#fafafa"
-        letter-spacing="-0.5">OGC</text>
+  <!--
+    Temporärer Favicon — GolfHole mit Pin (aus components/icons/GolfIcons.tsx,
+    skaliert auf 64x64). Neues Fairway-Grün (#1b6640). Stroke 4 für
+    Lesbarkeit auch bei 16px Tab-Größe.
+
+    Übergangslösung bis ein richtiges Logo / Brand Mark definiert ist.
+    Siehe docs/BACKLOG.md · Style-Guide-Redesign.
+  -->
+  <rect width="64" height="64" rx="8" fill="#1b6640"/>
+  <g stroke="#fafafa" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="32" cy="48" rx="17" ry="5"/>
+    <path d="M32 48V14"/>
+    <path d="M32 14h14l-4 5 4 5H32"/>
+  </g>
 </svg>

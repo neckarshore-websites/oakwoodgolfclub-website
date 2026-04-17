@@ -35,6 +35,8 @@ with the commit that closed them — never delete, keep history for audits.
 | 14 | `dateModified`-Signal sichtbar auf Homepage/FAQ/Über-uns (AI-Freshness-Signal, SEO-Must-Have aus MASCHIN-Audit) | P2 | XS | Linus | — | Offen | GEO/AI-Citability Frische-Marker |
 | 15 | Vercel-Link (`vercel link`) + GitHub-Auto-Deploy-Integration für `oakwoodgolfclub-de/oakwoodgolfclub-website` | P2 | XS | User | Vercel-App-Permission auf dem Repo | Offen | Auto-Deploy statt manuelle `vercel deploy`-Runs |
 | 16 | Vercel Analytics Dashboard aktivieren (Project > Analytics > Enable) — sonst sammelt der Client nichts | P2 | XS | User | Vercel-Link (#15) | Offen | Datenerfassung startet erst nach Klick im Dashboard |
+| 17 | **Style-Guide & Ikonografie-Redesign** — User-Feedback 17.04: "wirkt 80er-Jahre flach und langweilig". Betrifft Farb-Swatches-Layout, Card-Ästhetik, Icon-Stil (aktuell stroke-basiert Lucide + Custom-Golf, zu nüchtern). Nicht für Launch-Pfad — eigene Design-Iteration, ggf. mit Moodboard/Referenz-Recherche vorher. | P3 | L | Linus | Design-Briefing-Session | Offen | Brand-Anmutung. Aktueller Stil ist safe, aber nicht distinctiv. |
+| 18 | **Richtiges Favicon / Brand Mark** — aktuell temporär `GolfHole`-Icon auf Fairway-Grün (app/icon.svg). Ersetzen durch finalen Brand Mark sobald Logo-Entscheidung getroffen ist. Backup-Varianten Stern/Pin liegen in `public/style-guide/proposed-favicon-*.svg` als Arbeitsstand. | P2 | S | User+Linus | Logo-Entscheidung | Offen | Brand-Konsistenz Tab ↔ Site. Temporär OK, final nicht. |
 
 ## For MASCHIN
 

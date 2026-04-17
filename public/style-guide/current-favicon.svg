@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aktuell aktives Favicon — GolfHole auf Fairway">
+  <title>Aktuell aktives Favicon — GolfHole mit Pin, Fairway-Grund</title>
+  <rect width="64" height="64" rx="8" fill="#1b6640"/>
+  <g stroke="#fafafa" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="32" cy="48" rx="17" ry="5"/>
+    <path d="M32 48V14"/>
+    <path d="M32 14h14l-4 5 4 5H32"/>
+  </g>
+</svg>

@@ -627,13 +627,88 @@ export default function StyleGuidePage() {
 
       <hr className="my-16 border-[var(--color-border)]" />
 
-      {/* 7. Assets / Favicons — Vorher / Nachher */}
+      {/* 7. Assets / Favicons — Aktuell / Vorher / Verworfene Entwürfe */}
       <section>
         <SectionHead
           number="07 · Assets"
-          title="Favicons — Vorher / Nachher"
-          note="Legacy-Icons stammen aus 2017 (WordPress-Avada-Theme-Uploads), gemischte Qualität. Entwürfe auf der rechten Seite nutzen unser neues Fairway-Grün (#1b6640) und kommen ohne Web-2.0-Glossy-Effekte aus. Finaler Favicon noch nicht abgenommen — Entwurfsstand."
+          title="Favicons"
+          note="Aktuell aktiv: GolfHole auf Fairway-Grund (temporärer Start-Zustand). Legacy-Icons von 2017 (WordPress-Avada-Theme-Uploads) und frühere Stern-Entwürfe stehen daneben zum Vergleich. Finaler Brand Mark noch nicht definiert — siehe BACKLOG #18."
         />
+
+        {/* Aktuell aktiv */}
+        <div className="mb-10">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-fairway)]">
+            Aktuell aktiv · /app/icon.svg
+          </p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-fairway)]/40 bg-[var(--color-fairway)]/5 p-4 sm:col-span-2">
+              <div className="flex h-32 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/current-favicon.svg"
+                  alt="Aktives Favicon · GolfHole mit Pin"
+                  width={96}
+                  height={96}
+                  unoptimized
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  GolfHole-Motiv · Fairway-Grund
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  64 × 64 SVG · ~400 B · scaliert auf jede Größe
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Aus <Code>components/icons/GolfIcons.tsx</Code> (GolfHole),
+                  skaliert auf 64×64, Stroke 4 für Lesbarkeit bei 16px.
+                  Fairway (<Code>#1b6640</Code>) Grund + Parchment
+                  (<Code>#fafafa</Code>) Mark. Temporäre Übergangslösung.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+                Real-Size Tab
+              </p>
+              <div className="flex items-center gap-3 rounded-sm bg-[var(--color-sand)] p-3">
+                <Image
+                  src="/style-guide/current-favicon.svg"
+                  alt="Tab-Größe 16px"
+                  width={16}
+                  height={16}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-ink)]">
+                  Oakwood Golf Club
+                </span>
+              </div>
+              <div className="flex items-center gap-3 rounded-sm bg-[var(--color-sand)] p-3">
+                <Image
+                  src="/style-guide/current-favicon.svg"
+                  alt="Bookmark-Größe 32px"
+                  width={32}
+                  height={32}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-ink)]">
+                  Bookmark 32px
+                </span>
+              </div>
+              <div className="flex items-center gap-3 rounded-sm bg-[var(--color-sand)] p-3">
+                <Image
+                  src="/style-guide/current-favicon.svg"
+                  alt="Touch-Icon 64px"
+                  width={64}
+                  height={64}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-ink)]">
+                  Touch 64px
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Vorher */}
         <div className="mb-10">
@@ -741,10 +816,10 @@ export default function StyleGuidePage() {
           </div>
         </div>
 
-        {/* Nachher */}
+        {/* Verworfene Entwürfe */}
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
-            Nachher · Entwurf (Arbeitsstand, noch nicht abgenommen)
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+            Verworfen · Stern-Entwürfe (zu generisch, kein Golf-Bezug)
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-fairway)]/40 bg-[var(--color-fairway)]/5 p-4">
@@ -870,12 +945,11 @@ export default function StyleGuidePage() {
           </div>
 
           <p className="mt-6 max-w-3xl text-sm text-[var(--color-muted)]">
-            <strong className="text-[var(--color-ink)]">Nächster Schritt:</strong>{" "}
-            Entscheidung über Variante A / B / C (oder neu zeichnen). Ist
-            der 10-Zacken-Stern das richtige Motiv? Alternative:
-            stilisiertes Golf-Pin, Monogram &ldquo;O&rdquo;, oder
-            Baum-Silhouette (Oak → Oakwood). Die Entwürfe hier sind
-            Arbeitsstand — keine Entscheidung getroffen.
+            <strong className="text-[var(--color-ink)]">Status:</strong>{" "}
+            Diese drei Stern-Varianten wurden verworfen — zu generisch, kein
+            Golf-Bezug. Ersetzt durch das GolfHole-Motiv (oben, aktuell aktiv)
+            als temporäre Lösung. Finale Logo-/Brand-Mark-Entscheidung
+            siehe BACKLOG #18.
           </p>
         </div>
       </section>
