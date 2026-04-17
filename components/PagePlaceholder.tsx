@@ -15,7 +15,7 @@ export function PagePlaceholder({
 }) {
   return (
     <div className="container-page py-24 md:py-32">
-      <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
         In Bearbeitung · {plannedBlock}
       </p>
       <h1 className="font-heading text-4xl tracking-tight md:text-5xl">

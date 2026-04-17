@@ -31,7 +31,7 @@ export function FAQTeaser() {
     <section className="border-b border-[var(--color-border)] bg-[var(--color-parchment)] py-20 md:py-24">
       <div className="container-page">
         <div className="mb-12 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
             Häufig gefragt
           </p>
           <h2 className="font-heading text-3xl leading-tight tracking-tight md:text-4xl">

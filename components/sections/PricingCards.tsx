@@ -14,7 +14,7 @@ export function PricingCards() {
     >
       <div className="container-page">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
             Preise
           </p>
           <h2 className="font-heading text-3xl leading-tight tracking-tight md:text-4xl">
@@ -59,7 +59,7 @@ export function PricingCards() {
 
           {/* Flight */}
           <article className="relative flex flex-col border border-[var(--color-fairway)]/30 bg-[var(--color-parchment)] p-8 md:p-10">
-            <span className="absolute right-8 top-8 rounded-sm bg-[var(--color-gold)]/10 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-[var(--color-gold)]">
+            <span className="absolute right-8 top-8 rounded-sm bg-[var(--color-gold)]/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
               Bester Preis / Person
             </span>
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-muted)]">

@@ -21,7 +21,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Seitenstruktur">
-            <p className="mb-3 text-xs uppercase tracking-widest text-[var(--color-gold)]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
               Seiten
             </p>
             <ul className="space-y-2 text-sm">
@@ -35,7 +35,7 @@ export function Footer() {
           </nav>
 
           <div>
-            <p className="mb-3 text-xs uppercase tracking-widest text-[var(--color-gold)]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
               Kontakt
             </p>
             <ul className="space-y-2 text-sm">
@@ -51,7 +51,7 @@ export function Footer() {
               </li>
             </ul>
 
-            <p className="mt-6 mb-3 text-xs uppercase tracking-widest text-[var(--color-gold)]">
+            <p className="mt-6 mb-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-gold)]">
               Rechtliches
             </p>
             <ul className="space-y-2 text-sm">

@@ -11,7 +11,7 @@ export function CTASection() {
       <div className="container-page py-20 md:py-24">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
               Seit {SITE.founded}
             </p>
             <h2 className="font-heading text-3xl leading-tight tracking-tight md:text-4xl lg:text-5xl">

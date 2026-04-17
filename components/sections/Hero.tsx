@@ -24,7 +24,7 @@ export function Hero() {
       />
 
       <div className="container-page relative py-24 md:py-32">
-        <p className="mb-6 text-xs uppercase tracking-[0.25em] text-[var(--color-gold)]">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold-deep)]">
           Seit {SITE.founded} · {SITE.memberCount}+ Mitglieder weltweit
         </p>
 

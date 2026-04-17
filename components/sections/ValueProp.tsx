@@ -27,7 +27,7 @@ export function ValueProp() {
     <section className="border-b border-[var(--color-border)] bg-[var(--color-parchment)] py-20 md:py-24">
       <div className="container-page">
         <div className="mb-14 max-w-2xl">
-          <p className="mb-3 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
             Warum Oakwood
           </p>
           <h2 className="font-heading text-3xl leading-tight tracking-tight md:text-4xl">
@@ -43,7 +43,7 @@ export function ValueProp() {
             >
               <div
                 aria-hidden
-                className="absolute -top-px left-0 h-[2px] w-8 bg-[var(--color-gold)] transition-all duration-500 group-hover:w-full"
+                className="absolute -top-px left-0 h-[3px] w-12 bg-[var(--color-gold)] transition-all duration-500 group-hover:w-full"
               />
               <h3 className="font-heading text-xl tracking-tight text-[var(--color-ink)]">
                 {pillar.title}
