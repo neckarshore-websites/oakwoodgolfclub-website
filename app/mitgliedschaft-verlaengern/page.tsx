@@ -42,8 +42,8 @@ export default function VerlaengernPage() {
               </dt>
               <dd className="mt-1 text-[var(--color-ink)]/75">
                 Deine Mitgliedschaft endet automatisch nach 12 Monaten. Wenn
-                du nicht verlängerst, passiert nichts — auch keine versteckten
-                Gebühren.
+                du nicht verlängerst, passiert nichts — keine versteckten
+                Gebühren, kein Auto-Renewal.
               </dd>
             </div>
             <div>
@@ -52,23 +52,25 @@ export default function VerlaengernPage() {
               </dt>
               <dd className="mt-1 text-[var(--color-ink)]/75">
                 Nach der Verlängerung bekommst du eine aktuelle Karte
-                (neue Gültigkeit) per Post.
+                (neue Gültigkeit) per Post an die angegebene Adresse.
               </dd>
             </div>
             <div>
               <dt className="font-medium text-[var(--color-ink)]">
-                Wechsel Einzel ↔ Flight
+                Mitgliedsnummer unbekannt?
               </dt>
               <dd className="mt-1 text-[var(--color-ink)]/75">
-                Bei Bedarf in der Auswahl anklicken — kein Extra-Prozess.
+                Kein Problem — trage eine beliebige Zahl ein. Wir finden dich
+                im Bestand über Name und aktuelle E-Mail-Adresse.
               </dd>
             </div>
             <div>
               <dt className="font-medium text-[var(--color-ink)]">
-                Referral-Bonus einlösen
+                Wechsel Einzel ↔ Flight · Referral-Bonus
               </dt>
               <dd className="mt-1 text-[var(--color-ink)]/75">
-                Hinweise auf Gutschriften einfach in das Nachrichtenfeld.
+                Hinweise auf Tier-Wechsel oder Gutschriften einfach in das
+                Nachrichtenfeld schreiben.
               </dd>
             </div>
           </dl>

@@ -12,8 +12,6 @@ import type { ReactNode } from "react";
 type BaseProps = {
   name: string;
   label: string;
-  /** Human-readable description below the label, e.g. "Max 100 Zeichen." */
-  hint?: string;
   /** Server-side error for this field. */
   error?: string | string[];
   required?: boolean;
@@ -21,26 +19,25 @@ type BaseProps = {
 };
 
 type TextProps = BaseProps & {
-  type?: "text" | "email" | "tel" | "month";
+  type?: "text" | "email" | "tel" | "date";
   autoComplete?: string;
-  inputMode?: "text" | "email" | "tel" | "numeric";
+  inputMode?: "text" | "email" | "tel" | "numeric" | "decimal";
+  placeholder?: string;
 };
 
 type TextareaProps = BaseProps & {
   rows?: number;
+  placeholder?: string;
 };
 
 function FieldShell({
   name,
   label,
-  hint,
   error,
   required,
   children,
 }: BaseProps & { children: ReactNode }) {
   const errorId = error ? `${name}-error` : undefined;
-  const hintId = hint ? `${name}-hint` : undefined;
-  const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
   const normalisedError = Array.isArray(error) ? error[0] : error;
 
   return (
@@ -51,17 +48,15 @@ function FieldShell({
       >
         {label}
         {required && (
-          <span className="ml-1 text-[var(--color-gold-deep)]" aria-hidden>
+          <span
+            className="ml-1 text-[var(--color-gold-deep)]"
+            aria-hidden
+          >
             *
           </span>
         )}
       </label>
-      {hint && (
-        <p id={hintId} className="text-xs text-[var(--color-muted)]">
-          {hint}
-        </p>
-      )}
-      <div data-described-by={describedBy}>{children}</div>
+      {children}
       {normalisedError && (
         <p
           id={errorId}
@@ -79,11 +74,10 @@ export function TextField({
   type = "text",
   autoComplete,
   inputMode,
+  placeholder,
   ...base
 }: TextProps) {
   const errorId = base.error ? `${base.name}-error` : undefined;
-  const hintId = base.hint ? `${base.name}-hint` : undefined;
-  const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
 
   return (
     <FieldShell {...base}>
@@ -93,20 +87,23 @@ export function TextField({
         type={type}
         required={base.required}
         defaultValue={base.defaultValue}
+        placeholder={placeholder}
         autoComplete={autoComplete}
         inputMode={inputMode}
         aria-invalid={base.error ? true : undefined}
-        aria-describedby={describedBy}
-        className="w-full rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 text-base text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/60 focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
+        aria-describedby={errorId}
+        className="w-full rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 text-base text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/70 focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
       />
     </FieldShell>
   );
 }
 
-export function TextareaField({ rows = 5, ...base }: TextareaProps) {
+export function TextareaField({
+  rows = 5,
+  placeholder,
+  ...base
+}: TextareaProps) {
   const errorId = base.error ? `${base.name}-error` : undefined;
-  const hintId = base.hint ? `${base.name}-hint` : undefined;
-  const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
 
   return (
     <FieldShell {...base}>
@@ -115,10 +112,11 @@ export function TextareaField({ rows = 5, ...base }: TextareaProps) {
         name={base.name}
         required={base.required}
         defaultValue={base.defaultValue}
+        placeholder={placeholder}
         rows={rows}
         aria-invalid={base.error ? true : undefined}
-        aria-describedby={describedBy}
-        className="w-full resize-y rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 text-base leading-relaxed text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/60 focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
+        aria-describedby={errorId}
+        className="w-full resize-y rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 text-base leading-relaxed text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/70 focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
       />
     </FieldShell>
   );
@@ -130,8 +128,6 @@ type SelectProps = BaseProps & {
 
 export function SelectField({ options, ...base }: SelectProps) {
   const errorId = base.error ? `${base.name}-error` : undefined;
-  const hintId = base.hint ? `${base.name}-hint` : undefined;
-  const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
 
   return (
     <FieldShell {...base}>
@@ -141,7 +137,7 @@ export function SelectField({ options, ...base }: SelectProps) {
         required={base.required}
         defaultValue={base.defaultValue}
         aria-invalid={base.error ? true : undefined}
-        aria-describedby={describedBy}
+        aria-describedby={errorId}
         className="w-full rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2 text-base text-[var(--color-ink)] focus:border-[var(--color-fairway)] focus:outline-none focus:ring-1 focus:ring-[var(--color-fairway)]"
       >
         {options.map((opt) => (
@@ -161,6 +157,8 @@ type RadioProps = {
   defaultValue?: string;
   error?: string | string[];
   required?: boolean;
+  /** inline = horizontal compact row (Herr/Frau), false = stacked cards. */
+  inline?: boolean;
 };
 
 export function RadioGroupField({
@@ -170,6 +168,7 @@ export function RadioGroupField({
   defaultValue,
   error,
   required,
+  inline = false,
 }: RadioProps) {
   const errorId = error ? `${name}-error` : undefined;
   const normalisedError = Array.isArray(error) ? error[0] : error;
@@ -183,34 +182,62 @@ export function RadioGroupField({
       <legend className="mb-1 text-sm font-medium text-[var(--color-ink)]">
         {label}
         {required && (
-          <span className="ml-1 text-[var(--color-gold-deep)]" aria-hidden>
+          <span
+            className="ml-1 text-[var(--color-gold-deep)]"
+            aria-hidden
+          >
             *
           </span>
         )}
       </legend>
-      {options.map((opt) => (
-        <label
-          key={opt.value}
-          className="flex items-start gap-3 rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2.5 text-sm hover:border-[var(--color-fairway)]/50"
-        >
-          <input
-            type="radio"
-            name={name}
-            value={opt.value}
-            defaultChecked={defaultValue === opt.value}
-            required={required}
-            className="mt-0.5 accent-[var(--color-fairway)]"
-          />
-          <span className="flex-1">
-            <span className="font-medium">{opt.label}</span>
-            {opt.hint && (
-              <span className="mt-0.5 block text-xs text-[var(--color-muted)]">
-                {opt.hint}
+      <div
+        className={
+          inline
+            ? "flex flex-wrap gap-x-6 gap-y-2"
+            : "flex flex-col gap-2"
+        }
+      >
+        {options.map((opt) =>
+          inline ? (
+            <label
+              key={opt.value}
+              className="inline-flex items-center gap-2 text-sm"
+            >
+              <input
+                type="radio"
+                name={name}
+                value={opt.value}
+                defaultChecked={defaultValue === opt.value}
+                required={required}
+                className="accent-[var(--color-fairway)]"
+              />
+              <span>{opt.label}</span>
+            </label>
+          ) : (
+            <label
+              key={opt.value}
+              className="flex items-start gap-3 rounded-sm border border-[var(--color-ink)]/15 bg-[var(--color-parchment)] px-3 py-2.5 text-sm hover:border-[var(--color-fairway)]/50"
+            >
+              <input
+                type="radio"
+                name={name}
+                value={opt.value}
+                defaultChecked={defaultValue === opt.value}
+                required={required}
+                className="mt-0.5 accent-[var(--color-fairway)]"
+              />
+              <span className="flex-1">
+                <span className="font-medium">{opt.label}</span>
+                {opt.hint && (
+                  <span className="mt-0.5 block text-xs text-[var(--color-muted)]">
+                    {opt.hint}
+                  </span>
+                )}
               </span>
-            )}
-          </span>
-        </label>
-      ))}
+            </label>
+          ),
+        )}
+      </div>
       {normalisedError && (
         <p id={errorId} role="alert" className="text-xs text-red-700">
           {normalisedError}

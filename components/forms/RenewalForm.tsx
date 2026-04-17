@@ -6,7 +6,7 @@ import { submitRenewalAction } from "@/app/mitgliedschaft-verlaengern/actions";
 import {
   TextField,
   TextareaField,
-  RadioGroupField,
+  SelectField,
   ConsentField,
   HoneypotField,
 } from "@/components/forms/FormField";
@@ -15,35 +15,14 @@ import {
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
-import { PRICING } from "@/lib/site-config";
+import { COUNTRY_VALUES } from "@/lib/forms/schemas";
 
 const INITIAL: FormActionState = { ok: null };
 
-const TIER_OPTIONS = [
-  {
-    value: "same",
-    label: "Gleiche Mitgliedschaft wie letztes Jahr",
-    hint: "Einzel oder Flight — wir übernehmen die bisherige Option.",
-  },
-  {
-    value: "individual",
-    label: `Wechsel auf Einzelmitgliedschaft — €${PRICING.individual.priceEur}`,
-    hint: "1 Person, 12 Monate.",
-  },
-  {
-    value: "flight",
-    label: `Wechsel auf Flight-Mitgliedschaft — €${PRICING.flight.priceEur}`,
-    hint: "4 Personen, 12 Monate.",
-  },
-] as const;
-
-function nextMonthString(): string {
-  const d = new Date();
-  d.setMonth(d.getMonth() + 1);
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  return `${year}-${month}`;
-}
+const COUNTRY_OPTIONS = COUNTRY_VALUES.map((country) => ({
+  value: country,
+  label: country,
+}));
 
 export function RenewalForm() {
   const [state, formAction] = useActionState(submitRenewalAction, INITIAL);
@@ -58,57 +37,95 @@ export function RenewalForm() {
     >
       <HoneypotField />
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <TextField
+        name="name"
+        label="Name"
+        required
+        placeholder="Vorname Nachname"
+        autoComplete="name"
+        error={errors.name}
+      />
+
+      <TextField
+        name="memberNumber"
+        label="Mitgliedsnummer"
+        required
+        placeholder="Nummer unbekannt? Beliebige Zahl reicht — wir finden dich über Name + E-Mail."
+        error={errors.memberNumber}
+      />
+
+      <TextField
+        name="email"
+        label="Aktuelle E-Mail-Adresse"
+        type="email"
+        inputMode="email"
+        required
+        placeholder="name@example.de"
+        autoComplete="email"
+        error={errors.email}
+      />
+
+      <TextField
+        name="handicap"
+        label="Aktuelles Hcp"
+        required
+        placeholder="z. B. 18,5"
+        inputMode="decimal"
+        error={errors.handicap}
+      />
+
+      <div className="flex flex-col gap-4 rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-parchment)] p-5">
+        <p className="text-sm font-medium text-[var(--color-ink)]">
+          Aktuelle Postanschrift
+          <span
+            className="ml-1 text-[var(--color-gold-deep)]"
+            aria-hidden
+          >
+            *
+          </span>
+        </p>
         <TextField
-          name="name"
-          label="Name"
+          name="street"
+          label="Straße und Hausnummer"
           required
-          autoComplete="name"
-          error={errors.name}
+          placeholder="Beispielstraße 42"
+          autoComplete="street-address"
+          error={errors.street}
         />
-        <TextField
-          name="email"
-          label="E-Mail (aktuell)"
-          type="email"
-          inputMode="email"
+        <div className="grid gap-4 sm:grid-cols-[1fr_2fr]">
+          <TextField
+            name="postalCode"
+            label="PLZ"
+            required
+            placeholder="12345"
+            autoComplete="postal-code"
+            inputMode="numeric"
+            error={errors.postalCode}
+          />
+          <TextField
+            name="city"
+            label="Ort"
+            required
+            placeholder="Stuttgart"
+            autoComplete="address-level2"
+            error={errors.city}
+          />
+        </div>
+        <SelectField
+          name="country"
+          label="Land"
           required
-          autoComplete="email"
-          error={errors.email}
+          defaultValue="Deutschland"
+          options={COUNTRY_OPTIONS}
+          error={errors.country}
         />
       </div>
 
-      <TextField
-        name="memberReference"
-        label="Mitglieds-Referenz"
-        required
-        hint="Mitglieds-ID (falls bekannt) oder bisherige E-Mail-Adresse — damit wir dich im Bestand finden."
-        error={errors.memberReference}
-      />
-
-      <RadioGroupField
-        name="tierChoice"
-        label="Mitgliedschafts-Option"
-        required
-        defaultValue="same"
-        options={TIER_OPTIONS}
-        error={errors.tierChoice}
-      />
-
-      <TextField
-        name="startMonth"
-        label="Neuer Startmonat"
-        type="month"
-        required
-        defaultValue={nextMonthString()}
-        hint="Die neue 12-Monats-Laufzeit beginnt an diesem Monatsersten."
-        error={errors.startMonth}
-      />
-
       <TextareaField
         name="message"
-        label="Nachricht (optional)"
-        rows={3}
-        hint="Adress-Änderung, neue Telefonnummer, Hinweise für die Verlängerung — hier rein."
+        label="Nachricht"
+        placeholder="Was sollten wir noch wissen?"
+        rows={4}
         error={errors.message}
       />
 

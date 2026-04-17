@@ -34,23 +34,27 @@ export function ContactForm() {
         name="name"
         label="Name"
         required
+        placeholder="Vorname Nachname"
         autoComplete="name"
         error={errors.name}
       />
+
       <TextField
         name="email"
-        label="E-Mail"
+        label="E-Mail-Adresse"
         type="email"
         inputMode="email"
         required
+        placeholder="name@example.de"
         autoComplete="email"
         error={errors.email}
       />
+
       <TextareaField
         name="message"
         label="Nachricht"
         required
-        hint="Was möchtest du wissen?"
+        placeholder="Was sollten wir noch wissen?"
         rows={6}
         error={errors.message}
       />

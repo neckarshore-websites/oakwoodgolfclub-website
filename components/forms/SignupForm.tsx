@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useActionState, useState } from "react";
+import { useActionState } from "react";
 import { submitSignupAction } from "@/app/mitglied-werden/actions";
 import {
   TextField,
   TextareaField,
+  SelectField,
   RadioGroupField,
   ConsentField,
   HoneypotField,
@@ -15,35 +16,38 @@ import {
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
-import { PRICING } from "@/lib/site-config";
+import { COUNTRY_VALUES } from "@/lib/forms/schemas";
 
 const INITIAL: FormActionState = { ok: null };
 
-const TIER_OPTIONS = [
-  {
-    value: "individual",
-    label: `${PRICING.individual.label} — €${PRICING.individual.priceEur} / 12 Monate`,
-    hint: "1 Person, 1 Mitgliederkarte.",
-  },
-  {
-    value: "flight",
-    label: `${PRICING.flight.label} — €${PRICING.flight.priceEur} / 12 Monate`,
-    hint: "4 Personen, 4 Mitgliederkarten. €35,75 pro Person statt €220.",
-  },
+const SALUTATION_OPTIONS = [
+  { value: "herr", label: "Herr" },
+  { value: "frau", label: "Frau" },
 ] as const;
 
-function nextMonthString(): string {
+const REFERRAL_SOURCE_OPTIONS = [
+  { value: "persoenliche_empfehlung", label: "Persönliche Empfehlung" },
+  { value: "internetsuche", label: "Internetsuche" },
+  { value: "google", label: "Google" },
+  { value: "sonstiges", label: "Sonstiges" },
+] as const;
+
+const COUNTRY_OPTIONS = COUNTRY_VALUES.map((country) => ({
+  value: country,
+  label: country,
+}));
+
+function todayString(): string {
   const d = new Date();
-  d.setMonth(d.getMonth() + 1);
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, "0");
-  return `${year}-${month}`;
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
 }
 
 export function SignupForm() {
   const [state, formAction] = useActionState(submitSignupAction, INITIAL);
   const errors = state.fieldErrors ?? {};
-  const [tier, setTier] = useState<string>("individual");
 
   return (
     <form
@@ -54,90 +58,127 @@ export function SignupForm() {
     >
       <HoneypotField />
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <TextField
-          name="name"
-          label="Name"
-          required
-          autoComplete="name"
-          error={errors.name}
-        />
-        <TextField
-          name="email"
-          label="E-Mail"
-          type="email"
-          inputMode="email"
-          required
-          autoComplete="email"
-          error={errors.email}
-        />
-      </div>
-
-      <TextareaField
-        name="address"
-        label="Postanschrift"
-        required
-        hint="Straße, PLZ, Ort, Land — für den Versand der Mitgliederkarte."
-        rows={3}
-        error={errors.address}
+      <RadioGroupField
+        name="salutation"
+        label="Anrede"
+        inline
+        options={SALUTATION_OPTIONS}
+        error={errors.salutation}
       />
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <TextField
-          name="phone"
-          label="Telefon (optional)"
-          type="tel"
-          inputMode="tel"
-          autoComplete="tel"
-          error={errors.phone}
-        />
-        <TextField
-          name="handicap"
-          label="Dein Handicap (optional)"
-          hint="Self-reported — wir übernehmen die Zahl ohne Verifizierung."
-          error={errors.handicap}
-        />
-      </div>
-
-      <div onChange={(e) => {
-        const target = e.target as HTMLInputElement;
-        if (target.name === "tier") setTier(target.value);
-      }}>
-        <RadioGroupField
-          name="tier"
-          label="Mitgliedschaftstyp"
-          required
-          defaultValue="individual"
-          options={TIER_OPTIONS}
-          error={errors.tier}
-        />
-      </div>
-
-      {tier === "flight" && (
-        <TextareaField
-          name="additionalNames"
-          label="Namen der 3 weiteren Personen"
-          required
-          hint="Komma-getrennt — je 1 Name pro Person."
-          rows={2}
-          error={errors.additionalNames}
-        />
-      )}
+      <TextField
+        name="name"
+        label="Name"
+        required
+        placeholder="Vorname Nachname"
+        autoComplete="name"
+        error={errors.name}
+      />
 
       <TextField
-        name="startMonth"
-        label="Gewünschter Startmonat"
-        type="month"
+        name="email"
+        label="E-Mail-Adresse"
+        type="email"
+        inputMode="email"
         required
-        defaultValue={nextMonthString()}
-        hint="Die 12-Monats-Laufzeit beginnt an diesem Monatsersten."
-        error={errors.startMonth}
+        placeholder="name@example.de"
+        autoComplete="email"
+        error={errors.email}
+      />
+
+      <TextField
+        name="handicap"
+        label="Hcp"
+        required
+        placeholder="z. B. 18,5"
+        inputMode="decimal"
+        error={errors.handicap}
+      />
+
+      <TextField
+        name="startDate"
+        label="Gewünschtes Startdatum"
+        type="date"
+        required
+        defaultValue={todayString()}
+        error={errors.startDate}
+      />
+
+      <div className="flex flex-col gap-4 rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-parchment)] p-5">
+        <p className="text-sm font-medium text-[var(--color-ink)]">
+          Postanschrift
+          <span
+            className="ml-1 text-[var(--color-gold-deep)]"
+            aria-hidden
+          >
+            *
+          </span>
+        </p>
+        <TextField
+          name="street"
+          label="Straße und Hausnummer"
+          required
+          placeholder="Beispielstraße 42"
+          autoComplete="street-address"
+          error={errors.street}
+        />
+        <div className="grid gap-4 sm:grid-cols-[1fr_2fr]">
+          <TextField
+            name="postalCode"
+            label="PLZ"
+            required
+            placeholder="12345"
+            autoComplete="postal-code"
+            inputMode="numeric"
+            error={errors.postalCode}
+          />
+          <TextField
+            name="city"
+            label="Ort"
+            required
+            placeholder="Stuttgart"
+            autoComplete="address-level2"
+            error={errors.city}
+          />
+        </div>
+        <SelectField
+          name="country"
+          label="Land"
+          required
+          defaultValue="Deutschland"
+          options={COUNTRY_OPTIONS}
+          error={errors.country}
+        />
+      </div>
+
+      <RadioGroupField
+        name="referralSource"
+        label="Wie hast Du von uns erfahren?"
+        required
+        options={REFERRAL_SOURCE_OPTIONS}
+        inline
+        error={errors.referralSource}
+      />
+
+      <TextField
+        name="referredBy"
+        label="Geworben durch"
+        placeholder="Name des Mitglieds (optional)"
+        error={errors.referredBy}
+      />
+
+      <TextField
+        name="group"
+        label="Gruppe"
+        placeholder="Gruppenanmeldung? Name der Gruppe (optional)"
+        error={errors.group}
       />
 
       <TextareaField
         name="message"
-        label="Nachricht (optional)"
-        rows={3}
+        label="Nachricht"
+        placeholder="Was sollten wir noch wissen?"
+        rows={4}
         error={errors.message}
       />
 

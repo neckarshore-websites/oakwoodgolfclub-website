@@ -24,12 +24,15 @@ function header(title: string): string {
   return `${divider}\n${title}\n${divider}\n`;
 }
 
-function field(label: string, value: string | undefined): string {
+function field(label: string, value: string | undefined | null): string {
   if (!value || value.trim().length === 0) return "";
   return `${label}: ${value}\n`;
 }
 
-function multilineField(label: string, value: string | undefined): string {
+function multilineField(
+  label: string,
+  value: string | undefined | null,
+): string {
   if (!value || value.trim().length === 0) return "";
   return `${label}:\n${value}\n\n`;
 }
@@ -60,49 +63,78 @@ export function composeContactEmail(data: ContactFormData): EmailComposition {
 }
 
 // ---------------------------------------------------------------------------
-// Signup
+// Signup — mirrors the legacy WordPress form field-for-field.
 
-const TIER_LABEL: Record<SignupFormData["tier"], string> = {
-  individual: "Einzelmitgliedschaft (€55 / 12 Monate)",
-  flight: "Flight-Mitgliedschaft (€143 / 12 Monate, 4 Personen)",
+const SALUTATION_LABEL: Record<NonNullable<SignupFormData["salutation"]>, string> = {
+  herr: "Herr",
+  frau: "Frau",
+  "": "",
 };
 
+const REFERRAL_LABEL: Record<SignupFormData["referralSource"], string> = {
+  persoenliche_empfehlung: "Persönliche Empfehlung",
+  internetsuche: "Internetsuche",
+  google: "Google",
+  sonstiges: "Sonstiges",
+};
+
+function formatAddress(data: SignupFormData): string {
+  return [
+    data.street,
+    `${data.postalCode} ${data.city}`,
+    data.country,
+  ].join("\n");
+}
+
+function formatStartDate(iso: string): string {
+  // Convert YYYY-MM-DD → DD.MM.YYYY for the email (matches the legacy format).
+  const [year, month, day] = iso.split("-");
+  if (!year || !month || !day) return iso;
+  return `${day}.${month}.${year}`;
+}
+
 export function composeSignupEmail(data: SignupFormData): EmailComposition {
+  const salutationLabel = data.salutation
+    ? SALUTATION_LABEL[data.salutation]
+    : "";
+
   const text =
     header("Neue Mitgliedschafts-Anmeldung — oakwoodgolfclub.de") +
+    field("Anrede", salutationLabel) +
     field("Name", data.name) +
     field("E-Mail", data.email) +
-    field("Telefon", data.phone) +
+    field("Handicap", data.handicap) +
+    field("Gewünschtes Startdatum", formatStartDate(data.startDate)) +
     receivedAt() +
     "\n" +
-    `Mitgliedschaft: ${TIER_LABEL[data.tier]}\n` +
-    field("Startmonat", data.startMonth) +
-    field("Self-reported Handicap", data.handicap) +
+    multilineField("Postanschrift", formatAddress(data)) +
+    field("Wie gefunden", REFERRAL_LABEL[data.referralSource]) +
+    field("Geworben durch", data.referredBy) +
+    field("Gruppe", data.group) +
     "\n" +
-    multilineField("Postanschrift", data.address) +
-    (data.tier === "flight"
-      ? multilineField(
-          "Weitere Personen im Flight",
-          data.additionalNames,
-        )
-      : "") +
     multilineField("Nachricht", data.message);
 
   return {
-    subject: `[Signup] ${data.name} — ${TIER_LABEL[data.tier]}`,
+    subject: `[Signup] ${data.name}${
+      data.group ? ` — ${data.group}` : ""
+    }`,
     text,
     replyTo: data.email,
   };
 }
 
 // ---------------------------------------------------------------------------
-// Renewal
+// Renewal — mirrors the legacy WordPress renewal form.
+// Key differences from the old flow: address is captured as 4 structured
+// fields (easier CRM entry) and the Hcp is confirmed annually.
 
-const TIER_CHANGE_LABEL: Record<RenewalFormData["tierChoice"], string> = {
-  same: "Gleiche Mitgliedschaft wie letztes Jahr",
-  individual: "Wechsel auf Einzelmitgliedschaft (€55 / 12 Monate)",
-  flight: "Wechsel auf Flight-Mitgliedschaft (€143 / 12 Monate)",
-};
+function formatRenewalAddress(data: RenewalFormData): string {
+  return [
+    data.street,
+    `${data.postalCode} ${data.city}`,
+    data.country,
+  ].join("\n");
+}
 
 export function composeRenewalEmail(
   data: RenewalFormData,
@@ -110,13 +142,12 @@ export function composeRenewalEmail(
   const text =
     header("Mitgliedschaft — Verlängerung — oakwoodgolfclub.de") +
     field("Name", data.name) +
-    field("E-Mail (aktuell)", data.email) +
-    field("Mitglieds-Referenz", data.memberReference) +
+    field("Mitgliedsnummer", data.memberNumber) +
+    field("Aktuelle E-Mail", data.email) +
+    field("Aktuelles Handicap", data.handicap) +
     receivedAt() +
     "\n" +
-    `Option: ${TIER_CHANGE_LABEL[data.tierChoice]}\n` +
-    field("Neuer Startmonat", data.startMonth) +
-    "\n" +
+    multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
     multilineField("Nachricht", data.message);
 
   return {
