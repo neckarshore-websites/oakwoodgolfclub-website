@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   TextField,
@@ -644,6 +645,261 @@ export default function StyleGuidePage() {
             </dd>
           </div>
         </dl>
+      </section>
+
+      <hr className="my-16 border-[var(--color-border)]" />
+
+      {/* 8. Assets / Favicons — Vorher / Nachher */}
+      <section>
+        <SectionHead
+          number="08 · Assets"
+          title="Favicons — Vorher / Nachher"
+          note="Legacy-Icons stammen aus 2017 (WordPress-Avada-Theme-Uploads), gemischte Qualität. Entwürfe auf der rechten Seite nutzen unser neues Fairway-Grün (#1b6640) und kommen ohne Web-2.0-Glossy-Effekte aus. Finaler Favicon noch nicht abgenommen — Entwurfsstand."
+        />
+
+        {/* Vorher */}
+        <div className="mb-10">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+            Vorher · oakwoodgolfclub.de (WordPress, seit 2017)
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/legacy-favicon-16.png"
+                  alt="Legacy favicon 16x16, Original-Pixelgröße"
+                  width={16}
+                  height={16}
+                  unoptimized
+                  className="[image-rendering:pixelated]"
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  favicon.png
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  16 × 16 PNG · 3.5 KB
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Offiziell verlinkt im &lt;head&gt;. Grünes Motiv, aber bei
+                  16px schwer lesbar.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/legacy-favicon-16.png"
+                  alt="Legacy favicon 16x16, auf 64px hochskaliert"
+                  width={64}
+                  height={64}
+                  unoptimized
+                  className="[image-rendering:pixelated]"
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  favicon.png · 4× skaliert
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  Pixelated-Render
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Macht das 16px-Pixel-Raster sichtbar. Zeigt, wie wenig
+                  Detail das Original hat.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/legacy-apple-touch.jpg"
+                  alt="Legacy apple-touch-icon, 124x149 Original"
+                  width={62}
+                  height={75}
+                  unoptimized
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  apple-touch-icon.jpg
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  124 × 149 JPEG · 7.3 KB
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Nicht quadratisch (soll 180×180). Glossy Highlights,
+                  Web-2.0-Look. Beste Quelle für das Motiv.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/legacy-favicon-root.png"
+                  alt="WordPress-Default-W-Favicon"
+                  width={48}
+                  height={48}
+                  unoptimized
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  /favicon.ico (Root)
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  80 × 80 PNG · 4.1 KB
+                </p>
+                <p className="mt-2 text-xs text-red-700">
+                  ⚠ Das ist das WordPress-Default-&ldquo;W&rdquo;. Kein OGC-Branding.
+                  Unbrauchbar.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Nachher */}
+        <div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+            Nachher · Entwurf (Arbeitsstand, noch nicht abgenommen)
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-fairway)]/40 bg-[var(--color-fairway)]/5 p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/proposed-favicon-light.svg"
+                  alt="Favicon-Entwurf hell — Fairway-Stern auf Parchment"
+                  width={64}
+                  height={64}
+                  unoptimized
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  Variante A · Hell
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  Parchment Ground · Fairway Mark
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Ruhig, matcht die Site-Grundfläche. Im Safari-Tab auf
+                  weißem Grund weniger präsent.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-fairway)]/40 bg-[var(--color-fairway)]/5 p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/proposed-favicon-dark.svg"
+                  alt="Favicon-Entwurf dunkel — Parchment-Stern auf Fairway"
+                  width={64}
+                  height={64}
+                  unoptimized
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  Variante B · Fairway
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  Fairway Ground · Parchment Mark
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Markanter im Tab-Listing, Brand-Signal sofort erkennbar.
+                  Meine persönliche Empfehlung.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 rounded-sm border border-[var(--color-fairway)]/40 bg-[var(--color-fairway)]/5 p-4">
+              <div className="flex h-24 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+                <Image
+                  src="/style-guide/proposed-favicon-ink.svg"
+                  alt="Favicon-Entwurf dunkel-gold — Gold-Stern auf Ink"
+                  width={64}
+                  height={64}
+                  unoptimized
+                />
+              </div>
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  Variante C · Ink / Gold
+                </p>
+                <p className="font-mono text-xs text-[var(--color-muted)]">
+                  Ink Ground · Gold Mark
+                </p>
+                <p className="mt-2 text-xs text-[var(--color-ink)]/75">
+                  Premium-Optik, matcht den Footer. Gold als sparsamer
+                  Akzent — riskiert Country-Club-Kitsch.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Real-size preview */}
+          <div className="mt-10 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-6">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              Real-Size-Vorschau · wie sie im Browser-Tab aussehen
+            </p>
+            <div className="flex flex-wrap items-center gap-8">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/style-guide/proposed-favicon-light.svg"
+                  alt="Variante A · 16px Tab-Größe"
+                  width={16}
+                  height={16}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-muted)]">Variante A · 16px</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/style-guide/proposed-favicon-dark.svg"
+                  alt="Variante B · 16px Tab-Größe"
+                  width={16}
+                  height={16}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-muted)]">Variante B · 16px</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/style-guide/proposed-favicon-ink.svg"
+                  alt="Variante C · 16px Tab-Größe"
+                  width={16}
+                  height={16}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-muted)]">Variante C · 16px</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/style-guide/legacy-favicon-16.png"
+                  alt="Legacy · 16px (Original)"
+                  width={16}
+                  height={16}
+                  unoptimized
+                />
+                <span className="text-xs text-[var(--color-muted)]">Legacy · 16px</span>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-sm text-[var(--color-muted)]">
+            <strong className="text-[var(--color-ink)]">Nächster Schritt:</strong>{" "}
+            Entscheidung über Variante A / B / C (oder neu zeichnen). Ist
+            der 10-Zacken-Stern das richtige Motiv? Alternative:
+            stilisiertes Golf-Pin, Monogram &ldquo;O&rdquo;, oder
+            Baum-Silhouette (Oak → Oakwood). Die Entwürfe hier sind
+            Arbeitsstand — keine Entscheidung getroffen.
+          </p>
+        </div>
       </section>
 
       <hr className="my-16 border-[var(--color-border)]" />

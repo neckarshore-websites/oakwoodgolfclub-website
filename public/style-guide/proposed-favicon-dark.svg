@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Oakwood Golf Club — Entwurf dunkel">
+  <title>Oakwood Golf Club — Entwurf (Fairway / Parchment)</title>
+  <rect width="64" height="64" rx="8" fill="#1b6640"/>
+  <path fill="#fafafa" d="
+    M 34 10
+    L 40 28
+    L 56 30
+    L 42 38
+    L 44 56
+    L 32 46
+    L 16 54
+    L 22 38
+    L 10 28
+    L 28 28
+    Z"/>
+</svg>
