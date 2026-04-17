@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="8" fill="#1b4332"/>
+  <text x="50%" y="50%" dy="0.34em" text-anchor="middle"
+        font-family="Georgia, 'Playfair Display', serif"
+        font-weight="700" font-size="26" fill="#fafafa"
+        letter-spacing="-0.5">OGC</text>
+</svg>
