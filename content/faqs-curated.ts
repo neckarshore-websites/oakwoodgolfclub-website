@@ -81,4 +81,19 @@ Beim Oakwood Golf Club ist ein eigenes Recreational-Handicap-Produkt aktuell nic
     category: "handicap",
     published: true,
   },
+  {
+    slug: "welche-app-fuer-scorecard-und-handicap-tracking",
+    question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
+    answer: `Für Scorecard- und Handicap-Tracking empfehlen wir [StrokesIn](https://www.golfsoft.ch/scorekarte-golf-strokesin) von golfsoft.ch. Keine Notlösung, sondern eine wirklich gute App, die wir unseren Mitgliedern mit gutem Gewissen ans Herz legen.
+
+Die Stärke der App liegt bei den Statistiken: Drive-Distanzen, Putt-Zahlen, Schlag-Richtungen, Multi-Runden-Analyse mit Mustererkennung und Schwächen-Diagnose — das ist eigenständig durchdacht und kein Abfallprodukt eines Scorekarten-Tools. Wer seine eigene Entwicklung verstehen will, hat hier echtes Material.
+
+Dazu: digitale Scorekarte per Eingabe, Foto-Scan oder Voice-Diktat. Automatische Stableford-Berechnung. Handicap-Führung nach dem World Handicap System (WHS), inklusive 9-Loch-Rechner. Turniere und Casual-Runden werden sauber getrennt. Die Kurs-Datenbank ist global — brauchbar für DACH und für Reisen.
+
+Verfügbar für iOS und Android, Deutsch und Englisch, zu einem niedrigen Preispunkt. Wir stehen im Austausch mit dem Hersteller.
+
+Mehr zur App im [Blog-Beitrag zu StrokesIn](/blog/strokesin-app-empfehlung).`,
+    category: "handicap",
+    published: true,
+  },
 ];
