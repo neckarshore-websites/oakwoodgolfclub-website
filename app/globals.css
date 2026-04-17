@@ -89,4 +89,139 @@
   @media (min-width: 1024px) {
     .container-page { padding-inline: 2rem; }
   }
+
+  /* Markdown / blog prose — hand-tuned type-scale on our tokens.
+     Max-width 65ch for comfortable reading. */
+  .ogc-prose {
+    max-width: 65ch;
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--color-ink) 88%, transparent);
+  }
+
+  .ogc-prose > * + * {
+    margin-top: 1.1em;
+  }
+
+  .ogc-prose h2 {
+    font-size: 1.75rem;
+    line-height: 1.25;
+    margin-top: 2.2em;
+    margin-bottom: 0.4em;
+    color: var(--color-ink);
+  }
+
+  .ogc-prose h3 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-top: 1.8em;
+    margin-bottom: 0.4em;
+    color: var(--color-ink);
+  }
+
+  .ogc-prose h4 {
+    font-size: 1.125rem;
+    line-height: 1.35;
+    margin-top: 1.5em;
+    margin-bottom: 0.3em;
+    color: var(--color-ink);
+  }
+
+  .ogc-prose a {
+    color: var(--color-fairway);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 150ms ease;
+  }
+
+  .ogc-prose a:hover {
+    color: var(--color-fairway-hover);
+  }
+
+  .ogc-prose strong {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  .ogc-prose em {
+    font-style: italic;
+  }
+
+  .ogc-prose ul,
+  .ogc-prose ol {
+    padding-left: 1.4em;
+  }
+
+  .ogc-prose ul { list-style: disc; }
+  .ogc-prose ol { list-style: decimal; }
+
+  .ogc-prose li + li {
+    margin-top: 0.35em;
+  }
+
+  .ogc-prose blockquote {
+    border-left: 3px solid var(--color-fairway);
+    padding: 0.25em 0 0.25em 1em;
+    font-style: italic;
+    color: color-mix(in srgb, var(--color-ink) 75%, transparent);
+  }
+
+  .ogc-prose code {
+    background-color: var(--color-sand);
+    padding: 0.1em 0.35em;
+    border-radius: 2px;
+    font-size: 0.92em;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  .ogc-prose pre {
+    background-color: var(--color-ink);
+    color: var(--color-parchment);
+    padding: 1em 1.2em;
+    border-radius: 2px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    line-height: 1.55;
+  }
+
+  .ogc-prose pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  .ogc-prose hr {
+    margin: 2.5em 0;
+    border: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .ogc-prose img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  .ogc-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+  }
+
+  .ogc-prose th,
+  .ogc-prose td {
+    padding: 0.6em 0.8em;
+    border-bottom: 1px solid var(--color-border);
+    text-align: left;
+  }
+
+  .ogc-prose th {
+    font-weight: 600;
+    color: var(--color-ink);
+    background-color: color-mix(in srgb, var(--color-sand) 60%, transparent);
+  }
 }

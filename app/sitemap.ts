@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
+import { getAllCategories, getAllPosts } from "@/lib/blog/posts";
 import { SITE } from "@/lib/site-config";
 
 /**
  * Sitemap — Phase-1-Plan §SEO Must-Haves.
  * App-Router-native (not next-sitemap) — decision locked in B3.
  *
- * Blog posts get added in B8/B9 once the Markdown loader lands.
+ * Dynamic: blog posts + blog categories from /content/blog.
+ * Static: all canonical pages.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
@@ -27,10 +29,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/agb", changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  return staticRoutes.map((route) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${SITE.url}${route.path}`,
     lastModified: today,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
+
+  // Blog posts — each gets its own entry with its actual modified/date value.
+  const posts = getAllPosts();
+  const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${SITE.url}/blog/${post.slug}`,
+    lastModified: new Date(post.modified ?? post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  // Blog category pages.
+  const categories = getAllCategories();
+  const categoryEntries: MetadataRoute.Sitemap = categories.map((cat) => ({
+    url: `${SITE.url}/blog/kategorie/${cat.slug}`,
+    lastModified: today,
+    changeFrequency: "weekly" as const,
+    priority: 0.5,
+  }));
+
+  return [...staticEntries, ...postEntries, ...categoryEntries];
 }
