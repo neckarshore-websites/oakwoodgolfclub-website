@@ -13,8 +13,8 @@ const PILLARS = [
     body: "Die 12-Monats-Laufzeit beginnt an dem Tag, den du wählst. Du musst nicht auf einen Stichtag warten und zahlst keinen angebrochenen Monat mit.",
   },
   {
-    title: "Recreational Handicap",
-    body: "Alle Runden zählen, nicht nur Turniere. Das Recreational-Modell bildet dein tatsächliches Spiel ab — besonders relevant für Spieler ohne festen Heimatplatz.",
+    title: "Weniger Verwaltung, mehr Spielen",
+    body: "Keine Scorecard-Pflicht, keine Turnierbindung, keine jährliche Auffrischung. Die Mitgliedschaft steht neben dem Platz, nicht zwischen dir und dem Platz.",
   },
   {
     title: "Anerkannte Mitgliederkarte",

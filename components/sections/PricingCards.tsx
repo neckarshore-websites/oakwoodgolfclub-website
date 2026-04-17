@@ -45,7 +45,7 @@ export function PricingCards() {
             </div>
             <ul className="mt-8 space-y-3 text-sm text-[var(--color-ink)]/80">
               <li>· Offizielle Mitgliederkarte (Plastik)</li>
-              <li>· Handicap-Verwaltung (Recreational)</li>
+              <li>· Akzeptiert auf ~95 % der AT-Plätze</li>
               <li>· Flexibler Startmonat</li>
               <li>· Kein Auto-Renewal</li>
             </ul>
@@ -80,8 +80,8 @@ export function PricingCards() {
               €35,75 pro Person — statt 4 × €55 = €220
             </p>
             <ul className="mt-8 space-y-3 text-sm text-[var(--color-ink)]/80">
-              <li>· 4 Mitgliederkarten</li>
-              <li>· 4 Handicap-Accounts</li>
+              <li>· 4 offizielle Mitgliederkarten</li>
+              <li>· Für Familie oder 4er-Flight</li>
               <li>· Flexible Startmonate pro Person</li>
               <li>· Kein Auto-Renewal</li>
             </ul>

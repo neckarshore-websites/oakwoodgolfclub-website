@@ -16,7 +16,7 @@ export function Footer() {
             <p className="font-heading text-xl">{SITE.name}</p>
             <p className="mt-2 max-w-md text-sm text-[var(--color-parchment)]/70">
               {SITE.tagline}. Seit {SITE.founded} betreuen wir Mitglieder in der
-              DACH-Region mit Handicap-Verwaltung und offizieller Mitgliederkarte.
+              DACH-Region — schlankes Setup, offizielle Mitgliederkarte, kein Abo.
             </p>
           </div>
 

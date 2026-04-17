@@ -34,10 +34,10 @@ export function Hero() {
         </h1>
 
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80 md:text-xl">
-          Der <strong>Oakwood Golf Club</strong> bietet Fernmitgliedschaften mit
-          professioneller Handicap-Verwaltung und offizieller Mitgliederkarte.
-          Akzeptiert auf rund 95 % der österreichischen Golfplätze — ohne
-          Heimatplatz, ohne Auto-Renewal, ohne Kleingedrucktes.
+          Der <strong>Oakwood Golf Club</strong> bietet eine schlanke
+          Fernmitgliedschaft mit offizieller Mitgliederkarte, akzeptiert auf
+          rund 95 % der österreichischen Golfplätze — ohne Heimatplatz, ohne
+          Auto-Renewal, ohne Kleingedrucktes.
         </p>
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">

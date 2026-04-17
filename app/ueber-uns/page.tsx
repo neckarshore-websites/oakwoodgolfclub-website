@@ -54,10 +54,10 @@ export default function UeberUnsPage() {
           </h2>
           <p>
             <em>[Platzhalter.]</em> Keine Warteliste, keine Umlage, keine versteckten
-            Gebühren. Eine klare Jahresmitgliedschaft zu einem festen Preis,
-            professionelle Handicap-Verwaltung nach dem Recreational-Modell, und
+            Gebühren. Eine klare Jahresmitgliedschaft zu einem festen Preis und
             eine offizielle Mitgliederkarte, die auf rund 95 % der österreichischen
-            Golfplätze akzeptiert wird.
+            Golfplätze akzeptiert wird. Handicap-Verwaltung ist aktuell nicht Teil
+            des Angebots — siehe FAQ.
           </p>
         </div>
 

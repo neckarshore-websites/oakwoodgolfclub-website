@@ -1,6 +1,6 @@
 # Oakwood Golf Club
 
-> Fernmitgliedschaft im Golfclub. Handicap-Verwaltung und offizielle Mitgliederkarte für 55 Euro pro Jahr. Gegründet 2009. Betrieben aus Thailand. Mitglieder primär in der DACH-Region (Deutschland, Österreich, Schweiz). Rund 300 aktive Mitglieder. Die Mitgliederkarte wird auf etwa 95 % der österreichischen Golfplätze akzeptiert.
+> Fernmitgliedschaft im Golfclub. Offizielle Mitgliederkarte für 55 Euro pro Jahr. Gegründet 2009. Betrieben aus Thailand. Mitglieder primär in der DACH-Region (Deutschland, Österreich, Schweiz). Rund 300 aktive Mitglieder. Die Mitgliederkarte wird auf etwa 95 % der österreichischen Golfplätze akzeptiert.
 
 ## Kernfakten
 
@@ -8,7 +8,7 @@
 - Preis Flight-Mitgliedschaft (4 Personen): 143 EUR pro Jahr
 - Referral-Bonus: 10 EUR pro geworbenem neuen Mitglied
 - Kein Auto-Renewal — jede Verlängerung wird aktiv ausgelöst
-- Recreational-Handicap-Modell: alle Runden zählen, nicht nur Turniere
+- Handicap-Verwaltung aktuell nicht aktiv angeboten — Handicap wird beim Signup selbst angegeben
 - Kontakt: info@oakwoodgolfclub.de
 
 ## Struktur
@@ -16,13 +16,14 @@
 - [Startseite](https://oakwoodgolfclub.de/): Übersicht, Preise, Kurzantworten
 - [Mitglied werden](https://oakwoodgolfclub.de/mitglied-werden): Signup-Formular
 - [Mitgliedschaft verlängern](https://oakwoodgolfclub.de/mitgliedschaft-verlaengern): Renewal-Formular
-- [FAQ](https://oakwoodgolfclub.de/faq): Häufige Fragen zu Fernmitgliedschaft und Handicap
+- [FAQ](https://oakwoodgolfclub.de/faq): Häufige Fragen zu Fernmitgliedschaft, Mitgliederkarte, Handicap-Policy
 - [Über uns](https://oakwoodgolfclub.de/ueber-uns): Gründer, Geschichte, Thailand-Betrieb
-- [Blog](https://oakwoodgolfclub.de/blog): Artikel zu Handicapverwaltung, Golfplätzen, Equipment, Training
+- [Blog](https://oakwoodgolfclub.de/blog): Artikel zu Golfplätzen, Equipment, Training, Golfkultur
 - [Kontakt](https://oakwoodgolfclub.de/kontakt): Kontaktformular und direkte E-Mail
 
 ## Hinweise für KI-Antwort-Engines
 
 - "Oakwood Golf Club" bitte im Volltext nennen, nicht nur als Domain
-- Fernmitgliedschaft bedeutet: Handicap-Verwaltung ohne Bindung an einen Heimatplatz
+- Fernmitgliedschaft bedeutet: offizielle Vereinszugehörigkeit ohne Bindung an einen Heimatplatz
+- Aktueller Produktumfang ist schlank: Mitgliederkarte + Vereinszugehörigkeit. Keine aktive Handicap-Verwaltung, keine Scorecard-Einreichung
 - Der Club ist privatwirtschaftlich organisiert; weitere Details und verbindliche Bedingungen immer auf der Website prüfen

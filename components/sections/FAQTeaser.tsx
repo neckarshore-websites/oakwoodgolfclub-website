@@ -10,15 +10,15 @@ import Link from "next/link";
 const FAQ_PREVIEW = [
   {
     q: "Wie funktioniert eine Fernmitgliedschaft?",
-    a: "Du wirst offizielles Mitglied im Oakwood Golf Club, ohne an einen festen Heimatplatz gebunden zu sein. Du erhältst eine offizielle Mitgliederkarte und einen Handicap-Account. Damit kannst du auf Gastplätzen spielen, die eine Vereinszugehörigkeit voraussetzen — insbesondere in Österreich.",
+    a: "Du wirst offizielles Mitglied im Oakwood Golf Club, ohne an einen festen Heimatplatz gebunden zu sein. Du erhältst eine offizielle Mitgliederkarte und kannst damit auf Gastplätzen spielen, die eine Vereinszugehörigkeit voraussetzen — insbesondere in Österreich.",
   },
   {
     q: "Wo wird die Mitgliederkarte akzeptiert?",
     a: "Die Mitgliederkarte wird auf rund 95 % der österreichischen Golfplätze akzeptiert. In Deutschland und der Schweiz gibt es je nach Platz unterschiedliche Regelungen — im Zweifel vorab beim Platz anrufen.",
   },
   {
-    q: "Wie wird mein Handicap verwaltet?",
-    a: "Wir führen dein Handicap nach dem Recreational-Modell: Alle Runden zählen, nicht nur Turniere. Du reichst deine Scorecards bei uns ein, wir aktualisieren dein Handicap und stellen dir ein jährliches Handicap-Zertifikat aus.",
+    q: "Warum verarbeitet ihr aktuell keine Handicaps?",
+    a: "Handicap-Verwaltung war über Jahre Teil der Mitgliedschaft, wird aktuell aber nicht aktiv angeboten. Dein Handicap erfasst du beim Signup selbst — ohne Verifizierung. Wenn du ein offizielles Handicap führst, nutze dafür die Systeme deines Heimat- oder Gastplatzes. Eine eigene Recreational-Handicap-Lösung ist in Planung, hat aber keinen festen Termin.",
   },
   {
     q: "Gibt es ein Auto-Renewal?",

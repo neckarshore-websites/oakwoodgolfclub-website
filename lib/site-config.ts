@@ -9,7 +9,7 @@ export const SITE = {
   name: "Oakwood Golf Club",
   tagline: "Fernmitgliedschaft im Golfclub für 55 Euro",
   description:
-    "Fernmitgliedschaft im Golfclub: Handicap-Verwaltung und offizielle Mitgliederkarte für 55 Euro pro Jahr. Akzeptiert auf rund 95 % der österreichischen Golfplätze.",
+    "Fernmitgliedschaft im Golfclub für 55 Euro pro Jahr — mit offizieller Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze.",
   url: "https://oakwoodgolfclub.de",
   locale: "de_DE",
   language: "de",

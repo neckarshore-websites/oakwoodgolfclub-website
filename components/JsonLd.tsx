@@ -59,7 +59,7 @@ export function offersSchema() {
     "@type": "Product",
     name: "Fernmitgliedschaft im Oakwood Golf Club",
     description:
-      "Fernmitgliedschaft mit Handicap-Verwaltung und offizieller Mitgliederkarte. Akzeptiert auf rund 95 % der österreichischen Golfplätze.",
+      "Fernmitgliedschaft mit offizieller Mitgliederkarte. Akzeptiert auf rund 95 % der österreichischen Golfplätze.",
     brand: { "@type": "Organization", name: SITE.name },
     offers: [
       {
