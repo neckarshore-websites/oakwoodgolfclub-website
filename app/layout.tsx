@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { JsonLd, organizationSchema } from "@/components/JsonLd";
@@ -26,7 +27,7 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#1b4332",
+  themeColor: "#1b6640", // synced with --color-fairway in globals.css (v0.2)
   width: "device-width",
   initialScale: 1,
 };
@@ -85,6 +86,9 @@ export default function RootLayout({
         </main>
         <Footer />
         <JsonLd id="org-schema" data={organizationSchema()} />
+        {/* Vercel Web Analytics — cookieless, DSGVO-safe, no consent banner needed.
+            Only emits when deployed on Vercel; no-op in local dev. */}
+        <Analytics />
       </body>
     </html>
   );
