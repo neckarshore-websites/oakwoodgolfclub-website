@@ -2,6 +2,30 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  AlertCircle,
+  ArrowRight,
+  Calendar,
+  Check,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  CircleUserRound,
+  CreditCard,
+  Flag,
+  IdCard,
+  Info,
+  Landmark,
+  Mail,
+  MapPin,
+  Menu,
+  Phone,
+  TrendingUp,
+  Trophy,
+  Users,
+  X,
+  type LucideIcon,
+} from "lucide-react";
+import {
   TextField,
   TextareaField,
   SelectField,
@@ -532,56 +556,8 @@ export default function StyleGuidePage() {
 
       <hr className="my-16 border-[var(--color-border)]" />
 
-      {/* 6. Icons & Assets */}
-      <section>
-        <SectionHead
-          number="06 · Icons & Social"
-          title="Icons & Assets"
-          note="Stroke-basiert, 1.6–1.8 Linienstärke. Immer inline SVG, nie Bibliotheken — spart Payload und bleibt Lighthouse-freundlich."
-        />
-
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-6">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
-              Social · hell
-            </p>
-            <div className="flex gap-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)]/70 transition-colors hover:border-[var(--color-fairway)] hover:text-[var(--color-fairway)]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M13.5 21v-8.25h2.78l.42-3.25H13.5V7.44c0-.94.26-1.58 1.61-1.58h1.72V2.94c-.3-.04-1.32-.13-2.5-.13-2.48 0-4.18 1.52-4.18 4.3v2.39H7.37v3.25h2.78V21h3.35Z" />
-                </svg>
-              </span>
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)]/70 transition-colors hover:border-[var(--color-fairway)] hover:text-[var(--color-fairway)]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-              </span>
-            </div>
-          </div>
-
-          <div className="rounded-sm bg-[var(--color-ink)] p-6">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
-              Social · dunkel (Footer)
-            </p>
-            <div className="flex gap-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[var(--color-parchment)]/80 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                  <path d="M13.5 21v-8.25h2.78l.42-3.25H13.5V7.44c0-.94.26-1.58 1.61-1.58h1.72V2.94c-.3-.04-1.32-.13-2.5-.13-2.48 0-4.18 1.52-4.18 4.3v2.39H7.37v3.25h2.78V21h3.35Z" />
-                </svg>
-              </span>
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[var(--color-parchment)]/80 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                </svg>
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 6. Icon-System — Lucide + Custom Social */}
+      <IconSystemSection />
 
       <hr className="my-16 border-[var(--color-border)]" />
 
@@ -914,5 +890,295 @@ export default function StyleGuidePage() {
         </Link>
       </p>
     </article>
+  );
+}
+
+/* -----------------------------------------------------------------------
+ * Icon System section (06) — extracted for readability.
+ *
+ * Framework: Lucide (lucide-react). Stroke-based, 1.5px default, matches
+ * our existing custom Facebook/Instagram SVGs (1.8px stroke). Tree-shakeable
+ * per-icon bundle — only the icons we actually import reach the wire.
+ *
+ * Golf-accent icons (Flag, TrendingUp, Landmark, Trophy) are curated from
+ * the same library — no separate icon set, no Web-2.0 golf-ball clipart.
+ * ---------------------------------------------------------------------*/
+
+type IconEntry = {
+  icon: LucideIcon;
+  name: string;
+  use: string;
+};
+
+const CONTACT_ICONS: IconEntry[] = [
+  { icon: Mail, name: "Mail", use: "E-Mail-Adressen, Kontaktformular-CTA" },
+  { icon: Phone, name: "Phone", use: "Telefon-Link, tel:-URLs" },
+  { icon: MapPin, name: "MapPin", use: "Standort, Postanschrift" },
+];
+
+const NAV_ICONS: IconEntry[] = [
+  { icon: ArrowRight, name: "ArrowRight", use: "CTA-Buttons, Weiterleitung" },
+  { icon: ChevronRight, name: "ChevronRight", use: "Breadcrumb, Link-Affordance" },
+  { icon: ChevronDown, name: "ChevronDown", use: "Select-Caret, FAQ-Accordion" },
+  { icon: Menu, name: "Menu", use: "Mobile-Nav-Toggle" },
+  { icon: X, name: "X", use: "Close, Dismiss" },
+];
+
+const STATUS_ICONS: IconEntry[] = [
+  { icon: CheckCircle2, name: "CheckCircle2", use: "Form-Success, Feature-Haken" },
+  { icon: AlertCircle, name: "AlertCircle", use: "Form-Error, Warnhinweis" },
+  { icon: Info, name: "Info", use: "Info-Box, Tooltip" },
+  { icon: Check, name: "Check", use: "Consent-Done, Inline-OK" },
+];
+
+const MEMBER_ICONS: IconEntry[] = [
+  { icon: CircleUserRound, name: "CircleUserRound", use: "Einzel-Mitglied" },
+  { icon: Users, name: "Users", use: "Flight, Gruppe, 4er-Tarif" },
+  { icon: IdCard, name: "IdCard", use: "Mitgliederkarte" },
+  { icon: CreditCard, name: "CreditCard", use: "Banküberweisung, Zahlung" },
+  { icon: Calendar, name: "Calendar", use: "Startmonat, 12-Monats-Laufzeit" },
+];
+
+const GOLF_ICONS: IconEntry[] = [
+  { icon: Flag, name: "Flag", use: "Pin-Flag — Golf-Marker, Club-Signal. Primär-Akzent." },
+  { icon: TrendingUp, name: "TrendingUp", use: "Handicap-Verlauf, Hcp-Feld" },
+  { icon: Landmark, name: "Landmark", use: "Club-Institution, Über-uns" },
+  { icon: Trophy, name: "Trophy", use: "Referral-Bonus, Achievement (sparsam)" },
+];
+
+function IconSwatch({ entry }: { entry: IconEntry }) {
+  const Icon = entry.icon;
+  return (
+    <div className="flex flex-col gap-2 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-4">
+      <div className="flex h-16 items-center justify-center rounded-sm bg-[var(--color-sand)]">
+        <Icon
+          size={24}
+          strokeWidth={1.75}
+          className="text-[var(--color-ink)]"
+          aria-hidden
+        />
+      </div>
+      <p className="font-mono text-xs text-[var(--color-muted)]">{entry.name}</p>
+      <p className="text-xs text-[var(--color-ink)]/75">{entry.use}</p>
+    </div>
+  );
+}
+
+function IconGroup({
+  label,
+  hint,
+  entries,
+}: {
+  label: string;
+  hint?: string;
+  entries: IconEntry[];
+}) {
+  return (
+    <div className="mb-10">
+      <div className="mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+          {label}
+        </p>
+        {hint && (
+          <p className="mt-1 text-xs text-[var(--color-muted)]">{hint}</p>
+        )}
+      </div>
+      <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        {entries.map((e) => (
+          <IconSwatch key={e.name} entry={e} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function IconSystemSection() {
+  return (
+    <section>
+      <SectionHead
+        number="06 · Icons"
+        title="Icon-System"
+        note="Framework: Lucide (ISC-lizenziert, ~1500 Icons, stroke-basiert). Warum nicht Heroicons / Material / Phosphor? Heroicons ist zu SaaS-Silicon-Valley, Material zu Google-DNA, Phosphor zu vielschichtig. Lucide ist zurückgenommen, matcht unsere bestehenden Social-Icons (1.8px stroke) und ist Next/Tailwind-de-facto-Standard. Size 24, strokeWidth 1.75 als Default, currentColor als Füllung."
+      />
+
+      <IconGroup
+        label="Kontakt"
+        hint="E-Mail-Block, Footer, Kontakt-Seite."
+        entries={CONTACT_ICONS}
+      />
+      <IconGroup
+        label="Navigation"
+        hint="CTAs, Breadcrumbs, Mobile-Nav, Dismiss."
+        entries={NAV_ICONS}
+      />
+      <IconGroup
+        label="Status"
+        hint="Form-Banner, Info-Boxen, Feedback."
+        entries={STATUS_ICONS}
+      />
+      <IconGroup
+        label="Mitgliedschaft"
+        hint="Signup, Tarife, Zahlung, Karte."
+        entries={MEMBER_ICONS}
+      />
+      <IconGroup
+        label="Golf-Akzente · sparsam"
+        hint="Thematische Signale für Golf-Kontext. NICHT flächendeckend einsetzen — sonst wird's Country-Club-Kitsch. Flag ist der Primär-Marker."
+        entries={GOLF_ICONS}
+      />
+
+      {/* Live usage demos */}
+      <div className="mt-12 rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-6">
+        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+          In Context · wie sie in echt eingesetzt werden
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* CTA button with icon */}
+          <div>
+            <p className="mb-3 text-xs text-[var(--color-muted)]">
+              Button · primary mit Arrow
+            </p>
+            <button
+              type="button"
+              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[var(--color-fairway)] px-6 py-3 text-base font-medium text-[var(--color-parchment)] transition-colors hover:bg-[var(--color-fairway-hover)]"
+            >
+              Jetzt Mitglied werden
+              <ArrowRight size={18} strokeWidth={1.75} aria-hidden />
+            </button>
+          </div>
+
+          {/* Inline contact row */}
+          <div>
+            <p className="mb-3 text-xs text-[var(--color-muted)]">
+              Inline · Kontaktzeile
+            </p>
+            <ul className="space-y-2 text-sm text-[var(--color-ink)]/85">
+              <li className="flex items-center gap-3">
+                <Mail
+                  size={16}
+                  strokeWidth={1.75}
+                  className="text-[var(--color-fairway)]"
+                  aria-hidden
+                />
+                <span>info@oakwoodgolfclub.de</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone
+                  size={16}
+                  strokeWidth={1.75}
+                  className="text-[var(--color-fairway)]"
+                  aria-hidden
+                />
+                <span>+49 (160) 385 9135</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Feature list with checks */}
+          <div>
+            <p className="mb-3 text-xs text-[var(--color-muted)]">
+              Feature-Liste · CheckCircle2
+            </p>
+            <ul className="space-y-2 text-sm text-[var(--color-ink)]/85">
+              {[
+                "Offizielle Mitgliederkarte",
+                "Kein Auto-Renewal",
+                "95 % Platz-Akzeptanz in Österreich",
+              ].map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={18}
+                    strokeWidth={1.75}
+                    className="mt-0.5 shrink-0 text-[var(--color-fairway)]"
+                    aria-hidden
+                  />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Golf-accent: Flag as primary marker */}
+          <div>
+            <p className="mb-3 text-xs text-[var(--color-muted)]">
+              Golf-Akzent · Flag als Primär-Marker
+            </p>
+            <div className="flex items-start gap-3 rounded-sm bg-[var(--color-sand)] p-4">
+              <Flag
+                size={22}
+                strokeWidth={1.75}
+                className="mt-0.5 shrink-0 text-[var(--color-fairway)]"
+                aria-hidden
+              />
+              <div className="text-sm">
+                <p className="font-medium text-[var(--color-ink)]">
+                  Seit 2009
+                </p>
+                <p className="mt-1 text-[var(--color-ink)]/70">
+                  Fernmitgliedschaft im Golfclub — 300+ Golferinnen und
+                  Golfer in der DACH-Region.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Custom SVG — Social */}
+      <div className="mt-10">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+          Custom Inline SVG · Social
+        </p>
+        <p className="mb-6 max-w-3xl text-xs text-[var(--color-muted)]">
+          Facebook und Instagram liefert Lucide zwar, aber wir halten die
+          Brand-Logos bewusst als inline SVG — die Icons sind
+          markenrechtlich sensibler und sollen 1:1 deren Style folgen
+          (Facebook: solid fill; Instagram: stroke-based camera, 1.8px).
+          Gleiche 9×9-Button-Box, gleiche Hover-States wie im Footer.
+        </p>
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="rounded-sm border border-[var(--color-border)] bg-[var(--color-parchment)] p-6">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-muted)]">
+              Auf hellem Grund
+            </p>
+            <div className="flex gap-3">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)]/70 transition-colors hover:border-[var(--color-fairway)] hover:text-[var(--color-fairway)]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M13.5 21v-8.25h2.78l.42-3.25H13.5V7.44c0-.94.26-1.58 1.61-1.58h1.72V2.94c-.3-.04-1.32-.13-2.5-.13-2.48 0-4.18 1.52-4.18 4.3v2.39H7.37v3.25h2.78V21h3.35Z" />
+                </svg>
+              </span>
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-ink)]/15 text-[var(--color-ink)]/70 transition-colors hover:border-[var(--color-fairway)] hover:text-[var(--color-fairway)]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div className="rounded-sm bg-[var(--color-ink)] p-6">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold)]">
+              Auf dunklem Grund (Footer)
+            </p>
+            <div className="flex gap-3">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[var(--color-parchment)]/80 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M13.5 21v-8.25h2.78l.42-3.25H13.5V7.44c0-.94.26-1.58 1.61-1.58h1.72V2.94c-.3-.04-1.32-.13-2.5-.13-2.48 0-4.18 1.52-4.18 4.3v2.39H7.37v3.25h2.78V21h3.35Z" />
+                </svg>
+              </span>
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-[var(--color-parchment)]/80 transition-colors hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
