@@ -61,4 +61,15 @@ kill $SERVER_PID
 | Version | Date | Commit | Desktop | Mobile | Notes |
 |---------|------|--------|---------|--------|-------|
 | v0.1 | 2026-04-17 | `6e0af5e` | not measured | not measured | Scaffold shipped (B1–B4) |
-| v0.2 | 2026-04-17 | `70af7de` + contrast-fix | 100/100/100/100 | 96/100/100/100 | Farb-Tuning + A11y-Contrast-Fix |
+| v0.2 pre-contrast | 2026-04-17 | `70af7de` | 100/95/100/100 | — | Farb-Tuning — 4 contrast fails caught |
+| v0.2 post-contrast | 2026-04-17 | `d9f4c50` | 100/100/100/100 | 96/100/100/100 | A11y-Contrast-Fix — 0 binary failures |
+| v0.2 post-copy | 2026-04-17 | `dd0d7bc` | 100/100/100/100 | 92–96 / 100/100/100 | Handicap-Copy removal — mobile perf variance ±4 points on LCP |
+
+## Mobile Perf Variance
+
+Three mobile runs against the same build produced Perf scores of 92, 96, 96.
+Mobile LCP fluctuated between 2.6 s and 2.9 s. This is within Lighthouse's
+typical ±5 % noise for a single host machine running other processes.
+The `npx lighthouse ...` invocation is not a substitute for WebPageTest or
+Vercel Analytics for production metrics — use this baseline as a floor, not
+an exact score.
