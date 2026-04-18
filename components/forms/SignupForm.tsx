@@ -155,7 +155,6 @@ export function SignupForm() {
       <RadioGroupField
         name="referralSource"
         label="Wie hast Du von uns erfahren?"
-        required
         options={REFERRAL_SOURCE_OPTIONS}
         inline
         error={errors.referralSource}

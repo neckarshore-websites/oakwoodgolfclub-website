@@ -127,9 +127,14 @@ export const signupFormSchema = z.object({
     .max(100, "Ort ist zu lang."),
   country: z.enum(COUNTRY_VALUES, { message: "Bitte Land wählen." }),
 
-  referralSource: z.enum(REFERRAL_SOURCE_VALUES, {
-    message: "Bitte angeben, wie du uns gefunden hast.",
-  }),
+  // Optional — User-Entscheidung 2026-04-18 Session D: Herkunft ist nice-to-
+  // know für den User (Empfehlungen-Tracking), aber kein Signup-Blocker.
+  // Zod-Pattern für optionale Enums: .optional() lässt `undefined` durch,
+  // `.or(z.literal(""))` lässt den leeren FormData-String (kein Radio ausgewählt) durch.
+  referralSource: z
+    .enum(REFERRAL_SOURCE_VALUES)
+    .optional()
+    .or(z.literal("")),
 
   referredBy: z
     .string()
