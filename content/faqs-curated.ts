@@ -186,6 +186,33 @@ Wir brauchen:
     category: "mitgliedschaft",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 179 "Wie lange dauert
+  // es bis die Clubkarte eintrifft". Original had a WP-export word-break
+  // ("Karten i\nn die Post" → rendered as "Karten i n die Post"), used
+  // insider-Speak (Kartenrohlinge), and missed key member-relevant info:
+  // realistic delivery windows per country + what to do if nothing
+  // arrives. User decisions 2026-04-18: (1A) "einmal pro Woche, bei
+  // Bedarf schneller"; (2) DE 2-3 Werktage, AT/CH 3-7 Werktage ("die Post
+  // spart"); (3A) /kontakt-Escalation ja; (4A) Zahlungs-Nuance erwähnen,
+  // aber Payment-Method-agnostisch ("sofortige Zahlungsarten" statt
+  // PayPal/Stripe — User erwägt Stripe-Umstieg, FAQ soll zukunftssicher
+  // sein).
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wie-lange-dauert-es-bis-die-clubkarte-bei-mir-eintrifft",
+    question: "Wie lange dauert es, bis die Mitgliederkarte bei mir ankommt?",
+    answer: `Nach Zahlungseingang drucken und verschicken wir in der Regel einmal pro Woche — bei Bedarf auch schneller. Wichtig: Bei Banküberweisung dauert der Zahlungseingang 2–3 Werktage; bei sofortigen Zahlungsarten geht der Versandprozess direkt los.
+
+Lieferzeit mit der Deutschen Post:
+
+- Deutschland: 2–3 Werktage
+- Österreich / Schweiz: 3–7 Werktage
+
+Wenn du nach zwei Wochen noch keine Karte hast, [melde dich](/kontakt) — wir schauen nach.`,
+    category: "karte",
+    published: true,
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
