@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { FaqItem } from "@/lib/faqs/types";
 
 /**
@@ -110,6 +111,26 @@ export function FaqAccordion({
             </summary>
             <div className="space-y-4 pb-6 pr-6 text-base text-[var(--color-ink)]/75">
               {renderAnswer(item.answer)}
+              {item.images && item.images.length > 0 && (
+                <div className="flex flex-wrap gap-6 pt-2">
+                  {item.images.map((img) => (
+                    <figure key={img.src} className="flex flex-col gap-2">
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        width={img.width}
+                        height={img.height}
+                        className="h-auto w-auto max-w-full rounded-sm border border-[var(--color-border)]"
+                      />
+                      {img.caption && (
+                        <figcaption className="text-xs text-[var(--color-muted)]">
+                          {img.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              )}
             </div>
           </details>
         );

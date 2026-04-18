@@ -81,6 +81,46 @@ Beim Oakwood Golf Club ist ein eigenes Recreational-Handicap-Produkt aktuell nic
     category: "handicap",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 177 "Clubkarte".
+  // Dropped Fusion/Avada shortcodes, removed stale "Saison 2012/2013"
+  // reference. TGA-Logo bleibt (User-confirmed 2026-04-18: Thailand-
+  // historie ist Teil der Karte seit über 10 Jahren, auch wenn Betrieb
+  // nach DE verlegt wurde). Golddruck (nicht Prägung). Images sind noch
+  // die alten Thumbnails aus dem WP-Export — 250x161 / 180x116.
+  //
+  // TODO-USER (Backlog): Neue hochaufgelöste Fotos der aktuellen
+  // Mitgliederkarte liefern (Vorder- + Rückseite, mind. 1200px breit,
+  // neutraler Hintergrund). Die aktuellen Bilder unter
+  // public/brand/card/card-2012-*.jpg sind 14 Jahre alte WP-Thumbnails.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wie-sieht-die-clubkarte-aus-aus-welchem-material-ist-sie",
+    question: "Wie sieht die Mitgliederkarte aus? Aus welchem Material ist sie?",
+    answer: `Die Mitgliederkarte ist eine Plastikkarte im Kreditkartenformat (DIN ID-1). Beidseitig farbig bedruckt, hochwertige Oberfläche, haltbar.
+
+Auf der Vorderseite stehen dein Name, Mitgliedsnummer, das Gültigkeitsdatum und dein Handicap — alles im Golddruck. Die Rückseite zeigt ein Unterschriftsfeld und das Logo des Thailändischen Golfverbandes, dem der Club historisch angehört.
+
+Die Karte ist das, was du im Pro-Shop oder am Counter vorzeigst — kompakt, wiedererkennbar, seit über 15 Jahren im gleichen Format im Einsatz.`,
+    category: "karte",
+    published: true,
+    images: [
+      {
+        src: "/brand/card/card-2012-front.jpg",
+        alt: "Vorderseite der Oakwood-Mitgliederkarte mit Name, Mitgliedsnummer, Gültigkeitsdatum und Handicap in Golddruck",
+        width: 250,
+        height: 161,
+        caption: "Vorderseite",
+      },
+      {
+        src: "/brand/card/card-2012-back.jpg",
+        alt: "Rückseite der Oakwood-Mitgliederkarte mit Unterschriftsfeld und Logo des Thailändischen Golfverbandes",
+        width: 180,
+        height: 116,
+        caption: "Rückseite",
+      },
+    ],
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",

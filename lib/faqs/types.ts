@@ -34,6 +34,18 @@ export const CATEGORY_ORDER: Record<FaqCategory, number> = {
   sonstiges: 99,
 };
 
+export type FaqImage = {
+  /** Path under /public, e.g. "/brand/card/card-2012-front.jpg". */
+  src: string;
+  /** Descriptive alt text — screen readers + SEO. Required. */
+  alt: string;
+  /** Intrinsic pixel dimensions — required for CLS-safe next/image. */
+  width: number;
+  height: number;
+  /** Optional caption shown below the image. Plain text. */
+  caption?: string;
+};
+
 export type FaqItem = {
   /** URL anchor slug, also stable ID for deep-linking. */
   slug: string;
@@ -41,10 +53,17 @@ export type FaqItem = {
   question: string;
   /**
    * Answer text. Plain text + minimal Markdown (bullets as "- ", blank
-   * lines between paragraphs). We render line-breaks as paragraph breaks
-   * in the Accordion — no full Markdown parser here.
+   * lines between paragraphs, `[label](href)` inline links). We render
+   * line-breaks as paragraph breaks in the Accordion — no full Markdown
+   * parser here.
    */
   answer: string;
+  /**
+   * Optional images shown below the answer text. Typically 1-2 images
+   * per FAQ (e.g. Vorder- und Rückseite der Mitgliederkarte). Use
+   * next/image with explicit width/height for CLS safety.
+   */
+  images?: FaqImage[];
   /** Category for grouping + sidebar filter. */
   category: FaqCategory;
   /** Show in production? false = hidden from /faq AND JSON-LD. */
