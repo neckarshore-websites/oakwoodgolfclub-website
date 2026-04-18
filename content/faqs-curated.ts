@@ -213,6 +213,27 @@ Wenn du nach 7–10 Tagen noch keine Karte hast, [melde dich](/kontakt) — wir 
     category: "karte",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 394 "Wie kann ich
+  // die Mitgliedschaft kündigen". Original had typo ("scheibt" statt
+  // "schreibt"), Grammatik-Bug ("zum Enddatum dass" → "das"), Stil-Mix
+  // (3. Person + "Ihr" gemischt statt Du). User decisions 2026-04-18:
+  // (1B) 1-2× Reminder wie Original; (2A) Kernaussage wiederholen obwohl
+  // Auto-Renewal-FAQ ähnliches sagt — FAQs sind Intent-basiert, nicht
+  // DRY-basiert; (3A) /kontakt-Link; (4A) "keine Lastschrift" als
+  // Trust-Signal explizit drinlassen.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wie-kann-ich-die-mitgliedschaft-kuendigen",
+    question: "Wie kann ich die Mitgliedschaft kündigen?",
+    answer: `Eine Kündigung ist nicht notwendig. Die Mitgliedschaft läuft auf 12 Monate und endet automatisch zum Enddatum, das auf deiner Karte angedruckt ist. Keine automatische Verlängerung, keine Fristen, keine Lastschrift.
+
+Rechtzeitig vor Ablauf schreiben wir dich 1–2 Mal per E-Mail an und bieten dir die Verlängerung an. Antwortest du nicht, läuft die Mitgliedschaft einfach aus.
+
+Wenn du trotzdem schriftlich kündigen möchtest: [kurze Mail über das Kontaktformular](/kontakt) reicht.`,
+    category: "mitgliedschaft",
+    published: true,
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
