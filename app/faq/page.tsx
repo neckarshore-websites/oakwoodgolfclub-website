@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
-import { UpdatedAt } from "@/components/UpdatedAt";
 import {
   getFaqsByCategory,
   getPublishedCount,
@@ -123,8 +122,6 @@ export default function FaqPage() {
             Zum Kontaktformular
           </a>
         </footer>
-
-        <UpdatedAt />
       </article>
     </>
   );

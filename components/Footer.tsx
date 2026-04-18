@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE } from "@/lib/site-config";
+import { SITE, SITE_UPDATED, formatUpdatedAtDe } from "@/lib/site-config";
 
 const currentYear = new Date().getFullYear();
 
@@ -105,6 +105,11 @@ export function Footer() {
           <p>© {currentYear} {SITE.name}. Alle Rechte vorbehalten.</p>
           <p>Seit {SITE.founded}. Betrieben aus Thailand. Mitglieder in der DACH-Region.</p>
         </div>
+
+        <p className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-[var(--color-parchment)]/35">
+          Zuletzt aktualisiert:{" "}
+          <time dateTime={SITE_UPDATED}>{formatUpdatedAtDe(SITE_UPDATED)}</time>
+        </p>
       </div>
     </footer>
   );

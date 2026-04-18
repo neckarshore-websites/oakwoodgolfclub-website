@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { UpdatedAt } from "@/components/UpdatedAt";
 import { SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -133,8 +132,6 @@ export default function UeberUnsPage() {
           </Link>
         </div>
       </div>
-
-      <UpdatedAt />
     </article>
   );
 }
