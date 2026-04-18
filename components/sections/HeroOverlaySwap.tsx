@@ -3,25 +3,40 @@ import Link from "next/link";
 import { SITE } from "@/lib/site-config";
 
 /**
- * Homepage hero — A/B-Preview-Variante mit Auto-Swap zwischen
- * Sunrise und 1906er-Vintage. Temporär, nur zur visuellen Entscheidung.
+ * Homepage hero — Auto-Swap zwischen Sonnenaufgang-Fairway und 1906er-
+ * Vintage-Foto. Live auf `/` seit 2026-04-18 (User-Entscheidung).
  *
  * Technik (zero JS):
  * - Zwei `<Image>` stacken absolut übereinander.
- * - Unteres Bild (Sunrise) ist immer sichtbar.
- * - Oberes Bild (Vintage) hat CSS-Animation `hero-image-swap` (siehe
- *   `globals.css`) — 10s Loop, je ~5s sichtbar, 0.5s Crossfade.
- * - `prefers-reduced-motion: reduce` schaltet die Animation hart ab.
+ * - Unteres Bild (Vintage 1906) ist immer sichtbar.
+ * - Oberes Bild (Sunrise) hat CSS-Animation `hero-image-swap` (siehe
+ *   `globals.css`) — 40s Loop, je ~20s sichtbar, 2s Crossfade.
+ * - Initial-Paint zeigt Sunrise (Top-Layer opacity=1 at keyframe 0%) —
+ *   die kanonische Szene, die auch SEO-Snapshots erwischen.
+ * - `prefers-reduced-motion: reduce` schaltet die Animation ab; dann
+ *   bleibt Sunrise statisch oben sichtbar.
  *
- * Entfernt sobald User eine Variante wählt.
+ * Keine Alt-Texte: beide Bilder sind dekorativ, die Copy trägt die
+ * semantische Last. Screen-Reader springt direkt zum `<h1>`.
  */
 export function HeroOverlaySwap() {
   return (
     <section
       className="relative overflow-hidden border-b border-[var(--color-border)] bg-black"
-      data-preview="hero-swap"
     >
-      {/* Bottom image (always visible): Sunrise */}
+      {/* Bottom layer (always visible beneath): Vintage 1906 */}
+      <div className="absolute inset-0">
+        <Image
+          src="/brand/hero-golfplatz.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "50% 20%" }}
+        />
+      </div>
+
+      {/* Top layer (fades in/out over bottom): Sunrise */}
       <div className="absolute inset-0">
         <Image
           src="/brand/hero-sunrise.jpg"
@@ -29,20 +44,8 @@ export function HeroOverlaySwap() {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
-          style={{ objectPosition: "50% 60%" }}
-        />
-      </div>
-
-      {/* Top image (fades in/out): Vintage 1906 */}
-      <div className="absolute inset-0">
-        <Image
-          src="/brand/hero-golfplatz.webp"
-          alt=""
-          fill
-          sizes="100vw"
           className="hero-swap-top object-cover"
-          style={{ objectPosition: "50% 20%" }}
+          style={{ objectPosition: "50% 60%" }}
         />
       </div>
 

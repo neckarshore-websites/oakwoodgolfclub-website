@@ -23,7 +23,7 @@ import { SITE } from "@/lib/site-config";
  *    bouncing back to themselves.
  */
 
-const divider = "-".repeat(60);
+const divider = "-".repeat(72);
 
 export type EmailComposition = {
   subject: string;
@@ -54,20 +54,42 @@ function receivedAt(): string {
   return `Empfangen: ${iso}\n`;
 }
 
+/**
+ * Rohdatensatz-Block fürs Admin-Ende: Divider + Label + Divider + JSON.
+ * Erlaubt Copy-Paste in CRM / Script ohne Parsing des Plain-Text-Layouts.
+ * Honeypot-Feld `website` wird entfernt — leerer String, kein Signalwert,
+ * macht das JSON sauberer.
+ */
+function rawDataBlock(data: Record<string, unknown>): string {
+  const clean: Record<string, unknown> = { ...data };
+  delete clean.website;
+  const json = JSON.stringify(clean, null, 2);
+  return (
+    "\n" +
+    divider +
+    "\nRohdatensatz (JSON)\n" +
+    divider +
+    "\n" +
+    json +
+    "\n"
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Kontakt
 
 export function composeContactEmail(data: ContactFormData): EmailComposition {
   const text =
-    header("Neue Kontaktanfrage — oakwoodgolfclub.de") +
+    header("Kontakt / Contact — oakwoodgolfclub.de") +
     field("Name", data.name) +
     field("E-Mail", data.email) +
     receivedAt() +
     "\n" +
-    multilineField("Nachricht", data.message);
+    multilineField("Nachricht", data.message) +
+    rawDataBlock(data);
 
   return {
-    subject: `[Kontakt] ${data.name}`,
+    subject: "OGC - Kontakt / Contact",
     text,
     replyTo: data.email,
   };
@@ -120,7 +142,7 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     : "";
 
   const text =
-    header("Neue Mitgliedschafts-Anmeldung — oakwoodgolfclub.de") +
+    header("Neuanmeldung / Signup — oakwoodgolfclub.de") +
     field("Anrede", salutationLabel) +
     field("Name", data.name) +
     field("E-Mail", data.email) +
@@ -133,12 +155,11 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     field("Geworben durch", data.referredBy) +
     field("Gruppe", data.group) +
     "\n" +
-    multilineField("Nachricht", data.message);
+    multilineField("Nachricht", data.message) +
+    rawDataBlock(data);
 
   return {
-    subject: `[Signup] ${data.name}${
-      data.group ? ` — ${data.group}` : ""
-    }`,
+    subject: "OGC - Neuanmeldung / Signup",
     text,
     replyTo: data.email,
   };
@@ -161,7 +182,7 @@ export function composeRenewalEmail(
   data: RenewalFormData,
 ): EmailComposition {
   const text =
-    header("Mitgliedschaft — Verlängerung — oakwoodgolfclub.de") +
+    header("Verlängerung / Renewal — oakwoodgolfclub.de") +
     field("Name", data.name) +
     field("Mitgliedsnummer", data.memberNumber) +
     field("Aktuelle E-Mail", data.email) +
@@ -169,10 +190,11 @@ export function composeRenewalEmail(
     receivedAt() +
     "\n" +
     multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
-    multilineField("Nachricht", data.message);
+    multilineField("Nachricht", data.message) +
+    rawDataBlock(data);
 
   return {
-    subject: `[Renewal] ${data.name}`,
+    subject: "OGC - Verlängerung / Renewal",
     text,
     replyTo: data.email,
   };

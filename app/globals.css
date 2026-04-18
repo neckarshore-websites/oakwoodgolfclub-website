@@ -276,9 +276,10 @@
   }
 }
 
-/* Hero image auto-swap (A/B-preview only; removed after User entscheidet).
-   Top image fades over bottom on a 10s loop → each image visible ~5s with
-   0.5s crossfade. Respects `prefers-reduced-motion` as a hard opt-out. */
+/* Hero image auto-swap (live on homepage per User 2026-04-18).
+   Top image fades over bottom on a 40s loop → each image visible ~18s
+   solo + 2s crossfade = 20s effective per image. Respects
+   `prefers-reduced-motion` as a hard opt-out. */
 @keyframes hero-image-swap {
   0%, 45% {
     opacity: 1;
@@ -292,7 +293,7 @@
 }
 
 .hero-swap-top {
-  animation: hero-image-swap 10s ease-in-out infinite;
+  animation: hero-image-swap 40s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
