@@ -3,24 +3,31 @@ import Link from "next/link";
 import { SITE } from "@/lib/site-config";
 
 /**
- * Homepage hero — Variant B: image as background with text overlay.
+ * Homepage hero — Bild als Vollbild-Hintergrund mit Text-Overlay.
  *
- * Variant B (2026-04-18 User-Vergleich, parallel zu Variant A):
- * Golfplatz-Foto wird Vollbild-Hintergrund des Hero-Blocks, der Hero-
- * Text liegt als Overlay darauf. Darker Gradient von links unten
- * sorgt für Lesbarkeit der Copy ohne das Bild optisch zu zerschießen.
+ * Gewählt 2026-04-18 (User) aus dem A/B-Vergleich. Bild-Asset ist
+ * aktuell ein historisches Schwarz-Weiß-Foto "Opening of Dollar Golf
+ * Course by Countess of Mar and Kellie, 8th Sept 1906" — versehent-
+ * lich aus dem Avada-Ordner gegriffen (emotionheader-Datei war
+ * missverstanden), aber User hat's bewusst behalten weil es zum
+ * Golf-Tradition-Claim passt.
  *
- * Nur an User-Vergleich gebunden — einer der beiden Varianten
- * verschwindet nach User-Entscheidung.
+ * Crop-Verhalten: `object-position: 50% 20%` sorgt dafür, dass bei
+ * wide viewports (Desktop / Ultrawide) die Köpfe der abgebildeten
+ * Personen im oberen Bilddrittel sichtbar bleiben, statt durch
+ * `object-center` beidseitig weggeschnitten zu werden. Bottom-Caption
+ * "Opening of Dollar Golf Course…" darf gecroppt werden — sie trägt
+ * zum Hero nichts bei.
  *
- * LCP-Notiz: priority-geladenes Bild (Nachfolge-Element im DOM)
- * ersetzt den typographischen Hero als LCP-Element — erwartet etwas
- * langsamer als Variant A's reiner Text-Hero (CSS-only LCP).
+ * Dark-Gradient (bottom-left → top-right) hält die Copy lesbar
+ * ohne das Bild optisch totzuschlagen.
  */
 export function HeroOverlay() {
   return (
     <section className="relative overflow-hidden border-b border-[var(--color-border)] bg-black">
-      {/* Background image */}
+      {/* Background image — object-position pushes the frame up so the
+          heads in the top-third of the vintage photo stay in view on
+          wide viewports. */}
       <div className="absolute inset-0">
         <Image
           src="/brand/hero-golfplatz.webp"
@@ -28,12 +35,13 @@ export function HeroOverlay() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover"
+          style={{ objectPosition: "50% 20%" }}
         />
       </div>
 
       {/* Dark gradient overlay for text legibility — stronger bottom-left,
-          softer top-right to keep landscape visible */}
+          softer top-right to keep the photo subject visible */}
       <div
         aria-hidden
         className="absolute inset-0 bg-gradient-to-tr from-black/85 via-black/55 to-black/15"
