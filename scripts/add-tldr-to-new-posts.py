@@ -96,7 +96,10 @@ TLDR_PER_SLUG: dict[str, str] = {
 
 # Match the closing --- of frontmatter followed by a blank line then ## .
 FRONTMATTER_END_RE = re.compile(r"^---\s*$\n\n", re.MULTILINE)
-TLDR_HEADER_RE = re.compile(r"^## TL;DR\s*$", re.MULTILINE)
+# Match either old ("## TL;DR") or new ("## TL;DR – Fazit") header for
+# idempotency — and the rename pass below upgrades old to new.
+TLDR_HEADER_RE = re.compile(r"^## TL;DR( – Fazit)?\s*$", re.MULTILINE)
+TLDR_HEADER = "## TL;DR – Fazit"
 # Match "## Fazit" or "## Unser Fazit" through end of file.
 FAZIT_BLOCK_RE = re.compile(r"\n+## (?:Unser )?Fazit\s*\n.*\Z", re.DOTALL)
 
@@ -106,12 +109,20 @@ def transform(slug: str, text: str) -> tuple[str, list[str]]:
     log: list[str] = []
     new_text = text
 
-    # 1) Insert TL;DR right after frontmatter, before the first ##.
+    # 1) Rename old "## TL;DR" header to "## TL;DR – Fazit" (User-Request
+    #    04-18: "Schreibe ruhig auch 'TL;DR - Fazit' als Überschrift, weil
+    #    nicht alle Golfer vom Alter her Digital Natives sind.").
+    rename_pattern = re.compile(r"^## TL;DR\s*$", re.MULTILINE)
+    if rename_pattern.search(new_text):
+        new_text = rename_pattern.sub(TLDR_HEADER, new_text)
+        log.append("renamed TL;DR header to 'TL;DR – Fazit'")
+
+    # 2) Insert TL;DR right after frontmatter, before the first ##.
     if TLDR_HEADER_RE.search(new_text):
         log.append("skip TL;DR insert (already present)")
     else:
         tldr_block = (
-            f"## TL;DR\n\n{TLDR_PER_SLUG[slug]}\n\n"
+            f"{TLDR_HEADER}\n\n{TLDR_PER_SLUG[slug]}\n\n"
         )
         # Find the line that ends the frontmatter (---) followed by blank line.
         match = FRONTMATTER_END_RE.search(new_text)
@@ -122,7 +133,7 @@ def transform(slug: str, text: str) -> tuple[str, list[str]]:
         new_text = new_text[:insert_at] + tldr_block + new_text[insert_at:]
         log.append("inserted TL;DR")
 
-    # 2) Strip any ## Fazit section from the end.
+    # 3) Strip any ## Fazit section from the end.
     fazit_match = FAZIT_BLOCK_RE.search(new_text)
     if fazit_match:
         new_text = new_text[: fazit_match.start()].rstrip() + "\n"

@@ -8,8 +8,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
-## TL;DR
-
+## TL;DR – Fazit
 **Counterpain Hot Plus** ist eine **Wärme-Salbe** des japanischen Herstellers **Taisho**, die seit Jahrzehnten in japanischen Clubhäusern zum Standard im Golfer-Kit gehört. **0,5 % Piroxicam** plus Menthol und Methyl Salicylate — gezielt für **Nacken-, Schulter-, Rücken- und Unterarm-Beschwerden** nach asymmetrischer Golf-Belastung. Klein genug fürs Reisegepäck. **Achtung:** kein Medizin-Ersatz, Warnhinweise vom Hersteller beachten.
 
 ## Eine Empfehlung aus Japan

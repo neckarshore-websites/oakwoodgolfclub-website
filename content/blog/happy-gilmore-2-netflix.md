@@ -8,8 +8,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
-## TL;DR
-
+## TL;DR – Fazit
 **Happy Gilmore 2** ist seit 2026 auf **Netflix** verfügbar — der lang erwartete Sequel zu **Adam Sandlers** 1996er Golf-Komödie. Sandler kehrt als gereifter Happy zurück, mit neuen Figuren und **PGA-Tour-Cameos**. Für Golfer, die das Original mögen, ein gelungener Nostalgie-Abend; für Neulinge auch eigenständig funktional, gewinnt aber durch Kontext aus Teil 1.
 
 ## Ein Film, der die Golf-Welt geteilt hat

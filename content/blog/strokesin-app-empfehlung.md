@@ -6,10 +6,10 @@ categories:
   - "Equipment"
 author: "Oakwood Golf Club"
 draft: false
+pinned: true  # User-Direktive 04-18: StrokesIn propagiert die Handicap-Verwaltung — gehört auf /blog immer ganz oben.
 ---
 
-## TL;DR
-
+## TL;DR – Fazit
 **StrokesIn** von golfsoft.ch ist die **Scorecard- und Handicap-App**, die wir Mitgliedern empfehlen — besonders wegen ihrer durchdachten **Statistik-Funktionen** (Drive-Distanzen, Putt-Analyse, Multi-Runden-Mustererkennung). **World Handicap System (WHS)**-konform, für **iOS und Android**, auf Deutsch und Englisch. Drei Eingabe-Methoden: manuell, **Foto-Scan** der Scorekarte oder **Voice-Diktat** auf der Runde.
 
 ## Warum wir StrokesIn empfehlen

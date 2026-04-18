@@ -27,6 +27,15 @@ export type PostMeta = {
   coverImage?: string;
   /** Hide from public in prod when true. */
   draft: boolean;
+  /**
+   * When true, this post is pinned to the very top of all listings,
+   * regardless of date. Used sparingly for evergreen "always front-page"
+   * recommendations (e.g. our preferred handicap-tracking app, where
+   * every visitor benefits from seeing it first). Tied to the prev/next
+   * navigation semantics: pinned posts behave exactly like any other
+   * post in the sorted order, just at position 0.
+   */
+  pinned?: boolean;
 };
 
 export type Post = PostMeta & {

@@ -8,8 +8,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
-## TL;DR
-
+## TL;DR – Fazit
 Der **Bushnell Launch Pro** ist ein **kamera-basierter Launch Monitor** für ambitionierte Amateure und Club-Fitter — rund **3.200 Euro**, **13+ Datenpunkte**, Indoor und Outdoor, ohne die typischen Radar-Probleme bei wechselndem Licht. Das **Gold-Abonnement** (499 USD/Jahr) schaltet 25 virtuelle Kurse plus **GSPro-Integration** frei. Sinnvoll, wenn du mit Messwerten arbeitest oder einen Home-Simulator baust — kein Pflicht-Equipment für reine Greenfee-Spieler.
 
 ## Was ist ein Launch Monitor eigentlich?

@@ -142,14 +142,23 @@ function loadAll(): CachedAll {
       author: data.author ?? "Oakwood Golf Club",
       coverImage: data.coverImage,
       draft: isDraft,
+      pinned: data.pinned === true,
       content: parsed.content,
       html,
       readingTime,
     });
   }
 
-  // Newest first.
-  posts.sort((a, b) => b.date.localeCompare(a.date));
+  // Sort: pinned posts first (they sit at position 0 regardless of date),
+  // remaining posts by date desc. The same order is reused by the
+  // adjacent-posts (prev/next) helper so blog navigation matches the
+  // listing order.
+  posts.sort((a, b) => {
+    const aPinned = a.pinned ? 0 : 1;
+    const bPinned = b.pinned ? 0 : 1;
+    if (aPinned !== bPinned) return aPinned - bPinned;
+    return b.date.localeCompare(a.date);
+  });
 
   // Aggregate categories with counts.
   const catMap = new Map<string, { name: string; count: number }>();
@@ -204,4 +213,29 @@ export function getPostsByCategorySlug(slug: string): PostMeta[] {
 /** Find the display name of a category from its slug. */
 export function getCategoryBySlug(slug: string): Category | null {
   return loadAll().categories.find((c) => c.slug === slug) ?? null;
+}
+
+/**
+ * Adjacent posts in the same global sort order shown on /blog.
+ * `prev` is the post directly above the current one in the listing;
+ * `next` is the one directly below. Either side may be `null` at the
+ * ends of the list. We deliberately do NOT wrap around — readers
+ * understand "first post" / "last post" as a natural stop signal.
+ */
+export function getAdjacentPosts(
+  slug: string,
+): { prev: PostMeta | null; next: PostMeta | null } {
+  const posts = loadAll().posts;
+  const idx = posts.findIndex((p) => p.slug === slug);
+  if (idx < 0) return { prev: null, next: null };
+  const stripBody = (p: Post): PostMeta => {
+    const { content: _c, html: _h, ...meta } = p;
+    void _c;
+    void _h;
+    return meta;
+  };
+  return {
+    prev: idx > 0 ? stripBody(posts[idx - 1]) : null,
+    next: idx < posts.length - 1 ? stripBody(posts[idx + 1]) : null,
+  };
 }

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PostNavigation } from "@/components/blog/PostNavigation";
 import { Prose } from "@/components/blog/Prose";
 import { JsonLd } from "@/components/JsonLd";
 import {
   categorySlug,
+  getAdjacentPosts,
   getAllPosts,
   getPostBySlug,
 } from "@/lib/blog/posts";
@@ -54,6 +56,8 @@ export default async function BlogPostPage(
   const { slug } = await props.params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  const { prev, next } = getAdjacentPosts(slug);
 
   const blogPostingSchema = {
     "@context": "https://schema.org",
@@ -126,9 +130,14 @@ export default async function BlogPostPage(
             {post.title}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
-            {post.excerpt}
-          </p>
+          {/*
+            Excerpt intentionally NOT rendered on the detail page —
+            it duplicates the TL;DR section that opens the body. The
+            excerpt remains in `frontmatter.excerpt` for the index
+            cards, OG description, and metadata.description.
+            Per User direction 04-18: "TL;DR sollte da in dem Fall
+            auf der Detailseite gewinnen."
+          */}
         </header>
 
         <Prose html={post.html} />
@@ -154,6 +163,8 @@ export default async function BlogPostPage(
             ← Alle Beiträge
           </Link>
         </footer>
+
+        <PostNavigation prev={prev} next={next} />
       </article>
     </>
   );
