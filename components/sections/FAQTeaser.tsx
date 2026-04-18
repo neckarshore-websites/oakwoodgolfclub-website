@@ -7,7 +7,24 @@ import Link from "next/link";
  * Native <details>/<summary> for zero-JS expand/collapse.
  */
 
-const FAQ_PREVIEW = [
+type FaqItem = {
+  q: string;
+  a: string;
+  /**
+   * Optional inline call-out below the answer. Used today on the
+   * Handicap question to point readers at the StrokesIn app-empfehlung
+   * post (User-Direktive 04-18: StrokesIn als Handicap-Tracking
+   * propagieren).
+   */
+  link?: {
+    prefix: string;
+    text: string;
+    href: string;
+    suffix?: string;
+  };
+};
+
+const FAQ_PREVIEW: readonly FaqItem[] = [
   {
     q: "Wie funktioniert eine Fernmitgliedschaft?",
     a: "Du wirst offizielles Mitglied im Oakwood Golf Club, ohne an einen festen Heimatplatz gebunden zu sein. Du erhältst eine offizielle Mitgliederkarte und kannst damit auf Gastplätzen spielen, die eine Vereinszugehörigkeit voraussetzen — insbesondere in Österreich.",
@@ -19,12 +36,18 @@ const FAQ_PREVIEW = [
   {
     q: "Warum verarbeitet ihr aktuell keine Handicaps?",
     a: "Handicap-Verwaltung war über Jahre Teil der Mitgliedschaft, wird aktuell aber nicht aktiv angeboten. Dein Handicap erfasst du beim Signup selbst — ohne Verifizierung. Wenn du ein offizielles Handicap führst, nutze dafür die Systeme deines Heimat- oder Gastplatzes. Eine eigene Recreational-Handicap-Lösung ist in Planung, hat aber keinen festen Termin.",
+    link: {
+      prefix: "Unsere App-Empfehlung fürs Handicap-Tracking:",
+      text: "StrokesIn",
+      href: "/blog/strokesin-app-empfehlung",
+      suffix: "— im Blog vorgestellt.",
+    },
   },
   {
     q: "Gibt es ein Auto-Renewal?",
     a: "Nein. Deine Mitgliedschaft läuft nach 12 Monaten automatisch aus. Du entscheidest aktiv, ob du verlängern möchtest. Keine Kündigung nötig, keine versteckten Gebühren.",
   },
-] as const;
+];
 
 export function FAQTeaser() {
   return (
@@ -53,9 +76,22 @@ export function FAQTeaser() {
                   +
                 </span>
               </summary>
-              <p className="pb-6 pr-10 text-base leading-relaxed text-[var(--color-ink)]/75">
+              <p className="pb-2 pr-10 text-base leading-relaxed text-[var(--color-ink)]/75">
                 {item.a}
               </p>
+              {item.link && (
+                <p className="pb-6 pr-10 text-sm text-[var(--color-ink)]/65">
+                  {item.link.prefix}{" "}
+                  <Link
+                    href={item.link.href}
+                    className="font-medium text-[var(--color-fairway)] underline-offset-4 hover:underline hover:text-[var(--color-fairway-hover)]"
+                  >
+                    {item.link.text}
+                  </Link>
+                  {item.link.suffix ? ` ${item.link.suffix}` : ""}
+                </p>
+              )}
+              {!item.link && <div className="pb-4" />}
             </details>
           ))}
         </div>

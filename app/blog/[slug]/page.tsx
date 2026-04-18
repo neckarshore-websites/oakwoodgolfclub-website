@@ -164,6 +164,24 @@ export default async function BlogPostPage(
           </Link>
         </footer>
 
+        {/*
+          Bild-Disclaimer für Hersteller- und Produktbilder. User-Direktive
+          04-18: "wenn ihr nicht wollt, nehmt eure Bilder sofort raus."
+          Höflich formuliert, sichtbar aber unaufdringlich. Greift heute auf
+          jedem Beitrag — wir können das in v2 selektiv pro Post über ein
+          frontmatter-Flag machen, falls die Anzahl bilderloser Posts wächst.
+        */}
+        <aside className="mt-10 rounded-sm border border-[var(--color-border)] bg-[var(--color-sand)]/30 p-4 text-xs leading-relaxed text-[var(--color-ink)]/55">
+          <strong className="text-[var(--color-ink)]/70">
+            Bild- und Markenhinweis:
+          </strong>{" "}
+          Produkt- und Pressebilder werden ausschließlich redaktionell zur
+          Beitragsillustration verwendet. Marken- und Bildrechte verbleiben bei
+          den jeweiligen Herstellern. Wenn du Rechteinhaber bist und eine Nutzung
+          nicht wünschst, schreib uns eine kurze Mail — wir entfernen das Bild
+          umgehend.
+        </aside>
+
         <PostNavigation prev={prev} next={next} />
       </article>
     </>
