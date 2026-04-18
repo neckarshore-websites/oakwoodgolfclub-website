@@ -8,6 +8,10 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
+## TL;DR
+
+Der **Bushnell Launch Pro** ist ein **kamera-basierter Launch Monitor** für ambitionierte Amateure und Club-Fitter — rund **3.200 Euro**, **13+ Datenpunkte**, Indoor und Outdoor, ohne die typischen Radar-Probleme bei wechselndem Licht. Das **Gold-Abonnement** (499 USD/Jahr) schaltet 25 virtuelle Kurse plus **GSPro-Integration** frei. Sinnvoll, wenn du mit Messwerten arbeitest oder einen Home-Simulator baust — kein Pflicht-Equipment für reine Greenfee-Spieler.
+
 ## Was ist ein Launch Monitor eigentlich?
 
 Ein Launch Monitor misst den Ball- und Schlägerflug beim Aufprall. Früher stand so etwas nur im Fitter-Studio oder in der PGA-Tour-Garage. Heute gibt es Geräte, die auch Hobbyspieler sich leisten können — und am anderen Ende der Skala immer noch solche, die semi-professionell arbeiten.
@@ -60,7 +64,3 @@ Ein 14-Tage-Gratis-Trial der Gold-Stufe ist dabei. Die Club-Daten (Speed, Path, 
 ## Die Konkurrenz in einem Satz
 
 TrackMan und Foresight GCHawk sind die großen Namen — beide mehr als doppelt so teuer und eher in professionellen Fitting-Studios zu finden. Der Garmin Approach R10 ist das populäre günstige Einsteiger-Radar (um 600 Euro), liefert aber weniger Datentiefe und weniger konstante Werte im Outdoor-Einsatz. Der Launch Pro sitzt genau dazwischen: ernsthaftes Messwerkzeug, aber für den ambitionierten Amateur noch greifbar.
-
-## Fazit
-
-Ein Launch Monitor ist kein Pflicht-Equipment. Aber wer mit Messwerten arbeitet, spart sich Jahre von schlechten Range-Runden ohne Feedback. Der Bushnell Launch Pro ist für viele unserer technisch ambitionierten Mitglieder das interessanteste Preis-/Leistungsverhältnis in der Premium-Klasse — ehrlich kommuniziert, kamera-basiert, zukunftssicher.

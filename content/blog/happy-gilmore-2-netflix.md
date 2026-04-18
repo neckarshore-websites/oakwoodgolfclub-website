@@ -8,6 +8,10 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
+## TL;DR
+
+**Happy Gilmore 2** ist seit 2026 auf **Netflix** verfügbar — der lang erwartete Sequel zu **Adam Sandlers** 1996er Golf-Komödie. Sandler kehrt als gereifter Happy zurück, mit neuen Figuren und **PGA-Tour-Cameos**. Für Golfer, die das Original mögen, ein gelungener Nostalgie-Abend; für Neulinge auch eigenständig funktional, gewinnt aber durch Kontext aus Teil 1.
+
 ## Ein Film, der die Golf-Welt geteilt hat
 
 1996 erschien der Original-Film *Happy Gilmore*. Adam Sandler spielt einen gescheiterten Eishockey-Profi, der auf den Golfplatz wechselt und mit seiner rohen, un-orthodoxen Spielweise — Anlauf, voller Schwung, keine Manieren — eine Tour-Karriere startet.
@@ -33,7 +37,3 @@ Drei Gründe:
 ## Wer auf den Original-Film verzichtet hat
 
 Sollte man erst *Happy Gilmore 1* sehen, bevor man den Sequel startet? Nicht zwingend. Der zweite Teil funktioniert als eigenständige Komödie. Aber: Die Nostalgie-Gags und Figur-Referenzen entfalten ihre volle Wirkung nur mit Kontext. Wer ohnehin einen gemütlichen Film-Abend plant, fängt am besten mit Teil 1 an (auf verschiedenen Streaming-Plattformen verfügbar) und dreht Teil 2 danach.
-
-## Fazit
-
-*Happy Gilmore 2* wird keinen Golfer, der ihn noch nicht gesehen hat, plötzlich zum Turnier-Profi machen. Und keiner, der das Original hasste, wird hier umschwenken. Aber für alle dazwischen — die eine Mischung aus Sport und selbstironischem Humor mögen — ist er ein kleines Geschenk. Für einen verregneten Sonntag, eine lange Reise, oder eben einen Abend nach der Runde, die nicht so lief wie geplant.

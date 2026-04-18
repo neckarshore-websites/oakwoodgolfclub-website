@@ -8,6 +8,10 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
+## TL;DR
+
+Eine 18-Loch-Runde dauert vier bis fünf Stunden in voller Sonne — **Hautkrebs-Prävention** ist für Golfer kein Randthema. Wir empfehlen **NIVEA UV Dry Protect Sport** mit **LSF 50**: Sport-Spray, **wasserfest bis 80 Minuten**, trockenes Finish ohne klebriges Hautgefühl. Auftragen vor dem ersten Tee und an Loch 9/10 nachsprühen — keine 30 Sekunden Aufwand, dauerhafter Hautschutz.
+
 ## Das unterschätzte Risiko
 
 Zwischen Tee-Off und letztem Putt vergehen auf einer normalen 18-Loch-Runde vier bis fünf Stunden. Davon stehen wir geschätzt 90 % in direkter Sonne — über Greens, auf Fairways, am Abschlag ohne Baumschatten. Dazu kommt Schwitzen, Bewegung, hin und wieder eine Regendusche.
@@ -48,7 +52,3 @@ Das Spray ist bei Gebrauch nicht klebrig, kann aber bei direktem Kontakt mit hel
 ## Für wen lohnt sich das?
 
 **Für alle, die regelmäßig Golf spielen.** Das ist eine der wenigen Empfehlungen in unserer Serie, bei der es keine echte "Für-wen-nicht"-Fraktion gibt. Sonnenschutz ist kein optionales Feature. Wer ihn konsequent weglässt, nimmt über Jahrzehnte ein Risiko in Kauf, das keiner guten Runde wert ist.
-
-## Fazit
-
-NIVEA UV Dry Protect Sport ist kein Nischen-Produkt, sondern schlichter, funktionaler Sonnenschutz, der in drogeriemärkten und online überall verfügbar ist. Der Preis ist niedrig, der Nutzen nicht verhandelbar. Wer konsequent damit auf die Runde geht, macht seiner Haut den größten Gefallen — heute und in dreißig Jahren.

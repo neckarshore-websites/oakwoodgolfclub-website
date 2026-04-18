@@ -8,6 +8,10 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
+## TL;DR
+
+**StrokesIn** von golfsoft.ch ist die **Scorecard- und Handicap-App**, die wir Mitgliedern empfehlen — besonders wegen ihrer durchdachten **Statistik-Funktionen** (Drive-Distanzen, Putt-Analyse, Multi-Runden-Mustererkennung). **World Handicap System (WHS)**-konform, für **iOS und Android**, auf Deutsch und Englisch. Drei Eingabe-Methoden: manuell, **Foto-Scan** der Scorekarte oder **Voice-Diktat** auf der Runde.
+
 ## Warum wir StrokesIn empfehlen
 
 Wir bekommen regelmäßig eine Frage: Wie tracke ich Runden, wenn ich keine klassische Club-Mitgliedschaft habe? Unsere Empfehlung ist eindeutig: [StrokesIn](https://www.golfsoft.ch/scorekarte-golf-strokesin) von golfsoft.ch.
@@ -45,7 +49,3 @@ Kurz: für jede und jeden, die oder der Golf über Scorekarten hinaus verstehen 
 ## Verfügbarkeit und Preis
 
 Die App gibt es für iOS (App Store) und Android (Google Play), auf Deutsch und Englisch. Der Preispunkt ist niedrig — die aktuellen Konditionen findest du auf [golfsoft.ch](https://www.golfsoft.ch/scorekarte-golf-strokesin) oder direkt in den App Stores.
-
-## Unser Fazit
-
-StrokesIn ist die Art von Produkt, die wir gern weiterempfehlen: ehrlich konzipiert, sauber gemacht, fair bepreist. Keine Feature-Inflation, kein Abo-Zwang, kein Marketing-Overkill. Wer regelmäßig spielt und seine Zahlen verstehen will, trifft mit dieser App eine gute Wahl.

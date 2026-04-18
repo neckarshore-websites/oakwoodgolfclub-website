@@ -76,9 +76,23 @@ PAGE_MAPPING = {
     '/golfclub/scorekarte-erfassen-cloned-backup/': '/faq',
 }
 
+# Blog posts that exist in the WP export but were intentionally NOT migrated
+# to the new site. Each entry maps the WP slug to the most relevant target
+# on the new site (typically /faq or /blog) so legacy URLs don't 404.
+#
+# When a post is added here, ALSO delete content/blog/<slug>.md (the file
+# would otherwise still be served at /blog/<slug>).
+BLOG_POST_OVERRIDES = {
+    # Truth-aligned removal (D9): handicap-management is no longer offered,
+    # the WP-era post about MyGolf.gs as the in-house handicap app is
+    # actively misleading. The Handicap-FAQ explains the current state.
+    'mygolf-app': '/faq#warum-aktuell-keine-handicap-verwaltung',
+}
+
 
 def collect_post_redirects():
-    """post/publish: /<slug>/ → /blog/<slug>"""
+    """post/publish: /<slug>/ → /blog/<slug>, with override map for posts
+    we intentionally did not migrate."""
     entries = []
     for xml_path in glob.glob(str(ROOT / 'wordpress-exports' / '*Beiträge.xml')):
         tree = ET.parse(xml_path)
@@ -92,9 +106,11 @@ def collect_post_redirects():
             if name is None or not name.text: continue
             slug = name.text.strip()
 
+            destination = BLOG_POST_OVERRIDES.get(slug, f'/blog/{slug}')
+
             entries.append({
                 'source': f'/{slug}/',
-                'destination': f'/blog/{slug}',
+                'destination': destination,
                 'category': 'blog-post',
             })
     return entries

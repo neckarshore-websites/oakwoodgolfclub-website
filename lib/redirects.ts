@@ -50,7 +50,7 @@ export const BLOG_POST_REDIRECTS: RedirectEntry[] = [
   { source: "/gedanken-beim-golf-42-handtuch-positiv/", destination: "/blog/gedanken-beim-golf-42-handtuch-positiv", permanent: true },
   { source: "/was-soll-man-trainieren/", destination: "/blog/was-soll-man-trainieren", permanent: true },
   { source: "/dgv-stetiges-wachstum-der-altesten-golfnation/", destination: "/blog/dgv-stetiges-wachstum-der-altesten-golfnation", permanent: true },
-  { source: "/mygolf-app/", destination: "/blog/mygolf-app", permanent: true },
+  { source: "/mygolf-app/", destination: "/faq#warum-aktuell-keine-handicap-verwaltung", permanent: true },
   { source: "/greenfees-als-ffernmitglied/", destination: "/blog/greenfees-als-ffernmitglied", permanent: true },
   { source: "/mitglieder-pro-land/", destination: "/blog/mitglieder-pro-land", permanent: true },
   { source: "/golfgeschichte-golf-im-20-jahrhundert/", destination: "/blog/golfgeschichte-golf-im-20-jahrhundert", permanent: true },
