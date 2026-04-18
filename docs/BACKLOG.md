@@ -19,8 +19,8 @@ with the commit that closed them — never delete, keep history for audits.
 
 | # | Item | Prio | Effort | Wer | Blocker? | Status | Impact |
 |---|------|------|--------|-----|----------|--------|--------|
-| 1 | **Visual-Review v0.2** (neue Farben + Copy) auf localhost | P1 | XS | User | — | Offen | "AI empfiehlt, Mensch entscheidet" — Linus kann Farbentscheidung nicht abnehmen |
-| 2 | Sand-Wash Ticken dunkler (post-#2+#5 entscheidbar — User war "unsicher weil Gold dann untergeht") | P2 | XS | User+Linus | Visual-Review | Offen | Warmth/Depth auf Pricing-Section |
+| 1 | ~~**Visual-Review v0.2**~~ ✅ User-OK 2026-04-18: "Seht gut aus" | P1 | — | User | — | Done | Visual-Acceptance-Gate für aktuelle Farben + Copy |
+| 2 | ~~Sand-Wash Ticken dunkler~~ — implizit OK durch User-Visual-Review (#1, 04-18). Sand-Wash bleibt wie ist (Gold würde sonst untergehen) | P2 | — | User | — | Done | Closed via #1 |
 | 3 | Hero-Bild-Option — User liefert Asset (Golfplatz? Gründer? Mitgliederkarte?) | P3 | XS–S | User → Linus | User-Asset | Backlog | Wärme/Vertrautheit im Above-the-fold, Konvention in der Golf-Branche |
 | 4 | Legal-Seiten mit echtem Text (Impressum, Datenschutz, AGB) — Pflicht vor DNS-Cutover | P2 | S | User+Linus | User-Content | Offen | Gesetzliche Pflicht beim Live-Gang |
 | 5 | ~~B5 Forms mit IONOS SMTP~~ ✅ Code shipped (Server Actions + Zod + Nodemailer + 3 UI-Forms + Honeypot + `.env.example`). Bleibt offen: **User setzt `SMTP_*`-Env-Vars im Vercel-Projekt** — ohne Creds laufen die Server Actions in Dev-Log-Fallback (Success an User, Composition im Server-Log). Pre-prod Smoke-Test auf Vercel Preview sobald Creds live. | P1 | XS restant | User | SMTP_PASSWORD (IONOS-Mailbox) | In Progress | Signup/Renewal = Umsatz-Funnel |
@@ -73,7 +73,7 @@ with the commit that closed them — never delete, keep history for audits.
 | ~~D13~~ | B6 FAQs MVP — Accordion (native `<details>`) + FAQPage JSON-LD + 5 Kategorien + Deep-Link-Anchors + Contact-CTA. Content-Layer: aggregator `content/faqs.ts` merges `faqs-wp.ts` (from migration script) + `faqs-curated.ts` (hand-written). `scripts/migrate-faqs.py` is idempotent, re-runnable. 11 FAQs live, 8 handicap-FAQs flagged needsReview for human content-pass. | `46edcaa` | 2026-04-17 |
 | ~~D14~~ | B6.1 FAQ content-pass — 3 Handicap-FAQ-Rewrites (MASCHIN 120-150-Wörter + direkter Eröffnungssatz + Truth-align), 5 Drops bleiben als draft. /faq jetzt 15 FAQs. | `2d7463a` | 2026-04-17 |
 | ~~D15~~ | B9 Content-Migration MVP — `scripts/migrate-posts.py` (markdownify + Avada-Shortcode-Stripper + http→https). 20 WP-Posts → `content/blog/*.md` mit Frontmatter. Handicap-Posts (2) auto-draft. 18 publish-Posts + 4 Kategorien live. | `f849f29` | 2026-04-17 |
-| ~~D16~~ | B10 URL-Redirects — `scripts/generate-redirects.py` → `lib/redirects.ts` (59 Einträge: 20 blog + 15 FAQ + 24 pages) → `next.config.ts` async redirects(). Permanent 308, inkl. Hash-Anchors für FAQ-Items. Legacy-WP-Typo `golflcub` im Renewal-Pfad explizit gemappt. | (pending this commit) | 2026-04-17 |
+| ~~D16~~ | B10 URL-Redirects — `scripts/generate-redirects.py` → `lib/redirects.ts` (59 Einträge: 20 blog + 15 FAQ + 24 pages) → `next.config.ts` async redirects(). Permanent 308, inkl. Hash-Anchors für FAQ-Items. Legacy-WP-Typo `golflcub` im Renewal-Pfad explizit gemappt. | `728d893` | 2026-04-17 |
 
 ---
 
