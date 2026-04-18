@@ -10,7 +10,7 @@ draft: false
 ---
 #### Der [Santiburi Samui Country Club](http://www.samuigolf.net/santiburi.php "Santiburi Country Club") auf [Koh Samui](http://de.wikipedia.org/wiki/Ko_Samui "Wikipedia Koh Samui") in [Thailand](http://de.wikipedia.org/wiki/Thailand "Wikipedia Thailand") ist ein Golfkurs, den man einmal im Leben gespielt haben sollte.
 
-![Santiburi Samui Country Club](https://oakwoodgolfclub.de/wp-content/uploads/2015/04/santiburi-samui-country-club-300x200.jpg)
+![Santiburi Samui Country Club](/blog/images/santiburi-samui-country-club-300x200.jpg)
 Santiburi Samui Country Club
 Der Club liegt in den Bergen von Koh Samui und ist in 20 Minuten bequem von Stränden Chaweng oder Lamai aus zu erreichen. Wenn man eine Runde auf dem Kurs gebucht hat, wird man im Hotel abgeholt und auch wieder zurück gefahren.
 Alle 18 Löcher des 6,237 Meter langen, Par-72 Kurses haben ihren eigenen Charakter. Es geht durch Kokospalmen und Urwald mal steil bergauf oder bergab. Die Faiways wurden in eine alte Kokosnussplantage, Kliffs und Bergbäche gefräst. Die Greenkeeper und Landschaftsgärtner leisten sehr gute Arbeit. Dadurch der [Santiburi Samui Country Club](http://www.samuigolf.net/santiburi.php "Santiburi Country Club") eine einmalige Runde verspricht.

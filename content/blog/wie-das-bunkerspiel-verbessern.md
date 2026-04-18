@@ -1,7 +1,7 @@
 ---
 title: "Golf Technik Tipp: Wie kannst Du beim Bunkerspiel dominieren?"
 date: "2023-04-05"
-excerpt: "https://oakwoodgolfclub.de/wp-content/uploads/2023/04/golf-bunker-shot.jpg"
+excerpt: "/blog/images/golf-bunker-shot.jpg"
 categories:
   - "Training"
 tags:
@@ -14,7 +14,7 @@ draft: false
 ---
 ## Wie geht's beim Golf? Ich habe hier ein paar coole Tipps für Dich, wie Du Dein Bunker-Spiel verbessern kannst.
 
-https://oakwoodgolfclub.de/wp-content/uploads/2023/04/golf-bunker-shot.jpg
+/blog/images/golf-bunker-shot.jpg
 
 ```
 Image by Stefan Waldvogel from Pixabay

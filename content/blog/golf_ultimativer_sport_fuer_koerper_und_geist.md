@@ -10,7 +10,7 @@ draft: false
 ---
 Golf ist weit mehr als nur ein nettes Spiel im Freien. Es ist ein Sport, der Körper und Geist stärkt und eine wunderbare Gelegenheit bietet, sich zu entspannen und die Natur zu genießen. In diesem Blog werden wir einen Blick hinter die Greens werfen, um herauszufinden, was Golf zum ultimativen Sport macht. Wir werden sehen, wie die Kombination aus körperlicher und geistiger Anstrengung zu einem gesünderen, glücklicheren und produktiveren Leben führen kann.
 
-![](https://oakwoodgolfclub.de/wp-content/uploads/2023/04/golf-brain.png)
+![](/blog/images/golf-brain.png)
 
 ## Warum ist Golf der ultimative Sport für Körper und Geist?
 

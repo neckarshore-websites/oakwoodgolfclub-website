@@ -12,7 +12,7 @@ draft: false
 
 ## Eine kleine Mindmap, was dem Durchschnittsgolfer durch den Kopf geht...
 
-![Gedanken beim Golf](http://s522799978.online.de/wp-content/uploads/2017/04/thoughts-of-golf.jpg) Gedanken beim Golf
+![Gedanken beim Golf](/blog/images/thoughts-of-golf.jpg) Gedanken beim Golf
 
 ## Steuere Deine Gedanken positiv - wirf nicht das Handtuch
 

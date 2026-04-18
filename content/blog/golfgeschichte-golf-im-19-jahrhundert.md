@@ -14,4 +14,4 @@ Französische Golfsportlerinnen gründeten ein kontinentaleuropäisches Pendant 
 
 Die Gründung der amerikanischen United States Golf Association, die heute in den Vereinigten Staaten noch den Ton angibt, fiel ins Jahr 1894.
 Es würde überraschen, wenn sich im Jahrhundert der Erfindungen und der Technologiesprünge nicht auch die Ausrüstung für den Golfsport weiterentwickelt hätte. So wurde bereits in den Dreißiger Jahren des Jahrhunderts der Schaft aus dem Holz des Hickory-Baums zum Standard und der Golfball aus Gutta eingeführt, der bessere Flugeigenschaften aufwies und preisgünstiger herzustellen war.
-Zwei Jahre vor Ende des 19. Jahrhunderts wurde erstmals ein Golfball mit einem Hartgummikern gespielt, der Haskell Ball.https://oakwoodgolfclub.de/wp-content/uploads/2024/04/emotionheader5817950772-e1748697242855.webp
+Zwei Jahre vor Ende des 19. Jahrhunderts wurde erstmals ein Golfball mit einem Hartgummikern gespielt, der Haskell Ball./blog/images/emotionheader5817950772-e1748697242855.webp

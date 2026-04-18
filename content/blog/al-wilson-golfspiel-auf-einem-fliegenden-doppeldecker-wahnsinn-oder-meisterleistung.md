@@ -7,7 +7,7 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
-![](https://oakwoodgolfclub.de/wp-content/uploads/2025/05/daredevil-al-wilson-golfing-on-biplane_u-l-pzs9zd0.webp) Golfgeschichte & Wahnsinn: Al Wilson spielt Golf auf einem Doppeldecker
+![](/blog/images/daredevil-al-wilson-golfing-on-biplane_u-l-pzs9zd0.webp) Golfgeschichte & Wahnsinn: Al Wilson spielt Golf auf einem Doppeldecker
 
 
 Golf gilt als traditionsreicher und ruhiger Sport. Doch der US-amerikanische Stuntpilot **Al Wilson** bewies in den 1920er-Jahren das Gegenteil: Er spielte Golf – **auf einem fliegenden Doppeldecker**. Diese waghalsige Aktion sorgte weltweit für Schlagzeilen und gilt als eine der verrücktesten Szenen der Golfgeschichte.

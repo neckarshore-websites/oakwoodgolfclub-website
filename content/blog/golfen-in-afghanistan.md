@@ -11,7 +11,7 @@ draft: false
 ### Lage
 
 Direkt vor der Hintertür der Landeshauptstadt liegt der Kabul Golf Club. Auf dem Logo des Kabul Golf Club steht [ein arabisches Wort, das auf Englisch „Frieden“ bedeutet.](https://translate.google.com/?hl=en&sl=de&tl=ar&text=Frieden%E2%80%9C%20bedeutet.&op=translate "Salam")
-**![Kabul Golf Club - Eingangsschild](https://oakwoodgolfclub.de/wp-content/uploads/2099/04/Kabul-Golf-Club-Eingangsschild.gif)**
+**![Kabul Golf Club - Eingangsschild](/blog/images/Kabul-Golf-Club-Eingangsschild.gif)**
 
 ##### Der Eingang zum Kabul Golf Club.
 
@@ -21,7 +21,7 @@ Es ist nicht Ihr üppig grünes, von Bäumen gesäumtes Layout, sondern ein hart
 Das Clubhaus ist auch nicht die opulente Umgebung, die wir alle erwarten. Es ist ein baufälliges altes Gebäude, das nach zahlreichen Raketenangriffen umso schlechter aussieht.
 Die örtlichen Vorschriften erlauben die Verwendung eines T-Stücks oder eines Kunstrasenstreifens auf dem Fairway, auf dem steht: „Aufnehmen, abstauben und innerhalb von zwei Schlägerlängen platzieren, aber nicht näher am Loch“.
 [Straffreises Aufnehmen](https://www.golf.de/dgv/rules4you/regeln/regeln_detail.cfm?id=114 "Straffreises Aufnehmen") gibt es zudem aus Baumlöchern, [Ameisenlöchern](https://de.dreamstime.com/lizenzfreie-stockfotos-spinifex-ameisenl%C3%B6cher-image20181598 "Ameisenlöcher") und Gräben. Außerdem erhalten Golfer einen freien Tropfen, wenn ihr Ball in einem Krater zur Ruhe kommt, denn in Kabul spricht man in diesem Fall nicht von einem natürlichen Krater, sondern von den Löchern, die Raketen oder Panzerfeuer hinterlassen haben.
-![Kabul Golf Club - Warnung vor Minen](https://oakwoodgolfclub.de/wp-content/uploads/2099/04/Kabul-Golf-Club-Warnung-vor-Minen.gif)
+![Kabul Golf Club - Warnung vor Minen](/blog/images/Kabul-Golf-Club-Warnung-vor-Minen.gif)
 Es gibt jedoch eine andere lokale Regel, die Sie auf der Scorecard nicht finden und die auch für den Kabul Club gelten muss: Waffen jeglicher Art sind auf dem Golfplatz nicht gestattet.
 
 ### Geschichte
@@ -43,12 +43,12 @@ Jahre zuvor gab es im Verlauf des Krieges in [Qargha](http://www.afghanistantime
 Es scheint, dass die Regierung und die Guerillas informell einen Waffenstillstand vereinbart haben, damit westliche Diplomaten in der Hauptstadt dorthin gehen können, um Golf zu spielen.
 Schließlich wurde der Kabul Golf Club im Jahr 2004 mit einem Bericht des Christian Science Monitor wiedereröffnet: „Der endgültige Minenräumungsprozess wurde aus Mitteln des US-Militärs finanziert, die auf die Abrüstung lokaler Kriegsherren abzielten, aber die Gewinne landeten tatsächlich in den Händen von a Kriegsherr, ein Befehlshaber der Nordallianz namens Adbul Rashid '.
 Seltsamerweise trugen Schafherden, die in der Region weideten, unwissentlich zur Auferstehung des Kurses bei, indem sie gelegentlich Minen zur Explosion brachten.
-![Kabul Golf Club - Loch Nummer 1](https://oakwoodgolfclub.de/wp-content/uploads/2099/04/Kabul-Golf-Club-Loch-Nummer-1.gif)
+![Kabul Golf Club - Loch Nummer 1](/blog/images/Kabul-Golf-Club-Loch-Nummer-1.gif)
 
 ### Spieler
 
 Anfang dieses 2011 besuchten drei Vertreter des Kabul Golf Club die Omega Dubai Desert Classic und gaben diesen einzigartigen Einblick in ihren Club. Für den Anfang waren die drei kaum zu übersehen, als sie sich auf den Emirates Course wagten und stolz Mützen mit den Worten "Kabul Golf Club, Afghanistan" auf der Vorderseite trugen.
-![Rory mit Mitgliedern des Kabul Golf Club](https://oakwoodgolfclub.de/wp-content/uploads/2099/04/Rory-with-Kabul-Golf-Club-Mitgliedern.jpg)
+![Rory mit Mitgliedern des Kabul Golf Club](/blog/images/Rory-with-Kabul-Golf-Club-Mitgliedern.jpg)
 Hashmatullah Sarwery, der kleinste des Trios, ist 20 Jahre alt. Er begann mit einem Handicap von 30 und spielt jetzt mit acht.
 Sarwery, der auch als Taxifahrer in Kabul fungiert, ist auch der Kabul Golf Club-Champion und hält den Streckenrekord von 70 über die kombinierten zwei neun Löcher von 5.522 Metern, die einem Par 72 entsprechen.
 Trotz seiner Größe sagt er, dass er durchschnittlich 240 bis 260 Meter weit fahren kann, aber das Beste an seinem Spiel ist sein kurzes Spiel.
@@ -60,7 +60,7 @@ Woods und McIlroy erhielten ein Hemd und eine Mütze und mussten einige Gegenst�
 Sarwery spricht kaum Englisch und wurde nie gesehen, ohne stolz seine rote Kabul Golf Club Mütze zu tragen.
 Zu ihm gesellten sich Mohammad Omersa, ein 28-jähriger, der gegen 16 spielt, und Mohammad Afzal Abdul, der Direktor und Lehrer des Clubs.
 Wenn Abdul nicht wäre, könnte man mit Sicherheit sagen, dass es keinen Kabul Golf Club geben würde.
-Abdul begann seine Beziehung zum Golf vor mehr als 50 Jahren, nachdem er im Alter von acht Jahren von einer amerikanischen Botschaft ein 5-Eisen bekommen hatte. Er arbeitete zuerst als Caddy im Club und wurde schnell zum Caddy Master befördert.![Kabul Golf Club - Fairway](https://oakwoodgolfclub.de/wp-content/uploads/2099/04/Kabul-Golf-Club-Fairway.gif)
+Abdul begann seine Beziehung zum Golf vor mehr als 50 Jahren, nachdem er im Alter von acht Jahren von einer amerikanischen Botschaft ein 5-Eisen bekommen hatte. Er arbeitete zuerst als Caddy im Club und wurde schnell zum Caddy Master befördert.![Kabul Golf Club - Fairway](/blog/images/Kabul-Golf-Club-Fairway.gif)
 Er wurde dann zum Clubprofi ernannt, aber heutzutage umfasst seine Arbeit Manager, Barmann, PR-Direktor sowie Geschirrspüler, Handwerker und Grünkeeper.
 Abdul ist das stolze Rückgrat des Kabul Golf Club und bemüht sich, Spenden zu sammeln und Bälle, T-Shirts und Handschuhe zu sammeln, um die Mitglieder auszurüsten.
 Er ist ein umgänglicher Kerl mit einem dieser lebenden Gesichter und spricht gerade genug Englisch, um durchzukommen.
