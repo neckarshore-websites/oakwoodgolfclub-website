@@ -206,50 +206,71 @@ export function composeRenewalEmail(
 // ---------------------------------------------------------------------------
 // Autoresponder templates — sent back to the form-submitter as a confirmation.
 //
-// Rules:
+// Rules (User-Briefing 2026-04-18 after Signup UAT):
 //   - Reply-To = info@oakwoodgolfclub.de (so user-replies land in OGC inbox).
 //   - Plain text only.
-//   - Echo back the user's own data so they have a record without having to
-//     dig in their browser history.
-//   - Keep the tone warm-but-businesslike. No marketing copy.
+//   - Sentences are single logical lines — NO hard `\n` inside sentences.
+//     Email clients wrap responsively. Hard-wraps at ~68 chars look broken
+//     on wide mail clients and narrow phones alike.
+//   - Paragraphs separated by blank line (`\n\n`).
+//   - One paragraph per thought — "48h" and "Mitgliederkarte" are two
+//     separate ideas, not one run-on sentence.
+//   - FAQ-Link (`/faq`) für generelle Fragen, Reply-to-Mail nur für
+//     Korrekturen — sonst landet alles in der Inbox und jeder Tipp-Fehler
+//     löst Admin-Arbeit aus.
+//   - Recap (unten nach Divider) spiegelt ALLE Formularfelder zurück, die
+//     der User ausgefüllt hat, inkl. der Einwilligung. Optional-Felder mit
+//     leerem Wert werden per `field()`-Helper automatisch übersprungen.
+//   - Subject folgt dem Muster:
+//       `oakwoodgolfclub.de - <Form> erhalten - Wie geht es weiter?`
 
 const SIGNATURE = `Viele Grüße
 Oakwood Golf Club
 ${SITE.url.replace(/^https?:\/\//, "")}
 ${SITE.email}`;
 
+const FAQ_URL = `${SITE.url}/faq`;
+
+/** Standard-Closing für Autoresponder — FAQ-Link + Korrekturen-Hinweis. */
+const nextStepsBlock =
+  `Falls du Fragen hast, schau bitte in unserer FAQ vorbei:\n` +
+  `${FAQ_URL}\n\n` +
+  `Bei Korrekturen antworte einfach auf diese E-Mail.`;
+
 function autoresponseFooter(): string {
   return (
     "\n" +
     divider +
     "\n" +
-    "Diese E-Mail wurde automatisch versendet als Bestätigung deiner\n" +
-    "Eingabe auf oakwoodgolfclub.de. Falls du dieses Formular nicht\n" +
-    "selbst abgeschickt hast, kannst du diese E-Mail einfach ignorieren\n" +
-    "— wir verarbeiten ohne Antwort keine Daten weiter.\n"
+    "Diese E-Mail wurde automatisch versendet als Bestätigung deiner Eingabe auf oakwoodgolfclub.de. Falls du dieses Formular nicht selbst abgeschickt hast, kannst du diese E-Mail einfach ignorieren — wir verarbeiten ohne Antwort keine Daten weiter.\n"
   );
 }
 
 export function composeContactAutoresponse(
   data: ContactFormData,
 ): EmailComposition {
+  const recap =
+    field("Name", data.name) +
+    field("E-Mail", data.email) +
+    "\n" +
+    multilineField("Nachricht", data.message) +
+    field("Datenschutz zugestimmt", data.consent ? "Ja" : "Nein");
+
   const text =
     `Hallo ${data.name},\n\n` +
     "danke für deine Nachricht. Sie ist bei uns angekommen.\n\n" +
-    "Wir melden uns in der Regel innerhalb von 48 Stunden persönlich\n" +
-    "bei dir. Falls es dringender ist, kannst du auch direkt auf diese\n" +
-    "E-Mail antworten — sie wird gelesen.\n\n" +
+    "Wir melden uns in der Regel innerhalb von 48 Stunden persönlich bei dir.\n\n" +
+    nextStepsBlock +
+    "\n\n" +
     SIGNATURE +
     "\n" +
     divider +
-    "\n" +
-    "Deine Nachricht zur Erinnerung:\n\n" +
-    data.message +
-    "\n" +
+    "\nÜbersicht deiner Anfrage:\n\n" +
+    recap +
     autoresponseFooter();
 
   return {
-    subject: "Wir haben deine Nachricht erhalten — Oakwood Golf Club",
+    subject: "oakwoodgolfclub.de - Nachricht erhalten - Wie geht es weiter?",
     text,
     replyTo: SITE.email,
   };
@@ -258,34 +279,46 @@ export function composeContactAutoresponse(
 export function composeSignupAutoresponse(
   data: SignupFormData,
 ): EmailComposition {
+  const salutationLabel = data.salutation
+    ? SALUTATION_LABEL[data.salutation]
+    : "";
+
+  const referralLabel = data.referralSource
+    ? REFERRAL_LABEL[data.referralSource]
+    : "";
+
   const recap =
-    `Name: ${data.name}\n` +
-    `E-Mail: ${data.email}\n` +
-    `Handicap: ${data.handicap}\n` +
-    `Gewünschtes Startdatum: ${formatStartDate(data.startDate)}\n\n` +
-    "Postanschrift:\n" +
-    formatAddress(data) +
-    "\n";
+    field("Anrede", salutationLabel) +
+    field("Name", data.name) +
+    field("E-Mail", data.email) +
+    field("Handicap", data.handicap) +
+    field("Gewünschtes Startdatum", formatStartDate(data.startDate)) +
+    "\n" +
+    multilineField("Postanschrift", formatAddress(data)) +
+    field("Wie gefunden", referralLabel) +
+    field("Geworben durch", data.referredBy) +
+    field("Gruppe", data.group) +
+    "\n" +
+    multilineField("Nachricht", data.message) +
+    field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein");
 
   const text =
     `Hallo ${data.name},\n\n` +
-    "vielen Dank für deine Anmeldung beim Oakwood Golf Club. Wir haben\n" +
-    "deine Daten erhalten und prüfen sie gerade.\n\n" +
-    "Innerhalb von 48 Stunden bekommst du von uns eine zweite E-Mail mit\n" +
-    "den Zahlungsdetails. Sobald deine Mitgliedschaft aktiv ist, schicken\n" +
-    "wir dir die Mitgliederkarte per Post an die angegebene Adresse.\n\n" +
-    "Falls du Fragen hast oder etwas korrigieren möchtest, antworte\n" +
-    "einfach auf diese E-Mail.\n\n" +
+    "vielen Dank für deine Anmeldung beim Oakwood Golf Club. Wir haben deine Daten erhalten und prüfen sie gerade.\n\n" +
+    "Innerhalb von 48 Stunden bekommst du von uns eine zweite E-Mail mit den Zahlungsdetails.\n\n" +
+    "Sobald deine Mitgliedschaft aktiv ist, schicken wir dir die Mitgliederkarte per Post an die angegebene Adresse.\n\n" +
+    nextStepsBlock +
+    "\n\n" +
     SIGNATURE +
     "\n" +
     divider +
-    "\n" +
-    "Übersicht deiner Anmeldedaten:\n\n" +
+    "\nÜbersicht deiner Anmeldedaten:\n\n" +
     recap +
     autoresponseFooter();
 
   return {
-    subject: "Anmeldung erhalten — Oakwood Golf Club",
+    subject:
+      "oakwoodgolfclub.de - Neuanmeldung erhalten - Wie geht es weiter?",
     text,
     replyTo: SITE.email,
   };
@@ -295,34 +328,33 @@ export function composeRenewalAutoresponse(
   data: RenewalFormData,
 ): EmailComposition {
   const recap =
-    `Name: ${data.name}\n` +
-    `Mitgliedsnummer: ${data.memberNumber}\n` +
-    `E-Mail: ${data.email}\n` +
-    `Aktuelles Handicap: ${data.handicap}\n\n` +
-    "Aktuelle Postanschrift:\n" +
-    formatRenewalAddress(data) +
-    "\n";
+    field("Name", data.name) +
+    field("Mitgliedsnummer", data.memberNumber) +
+    field("E-Mail", data.email) +
+    field("Aktuelles Handicap", data.handicap) +
+    "\n" +
+    multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
+    multilineField("Nachricht", data.message) +
+    field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein");
 
   const text =
     `Hallo ${data.name},\n\n` +
-    "danke für deine Verlängerung beim Oakwood Golf Club. Deine Anfrage\n" +
-    "ist bei uns angekommen.\n\n" +
-    "Innerhalb von 48 Stunden bekommst du von uns eine zweite E-Mail mit\n" +
-    "den Zahlungsdetails für die neue Saison. Auf Wunsch schicken wir dir\n" +
-    "nach erfolgter Zahlung eine aktualisierte Mitgliederkarte zu.\n\n" +
-    "Falls sich seit dem letzten Jahr etwas geändert hat (Adresse, E-Mail,\n" +
-    "Bankverbindung) oder du Fragen hast, antworte einfach auf diese\n" +
-    "E-Mail.\n\n" +
+    "danke für deine Verlängerung beim Oakwood Golf Club. Deine Anfrage ist bei uns angekommen.\n\n" +
+    "Innerhalb von 48 Stunden bekommst du von uns eine zweite E-Mail mit den Zahlungsdetails für die neue Saison.\n\n" +
+    "Auf Wunsch schicken wir dir nach erfolgter Zahlung eine aktualisierte Mitgliederkarte zu.\n\n" +
+    nextStepsBlock +
+    "\n\n" +
+    "Bei Änderungen (Adresse, E-Mail, Bankverbindung) antworte ebenfalls einfach auf diese E-Mail.\n\n" +
     SIGNATURE +
     "\n" +
     divider +
-    "\n" +
-    "Übersicht deiner Daten:\n\n" +
+    "\nÜbersicht deiner Daten:\n\n" +
     recap +
     autoresponseFooter();
 
   return {
-    subject: "Verlängerung erhalten — Oakwood Golf Club",
+    subject:
+      "oakwoodgolfclub.de - Verlängerung erhalten - Wie geht es weiter?",
     text,
     replyTo: SITE.email,
   };
