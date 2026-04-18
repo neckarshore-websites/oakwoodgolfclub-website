@@ -28,6 +28,7 @@ const COUNTRY_OPTIONS = COUNTRY_VALUES.map((country) => ({
 export function RenewalForm() {
   const [state, formAction] = useActionState(submitRenewalAction, INITIAL);
   const errors = state.fieldErrors ?? {};
+  const values = state.values ?? {};
 
   if (state.ok === true && state.status === "success") {
     return (
@@ -40,6 +41,7 @@ export function RenewalForm() {
 
   return (
     <form
+      key={state.submitCount ?? 0}
       action={formAction}
       noValidate
       className="flex flex-col gap-6"
@@ -53,6 +55,7 @@ export function RenewalForm() {
         required
         placeholder="Vorname Nachname"
         autoComplete="name"
+        defaultValue={values.name}
         error={errors.name}
       />
 
@@ -61,6 +64,8 @@ export function RenewalForm() {
         label="Mitgliedsnummer"
         required
         placeholder="Nummer unbekannt? Beliebige Zahl, wir finden dich."
+        autoComplete="off"
+        defaultValue={values.memberNumber}
         error={errors.memberNumber}
       />
 
@@ -72,6 +77,7 @@ export function RenewalForm() {
         required
         placeholder="name@example.de"
         autoComplete="email"
+        defaultValue={values.email}
         error={errors.email}
       />
 
@@ -81,6 +87,7 @@ export function RenewalForm() {
         required
         placeholder="18,5"
         inputMode="decimal"
+        defaultValue={values.handicap}
         error={errors.handicap}
       />
 
@@ -100,6 +107,7 @@ export function RenewalForm() {
           required
           placeholder="Beispielstraße 42"
           autoComplete="street-address"
+          defaultValue={values.street}
           error={errors.street}
         />
         <div className="grid gap-4 sm:grid-cols-[1fr_2fr]">
@@ -110,6 +118,7 @@ export function RenewalForm() {
             placeholder="12345"
             autoComplete="postal-code"
             inputMode="numeric"
+            defaultValue={values.postalCode}
             error={errors.postalCode}
           />
           <TextField
@@ -118,6 +127,7 @@ export function RenewalForm() {
             required
             placeholder="Stuttgart"
             autoComplete="address-level2"
+            defaultValue={values.city}
             error={errors.city}
           />
         </div>
@@ -125,7 +135,7 @@ export function RenewalForm() {
           name="country"
           label="Land"
           required
-          defaultValue="Deutschland"
+          defaultValue={values.country ?? "Deutschland"}
           options={COUNTRY_OPTIONS}
           error={errors.country}
         />
@@ -136,10 +146,15 @@ export function RenewalForm() {
         label="Nachricht"
         placeholder="Was sollten wir noch wissen?"
         rows={4}
+        defaultValue={values.message}
         error={errors.message}
       />
 
-      <ConsentField name="consent" error={errors.consent}>
+      <ConsentField
+        name="consent"
+        defaultChecked={values.consent === "on"}
+        error={errors.consent}
+      >
         Ich habe die{" "}
         <Link
           href="/agb"

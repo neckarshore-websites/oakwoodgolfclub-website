@@ -50,6 +50,7 @@ function todayString(): string {
 export function SignupForm() {
   const [state, formAction] = useActionState(submitSignupAction, INITIAL);
   const errors = state.fieldErrors ?? {};
+  const values = state.values ?? {};
 
   if (state.ok === true && state.status === "success") {
     return (
@@ -62,6 +63,7 @@ export function SignupForm() {
 
   return (
     <form
+      key={state.submitCount ?? 0}
       action={formAction}
       noValidate
       className="flex flex-col gap-6"
@@ -72,8 +74,10 @@ export function SignupForm() {
       <RadioGroupField
         name="salutation"
         label="Anrede"
+        required
         inline
         options={SALUTATION_OPTIONS}
+        defaultValue={values.salutation}
         error={errors.salutation}
       />
 
@@ -83,6 +87,7 @@ export function SignupForm() {
         required
         placeholder="Vorname Nachname"
         autoComplete="name"
+        defaultValue={values.name}
         error={errors.name}
       />
 
@@ -94,6 +99,7 @@ export function SignupForm() {
         required
         placeholder="name@example.de"
         autoComplete="email"
+        defaultValue={values.email}
         error={errors.email}
       />
 
@@ -103,6 +109,7 @@ export function SignupForm() {
         required
         placeholder="18,5"
         inputMode="decimal"
+        defaultValue={values.handicap}
         error={errors.handicap}
       />
 
@@ -111,7 +118,7 @@ export function SignupForm() {
         label="Gewünschtes Startdatum"
         type="date"
         required
-        defaultValue={todayString()}
+        defaultValue={values.startDate ?? todayString()}
         error={errors.startDate}
       />
 
@@ -131,6 +138,7 @@ export function SignupForm() {
           required
           placeholder="Beispielstraße 42"
           autoComplete="street-address"
+          defaultValue={values.street}
           error={errors.street}
         />
         <div className="grid gap-4 sm:grid-cols-[1fr_2fr]">
@@ -141,6 +149,7 @@ export function SignupForm() {
             placeholder="12345"
             autoComplete="postal-code"
             inputMode="numeric"
+            defaultValue={values.postalCode}
             error={errors.postalCode}
           />
           <TextField
@@ -149,6 +158,7 @@ export function SignupForm() {
             required
             placeholder="Stuttgart"
             autoComplete="address-level2"
+            defaultValue={values.city}
             error={errors.city}
           />
         </div>
@@ -156,7 +166,7 @@ export function SignupForm() {
           name="country"
           label="Land"
           required
-          defaultValue="Deutschland"
+          defaultValue={values.country ?? "Deutschland"}
           options={COUNTRY_OPTIONS}
           error={errors.country}
         />
@@ -167,6 +177,7 @@ export function SignupForm() {
         label="Wie hast Du von uns erfahren?"
         options={REFERRAL_SOURCE_OPTIONS}
         inline
+        defaultValue={values.referralSource}
         error={errors.referralSource}
       />
 
@@ -175,6 +186,7 @@ export function SignupForm() {
         label="Geworben durch"
         placeholder="Name des Mitglieds (optional)"
         autoComplete="off"
+        defaultValue={values.referredBy}
         error={errors.referredBy}
       />
 
@@ -183,6 +195,7 @@ export function SignupForm() {
         label="Gruppe"
         placeholder="Gruppenanmeldung? Name der Gruppe (optional)"
         autoComplete="off"
+        defaultValue={values.group}
         error={errors.group}
       />
 
@@ -191,10 +204,15 @@ export function SignupForm() {
         label="Nachricht"
         placeholder="Was sollten wir noch wissen?"
         rows={4}
+        defaultValue={values.message}
         error={errors.message}
       />
 
-      <ConsentField name="consent" error={errors.consent}>
+      <ConsentField
+        name="consent"
+        defaultChecked={values.consent === "on"}
+        error={errors.consent}
+      >
         Ich habe die{" "}
         <Link
           href="/agb"

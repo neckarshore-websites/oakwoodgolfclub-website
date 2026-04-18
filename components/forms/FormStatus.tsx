@@ -22,6 +22,16 @@ export type FormActionState = {
   fieldErrors?: Record<string, string[] | undefined>;
   /** Human-facing message for banner display. */
   message?: string;
+  /**
+   * User-eingegebene Werte, zurückgespielt auf Validation- / Server-Error.
+   * React 19 resetet die Form auf Action-Completion per Default — wir
+   * rendern die Inputs mit `defaultValue={state.values?.X}` und keyen die
+   * Form auf `submitCount`, damit der User bei einem Fehler seine Eingabe
+   * NICHT verliert (Showstopper-Bug 2026-04-18).
+   */
+  values?: Record<string, string | undefined>;
+  /** Submit-Counter für den React-Remount-Key der Form. */
+  submitCount?: number;
 };
 
 export function FormStatus({ state }: { state: FormActionState }) {

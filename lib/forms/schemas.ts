@@ -22,9 +22,16 @@ const emailField = z
   .email({ message: "Ungültige E-Mail-Adresse." })
   .max(200, "E-Mail-Adresse ist zu lang.");
 
-const consentField = z.literal("on", {
-  message: "Bitte die Datenschutzhinweise bestätigen.",
-});
+/**
+ * Consent checkbox — HTML sendet `"on"` wenn checked, nichts wenn unchecked.
+ * `.transform(() => true)` normalisiert zu Boolean, damit Downstream
+ * (JSON-Dump, Plaintext-Field) klarer ist: `true` statt `"on"`.
+ */
+const consentField = z
+  .literal("on", {
+    message: "Bitte die Datenschutzhinweise bestätigen.",
+  })
+  .transform(() => true);
 
 // Honeypot — accepts anything the bot submits. The silent-drop check lives
 // in the Server Action (`if (parsed.data.website && website.length > 0)`),
@@ -100,8 +107,13 @@ export const COUNTRY_VALUES = [
 export type Country = (typeof COUNTRY_VALUES)[number];
 
 export const signupFormSchema = z.object({
-  // Optional on the legacy form — keep it that way.
-  salutation: z.enum(SALUTATION_VALUES).optional().or(z.literal("")),
+  // Pflichtfeld ab 2026-04-18 (User-Entscheidung nach UAT): Anrede
+  // gehört in die CRM-Anrede der Zahlungs-Mail und in die postalische
+  // Mitgliedskarten-Anschrift. Wer nicht ansprechbar sein will, wählt
+  // bewusst "Möchte ich nicht sagen" — das ist eine der Enum-Optionen.
+  salutation: z.enum(SALUTATION_VALUES, {
+    message: "Bitte eine Anrede wählen.",
+  }),
 
   name: nameField,
   email: emailField,

@@ -270,9 +270,17 @@ type ConsentProps = {
   name: string;
   children: ReactNode;
   error?: string | string[];
+  /** Prior check state — bei Validation-Error zurückgespielt, damit der
+   *  User nicht jede Formular-Iteration erneut die Consent-Box anhaken muss. */
+  defaultChecked?: boolean;
 };
 
-export function ConsentField({ name, children, error }: ConsentProps) {
+export function ConsentField({
+  name,
+  children,
+  error,
+  defaultChecked,
+}: ConsentProps) {
   const errorId = error ? `${name}-error` : undefined;
   const normalisedError = Array.isArray(error) ? error[0] : error;
 
@@ -283,6 +291,7 @@ export function ConsentField({ name, children, error }: ConsentProps) {
           type="checkbox"
           name={name}
           required
+          defaultChecked={defaultChecked}
           aria-invalid={error ? true : undefined}
           aria-describedby={errorId}
           className="mt-0.5 accent-[var(--color-fairway)]"

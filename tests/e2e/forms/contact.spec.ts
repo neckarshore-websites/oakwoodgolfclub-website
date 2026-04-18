@@ -104,4 +104,23 @@ test.describe("Kontakt-Form", () => {
     // message body may be the default "innerhalb von 48 Stunden" string.
     await expect(page.getByRole("status")).toBeVisible();
   });
+
+  test("TC-FORM-CON-007 preservation — Validation-Error erhält User-Eingaben", async ({
+    page,
+  }) => {
+    // Regression lock-in für den Showstopper 2026-04-18.
+    await page.getByLabel("Name").fill(mockContact.name);
+    await page.getByLabel("E-Mail-Adresse").fill("kaputt-email");
+    await page.getByLabel("Nachricht").fill(mockContact.message);
+    await page.getByLabel(/Datenschutzerklärung/).check();
+
+    await page.getByRole("button", { name: "Nachricht senden" }).click();
+
+    await expect(page.getByText(/Ungültige E-Mail-Adresse/i)).toBeVisible();
+    await expect(page.getByLabel("Name")).toHaveValue(mockContact.name);
+    await expect(page.getByLabel("Nachricht")).toHaveValue(
+      mockContact.message,
+    );
+    await expect(page.getByLabel(/Datenschutzerklärung/)).toBeChecked();
+  });
 });

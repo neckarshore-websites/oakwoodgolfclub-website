@@ -35,17 +35,27 @@ function header(title: string): string {
   return `${divider}\n${title}\n${divider}\n`;
 }
 
+const EMPTY_PLACEHOLDER = "—";
+
+/**
+ * Always-render single-line field. Leere Werte werden als "—" gezeigt,
+ * damit der Admin in der CRM-Ansicht ALLE Felder sieht (User-Feedback
+ * 2026-04-18 nach UAT: fehlende optionale Felder waren im Plaintext
+ * unsichtbar → man konnte nicht unterscheiden ob der User nichts
+ * angegeben hat oder ob das Feld vom Backend verschluckt wurde).
+ */
 function field(label: string, value: string | undefined | null): string {
-  if (!value || value.trim().length === 0) return "";
-  return `${label}: ${value}\n`;
+  const display =
+    value && String(value).trim().length > 0 ? value : EMPTY_PLACEHOLDER;
+  return `${label}: ${display}\n`;
 }
 
 function multilineField(
   label: string,
   value: string | undefined | null,
 ): string {
-  if (!value || value.trim().length === 0) return "";
-  return `${label}:\n${value}\n\n`;
+  const hasContent = value && String(value).trim().length > 0;
+  return `${label}:\n${hasContent ? value : EMPTY_PLACEHOLDER}\n\n`;
 }
 
 function receivedAt(): string {
@@ -57,13 +67,23 @@ function receivedAt(): string {
 /**
  * Rohdatensatz-Block fürs Admin-Ende: Divider + Label + Divider + JSON.
  * Erlaubt Copy-Paste in CRM / Script ohne Parsing des Plain-Text-Layouts.
- * Honeypot-Feld `website` wird entfernt — leerer String, kein Signalwert,
- * macht das JSON sauberer.
+ *
+ * `expectedKeys` definiert die stabile Schlüsselliste pro Formular, damit
+ * der Admin IMMER alle Felder sieht — leere / nicht ausgefüllte Werte
+ * stehen als leerer String `""` im JSON statt komplett zu fehlen
+ * (User-Feedback 2026-04-18 nach UAT). Honeypot-Feld `website` wird
+ * NICHT in die Keys aufgenommen.
  */
-function rawDataBlock(data: Record<string, unknown>): string {
-  const clean: Record<string, unknown> = { ...data };
-  delete clean.website;
-  const json = JSON.stringify(clean, null, 2);
+function rawDataBlock<T extends Record<string, unknown>>(
+  data: T,
+  expectedKeys: ReadonlyArray<keyof T>,
+): string {
+  const normalized: Record<string, unknown> = {};
+  for (const key of expectedKeys) {
+    const value = data[key];
+    normalized[String(key)] = value === undefined || value === null ? "" : value;
+  }
+  const json = JSON.stringify(normalized, null, 2);
   return (
     "\n" +
     divider +
@@ -74,6 +94,43 @@ function rawDataBlock(data: Record<string, unknown>): string {
     "\n"
   );
 }
+
+const CONTACT_DATA_KEYS = [
+  "name",
+  "email",
+  "message",
+  "consent",
+] as const satisfies ReadonlyArray<keyof ContactFormData>;
+
+const SIGNUP_DATA_KEYS = [
+  "salutation",
+  "name",
+  "email",
+  "handicap",
+  "startDate",
+  "street",
+  "postalCode",
+  "city",
+  "country",
+  "referralSource",
+  "referredBy",
+  "group",
+  "message",
+  "consent",
+] as const satisfies ReadonlyArray<keyof SignupFormData>;
+
+const RENEWAL_DATA_KEYS = [
+  "name",
+  "memberNumber",
+  "email",
+  "handicap",
+  "street",
+  "postalCode",
+  "city",
+  "country",
+  "message",
+  "consent",
+] as const satisfies ReadonlyArray<keyof RenewalFormData>;
 
 // ---------------------------------------------------------------------------
 // Kontakt
@@ -87,7 +144,7 @@ export function composeContactEmail(data: ContactFormData): EmailComposition {
     field("Datenschutz zugestimmt", data.consent ? "Ja" : "Nein") +
     "\n" +
     multilineField("Nachricht", data.message) +
-    rawDataBlock(data);
+    rawDataBlock(data, CONTACT_DATA_KEYS);
 
   return {
     subject: "OGC - Kontakt / Contact",
@@ -99,12 +156,11 @@ export function composeContactEmail(data: ContactFormData): EmailComposition {
 // ---------------------------------------------------------------------------
 // Signup — mirrors the legacy WordPress form field-for-field.
 
-const SALUTATION_LABEL: Record<NonNullable<SignupFormData["salutation"]>, string> = {
+const SALUTATION_LABEL: Record<SignupFormData["salutation"], string> = {
   herr: "Herr",
   frau: "Frau",
   divers: "Divers",
   keine_angabe: "Keine Angabe",
-  "": "",
 };
 
 // referralSource is optional (Session D: user may skip — schema is
@@ -158,7 +214,7 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     field("Gruppe", data.group) +
     "\n" +
     multilineField("Nachricht", data.message) +
-    rawDataBlock(data);
+    rawDataBlock(data, SIGNUP_DATA_KEYS);
 
   return {
     subject: "OGC - Neuanmeldung / Signup",
@@ -194,7 +250,7 @@ export function composeRenewalEmail(
     "\n" +
     multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
     multilineField("Nachricht", data.message) +
-    rawDataBlock(data);
+    rawDataBlock(data, RENEWAL_DATA_KEYS);
 
   return {
     subject: "OGC - Verlängerung / Renewal",

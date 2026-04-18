@@ -81,10 +81,13 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     ).toBeVisible();
   });
 
-  test("TC-FORM-SIG-005 validation — fehlende Anrede ist OK (optional)", async ({
+  test("TC-FORM-SIG-005 validation — fehlende Anrede wird abgelehnt (Pflichtfeld)", async ({
     page,
   }) => {
-    // salutation is optional per Zod-Schema — this test locks that contract in.
+    // Anrede ist Pflichtfeld ab 2026-04-18 (User-Entscheidung nach UAT):
+    // gehört in die CRM-Anrede + postalische Mitgliedskarten-Anschrift.
+    // "Möchte ich nicht sagen" ist eine valide Enum-Option für User die
+    // bewusst keine Anrede angeben wollen.
     await page.locator('input[name="name"]').fill(mockSignup.name);
     await page.locator('input[name="email"]').fill(mockSignup.email);
     await page.locator('input[name="handicap"]').fill(mockSignup.handicap);
@@ -93,11 +96,12 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     await page.locator('input[name="city"]').fill(mockSignup.city);
     await page.getByRole("radio", { name: "Internet" }).check();
     await page.getByLabel(/AGB/i).check();
+    // Anrede absichtlich NICHT setzen.
 
     await page.getByRole("button", { name: "Anmeldung absenden" }).click();
 
     await expect(
-      page.getByRole("status").filter({ hasText: /Zahlungsdetails/i }),
+      page.getByText(/Bitte eine Anrede wählen/i),
     ).toBeVisible();
   });
 
@@ -106,6 +110,7 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
   }) => {
     // referralSource ("Wie hast Du von uns erfahren?") soll optional sein —
     // User-Entscheidung 2026-04-18 Session D: Feld nicht mehr required.
+    await page.getByRole("radio", { name: "Herr" }).check();
     await page.locator('input[name="name"]').fill(mockSignup.name);
     await page.locator('input[name="email"]').fill(mockSignup.email);
     await page.locator('input[name="handicap"]').fill(mockSignup.handicap);
@@ -135,5 +140,45 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     await page.getByRole("button", { name: "Anmeldung absenden" }).click();
 
     await expect(page.getByRole("status")).toBeVisible();
+  });
+
+  test("TC-FORM-SIG-008 preservation — Validation-Error erhält User-Eingaben", async ({
+    page,
+  }) => {
+    // Regression lock-in für den Showstopper 2026-04-18: React 19 `<form
+    // action>` resetet die Form nach jedem Action-Return. Bei Validation-
+    // Error muss der User seine Eingaben zurückbekommen statt alles noch
+    // einmal einzutippen. Umgesetzt via `key={state.submitCount}` +
+    // `defaultValue={state.values?.X}` auf den Form-Inputs.
+    await page.getByRole("radio", { name: "Herr" }).check();
+    await page.locator('input[name="name"]').fill(mockSignup.name);
+    await page.locator('input[name="email"]').fill("kaputt-email"); // invalid
+    await page.locator('input[name="handicap"]').fill(mockSignup.handicap);
+    await page.locator('input[name="street"]').fill(mockSignup.street);
+    await page.locator('input[name="postalCode"]').fill(mockSignup.postalCode);
+    await page.locator('input[name="city"]').fill(mockSignup.city);
+    await page.getByRole("radio", { name: "Internet" }).check();
+    await page.getByLabel(/AGB/i).check();
+
+    await page.getByRole("button", { name: "Anmeldung absenden" }).click();
+
+    // Validation-Fehler erschienen, Form ist NICHT gereset:
+    await expect(page.getByText(/Ungültige E-Mail-Adresse/i)).toBeVisible();
+    await expect(page.locator('input[name="name"]')).toHaveValue(
+      mockSignup.name,
+    );
+    await expect(page.locator('input[name="handicap"]')).toHaveValue(
+      mockSignup.handicap,
+    );
+    await expect(page.locator('input[name="street"]')).toHaveValue(
+      mockSignup.street,
+    );
+    await expect(page.locator('input[name="city"]')).toHaveValue(
+      mockSignup.city,
+    );
+    await expect(
+      page.getByRole("radio", { name: "Herr" }),
+    ).toBeChecked();
+    await expect(page.getByLabel(/AGB/i)).toBeChecked();
   });
 });

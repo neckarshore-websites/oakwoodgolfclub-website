@@ -104,4 +104,41 @@ test.describe("Renewal-Form (/mitgliedschaft-verlaengern)", () => {
 
     await expect(page.getByRole("status")).toBeVisible();
   });
+
+  test("TC-FORM-REN-006 preservation — Validation-Error erhält User-Eingaben", async ({
+    page,
+  }) => {
+    // Regression lock-in für den Showstopper 2026-04-18.
+    await page.locator('input[name="name"]').fill(mockRenewal.name);
+    await page
+      .locator('input[name="memberNumber"]')
+      .fill(mockRenewal.memberNumber);
+    await page.locator('input[name="email"]').fill("kaputt-email"); // invalid
+    await page.locator('input[name="handicap"]').fill(mockRenewal.handicap);
+    await page.locator('input[name="street"]').fill(mockRenewal.street);
+    await page
+      .locator('input[name="postalCode"]')
+      .fill(mockRenewal.postalCode);
+    await page.locator('input[name="city"]').fill(mockRenewal.city);
+    await page.getByLabel(/AGB/i).check();
+
+    await page
+      .getByRole("button", { name: "Verlängerung absenden" })
+      .click();
+
+    await expect(page.getByText(/Ungültige E-Mail-Adresse/i)).toBeVisible();
+    await expect(page.locator('input[name="name"]')).toHaveValue(
+      mockRenewal.name,
+    );
+    await expect(
+      page.locator('input[name="memberNumber"]'),
+    ).toHaveValue(mockRenewal.memberNumber);
+    await expect(page.locator('input[name="handicap"]')).toHaveValue(
+      mockRenewal.handicap,
+    );
+    await expect(page.locator('input[name="street"]')).toHaveValue(
+      mockRenewal.street,
+    );
+    await expect(page.getByLabel(/AGB/i)).toBeChecked();
+  });
 });

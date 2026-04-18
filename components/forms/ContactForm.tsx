@@ -21,6 +21,7 @@ const INITIAL: FormActionState = { ok: null };
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContactAction, INITIAL);
   const errors = state.fieldErrors ?? {};
+  const values = state.values ?? {};
 
   if (state.ok === true && state.status === "success") {
     return (
@@ -31,8 +32,11 @@ export function ContactForm() {
     );
   }
 
+  // `key` remounts the <form> on jedem submit → DOM-Inputs nehmen die neuen
+  // `defaultValue`-Werte auf und die Eingabe des Users geht NICHT verloren.
   return (
     <form
+      key={state.submitCount ?? 0}
       action={formAction}
       noValidate
       className="flex flex-col gap-6"
@@ -46,6 +50,7 @@ export function ContactForm() {
         required
         placeholder="Vorname Nachname"
         autoComplete="name"
+        defaultValue={values.name}
         error={errors.name}
       />
 
@@ -57,6 +62,7 @@ export function ContactForm() {
         required
         placeholder="name@example.de"
         autoComplete="email"
+        defaultValue={values.email}
         error={errors.email}
       />
 
@@ -66,10 +72,15 @@ export function ContactForm() {
         required
         placeholder="Was sollten wir noch wissen?"
         rows={6}
+        defaultValue={values.message}
         error={errors.message}
       />
 
-      <ConsentField name="consent" error={errors.consent}>
+      <ConsentField
+        name="consent"
+        defaultChecked={values.consent === "on"}
+        error={errors.consent}
+      >
         Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage
         verwendet werden. Es erfolgt keine Weitergabe an Dritte. Siehe{" "}
         <Link
