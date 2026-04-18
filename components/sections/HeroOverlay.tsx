@@ -5,38 +5,55 @@ import { SITE } from "@/lib/site-config";
 /**
  * Homepage hero — Bild als Vollbild-Hintergrund mit Text-Overlay.
  *
- * Gewählt 2026-04-18 (User) aus dem A/B-Vergleich. Bild-Asset ist
- * aktuell ein historisches Schwarz-Weiß-Foto "Opening of Dollar Golf
- * Course by Countess of Mar and Kellie, 8th Sept 1906" — versehent-
- * lich aus dem Avada-Ordner gegriffen (emotionheader-Datei war
- * missverstanden), aber User hat's bewusst behalten weil es zum
- * Golf-Tradition-Claim passt.
+ * Gewählt 2026-04-18 (User) aus dem A/B-Vergleich. Das Hero-Bild
+ * wird per Prop von `app/page.tsx` gesetzt:
  *
- * Crop-Verhalten: `object-position: 50% 20%` sorgt dafür, dass bei
- * wide viewports (Desktop / Ultrawide) die Köpfe der abgebildeten
- * Personen im oberen Bilddrittel sichtbar bleiben, statt durch
- * `object-center` beidseitig weggeschnitten zu werden. Bottom-Caption
- * "Opening of Dollar Golf Course…" darf gecroppt werden — sie trägt
- * zum Hero nichts bei.
+ * - `/brand/hero-sunrise.jpg` (default, User-O-Ton "ursprünglicher
+ *   Gedanke"): 1024×282 panoramisches Sonnenaufgangsfoto vom Fairway
+ *   (aus `topimage.jpg` der Live-WordPress-Site). Wird mit
+ *   `object-position: 50% 60%` angekert, damit auf Desktop das
+ *   Fairway-Grün und der Pin-Flag im Zentrum bleiben, nicht die
+ *   Berge oben.
+ *
+ * - `/brand/hero-golfplatz.webp` (via `?hero=vintage`): 600×384
+ *   historisches B&W-Foto "Opening of Dollar Golf Course by Countess
+ *   of Mar and Kellie, 8th Sept 1906". `object-position: 50% 20%`
+ *   hält die Köpfe im Frame bei wide viewports.
+ *
+ * Die "ab 55 Euro"-Akzentfarbe nutzt `--color-fairway-bright`
+ * (#7dd3a3) statt des dunklen `--color-fairway-hover` (#2a8a52).
+ * Grund: Lighthouse/axe prüft color-contrast nicht gegen Bild-BGs,
+ * also muss die Entscheidung proaktiv "hell genug für alle typischen
+ * Image-Mid-Tones" getroffen werden statt nach automatischer
+ * Validierung.
  *
  * Dark-Gradient (bottom-left → top-right) hält die Copy lesbar
  * ohne das Bild optisch totzuschlagen.
  */
-export function HeroOverlay() {
+
+type HeroOverlayProps = {
+  imageSrc?: string;
+  imageAlt?: string;
+  objectPosition?: string;
+};
+
+export function HeroOverlay({
+  imageSrc = "/brand/hero-sunrise.jpg",
+  imageAlt = "",
+  objectPosition = "50% 60%",
+}: HeroOverlayProps = {}) {
   return (
     <section className="relative overflow-hidden border-b border-[var(--color-border)] bg-black">
-      {/* Background image — object-position pushes the frame up so the
-          heads in the top-third of the vintage photo stay in view on
-          wide viewports. */}
+      {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/brand/hero-golfplatz.webp"
-          alt=""
+          src={imageSrc}
+          alt={imageAlt}
           fill
           priority
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: "50% 20%" }}
+          style={{ objectPosition }}
         />
       </div>
 
@@ -55,7 +72,7 @@ export function HeroOverlay() {
         <h1 className="font-heading text-4xl leading-[1.1] tracking-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl lg:text-7xl">
           Fernmitgliedschaft<br />
           im Golfclub —{" "}
-          <span className="text-[var(--color-fairway-hover)]">
+          <span className="text-[var(--color-fairway-bright)]">
             ab 55 Euro
           </span>{" "}
           im Jahr.
