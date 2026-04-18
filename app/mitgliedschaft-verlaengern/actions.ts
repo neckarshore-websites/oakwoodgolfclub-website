@@ -1,8 +1,11 @@
 "use server";
 
 import { renewalFormSchema } from "@/lib/forms/schemas";
-import { composeRenewalEmail } from "@/lib/email/templates";
-import { sendFormEmail } from "@/lib/email/send";
+import {
+  composeRenewalEmail,
+  composeRenewalAutoresponse,
+} from "@/lib/email/templates";
+import { sendAutoresponse, sendFormEmail } from "@/lib/email/send";
 import {
   fieldErrorsFromZod,
   formDataToRecord,
@@ -39,6 +42,12 @@ export async function submitRenewalAction(
         "Es gab ein technisches Problem beim Versenden. Bitte in ein paar Minuten erneut versuchen oder direkt an info@oakwoodgolfclub.de schreiben.",
     };
   }
+
+  // Autoresponder — best-effort. See contact action for full rationale.
+  await sendAutoresponse(
+    parsed.data.email,
+    composeRenewalAutoresponse(parsed.data),
+  );
 
   return {
     ok: true,

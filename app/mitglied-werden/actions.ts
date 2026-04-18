@@ -1,8 +1,11 @@
 "use server";
 
 import { signupFormSchema } from "@/lib/forms/schemas";
-import { composeSignupEmail } from "@/lib/email/templates";
-import { sendFormEmail } from "@/lib/email/send";
+import {
+  composeSignupEmail,
+  composeSignupAutoresponse,
+} from "@/lib/email/templates";
+import { sendAutoresponse, sendFormEmail } from "@/lib/email/send";
 import {
   fieldErrorsFromZod,
   formDataToRecord,
@@ -39,6 +42,12 @@ export async function submitSignupAction(
         "Es gab ein technisches Problem beim Versenden. Bitte in ein paar Minuten erneut versuchen oder direkt an info@oakwoodgolfclub.de schreiben.",
     };
   }
+
+  // Autoresponder — best-effort. See contact action for full rationale.
+  await sendAutoresponse(
+    parsed.data.email,
+    composeSignupAutoresponse(parsed.data),
+  );
 
   return {
     ok: true,

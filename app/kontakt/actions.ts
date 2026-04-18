@@ -1,8 +1,11 @@
 "use server";
 
 import { contactFormSchema } from "@/lib/forms/schemas";
-import { composeContactEmail } from "@/lib/email/templates";
-import { sendFormEmail } from "@/lib/email/send";
+import {
+  composeContactEmail,
+  composeContactAutoresponse,
+} from "@/lib/email/templates";
+import { sendAutoresponse, sendFormEmail } from "@/lib/email/send";
 import {
   fieldErrorsFromZod,
   formDataToRecord,
@@ -40,6 +43,14 @@ export async function submitContactAction(
         "Es gab ein technisches Problem beim Versenden. Bitte in ein paar Minuten erneut versuchen oder direkt an info@oakwoodgolfclub.de schreiben.",
     };
   }
+
+  // Autoresponder — best-effort. Failure here does NOT fail the form:
+  // the notification to info@ already succeeded, which is the source of
+  // truth. We log the result for ops visibility.
+  await sendAutoresponse(
+    parsed.data.email,
+    composeContactAutoresponse(parsed.data),
+  );
 
   return {
     ok: true,
