@@ -209,7 +209,7 @@ Lieferzeit mit der Deutschen Post:
 - Deutschland: 2–3 Werktage
 - Österreich / Schweiz: 3–7 Werktage
 
-Wenn du nach zwei Wochen noch keine Karte hast, [melde dich](/kontakt) — wir schauen nach.`,
+Wenn du nach 7–10 Tagen noch keine Karte hast, [melde dich](/kontakt) — wir schauen nach.`,
     category: "karte",
     published: true,
   },
