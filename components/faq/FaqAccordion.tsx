@@ -3,13 +3,53 @@ import type { FaqItem } from "@/lib/faqs/types";
 /**
  * FAQ accordion — native <details>/<summary>, zero JS.
  *
- * Renders answer text with minimal paragraph + bullet handling:
+ * Renders answer text with minimal paragraph + bullet + link handling:
  *   - Blank line separator → new <p>
  *   - Lines starting with "- " become an <ul><li> run
+ *   - `[text](href)` → <a href>. External URLs open in new tab with
+ *     rel="noopener noreferrer". Internal paths ("/foo") stay same tab.
  *
- * Good enough for the WP-migrated content. If we ever need rich
+ * No full Markdown parser — this is intentional. If we ever need rich
  * markup we swap this for <Prose html=...> from the blog system.
  */
+
+// Matches `[visible text](href)`. href is anything up to the closing paren
+// that isn't itself a paren. Good enough for our curated hand-written links.
+const LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+function renderInline(text: string, keyPrefix: string): React.ReactNode[] {
+  const parts: React.ReactNode[] = [];
+  let lastIdx = 0;
+  let linkIdx = 0;
+
+  for (const match of text.matchAll(LINK_PATTERN)) {
+    const idx = match.index ?? 0;
+    if (idx > lastIdx) {
+      parts.push(text.slice(lastIdx, idx));
+    }
+    const [, label, href] = match;
+    const isExternal = /^https?:\/\//i.test(href);
+    parts.push(
+      <a
+        key={`${keyPrefix}-l${linkIdx}`}
+        href={href}
+        {...(isExternal
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+        className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
+      >
+        {label}
+      </a>
+    );
+    lastIdx = idx + match[0].length;
+    linkIdx += 1;
+  }
+
+  if (lastIdx < text.length) {
+    parts.push(text.slice(lastIdx));
+  }
+  return parts;
+}
 
 function renderAnswer(answer: string): React.ReactNode {
   const blocks = answer
@@ -24,16 +64,18 @@ function renderAnswer(answer: string): React.ReactNode {
     if (allBullets) {
       return (
         <ul key={blockIdx} className="list-disc pl-5 space-y-1">
-          {lines.map((l, i) => (
-            <li key={i}>{l.replace(/^-\s*/, "")}</li>
-          ))}
+          {lines.map((l, i) => {
+            const cleaned = l.replace(/^-\s*/, "");
+            return <li key={i}>{renderInline(cleaned, `b${blockIdx}-i${i}`)}</li>;
+          })}
         </ul>
       );
     }
 
+    const joined = lines.join(" ");
     return (
       <p key={blockIdx} className="leading-relaxed">
-        {lines.join(" ")}
+        {renderInline(joined, `b${blockIdx}`)}
       </p>
     );
   });
