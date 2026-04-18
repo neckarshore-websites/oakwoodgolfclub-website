@@ -21,8 +21,12 @@ import { SITE } from "@/lib/site-config";
  *    dokumentiert). Stripe ist NICHT live; kommt → Backlog #25.
  *  - CRM: Microsoft Outlook (Member-Kontakte + Mail-Historie). Microsoft
  *    agiert unter den Online Services Terms / DPA als Auftragsverarbeiter.
- *  - KI-Assistenz für den internen Workflow (z.B. Formulierung von
- *    E-Mail-Antworten): konkrete Vendor-Liste → Backlog #29 (User-Klärung).
+ *  - KI-Assistenz für den internen Workflow (Formulierung von
+ *    E-Mail-Antworten, Übersetzungs-Drafts): Anthropic PBC (Claude
+ *    via API, Zero-Retention-Tarif) als primärer Anbieter. Gelegentlich
+ *    Apple Intelligence auf macOS/iOS (on-device / Private Cloud
+ *    Compute) und ggf. Microsoft 365 Copilot innerhalb der bestehenden
+ *    Microsoft-Outlook-Umgebung. Details in §6 "KI-Assistenz".
  *  - Keine Cookies, keine Werbung, kein Tracking, kein Google Analytics,
  *    kein Facebook-Pixel.
  *  - Verantwortlicher: German Rauhut, Deutschland (kein Drittland-
@@ -297,9 +301,51 @@ export default function DatenschutzPage() {
           kompletten Datensätze hochgeladen und keine Modelle mit deinen
           Daten trainiert.
         </p>
-        {/* TODO Backlog #29: Konkrete KI-Anbieter namentlich benennen
-            (OpenAI, Anthropic, Google o.a.) inkl. Sitz, DPA-Link,
-            Drittlandtransfer. Pflichtangabe nach Art. 13 DSGVO. */}
+        <p>
+          <strong>Eingesetzter Anbieter:</strong>
+        </p>
+        <ul>
+          <li>
+            <strong>Anthropic PBC</strong>, 548 Market Street PMB 90375,
+            San Francisco, CA 94104, USA — Claude-KI-Assistenz zur
+            internen Textaufbereitung (Formulierungsvorschläge,
+            Übersetzungsentwürfe, Antwort-Drafts). Wir nutzen den
+            API-Tarif mit &bdquo;Zero Retention&ldquo;-Zusicherung:
+            Anthropic verarbeitet Eingaben ausschließlich zur
+            Antwortgenerierung und löscht sie im Anschluss; keine
+            Trainingsnutzung. Datenschutz:{" "}
+            <a
+              href="https://www.anthropic.com/legal/privacy"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              anthropic.com/legal/privacy
+            </a>
+            . Auftragsverarbeitungsvertrag:{" "}
+            <a
+              href="https://www.anthropic.com/legal/dpa"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              anthropic.com/legal/dpa
+            </a>
+            .
+          </li>
+        </ul>
+        <p>
+          Darüber hinaus kann beim Verfassen von Mails auf macOS/iOS
+          gelegentlich <strong>Apple Intelligence</strong> (Apple Inc.,
+          One Apple Park Way, Cupertino, CA 95014, USA) als integrierte
+          System-Assistenz eingreifen. Apple Intelligence verarbeitet
+          Eingaben primär on-device; rechenintensivere Anfragen werden
+          über Apples &bdquo;Private Cloud Compute&ldquo; ausgeführt,
+          ohne persistente Speicherung außerhalb der Laufzeit der
+          Anfrage. Falls künftig <strong>Microsoft 365 Copilot</strong>
+          in Microsoft Outlook zum Einsatz kommt, ist Microsoft bereits
+          in Abschnitt &bdquo;Microsoft (E-Mail-Infrastruktur)&ldquo;
+          als Auftragsverarbeiter genannt; Copilot läuft innerhalb
+          derselben Microsoft-365-Umgebung und derselben DPA.
+        </p>
         <p>
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
           (Vertragsdurchführung) sowie Art. 6 Abs. 1 lit. f DSGVO
@@ -374,10 +420,19 @@ export default function DatenschutzPage() {
             Schutzmaßnahmen (u.&nbsp;a. EU Data Boundary für M365).
           </li>
           <li>
-            <strong>KI-Assistenz-Anbieter</strong> — sofern der konkrete
-            Anbieter seinen Sitz außerhalb des EWR hat (in der Regel USA),
-            erfolgt die Übermittlung auf Basis der jeweiligen
-            EU-Standardvertragsklauseln im Anbieter-DPA.
+            <strong>Anthropic PBC, USA</strong> — als KI-Assistenz-
+            Anbieter. Die Übermittlung in die USA erfolgt auf Basis der
+            EU-Standardvertragsklauseln im Anthropic-DPA sowie
+            ergänzender technischer Schutzmaßnahmen (Verschlüsselung in
+            Transit und at Rest, &bdquo;Zero Retention&ldquo;-Tarif).
+          </li>
+          <li>
+            <strong>Apple Inc., USA</strong> — sofern Apple Intelligence
+            beim Verfassen von Mails auf macOS/iOS genutzt wird.
+            Komplexere Anfragen werden über &bdquo;Private Cloud
+            Compute&ldquo; in Apple-Infrastruktur ohne persistente
+            Speicherung verarbeitet. Übermittlung auf Basis der
+            Apple-Standardvertragsklauseln.
           </li>
         </ul>
 
