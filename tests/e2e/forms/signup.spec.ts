@@ -101,6 +101,27 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     ).toBeVisible();
   });
 
+  test("TC-FORM-SIG-007 validation — fehlende Quelle (referralSource) ist OK (optional)", async ({
+    page,
+  }) => {
+    // referralSource ("Wie hast Du von uns erfahren?") soll optional sein —
+    // User-Entscheidung 2026-04-18 Session D: Feld nicht mehr required.
+    await page.locator('input[name="name"]').fill(mockSignup.name);
+    await page.locator('input[name="email"]').fill(mockSignup.email);
+    await page.locator('input[name="handicap"]').fill(mockSignup.handicap);
+    await page.locator('input[name="street"]').fill(mockSignup.street);
+    await page.locator('input[name="postalCode"]').fill(mockSignup.postalCode);
+    await page.locator('input[name="city"]').fill(mockSignup.city);
+    // referralSource bewusst NICHT setzen.
+    await page.getByLabel(/AGB/i).check();
+
+    await page.getByRole("button", { name: "Anmeldung absenden" }).click();
+
+    await expect(
+      page.getByRole("status").filter({ hasText: /Zahlungsdetails/i }),
+    ).toBeVisible();
+  });
+
   // FIXME(#33): Honeypot silent-drop broken — see contact.spec.ts for full notes.
   test.fixme("TC-FORM-SIG-006 honeypot — Bot-Submit silently dropped", async ({
     page,
