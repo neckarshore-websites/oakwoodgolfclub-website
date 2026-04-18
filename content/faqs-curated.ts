@@ -140,6 +140,31 @@ Dazu kommen über die Jahre einzelne Exoten: Mitglieder in Brasilien, Italien, E
     category: "mitglieder",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 183 "Wie kann ich
+  // Mitglied werden". Old WP-Version had (a) broken nested-list structure
+  // (Sub-Bullets flach migriert, Kontext verloren), (b) D9-truth-violation
+  // "aktuelles Handicap das Du auf den Platz bringen möchtest" (impliziert
+  // Handicap-Verwaltung), (c) Du/Ihr/Eure-Mix, (d) Typo "optinal".
+  // User decisions 2026-04-18: Form-Link only (kein /kontakt-Fallback),
+  // Handicap ohne Selbstauskunfts-Erklärung (steht separat), Sonderwünsche
+  // weggelassen.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wie-kann-ich-mitglied-werden",
+    question: "Wie kann ich Mitglied werden?",
+    answer: `Am einfachsten über das [Anmeldeformular](/mitglied-werden) — dort fragen wir alle nötigen Angaben ab und du bekommst nach dem Absenden eine Bestätigung per E-Mail.
+
+Wir brauchen:
+
+- Name — so, wie er auf der Mitgliederkarte stehen soll
+- Eigene E-Mail-Adresse — möglichst privat, nicht beruflich. Berufliche Adressen wechseln, wir wollen dich auch in einem Jahr für die Verlängerung erreichen können.
+- Postanschrift für den Kartenversand
+- Dein Handicap
+- Dein gewünschtes Startdatum — das Enddatum ergibt sich daraus automatisch (12 Monate)`,
+    category: "mitgliedschaft",
+    published: true,
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
