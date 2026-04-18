@@ -114,7 +114,7 @@ export default function UeberUnsPage() {
           Fragen? Sprich direkt mit uns.
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-ink)]/75">
-          Antwort in der Regel innerhalb von 48 Stunden. Per E-Mail an{" "}
+          Antwort zeitnah, in der Regel innerhalb weniger Tage. Per E-Mail an{" "}
           <a
             href={`mailto:${SITE.email}`}
             className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"

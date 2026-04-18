@@ -69,8 +69,19 @@ export const PRICING = {
   referralBonusEur: 10,
 } as const;
 
+/**
+ * NAV — Haupt-Navigation im schwarzen Header.
+ *
+ * "Mitglied werden" bewusst NICHT als Nav-Link — die Aktion ist als
+ * primärer CTA-Button rechts im Header (Nav.tsx) repräsentiert, um
+ * Duplikation zu vermeiden (User-Entscheidung 2026-04-18).
+ *
+ * "Verlängern" bleibt als Nav-Link: adressiert Bestandsmitglieder, die
+ * gezielt nach diesem Aktionspfad scannen; die Sichtbarkeit als
+ * sekundärer (nicht Button-) Link reflektiert, dass Signup-Conversions
+ * die Launch-Priorität sind.
+ */
 export const NAV = [
-  { href: "/mitglied-werden", label: "Mitglied werden" },
   { href: "/mitgliedschaft-verlaengern", label: "Verlängern" },
   { href: "/faq", label: "FAQ" },
   { href: "/ueber-uns", label: "Über uns" },

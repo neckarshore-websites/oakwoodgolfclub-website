@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Kontaktformular und direkte E-Mail-Adresse des Oakwood Golf Club. Antwort in der Regel innerhalb von 48 Stunden.",
+    "Kontaktformular und direkte E-Mail-Adresse des Oakwood Golf Club. Antwort in der Regel innerhalb weniger Tage.",
   alternates: { canonical: "/kontakt" },
 };
 
@@ -23,8 +23,8 @@ export default function KontaktPage() {
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
         Schreib uns, ruf an, oder nutze das Formular — je nachdem, was für dich
-        am bequemsten ist. Wir antworten in der Regel innerhalb von 48 Stunden,
-        bearbeitet aus Thailand per E-Mail.
+        am bequemsten ist. Wir antworten zeitnah — in der Regel innerhalb
+        weniger Tage, bearbeitet aus Thailand per E-Mail.
       </p>
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">
@@ -62,7 +62,7 @@ export default function KontaktPage() {
             <div>
               <dt className="text-[var(--color-muted)]">Antwortzeit</dt>
               <dd className="mt-0.5 text-[var(--color-ink)]/85">
-                In der Regel &lt; 48 Stunden, werktags.
+                In der Regel wenige Tage, werktags.
               </dd>
             </div>
             <div>

@@ -22,10 +22,10 @@ export default function MitgliedWerdenPage() {
         In zwei Minuten beigetreten.
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
-        Fülle das Formular aus — wir melden uns in der Regel innerhalb von
-        48 Stunden mit den Zahlungsdetails per Banküberweisung. Die
-        Mitgliedschaft wird mit dem Zahlungseingang aktiv und läuft 12 Monate
-        ab dem von dir gewählten Startmonat.
+        Fülle das Formular aus — wir melden uns in der Regel innerhalb
+        von 48 Stunden mit den Zahlungsdetails. Die Mitgliedschaft wird
+        mit dem Empfang Deiner Clubkarte bei Dir aktiv und läuft
+        mindestens 12 Monate ab dem von dir gewählten Startmonat.
       </p>
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">

@@ -32,7 +32,9 @@ export type EmailComposition = {
 };
 
 function header(title: string): string {
-  return `${divider}\n${title}\n${divider}\n`;
+  // Divider-title-divider bleibt als tight Title-Box, aber mit Leerzeile
+  // nach dem Abschluss-Divider, damit der Body nicht klebrig anschließt.
+  return `${divider}\n${title}\n${divider}\n\n`;
 }
 
 const EMPTY_PLACEHOLDER = "—";
@@ -84,12 +86,16 @@ function rawDataBlock<T extends Record<string, unknown>>(
     normalized[String(key)] = value === undefined || value === null ? "" : value;
   }
   const json = JSON.stringify(normalized, null, 2);
+  // Leerzeile VOR dem ersten Divider (vom vorigen Body-Content kommt schon
+  // ein `\n`, zusammen mit unserem führenden `\n` ergibt das die Blank-Line).
+  // Divider-Label-Divider bleibt tight (Title-Box). Leerzeile NACH dem
+  // Abschluss-Divider separiert die JSON-Zeilen visuell.
   return (
     "\n" +
     divider +
     "\nRohdatensatz (JSON)\n" +
     divider +
-    "\n" +
+    "\n\n" +
     json +
     "\n"
   );
@@ -294,10 +300,12 @@ const nextStepsBlock =
   `Bei Korrekturen antworte einfach auf diese E-Mail.`;
 
 function autoresponseFooter(): string {
+  // Leerzeile vor UND nach dem Divider — Einzel-Linie als
+  // Section-Separator braucht beidseitig Luft.
   return (
     "\n" +
     divider +
-    "\n" +
+    "\n\n" +
     "Diese E-Mail wurde automatisch versendet als Bestätigung deiner Eingabe auf oakwoodgolfclub.de. Falls du dieses Formular nicht selbst abgeschickt hast, kannst du diese E-Mail einfach ignorieren — wir verarbeiten ohne Antwort keine Daten weiter.\n"
   );
 }
@@ -315,13 +323,13 @@ export function composeContactAutoresponse(
   const text =
     `Hallo ${data.name},\n\n` +
     "danke für deine Nachricht. Sie ist bei uns angekommen.\n\n" +
-    "Wir melden uns in der Regel innerhalb von 48 Stunden persönlich bei dir.\n\n" +
+    "Wir melden uns zeitnah persönlich bei dir — in der Regel innerhalb weniger Tage.\n\n" +
     nextStepsBlock +
     "\n\n" +
     SIGNATURE +
-    "\n" +
+    "\n\n" +
     divider +
-    "\nÜbersicht deiner Anfrage:\n\n" +
+    "\n\nÜbersicht deiner Anfrage:\n\n" +
     recap +
     autoresponseFooter();
 
@@ -361,14 +369,14 @@ export function composeSignupAutoresponse(
   const text =
     `Hallo ${data.name},\n\n` +
     "vielen Dank für deine Anmeldung beim Oakwood Golf Club. Wir haben deine Daten erhalten und prüfen sie gerade.\n\n" +
-    "Innerhalb von 48 Stunden bekommst du von uns eine zweite E-Mail mit den Zahlungsdetails.\n\n" +
+    "Die Zahlungsdetails schicken wir dir zeitnah per E-Mail nach — in der Regel innerhalb weniger Tage.\n\n" +
     "Sobald deine Mitgliedschaft aktiv ist, schicken wir dir die Mitgliederkarte per Post an die angegebene Adresse.\n\n" +
     nextStepsBlock +
     "\n\n" +
     SIGNATURE +
-    "\n" +
+    "\n\n" +
     divider +
-    "\nÜbersicht deiner Anmeldedaten:\n\n" +
+    "\n\nÜbersicht deiner Anmeldedaten:\n\n" +
     recap +
     autoresponseFooter();
 
@@ -396,15 +404,15 @@ export function composeRenewalAutoresponse(
   const text =
     `Hallo ${data.name},\n\n` +
     "danke für deine Verlängerung beim Oakwood Golf Club. Deine Anfrage ist bei uns angekommen.\n\n" +
-    "Innerhalb von 48 Stunden bekommst du von uns eine zweite E-Mail mit den Zahlungsdetails für die neue Saison.\n\n" +
+    "Die Zahlungsdetails für die neue Saison schicken wir dir zeitnah per E-Mail nach — in der Regel innerhalb weniger Tage.\n\n" +
     "Auf Wunsch schicken wir dir nach erfolgter Zahlung eine aktualisierte Mitgliederkarte zu.\n\n" +
     nextStepsBlock +
     "\n\n" +
     "Bei Änderungen (Adresse, E-Mail, Bankverbindung) antworte ebenfalls einfach auf diese E-Mail.\n\n" +
     SIGNATURE +
-    "\n" +
+    "\n\n" +
     divider +
-    "\nÜbersicht deiner Daten:\n\n" +
+    "\n\nÜbersicht deiner Daten:\n\n" +
     recap +
     autoresponseFooter();
 

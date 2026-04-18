@@ -27,7 +27,7 @@ export function ContactForm() {
     return (
       <FormSuccessPanel
         title="Vielen Dank für deine Nachricht."
-        description="Deine Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb von 48 Stunden per E-Mail bei dir."
+        description="Deine Anfrage ist bei uns angekommen. Wir melden uns zeitnah per E-Mail bei dir — in der Regel innerhalb weniger Tage."
       />
     );
   }
@@ -97,7 +97,7 @@ export function ContactForm() {
       <div className="flex items-center gap-4">
         <SubmitButton label="Nachricht senden" />
         <p className="text-xs text-[var(--color-muted)]">
-          Wir antworten meist innerhalb von 48 Stunden.
+          Wir antworten in der Regel innerhalb weniger Tage.
         </p>
       </div>
     </form>

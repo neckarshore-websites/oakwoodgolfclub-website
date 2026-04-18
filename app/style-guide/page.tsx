@@ -340,7 +340,7 @@ export default function StyleGuidePage() {
               Small · text-xs · text-muted
             </p>
             <p className="text-xs text-[var(--color-muted)]">
-              Wir antworten meist innerhalb von 48 Stunden.
+              Wir antworten in der Regel innerhalb weniger Tage.
             </p>
           </div>
         </div>

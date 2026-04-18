@@ -22,8 +22,9 @@ export default function VerlaengernPage() {
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
         Kein Auto-Renewal — jede Verlängerung läuft aktiv durch dich. Fülle
-        das Formular aus, wir schicken dir die neuen Zahlungsdetails innerhalb
-        von 48 Stunden. Neue 12-Monats-Laufzeit beginnt am gewählten Startmonat.
+        das Formular aus, wir schicken dir die neuen Zahlungsdetails
+        zeitnah, in der Regel innerhalb weniger Tage. Neue
+        12-Monats-Laufzeit beginnt am gewählten Startmonat.
       </p>
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">

@@ -34,7 +34,7 @@ export function RenewalForm() {
     return (
       <FormSuccessPanel
         title="Vielen Dank für deine Verlängerung."
-        description="Wir haben deine Angaben erhalten und schicken dir innerhalb von 48 Stunden per E-Mail die Zahlungsdetails für die neue Saison."
+        description="Wir haben deine Angaben erhalten und schicken dir zeitnah die Zahlungsdetails für die neue Saison per E-Mail — in der Regel innerhalb weniger Tage."
       />
     );
   }

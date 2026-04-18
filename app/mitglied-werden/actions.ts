@@ -58,7 +58,7 @@ export async function submitSignupAction(
     ok: true,
     status: "success",
     message:
-      "Wir prüfen deine Anmeldung und schicken dir die Zahlungsdetails innerhalb von 48 Stunden per E-Mail.",
+      "Wir prüfen deine Anmeldung und schicken dir zeitnah die Zahlungsdetails per E-Mail — in der Regel innerhalb weniger Tage.",
     submitCount: nextSubmitCount,
   };
 }

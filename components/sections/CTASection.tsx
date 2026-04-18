@@ -21,7 +21,7 @@ export function CTASection() {
             <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--color-parchment)]/80">
               16 Jahre Erfahrung mit Fernmitgliedschaften. Transparente Preise,
               kein Auto-Renewal, echter Kundenservice per E-Mail — bearbeitet
-              aus Thailand, in der Regel innerhalb von 48 Stunden.
+              aus Thailand, in der Regel innerhalb weniger Tage.
             </p>
           </div>
           <div className="flex flex-col gap-3 md:col-span-4">

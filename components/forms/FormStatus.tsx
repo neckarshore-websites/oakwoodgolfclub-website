@@ -49,7 +49,7 @@ export function FormStatus({ state }: { state: FormActionState }) {
         <p className="font-medium">Danke — Nachricht angekommen.</p>
         <p className="mt-1 text-[var(--color-ink)]/75">
           {state.message ||
-            "Wir melden uns in der Regel innerhalb von 48 Stunden per E-Mail."}
+            "Wir melden uns zeitnah per E-Mail — in der Regel innerhalb weniger Tage."}
         </p>
       </div>
     );

@@ -55,7 +55,7 @@ export default function FaqPage() {
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
           {count} Antworten zur Fernmitgliedschaft im Oakwood Golf Club.
           Keine Frage gefunden? Schreib uns direkt — wir melden uns
-          meist innerhalb von 48 Stunden.
+          zeitnah, in der Regel innerhalb weniger Tage.
         </p>
 
         {/* Category anchor nav — simple inline list, no sidebar. */}
@@ -113,7 +113,7 @@ export default function FaqPage() {
             >
               {SITE.email}
             </a>
-            . Antwort meist innerhalb von 48 Stunden.
+            . Antwort in der Regel innerhalb weniger Tage.
           </p>
           <a
             href="/kontakt"

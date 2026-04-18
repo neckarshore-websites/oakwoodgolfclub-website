@@ -56,7 +56,7 @@ export function SignupForm() {
     return (
       <FormSuccessPanel
         title="Vielen Dank für deine Anmeldung."
-        description="Wir prüfen deine Angaben und schicken dir innerhalb von 48 Stunden per E-Mail die Zahlungsdetails. Sobald deine Mitgliedschaft aktiv ist, kommt die Mitgliederkarte per Post."
+        description="Wir prüfen deine Angaben und schicken dir zeitnah die Zahlungsdetails per E-Mail — in der Regel innerhalb weniger Tage. Sobald deine Mitgliedschaft aktiv ist, kommt die Mitgliederkarte per Post."
       />
     );
   }

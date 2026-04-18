@@ -58,7 +58,7 @@ export async function submitRenewalAction(
     ok: true,
     status: "success",
     message:
-      "Wir prüfen deine Verlängerung und melden uns mit den neuen Zahlungsdetails innerhalb von 48 Stunden.",
+      "Wir prüfen deine Verlängerung und melden uns zeitnah mit den neuen Zahlungsdetails — in der Regel innerhalb weniger Tage.",
     submitCount: nextSubmitCount,
   };
 }
