@@ -109,6 +109,17 @@ export default async function BlogPostPage(
         </nav>
 
         <header className="mb-10 border-b border-[var(--color-border)] pb-10">
+          {/*
+            Mini-Gold-Akzent über der Meta-Zeile — gleicher Move wie
+            auf der TL;DR-Sektion und auf der Money-Back-Section der
+            Landing. Kleiner (1.5rem breit, 2px hoch), sitzt dezent
+            über Datum/Lesezeit, bindet die Blog-Typografie in die
+            Landing-Designsprache ein.
+          */}
+          <div
+            aria-hidden
+            className="mb-3 h-[2px] w-6 bg-[var(--color-gold)]"
+          />
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[var(--color-muted)]">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             {post.modified && post.modified !== post.date && (
@@ -142,18 +153,28 @@ export default async function BlogPostPage(
 
         <Prose html={post.html} />
 
-        <footer className="mt-16 flex flex-wrap items-center justify-between gap-6 border-t border-[var(--color-border)] pt-10">
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-[var(--color-muted)]">Kategorien:</span>
-            {post.categories.map((cat) => (
-              <Link
-                key={cat}
-                href={`/blog/kategorie/${categorySlug(cat)}`}
-                className="rounded-sm border border-[var(--color-border)] px-2 py-1 text-[var(--color-ink)]/75 transition-colors hover:border-[var(--color-fairway)] hover:text-[var(--color-fairway)]"
-              >
-                {cat}
-              </Link>
-            ))}
+        <footer className="mt-16 flex flex-wrap items-start justify-between gap-6 border-t border-[var(--color-border)] pt-10">
+          {/*
+            Categories block — Eyebrow über den Chips statt inline
+            "Kategorien:" Label. Mirrors die Eyebrow-Geste von der
+            Tools-Sektion und der TL;DR; gibt dem Footer typografisch
+            eine klare Struktur.
+          */}
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">
+              Kategorien
+            </p>
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              {post.categories.map((cat) => (
+                <Link
+                  key={cat}
+                  href={`/blog/kategorie/${categorySlug(cat)}`}
+                  className="rounded-sm border border-[var(--color-border)] px-2 py-1 text-[var(--color-ink)]/75 transition-colors hover:border-[var(--color-fairway)] hover:text-[var(--color-fairway)]"
+                >
+                  {cat}
+                </Link>
+              ))}
+            </div>
           </div>
 
           <Link
