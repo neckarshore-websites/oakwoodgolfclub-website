@@ -167,14 +167,15 @@ export default async function BlogPostPage(
         {/*
           Bild-Disclaimer für Hersteller- und Produktbilder. User-Direktive
           04-18: "wenn ihr nicht wollt, nehmt eure Bilder sofort raus."
-          Höflich formuliert, sichtbar aber unaufdringlich. Greift heute auf
-          jedem Beitrag — wir können das in v2 selektiv pro Post über ein
-          frontmatter-Flag machen, falls die Anzahl bilderloser Posts wächst.
+          Restrained typographic treatment ohne Kasten — passt zur Landing-
+          Designsprache (kein "callout box"-Klischee). Eine Hairline trennt
+          oben, das Auge erkennt: Fine-Print am Footer, nicht Hauptinhalt.
         */}
-        <aside className="mt-10 rounded-sm border border-[var(--color-border)] bg-[var(--color-sand)]/30 p-4 text-xs leading-relaxed text-[var(--color-ink)]/55">
-          <strong className="text-[var(--color-ink)]/70">
-            Bild- und Markenhinweis:
-          </strong>{" "}
+        <aside className="mt-10 max-w-2xl border-t border-[var(--color-border)] pt-5 text-xs leading-relaxed text-[var(--color-ink)]/55">
+          <strong className="font-semibold uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">
+            Bild- und Markenhinweis
+          </strong>
+          <br />
           Produkt- und Pressebilder werden ausschließlich redaktionell zur
           Beitragsillustration verwendet. Marken- und Bildrechte verbleiben bei
           den jeweiligen Herstellern. Wenn du Rechteinhaber bist und eine Nutzung

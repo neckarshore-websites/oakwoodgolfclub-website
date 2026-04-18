@@ -197,39 +197,47 @@
     border-top: 1px solid var(--color-border);
   }
 
-  /* TL;DR – Fazit callout. Mirrors the Tools-Section visual treatment
-     on the landing page (sand wash + gold-deep eyebrow) so the colour
-     vocabulary stays consistent between Landing and Blog without
-     being loud. Per User direction 04-18: minimal-invasive Farb-Element
-     auf den Blog-Seiten — TL;DR ist der Lead-Block und damit der
-     natürliche Kandidat. */
+  /* TL;DR – Fazit standfirst. Magazin-Pattern: 2px-Gold-Akzent-Linie ÜBER
+     dem Eyebrow (mirrors die MoneyBack-Sektion auf der Landing), Eyebrow
+     in der gleichen Tools-Section-Typografie, Body etwas grösser als die
+     reguläre Prose, abgeschlossen durch eine Hairline-Trennlinie zur
+     ersten richtigen H2 darunter. KEIN Kasten — Box-Pattern war Wikipedia-
+     Infobox-Klischee und passte nicht zur restrained Landing-Sprache. */
   .ogc-prose .ogc-tldr {
-    /* Slightly wider than the regular reading column so the callout
-       breathes and visually escapes the text grid. Keeps a hard cap so
-       it doesn't run all the way to the article edge. */
-    max-width: min(72ch, 100%);
-    margin-top: 0.5em;
-    margin-bottom: 2.4em;
-    padding: 1.25em 1.4em 1.4em;
-    background-color: color-mix(in srgb, var(--color-sand) 80%, transparent);
-    border-left: 3px solid var(--color-gold);
-    border-radius: 2px;
+    margin-top: 0.25em;
+    margin-bottom: 2.5em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid var(--color-border);
   }
 
   .ogc-prose .ogc-tldr__eyebrow {
-    margin: 0 0 0.5em;
-    font-size: 0.72rem;
+    /* 2px-Gold-Akzent über dem Eyebrow — same Geste wie auf der
+       MoneyBack-Sektion der Landing. */
+    position: relative;
+    margin: 0 0 0.65em;
+    padding-top: 0.9em;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-gold-deep);
   }
 
+  .ogc-prose .ogc-tldr__eyebrow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2.25rem;
+    height: 2px;
+    background-color: var(--color-gold);
+  }
+
   .ogc-prose .ogc-tldr__body {
     margin: 0;
-    font-size: 1.05em;
-    line-height: 1.6;
-    color: color-mix(in srgb, var(--color-ink) 92%, transparent);
+    font-size: 1.15em;
+    line-height: 1.65;
+    color: var(--color-ink);
   }
 
   .ogc-prose .ogc-tldr__body strong {
