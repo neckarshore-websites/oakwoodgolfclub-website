@@ -23,7 +23,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 Die ideale Konfiguration Deiner Wedges für bessere Ergebnisse auf dem Golfplatz
-/blog/images/golf-g607d33b06_1280.jpg,
+![Wedges auf der Driving Range](/blog/images/golf-g607d33b06_1280.jpg)
 
 ```
 Image by Stefan Waldvogel from Pixabay

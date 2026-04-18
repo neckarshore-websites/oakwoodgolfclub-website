@@ -14,7 +14,7 @@ draft: false
 ---
 ## Wie geht's beim Golf? Ich habe hier ein paar coole Tipps für Dich, wie Du Dein Bunker-Spiel verbessern kannst.
 
-/blog/images/golf-bunker-shot.jpg
+![Golfer im Bunker beim Sand-Schlag](/blog/images/golf-bunker-shot.jpg)
 
 ```
 Image by Stefan Waldvogel from Pixabay
