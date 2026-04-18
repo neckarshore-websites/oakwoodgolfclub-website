@@ -84,10 +84,15 @@ const SALUTATION_LABEL: Record<NonNullable<SignupFormData["salutation"]>, string
   "": "",
 };
 
-const REFERRAL_LABEL: Record<SignupFormData["referralSource"], string> = {
+// referralSource is optional (Session D: user may skip — schema is
+// `.enum(...).optional().or(z.literal(""))`, so the type unions in `""` and
+// `undefined`). The lookup below is guarded by a truthy check before use;
+// the `""` entry is kept defensively and mirrors SALUTATION_LABEL's style.
+const REFERRAL_LABEL: Record<NonNullable<SignupFormData["referralSource"]>, string> = {
   empfehlung: "Empfehlung",
   internet: "Internet",
   sonstiges: "Sonstiges",
+  "": "",
 };
 
 function formatAddress(data: SignupFormData): string {
@@ -110,6 +115,10 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     ? SALUTATION_LABEL[data.salutation]
     : "";
 
+  const referralLabel = data.referralSource
+    ? REFERRAL_LABEL[data.referralSource]
+    : "";
+
   const text =
     header("Neue Mitgliedschafts-Anmeldung — oakwoodgolfclub.de") +
     field("Anrede", salutationLabel) +
@@ -120,7 +129,7 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     receivedAt() +
     "\n" +
     multilineField("Postanschrift", formatAddress(data)) +
-    field("Wie gefunden", REFERRAL_LABEL[data.referralSource]) +
+    field("Wie gefunden", referralLabel) +
     field("Geworben durch", data.referredBy) +
     field("Gruppe", data.group) +
     "\n" +
