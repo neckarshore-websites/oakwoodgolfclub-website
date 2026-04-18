@@ -234,9 +234,11 @@
   }
 
   .ogc-prose .ogc-tldr__body {
+    /* Bewusst KEIN size-Bump — der Eyebrow plus die Gold-Akzent-Linie
+       machen die Sektion visuell deutlich genug, ohne dass die Schrift
+       grösser sein muss als der Body. User-Feedback 04-18: "die wirkt
+       größer als der Text unten drunter. Das ist nicht notwendig." */
     margin: 0;
-    font-size: 1.15em;
-    line-height: 1.65;
     color: var(--color-ink);
   }
 
