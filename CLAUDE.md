@@ -42,7 +42,8 @@ Same quality bar as `neckarshore-website`, `rauhut-website`, `goldoni-website`:
 - No JS frameworks beyond React/Next.js
 - Self-hosted fonts (DSGVO)
 - Commit after each section / logical block
-- Do NOT push to production domain until the User approves AND a test-membership signup + renewal + handicap-update round-trip has passed end-to-end
+- `git push` to GitHub `main` is fine — it's code-sync, not a live event. Vercel does NOT auto-deploy this repo (Backlog #15 still open), so a push cannot reach members on its own.
+- **Do NOT cut over DNS to `oakwoodgolfclub.de`** (Backlog item B14 / #11) until the User approves AND a test-membership signup + renewal + handicap-update round-trip has passed end-to-end against the Vercel preview. The DNS cutover — not git push, not `vercel deploy` to a preview — is the single point at which 300 paying members start seeing the new site. Treat it accordingly.
 
 ## Definition of Done
 
