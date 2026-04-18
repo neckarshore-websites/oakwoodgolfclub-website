@@ -11,7 +11,10 @@
     "typecheck": "tsc --noEmit",
     "smoke:templates": "tsx scripts/smoke-autoresponse.ts",
     "smoke:smtp": "tsx --env-file=.env.local scripts/smoke-smtp-connect.ts",
-    "smoke:send": "tsx --env-file=.env.local scripts/smoke-smtp-send.ts"
+    "smoke:send": "tsx --env-file=.env.local scripts/smoke-smtp-send.ts",
+    "test:e2e": "playwright test",
+    "test:e2e:prod": "E2E_BASE_URL=https://oakwoodgolfclub-website.vercel.app playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.5",
+    "@playwright/test": "1.59.1",
     "@tailwindcss/postcss": "4.2.2",
     "@types/node": "25.6.0",
     "@types/nodemailer": "8.0.0",
@@ -36,6 +40,7 @@
     "autoprefixer": "10.5.0",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.4",
+    "playwright": "1.59.1",
     "postcss": "8.5.10",
     "tailwindcss": "4.2.2",
     "tsx": "4.21.0",
