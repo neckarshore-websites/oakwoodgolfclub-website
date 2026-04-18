@@ -326,7 +326,7 @@ export function composeContactAutoresponse(
     autoresponseFooter();
 
   return {
-    subject: "oakwoodgolfclub.de - Nachricht erhalten - Wie geht es weiter?",
+    subject: "Oakwoodgolfclub.de - Nachricht erhalten - Wie geht es weiter?",
     text,
     replyTo: SITE.email,
   };
@@ -374,7 +374,7 @@ export function composeSignupAutoresponse(
 
   return {
     subject:
-      "oakwoodgolfclub.de - Neuanmeldung erhalten - Wie geht es weiter?",
+      "Oakwoodgolfclub.de - Neuanmeldung erhalten - Wie geht es weiter?",
     text,
     replyTo: SITE.email,
   };
@@ -410,7 +410,7 @@ export function composeRenewalAutoresponse(
 
   return {
     subject:
-      "oakwoodgolfclub.de - Verlängerung erhalten - Wie geht es weiter?",
+      "Oakwoodgolfclub.de - Verlängerung erhalten - Wie geht es weiter?",
     text,
     replyTo: SITE.email,
   };
