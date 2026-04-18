@@ -48,25 +48,25 @@ export function MoneyBackGuarantee() {
             kurze Mail an{" "}
             <a
               href={`mailto:${SITE.email}`}
-              className="text-[var(--color-fairway)] underline-offset-4 hover:underline hover:text-[var(--color-fairway-hover)]"
+              className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
             >
               {SITE.email}
             </a>{" "}
             genügt — wir erstatten den Beitrag über denselben Zahlungsweg
             zurück, auf dem du ihn überwiesen hast.
           </p>
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[var(--color-ink)]/55">
+          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[var(--color-ink)]/65">
             Seit der Gründung des Clubs wurde diese Garantie vier- bis
             fünfmal in Anspruch genommen — jedes Mal hat das Mitglied sein
             Geld zurück bekommen. Uns ist wichtiger, dass niemand
             unzufrieden Mitglied bleibt, als dass wir jeden Beitrag
             einbehalten.
           </p>
-          <p className="mt-10 text-xs uppercase tracking-[0.18em] text-[var(--color-ink)]/45">
+          <p className="mt-10 text-xs uppercase tracking-[0.18em] text-[var(--color-ink)]/65">
             Vertraglich verankert in{" "}
             <Link
               href="/agb"
-              className="text-[var(--color-fairway)] underline-offset-4 hover:underline"
+              className="text-[var(--color-fairway)] underline underline-offset-4"
             >
               AGB § 8
             </Link>

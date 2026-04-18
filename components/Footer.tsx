@@ -106,7 +106,7 @@ export function Footer() {
           <p>Seit {SITE.founded}. Betrieben aus Thailand. Mitglieder in der DACH-Region.</p>
         </div>
 
-        <p className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-[var(--color-parchment)]/35">
+        <p className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-[var(--color-parchment)]/70">
           Zuletzt aktualisiert:{" "}
           <time dateTime={SITE_UPDATED}>{formatUpdatedAtDe(SITE_UPDATED)}</time>
         </p>
