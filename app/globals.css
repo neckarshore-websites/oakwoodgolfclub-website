@@ -21,7 +21,7 @@
   --color-border: #e5e7eb;            /* Hairlines, dividers */
   --color-fairway: #1b6640;           /* Primary brand accent */
   --color-fairway-hover: #2a8a52;     /* Hover / secondary accent */
-  --color-fairway-bright: #7dd3a3;    /* Mint-green for highlights on dark / image bg — AA Large on mid-tone images */
+  --color-fairway-bright: #52b27f;    /* Forest-mint for highlights on dark / image bg — between fairway-hover (#2a8a52) and full mint */
   --color-gold: #d4a12e;              /* Sparse premium accent — NOT a fill */
   --color-gold-deep: #7a5a0e;         /* Dark gold for small text on light bg (AA 5.94:1 on parchment) */
   --color-sand: #f3ead4;              /* Warm background wash (optional) */
@@ -273,5 +273,30 @@
     font-weight: 600;
     color: var(--color-ink);
     background-color: color-mix(in srgb, var(--color-sand) 60%, transparent);
+  }
+}
+
+/* Hero image auto-swap (A/B-preview only; removed after User entscheidet).
+   Top image fades over bottom on a 10s loop → each image visible ~5s with
+   0.5s crossfade. Respects `prefers-reduced-motion` as a hard opt-out. */
+@keyframes hero-image-swap {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-swap-top {
+  animation: hero-image-swap 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-swap-top {
+    animation: none;
   }
 }

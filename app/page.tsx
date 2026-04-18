@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HeroOverlay } from "@/components/sections/HeroOverlay";
+import { HeroOverlaySwap } from "@/components/sections/HeroOverlaySwap";
 import { ValueProp } from "@/components/sections/ValueProp";
 import { PricingCards } from "@/components/sections/PricingCards";
 import { MoneyBackGuarantee } from "@/components/sections/MoneyBackGuarantee";
@@ -13,13 +14,13 @@ type SearchParams = Promise<{ hero?: string | string[] }>;
 
 /**
  * Homepage-Hero-A/B (temporär, User-Vergleich 2026-04-18):
- * - Default (`/`)          → Sonnenaufgang-Fairway (topimage.jpg aus
- *                             der Live-WordPress-Site, canonical,
- *                             indexable)
- * - `?hero=vintage`        → 1906 B&W "Opening of Dollar Golf
- *                             Course" (noindex preview)
+ * - Default (`/`)          → Sonnenaufgang-Fairway (canonical, indexable)
+ * - `?hero=vintage`        → 1906 B&W "Opening of Dollar Golf Course"
+ *                             (noindex preview)
+ * - `?hero=swap`           → Auto-Swap zwischen beiden Bildern, alle
+ *                             5s CSS-crossfade (noindex preview)
  *
- * Einer bleibt nach User-Entscheidung; der andere wird entfernt.
+ * Nach User-Entscheidung bleibt einer, die anderen Previews fliegen.
  */
 
 export async function generateMetadata({
@@ -29,13 +30,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const params = await searchParams;
   const variant = typeof params.hero === "string" ? params.hero : undefined;
-  const isVintagePreview = variant === "vintage";
+  const isPreview = variant === "vintage" || variant === "swap";
 
   return {
     title: `${SITE.name} — Fernmitgliedschaft im Golfclub für 55 Euro`,
     description: SITE.description,
     alternates: { canonical: "/" },
-    ...(isVintagePreview && {
+    ...(isPreview && {
       robots: { index: false, follow: false },
     }),
   };
@@ -48,18 +49,22 @@ export default async function HomePage({
 }) {
   const params = await searchParams;
   const variant = typeof params.hero === "string" ? params.hero : undefined;
-  const isVintage = variant === "vintage";
+
+  const heroNode =
+    variant === "swap" ? (
+      <HeroOverlaySwap />
+    ) : variant === "vintage" ? (
+      <HeroOverlay
+        imageSrc="/brand/hero-golfplatz.webp"
+        objectPosition="50% 20%"
+      />
+    ) : (
+      <HeroOverlay />
+    );
 
   return (
     <>
-      {isVintage ? (
-        <HeroOverlay
-          imageSrc="/brand/hero-golfplatz.webp"
-          objectPosition="50% 20%"
-        />
-      ) : (
-        <HeroOverlay />
-      )}
+      {heroNode}
       <ValueProp />
       <PricingCards />
       <FAQTeaser />
