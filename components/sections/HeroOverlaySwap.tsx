@@ -92,7 +92,7 @@ export function HeroOverlaySwap() {
         </div>
 
         <p className="mt-6 text-sm text-white/75">
-          Banküberweisung · Kein Abo · Verlängerung aktiv durch dich
+          Banküberweisung oder PayPal · Kein Abo · Verlängerung aktiv durch dich
         </p>
       </div>
     </section>

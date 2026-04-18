@@ -21,8 +21,9 @@ export function PricingCards() {
             Zwei klare Optionen. Keine versteckten Kosten.
           </h2>
           <p className="mt-4 max-w-xl text-base text-[var(--color-ink)]/70">
-            Bezahlt wird per Banküberweisung. Die 12-Monats-Laufzeit beginnt an
-            dem Tag, den du wählst. Keine automatische Verlängerung.
+            Bezahlt wird per Banküberweisung oder PayPal. Die
+            12-Monats-Laufzeit beginnt an dem Tag, den du wählst. Keine
+            automatische Verlängerung.
           </p>
         </div>
 

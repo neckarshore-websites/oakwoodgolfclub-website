@@ -61,8 +61,8 @@ export default function MitgliedWerdenPage() {
                 Zahlung
               </dt>
               <dd className="mt-1 text-[var(--color-ink)]/75">
-                Banküberweisung. Kein Abo, kein Lastschrift-Einzug,
-                kein Auto-Renewal.
+                Banküberweisung oder PayPal. Kein Abo, kein
+                Lastschrift-Einzug, kein Auto-Renewal.
               </dd>
             </div>
             <div>
