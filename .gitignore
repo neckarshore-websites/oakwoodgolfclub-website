@@ -63,3 +63,4 @@ scratch/
 *.sqlite
 *.sqlite3
 backup-*.zip
+.env*.local
