@@ -84,6 +84,7 @@ export function composeContactEmail(data: ContactFormData): EmailComposition {
     field("Name", data.name) +
     field("E-Mail", data.email) +
     receivedAt() +
+    field("Datenschutz zugestimmt", data.consent ? "Ja" : "Nein") +
     "\n" +
     multilineField("Nachricht", data.message) +
     rawDataBlock(data);
@@ -149,6 +150,7 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     field("Handicap", data.handicap) +
     field("Gewünschtes Startdatum", formatStartDate(data.startDate)) +
     receivedAt() +
+    field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein") +
     "\n" +
     multilineField("Postanschrift", formatAddress(data)) +
     field("Wie gefunden", referralLabel) +
@@ -188,6 +190,7 @@ export function composeRenewalEmail(
     field("Aktuelle E-Mail", data.email) +
     field("Aktuelles Handicap", data.handicap) +
     receivedAt() +
+    field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein") +
     "\n" +
     multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
     multilineField("Nachricht", data.message) +

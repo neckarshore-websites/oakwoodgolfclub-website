@@ -13,6 +13,7 @@ import {
 } from "@/components/forms/FormField";
 import {
   FormStatus,
+  FormSuccessPanel,
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
@@ -49,6 +50,15 @@ function todayString(): string {
 export function SignupForm() {
   const [state, formAction] = useActionState(submitSignupAction, INITIAL);
   const errors = state.fieldErrors ?? {};
+
+  if (state.ok === true && state.status === "success") {
+    return (
+      <FormSuccessPanel
+        title="Vielen Dank für deine Anmeldung."
+        description="Wir prüfen deine Angaben und schicken dir innerhalb von 48 Stunden per E-Mail die Zahlungsdetails. Sobald deine Mitgliedschaft aktiv ist, kommt die Mitgliederkarte per Post."
+      />
+    );
+  }
 
   return (
     <form
@@ -164,6 +174,7 @@ export function SignupForm() {
         name="referredBy"
         label="Geworben durch"
         placeholder="Name des Mitglieds (optional)"
+        autoComplete="off"
         error={errors.referredBy}
       />
 
@@ -171,6 +182,7 @@ export function SignupForm() {
         name="group"
         label="Gruppe"
         placeholder="Gruppenanmeldung? Name der Gruppe (optional)"
+        autoComplete="off"
         error={errors.group}
       />
 

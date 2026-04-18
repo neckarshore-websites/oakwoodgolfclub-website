@@ -12,6 +12,7 @@ import {
 } from "@/components/forms/FormField";
 import {
   FormStatus,
+  FormSuccessPanel,
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
@@ -27,6 +28,15 @@ const COUNTRY_OPTIONS = COUNTRY_VALUES.map((country) => ({
 export function RenewalForm() {
   const [state, formAction] = useActionState(submitRenewalAction, INITIAL);
   const errors = state.fieldErrors ?? {};
+
+  if (state.ok === true && state.status === "success") {
+    return (
+      <FormSuccessPanel
+        title="Vielen Dank für deine Verlängerung."
+        description="Wir haben deine Angaben erhalten und schicken dir innerhalb von 48 Stunden per E-Mail die Zahlungsdetails für die neue Saison."
+      />
+    );
+  }
 
   return (
     <form

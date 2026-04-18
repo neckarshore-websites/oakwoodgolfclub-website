@@ -11,6 +11,7 @@ import {
 } from "@/components/forms/FormField";
 import {
   FormStatus,
+  FormSuccessPanel,
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
@@ -20,6 +21,15 @@ const INITIAL: FormActionState = { ok: null };
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContactAction, INITIAL);
   const errors = state.fieldErrors ?? {};
+
+  if (state.ok === true && state.status === "success") {
+    return (
+      <FormSuccessPanel
+        title="Vielen Dank für deine Nachricht."
+        description="Deine Anfrage ist bei uns angekommen. Wir melden uns in der Regel innerhalb von 48 Stunden per E-Mail bei dir."
+      />
+    );
+  }
 
   return (
     <form
