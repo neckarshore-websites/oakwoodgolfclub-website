@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { ValueProp } from "@/components/sections/ValueProp";
 import { PricingCards } from "@/components/sections/PricingCards";
+import { MoneyBackGuarantee } from "@/components/sections/MoneyBackGuarantee";
 import { FAQTeaser } from "@/components/sections/FAQTeaser";
 import { CTASection } from "@/components/sections/CTASection";
 import { JsonLd, offersSchema } from "@/components/JsonLd";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Hero />
       <ValueProp />
       <PricingCards />
+      <MoneyBackGuarantee />
       <FAQTeaser />
       <CTASection />
       <div className="container-page pb-12">
