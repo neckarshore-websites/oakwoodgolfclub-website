@@ -121,6 +121,25 @@ Die Karte ist das, was du im Pro-Shop oder am Counter vorzeigst — kompakt, wie
       },
     ],
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 181 "Wo kommen die
+  // Mitglieder her". Dropped Fusion shortcodes AND the base64-encoded
+  // Google-My-Maps iframe (it embedded a private map showing member IDs,
+  // first names and membership end-dates — DSGVO-untragbar, out).
+  // Content: DACH-Schwerpunkt, Thailand als Ursprung, "Exoten"-Charme
+  // bleibt (User-confirmed: Zielgruppe sind Golfer, nicht Mittelstand-
+  // CTOs — Tonalität darf entspannt sein). Ersatz für die Karte als
+  // stilisierte anonymisierte Version ist Backlog-Item #37.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wo-kommen-die-mitglieder-her",
+    question: "Wo kommen die Mitglieder her?",
+    answer: `Die Mehrheit unserer Mitglieder lebt im DACH-Raum — Deutschland, Österreich, Schweiz. Dazu gehört historisch Thailand, das Ursprungsland des Clubs, wo die Handicap-Verwaltung lange ihren Sitz hatte.
+
+Dazu kommen über die Jahre einzelne Exoten: Mitglieder in Brasilien, Italien, England, Dänemark, Indien. Golf ist international — eine Fernmitgliedschaft passt zu jemandem, der den eigenen Platz nicht braucht, weil er ohnehin unterwegs ist.`,
+    category: "mitglieder",
+    published: true,
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
