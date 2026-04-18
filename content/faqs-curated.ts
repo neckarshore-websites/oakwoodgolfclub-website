@@ -165,6 +165,27 @@ Wir brauchen:
     category: "mitgliedschaft",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 391 "Wie kann ich
+  // die Mitgliedschaft verlängern". Same structural issues as wpId 183
+  // (broken nested list, D9-violation on Handicap wording, Du/Ihr-Mix,
+  // dass/das grammar error). Mirrored user decisions from FAQ 183:
+  // Form-Link only, Handicap neutral, Sonderwünsche dropped.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wie-kann-ich-die-mitgliedschaft-verlaengern",
+    question: "Wie kann ich die Mitgliedschaft verlängern?",
+    answer: `Am einfachsten über das [Verlängerungsformular](/mitgliedschaft-verlaengern) — aktuelle Daten eintragen, absenden, Bestätigung per E-Mail.
+
+Wir brauchen:
+
+- Aktuelle E-Mail-Adresse — möglichst privat, nicht beruflich. Berufliche Adressen wechseln, wir wollen dich auch im nächsten Jahr für die Verlängerung erreichen können.
+- Aktuelle Postanschrift — falls sich diese in den letzten 12 Monaten geändert hat
+- Dein Handicap
+- Wunsch-Startdatum der neuen 12 Monate — nahtlos oder mit Pause, z.B. bis zum nächsten Frühling`,
+    category: "mitgliedschaft",
+    published: true,
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
