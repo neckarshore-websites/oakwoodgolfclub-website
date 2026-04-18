@@ -77,9 +77,6 @@ export function PricingCards() {
                 / {PRICING.flight.term}
               </span>
             </div>
-            <p className="mt-2 text-xs text-[var(--color-muted)]">
-              €35,75 pro Person — statt 4 × €55 = €220
-            </p>
             <ul className="mt-8 space-y-3 text-sm text-[var(--color-ink)]/80">
               <li>· 4 offizielle Mitgliederkarten</li>
               <li>· Für Familie oder 4er-Flight</li>
