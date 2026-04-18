@@ -122,8 +122,7 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     ).toBeVisible();
   });
 
-  // FIXME(#33): Honeypot silent-drop broken — see contact.spec.ts for full notes.
-  test.fixme("TC-FORM-SIG-006 honeypot — Bot-Submit silently dropped", async ({
+  test("TC-FORM-SIG-006 honeypot — Bot-Submit silently dropped", async ({
     page,
   }) => {
     await fillHappyPath(page);

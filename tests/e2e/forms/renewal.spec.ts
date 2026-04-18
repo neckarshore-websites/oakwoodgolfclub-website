@@ -88,8 +88,7 @@ test.describe("Renewal-Form (/mitgliedschaft-verlaengern)", () => {
     ).toBeVisible();
   });
 
-  // FIXME(#33): Honeypot silent-drop broken — see contact.spec.ts for full notes.
-  test.fixme("TC-FORM-REN-005 honeypot — Bot-Submit silently dropped", async ({
+  test("TC-FORM-REN-005 honeypot — Bot-Submit silently dropped", async ({
     page,
   }) => {
     await fillHappyPath(page);

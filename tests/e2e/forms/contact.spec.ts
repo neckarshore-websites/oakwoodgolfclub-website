@@ -83,13 +83,7 @@ test.describe("Kontakt-Form", () => {
     ).toBeVisible();
   });
 
-  // FIXME(#33): Honeypot silent-drop broken. Zod schema rejects any non-empty
-  // `website` via z.string().max(0) BEFORE the Server Action's silent-drop
-  // branch runs. Result: a bot (or a password-manager auto-fill) triggers a
-  // visible validation-error banner instead of a silent success. Waiting on
-  // user bug-inventory (Briefing §1) before fixing — likely schema relaxation
-  // to z.string().optional() so the Action's explicit honeypot branch takes over.
-  test.fixme("TC-FORM-CON-006 honeypot — Bot-Submit silently dropped (Success-UI, keine Verarbeitung)", async ({
+  test("TC-FORM-CON-006 honeypot — Bot-Submit silently dropped (Success-UI, keine Verarbeitung)", async ({
     page,
   }) => {
     await page.getByLabel("Name").fill(mockContact.name);

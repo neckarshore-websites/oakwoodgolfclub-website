@@ -26,10 +26,18 @@ const consentField = z.literal("on", {
   message: "Bitte die Datenschutzhinweise bestätigen.",
 });
 
-// Honeypot — accepts empty string or missing; rejects anything else on the
-// server. Silent-drop logic lives in the Server Action (schema still passes
-// because a bot submission is usually still valid on other fields).
-const honeypotField = z.string().max(0, "").optional().or(z.literal(""));
+// Honeypot — accepts anything the bot submits. The silent-drop check lives
+// in the Server Action (`if (parsed.data.website && website.length > 0)`),
+// NOT in the schema.
+//
+// Previously this used `z.string().max(0, "")` which rejected any non-empty
+// value at parse time — but that meant a bot (or a password-manager auto-
+// fill trigger) hit a visible validation-error banner instead of the
+// intended silent Success-UI. The Server Action's explicit silent-drop
+// branch never ran because the schema rejected the payload first.
+// (Red-Green caught this in Session D — see FIXME comments removed in the
+// same commit.)
+const honeypotField = z.string().optional().or(z.literal(""));
 
 // Shared start-date format — YYYY-MM-DD from <input type="date">, must be
 // today or later. We don't look further ahead than ~5 years to catch
