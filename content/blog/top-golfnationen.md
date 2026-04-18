@@ -2,7 +2,7 @@
 title: "Top-Golfnationen"
 date: "2023-04-16"
 modified: "2024-07-10"
-excerpt: "Wahrscheinlich gibt es in Österreich auch entsprechend mehr Zahnärzte und Unternehmensberater als in Deutschland."
+excerpt: "Golfer pro Einwohner im internationalen Vergleich: 1:14 in Irland, 1:23 in Schottland, 1:149 in Deutschland, 1:285.000 in Afghanistan."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

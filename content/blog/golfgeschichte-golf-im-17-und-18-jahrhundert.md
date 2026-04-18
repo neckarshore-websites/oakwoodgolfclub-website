@@ -2,7 +2,7 @@
 title: "Golfgeschichte - Golf im 17. und 18. Jahrhundert"
 date: "2023-04-15"
 modified: "2024-07-10"
-excerpt: "Wer das Spiel aus der Kolonialmacht in die amerikanischen Kolonien eingeführt hat, bleibt unbekannt. Doch dass in der amerikanischen Stadt Albany bereits in den Sechziger Jahren …"
+excerpt: "Erster Profi-Schlägerbauer 1603, erstes Länderspiel 1682, erster Club außerhalb Schottlands 1766 — wie Golf im 17. und 18. Jahrhundert seine Form bekam."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

@@ -2,7 +2,7 @@
 title: "42 positive Gedanken beim Golf"
 date: "2023-04-04"
 modified: "2024-07-10"
-excerpt: "In kaum einer Sportart hat man so viel Zeit zum Nachdenken wie im Golf. Umso besser sollte man seine Gedanken bewusst steuern können."
+excerpt: "Eine Mindmap der typischen Golfer-Gedanken — und warum die Sportpsychologie sagt: nur 3% einer Runde sind Schläge. Der Rest ist Kopf."
 categories:
   - "Training"
 author: "Oakwood Golf Club"

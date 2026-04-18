@@ -1,7 +1,7 @@
 ---
 title: "Golf Technik Tipp: Wie kannst Du beim Bunkerspiel dominieren?"
 date: "2023-04-05"
-excerpt: "/blog/images/golf-bunker-shot.jpg"
+excerpt: "Bunker-Technik in drei Schritten: stabile Stand-Basis, Ballposition vor dem linken Fuß, Loft und Bounce halten. Plus: wie Du den Bunker-Zustand liest."
 categories:
   - "Training"
 tags:

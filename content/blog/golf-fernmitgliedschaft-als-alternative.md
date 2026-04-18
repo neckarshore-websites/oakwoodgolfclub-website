@@ -2,7 +2,7 @@
 title: "Golf Fernmitgliedschaft als Alternative zur klassischen Golfclubmitgliedschaft"
 date: "2024-02-28"
 modified: "2024-07-10"
-excerpt: "Wenn die neue Golfsaison vor der Tür steht, stellt sich oft die Frage nach der Wahl der passenden Mitgliedschaft. In letzter Zeit erfreut sich die Golf Fernmitgliedschaft immer …"
+excerpt: "Klassische Mitgliedschaft kostet mehrere Tausend Euro im Jahr, Fernmitgliedschaft rund 200. Wann sich der Wechsel lohnt — und wo die Grenzen liegen."
 categories:
   - "Greenfees"
 author: "Oakwood Golf Club"

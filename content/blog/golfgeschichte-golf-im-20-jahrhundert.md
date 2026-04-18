@@ -2,7 +2,7 @@
 title: "Golfgeschichte - Golf im 20. Jahrhundert"
 date: "2022-04-15"
 modified: "2024-07-10"
-excerpt: "Die PGA Tour, die heute noch in den USA bei den Interessen der Profigolfer federführende PGA Tour, entstand während des Ersten Weltkriegs im Jahr 1916. Schon zu Beginn des 20 …"
+excerpt: "Olympia 1900, DGV 1907, PGA-Tour 1916, Dimples und Stahlschäfte, gemeinsame Regeln von USGA und R&A ab 1951 — wie Golf im 20. Jahrhundert global wurde."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

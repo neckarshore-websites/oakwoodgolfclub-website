@@ -2,7 +2,7 @@
 title: "Greenfees als Fernmitglied"
 date: "2023-08-15"
 modified: "2024-07-10"
-excerpt: "Eine Frage, die  immer wieder aufkommt ist, warum zahle ich als Fernmitglied erhöhte Greenfees. Eine meiner Antworten ist dann folgendes Beispiel aus der realen Welt und meiner …"
+excerpt: "Lokale Mitgliedschaft 1.140 € im Jahr plus Greenfee, Fernmitgliedschaft 55 € plus Greenfee: ein konkretes Beispiel aus der Region Stuttgart, wann sich was rechnet."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

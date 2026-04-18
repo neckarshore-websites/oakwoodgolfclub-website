@@ -2,7 +2,7 @@
 title: "Schau hinter die Greens"
 date: "2023-04-08"
 modified: "2023-04-07"
-excerpt: "Golf ist weit mehr als nur ein nettes Spiel im Freien. Es ist ein Sport, der Körper und Geist stärkt und eine wunderbare Gelegenheit bietet, sich zu entspannen und die Natur zu …"
+excerpt: "Konzentration, Ausdauer, Netzwerk und Stress-Reset in einer Disziplin: warum Golf für viele zum ultimativen Sport für Körper und Geist wird."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

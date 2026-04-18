@@ -2,7 +2,7 @@
 title: "Mitglieder pro Land"
 date: "2024-01-15"
 modified: "2024-07-10"
-excerpt: "Selbst unter den 1% sind noch weiter deutschsprachige Golfer, die es in die weite Welt verstreut hat und die vor Ort eine Fernmitgliedschaft benötigen."
+excerpt: "OGC-Mitgliederverteilung: 52% Deutschland, 42% Österreich, 5% Schweiz, 1% Rest der Welt. Warum gerade Österreich überproportional vertreten ist."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

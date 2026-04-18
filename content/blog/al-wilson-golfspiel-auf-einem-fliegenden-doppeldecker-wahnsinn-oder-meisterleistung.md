@@ -1,7 +1,7 @@
 ---
 title: "Al Wilson: Golfspiel auf einem fliegenden Doppeldecker – Wahnsinn oder Meisterleistung?"
 date: "2025-05-31"
-excerpt: "Golf gilt als traditionsreicher und ruhiger Sport. Doch der US-amerikanische Stuntpilot Al Wilson bewies in den 1920er-Jahren das Gegenteil: Er spielte Golf – auf einem fliegenden …"
+excerpt: "1920er, USA: Stuntpilot Al Wilson schlägt einen Golfball vom Oberflügel eines fliegenden Doppeldeckers — die waghalsigste Szene der Golfgeschichte."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

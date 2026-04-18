@@ -2,7 +2,7 @@
 title: "Lieblingsclub in Thailand"
 date: "2022-04-13"
 modified: "2024-07-10"
-excerpt: "Der Club liegt in den Bergen von Koh Samui und ist in 20 Minuten bequem von Stränden Chaweng oder Lamai aus zu erreichen. Wenn man eine Runde auf dem Kurs gebucht hat, wird man im …"
+excerpt: "Santiburi Samui Country Club, Koh Samui: 18 Löcher Par 72, 6.237 Meter durch Kokospalmen und Urwald — einer dieser Plätze, die man einmal gespielt haben sollte."
 categories:
   - "Golfplätze"
 author: "Oakwood Golf Club"

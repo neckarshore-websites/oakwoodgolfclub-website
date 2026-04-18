@@ -2,7 +2,7 @@
 title: "KI-generierte Golfbilder: Amüsante Pannen und kreative Fehltritte"
 date: "2023-04-09"
 modified: "2024-06-02"
-excerpt: "Golf und künstliche Intelligenz (KI) sind zwei Begriffe, die man nicht unbedingt sofort miteinander in Verbindung bringen würde. Doch in der Welt der KI-generierten Bilder treffen …"
+excerpt: "Mehr Bälle als Tees, Schläger wie Angelruten, anatomisch fragwürdige Schwung-Posen: warum KI bei Golfbildern (noch) so spektakulär scheitert."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

@@ -2,7 +2,7 @@
 title: "DGV - Stetiges Wachstum der „ältesten“ Golfnation..."
 date: "2015-11-15"
 modified: "2020-01-08"
-excerpt: "Laut dem Artikel Stetiges Wachstum bei den Golfspielern auf der Webseite des DGV auf golf.de \"erfreute sich der Golfsport Im Jahr 2011 großer Beliebtheit. Nach den neuesten Zahlen …"
+excerpt: "624.569 organisierte Golfer, 2,4% Wachstum, Spitze in Europa: ein Blick auf die DGV-Zahlen 2011 — und die offene Frage nach dem Nachwuchs."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

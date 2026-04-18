@@ -2,7 +2,7 @@
 title: "Golfgeschichte - Golf im 19. Jahrhundert"
 date: "2024-04-15"
 modified: "2025-05-31"
-excerpt: "Französische Golfsportlerinnen gründeten ein kontinentaleuropäisches Pendant bereits 1856 in der südfranzösischen Stadt Pau.Die deutschen Golfer zogen erst in der boomenden …"
+excerpt: "Erstes Damenturnier 1810, der Hickory-Schaft, der Gutta-Ball, der Haskell-Ball: wie das 19. Jahrhundert Golf modernisierte und die USGA gründete."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"

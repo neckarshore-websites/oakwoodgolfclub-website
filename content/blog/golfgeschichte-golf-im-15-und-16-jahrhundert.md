@@ -2,7 +2,7 @@
 title: "Golfgeschichte - Golf im 15. und 16. Jahrhundert"
 date: "2024-04-15"
 modified: "2025-05-31"
-excerpt: "Der Obrigkeit erschien es angemessen, die Untergebenen zum Bogenschießen anzuhalten, denn das wurde zur Erhaltung der Wehrhaftigkeit des Landes als wichtiger angesehen."
+excerpt: "1457 verbot König James II den Schotten Golf — Bogenschießen sei wichtiger fürs Land. Ein Streifzug durch das 15. und 16. Jahrhundert."
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"
