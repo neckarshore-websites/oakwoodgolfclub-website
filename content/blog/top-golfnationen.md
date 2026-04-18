@@ -22,10 +22,9 @@ Und ein Teil des Restes
 1:83 in Österreich
 1:149 in Deutschland
 1:8.000 in Brasilien
-In Afghanistan hat nach 30 Jahres der einzige [Golfclub](http://www.1golf.eu/club/kabul-golf-club/) des Landes im Jahre 2008 wiedereröffnet.
+In Afghanistan hat nach 30 Jahres der einzige [Golfclub](https://www.1golf.eu/club/kabul-golf-club/) des Landes im Jahre 2008 wiedereröffnet.
 Geschätzte Quote bei exakt einem Golfplatz
 1:285.000
-![](http://www.1golf.eu/images/dynamic/031379/1200-1200-60-0-0-0.jpg)
 
 ## Links
 

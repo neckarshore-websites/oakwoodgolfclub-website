@@ -13,5 +13,4 @@ draft: false
 ## ...sondern lange Schläge und Annäherungen
 
 Was soll man als Amateur trainieren? Die Antwort ist nicht Putten.
-Schaut Euch [dieses interessante Video](http://www.youtube.com/watch?v=Zb4CQX2n160) von Oliver Heuler mal an.
-Super empfehlenswert ist zudem [seine Webseite.](http://golfschule.heuler.de/ "Golfschule Heuler")
+Schaut Euch [dieses interessante Video](https://www.youtube.com/watch?v=Zb4CQX2n160) von Oliver Heuler mal an.

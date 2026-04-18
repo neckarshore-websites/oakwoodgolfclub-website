@@ -41,7 +41,7 @@ Ballmarker-Halter gibt es von vielen Anbietern. Die technischen Unterschiede sin
 
 Ein solides [magnetisches Ballmarker-Set](https://www.amazon.com/dp/B0CJS1XDF2) gibt es aktuell auf Amazon — mit Puttergriff-Halter und Marker-Disk. Preislich im niedrigen zweistelligen Bereich.
 
-Das ist ein repräsentatives Beispiel, keine exklusive Empfehlung. Vergleichbare Sets findest du bei Decathlon, Golfhaus oder direkt bei Marken wie [Greenside Design](https://greensidedesign.com) (Premium, gravierbar). Wenn du dich zwischen mehreren entscheidest, gilt: Haltekraft und Material sind die wichtigeren Kriterien, nicht das Aussehen.
+Das ist ein repräsentatives Beispiel, keine exklusive Empfehlung. Vergleichbare Sets findest du bei Decathlon, Golfhaus oder direkt bei Premium-Marken (gravierbar). Wenn du dich zwischen mehreren entscheidest, gilt: Haltekraft und Material sind die wichtigeren Kriterien, nicht das Aussehen.
 
 ## Für wen lohnt sich das?
 

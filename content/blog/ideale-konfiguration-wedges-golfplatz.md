@@ -46,5 +46,5 @@ Ich hoffe, ich konnte Dir mit diesem Artikel weiterhelfen und wünsche Dir viel 
 ## Links
 
 [Wie oft sollte man neue Wedges kaufen? (diygolf.de)](https://www.diygolf.de/blog/wie-oft-neue-wedges-kaufen/)
-[Welche Wedge brauche ich wirklich? – Der Golf Blog](http://dergolfblog.de/welche-wedge-brauche-ich-wirklich/)
+[Welche Wedge brauche ich wirklich? – Der Golf Blog](https://dergolfblog.de/)
 [Clubfixx erklärt: Wann sollte man sich neue Wedges kaufen? (golfpost.com)](https://www.golfpost.com/blogposts/113)

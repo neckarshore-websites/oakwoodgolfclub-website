@@ -39,7 +39,7 @@ Bei der Wiederherstellung des Gebiets in einer Art Ähnlichkeit mit einem Golfpl
 
 Leider hatten sich die [sowjetischen Panzer](https://www.spiegel.de/geschichte/sowjetische-invasion-in-afghanistan-1979-das-vietnam-der-russen-a-1301765.html "Das Vietnam der Russen") tief in die Fairways eingegraben.
 Es gab auch eine Zeit, in der sich die 8. Division der afghanischen Armee in einem Tal befand und der Golfplatz in ein Kreuzfeuer nächtlicher Kämpfe zwischen den aus dem Westen angreifenden Mudschaheddin und den sowjetischen und afghanischen Streitkräften geriet.
-Jahre zuvor gab es im Verlauf des Krieges in [Qargha](http://www.afghanistantimes.af/qargha-lake-a-transcendental-beauty-of-nature/ "Lake Qargha") 1987 eine bizarre Golfgeschichte.
+Jahre zuvor gab es im Verlauf des Krieges in Qargha 1987 eine bizarre Golfgeschichte.
 Es scheint, dass die Regierung und die Guerillas informell einen Waffenstillstand vereinbart haben, damit westliche Diplomaten in der Hauptstadt dorthin gehen können, um Golf zu spielen.
 Schließlich wurde der Kabul Golf Club im Jahr 2004 mit einem Bericht des Christian Science Monitor wiedereröffnet: „Der endgültige Minenräumungsprozess wurde aus Mitteln des US-Militärs finanziert, die auf die Abrüstung lokaler Kriegsherren abzielten, aber die Gewinne landeten tatsächlich in den Händen von a Kriegsherr, ein Befehlshaber der Nordallianz namens Adbul Rashid '.
 Seltsamerweise trugen Schafherden, die in der Region weideten, unwissentlich zur Auferstehung des Kurses bei, indem sie gelegentlich Minen zur Explosion brachten.
@@ -76,7 +76,7 @@ Die übrigen Mitglieder des Clubs sind in der Region geborene Afghanen.
 
 ### Mitgliedschaft
 
-"Diplomatische" [Mitglieder zahlen 500 US-Dollar pro Jahr](https://oakwoodgolfclub.de/golfclub/mitglied-werden/55-euro-fuer-ein-jahr-fernmitgliedschaft/ "Mitglieder zahlen im OGC nur 55 Euro pro Jahr"), einschließlich ihrer Familien, während die Einheimischen 300 US-Dollar (15.000 Afghani) erhalten.
+"Diplomatische" [Mitglieder zahlen 500 US-Dollar pro Jahr](/mitglied-werden "OGC: 55 Euro pro Jahr"), einschließlich ihrer Familien, während die Einheimischen 300 US-Dollar (15.000 Afghani) erhalten.
 Aber es gibt einen Vorbehalt, wie Abdul erklärte: „Wenn ich weiß, dass es den Einheimischen gut geht und sie Geld haben, berechne ich ihnen 300 US-Dollar pro Jahr, aber wenn ich weiß, dass sie mit Geld zu kämpfen haben, ist die Mitgliedschaft kostenlos.“
 Den Gästen werden 20 US-Dollar berechnet, mit denen sie den ganzen Tag spielen können.
 Jetzt gibt es ein Angebot? Ganztägiges Golf für nur 20 US-Dollar.
@@ -94,8 +94,8 @@ Afghanistan
 
 ## Quelle
 
-[Kabul Golf Club – The Most Dangerous Golf Course In The World](http://www.golfbytourmiss.com/2011/08/kabul-golf-club-the-most-dangerous-golf-course-in-the-world/)
-10 years ago by [Bernie McGuire](http://www.golfbytourmiss.com/author/bernie-mcguire/)
+[Kabul Golf Club – The Most Dangerous Golf Course In The World](https://www.golfbytourmiss.com/2011/08/kabul-golf-club-the-most-dangerous-golf-course-in-the-world/)
+10 years ago by [Bernie McGuire](https://www.golfbytourmiss.com/author/bernie-mcguire/)
 aus dem Englischen übersetzt
 Videos
 
@@ -107,4 +107,4 @@ Videos
 
 [Kabul Golf Club - Webseite](http://www.kabulgolfclub.org/ "Kabul Golf Club - Webseite")
 [Wikipedia - Kabul Golf Club](https://en.wikipedia.org/wiki/Kabul_Golf_Club)
-[Kabul Golf Club im Albrecht Golfführer](http://www.1golf.eu/club/kabul-golf-club/ "Kabul Golf Club im Albrecht Golfführer")
+[Kabul Golf Club im Albrecht Golfführer](https://www.1golf.eu/club/kabul-golf-club/ "Kabul Golf Club im Albrecht Golfführer")
