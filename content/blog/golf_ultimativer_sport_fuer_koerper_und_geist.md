@@ -47,5 +47,3 @@ Wenn du den Golfsport ausübst, wirst du schnell feststellen, dass es eine Herau
 Golf ist auch ein großartiger Sport für die körperliche Fitness, da es eine Menge an körperlicher Aktivität erfordert. Durch das Gehen auf dem Platz und das Schleppen deiner Ausrüstung verbrennst du Kalorien und stärkst deine Muskeln. Aber es geht nicht nur um körperliche Fitness. Golf kann auch helfen, deinen Geist zu schärfen, da es eine Menge an mentaler Disziplin erfordert.
 
 Du musst in der Lage sein, dich auf das Spiel zu konzentrieren und deine Gedanken von Ablenkungen fernzuhalten. Es erfordert auch eine Menge an Geduld und Ausdauer, um das Spiel zu meistern. Zusammenfassend ist Golf ein ultimativer Sport für Körper und Geist, der dich sowohl physisch als auch mental herausfordert und fördert.
-
-# Golf-Psychologie (2/12)
