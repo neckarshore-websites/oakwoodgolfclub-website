@@ -153,7 +153,22 @@ export default async function BlogPostPage(
 
         <Prose html={post.html} />
 
-        <footer className="mt-16 flex flex-wrap items-start justify-between gap-6 border-t border-[var(--color-border)] pt-10">
+        {/*
+          Footer-Reihenfolge nach User-Direktive 04-18:
+            1. Navigation (Vorheriger / Nächster Beitrag)
+            2. Kategorien + "Alle Beiträge"-Link
+            3. Bild- und Markenhinweis (Fine-Print ganz unten)
+
+          Rationale: Leser, die einen Post zu Ende haben, sollen zuerst
+          die Möglichkeit sehen, direkt weiterzuspringen — erst danach
+          die Kategorisierung, erst ganz zum Schluss das Kleingedruckte.
+        */}
+
+        <div className="mt-16 border-t border-[var(--color-border)] pt-10">
+          <PostNavigation prev={prev} next={next} />
+        </div>
+
+        <footer className="mt-10 flex flex-wrap items-start justify-between gap-6 border-t border-[var(--color-border)] pt-10">
           {/*
             Categories block — Eyebrow über den Chips statt inline
             "Kategorien:" Label. Mirrors die Eyebrow-Geste von der
@@ -203,8 +218,6 @@ export default async function BlogPostPage(
           nicht wünschst, schreib uns eine kurze Mail — wir entfernen das Bild
           umgehend.
         </aside>
-
-        <PostNavigation prev={prev} next={next} />
       </article>
     </>
   );

@@ -67,7 +67,7 @@ export function PostNavigation({
   return (
     <nav
       aria-label="Beitrags-Navigation"
-      className="mt-12 grid gap-4 md:grid-cols-2"
+      className="grid gap-4 md:grid-cols-2"
     >
       {prev ? <NavLink post={prev} direction="prev" /> : <div aria-hidden />}
       {next ? <NavLink post={next} direction="next" /> : <div aria-hidden />}
