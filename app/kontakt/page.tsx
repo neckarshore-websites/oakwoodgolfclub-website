@@ -23,8 +23,8 @@ export default function KontaktPage() {
       </h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/80">
         Schreib uns, ruf an, oder nutze das Formular — je nachdem, was für dich
-        am bequemsten ist. Wir antworten zeitnah — in der Regel innerhalb
-        weniger Tage, bearbeitet aus Thailand per E-Mail.
+        am bequemsten ist. Wir antworten zeitnah per E-Mail — in der
+        Regel innerhalb weniger Tage.
       </p>
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">
@@ -66,10 +66,10 @@ export default function KontaktPage() {
               </dd>
             </div>
             <div>
-              <dt className="text-[var(--color-muted)]">Betrieb</dt>
+              <dt className="text-[var(--color-muted)]">Seit</dt>
               <dd className="mt-0.5 text-[var(--color-ink)]/85">
-                Aus Thailand. Mitglieder primär in Deutschland, Österreich,
-                der Schweiz.
+                {SITE.founded} — {SITE.memberCount}+ Fernmitgliedschaften
+                im DACH-Raum.
               </dd>
             </div>
           </dl>
