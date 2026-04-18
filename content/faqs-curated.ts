@@ -234,6 +234,59 @@ Wenn du trotzdem schriftlich kündigen möchtest: [kurze Mail über das Kontaktf
     category: "mitgliedschaft",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): rewrite for wpId 396 "Wieviele
+  // Mitglieder hat der Club". Original Satz 2 verwies auf eine Karte
+  // ("Auf dieser Karte kann man sehen, wie sich die Mitglieder im
+  // DACH_Raum und darüber hinaus verteilen") die wir in FAQ 181 (wo-
+  // kommen-die-mitglieder-her) zusammen mit dem Fusion-Embed entfernt
+  // haben — Referenz nun tot. Plus Typo "DACH_Raum" mit Unterstrich.
+  // Verkürzt auf die Kern-Zahl, Verteilung steht in FAQ 181.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wieviele-mitglieder-hat-der-club-im-deutschsprachigen-raum",
+    question: "Wie viele Mitglieder hat der Club im deutschsprachigen Raum?",
+    answer: `Im DACH-Raum sind es rund 300 aktive Mitglieder.`,
+    category: "mitglieder",
+    published: true,
+  },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): polish for wpId 174 "Läuft die
+  // Mitgliedschaft für ein Kalenderjahr". Original hatte "Eintrittsdatum ,
+  // z.B." (Space vor Komma), "folgenden Monat" statt "folgenden Monats"
+  // (fehlender Genitiv-s), das 14 Jahre alte Beispiel-Datum "10. Juni
+  // 2012", und "Man kann" statt durchgängigem Du. Content-identisch,
+  // nur Grammatik + Zeitbezug + Du.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "laeuft-die-mitgliedschaft-fuer-ein-kalenderjahr-1-1-31-12-oder-fuer-ein-jahr-ab-",
+    question: "Läuft die Mitgliedschaft für ein Kalenderjahr (1.1.–31.12.) oder für ein Jahr ab Eintrittsdatum?",
+    answer: `Die Mitgliedschaft läuft ab deinem Wunsch-Eintrittsdatum für mindestens 12 Monate. Das Enddatum runden wir im Normalfall auf das Monatsende des folgenden Monats auf.
+
+Du kannst jederzeit einsteigen und zwölf Monate am Stück Golf spielen.
+
+Schließlich ist immer irgendwo gerade Saison.`,
+    category: "mitgliedschaft",
+    published: true,
+  },
+  // ---------------------------------------------------------------------------
+  // B13 Content-Pass (2026-04-18): polish for wpId 231 "Wird die
+  // Fernmitgliedschaft akzeptiert". Original hatte "Ägypten" in der
+  // Länderliste (post-2023 stale), "99%/1% der Clubs"-Framing
+  // (stilistisch zu forsch für die eigentliche Message), "Du/Dein"-
+  // Großschreibung statt lowercase. Behält den Greenfee-Spieler-mit-
+  // Golfbag-Opener (charmant + spricht Zielgruppe an), aber glättet
+  // den Rest.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wird-die-fernmitgliedschaft-von-anderen-clubs-in-deutschland-und-international-p",
+    question: "Wird die Fernmitgliedschaft von anderen Clubs in Deutschland und international akzeptiert?",
+    answer: `Du bist Greenfee-Spieler, der gerne unterschiedliche Plätze spielt und oft unterwegs ist? Immer mit dem Golfbag im Kofferraum oder im Fluggepäck? Die Fernmitgliedschaft passt dazu. Unsere Mitglieder spielen in Deutschland, Österreich, Schweiz, Frankreich, Portugal, Spanien, Irland und weltweit.
+
+Die meisten Clubs sind wirtschaftlich am Greenfee-Spiel interessiert und fragen nicht viel, solange ein Clubnachweis vorliegt — die Mitgliederkarte reicht. Eine kleine Minderheit bleibt bewusst auf eigene Mitglieder und deren Gäste beschränkt; das betrifft in der Praxis die wenigsten Plätze.`,
+    category: "akzeptanz",
+    published: true,
+  },
   {
     slug: "welche-app-fuer-scorecard-und-handicap-tracking",
     question: "Welche App empfehlt ihr fürs Scorecard- und Handicap-Tracking?",
