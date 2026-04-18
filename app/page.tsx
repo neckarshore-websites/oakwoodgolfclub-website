@@ -5,6 +5,7 @@ import { PricingCards } from "@/components/sections/PricingCards";
 import { FAQTeaser } from "@/components/sections/FAQTeaser";
 import { CTASection } from "@/components/sections/CTASection";
 import { JsonLd, offersSchema } from "@/components/JsonLd";
+import { UpdatedAt } from "@/components/UpdatedAt";
 import { SITE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -21,6 +22,9 @@ export default function HomePage() {
       <PricingCards />
       <FAQTeaser />
       <CTASection />
+      <div className="container-page pb-12">
+        <UpdatedAt />
+      </div>
       <JsonLd id="offer-schema" data={offersSchema()} />
     </>
   );

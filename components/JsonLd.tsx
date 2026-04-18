@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { SITE, PRICING } from "@/lib/site-config";
+import { PRICING, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 /**
  * Renders a JSON-LD block as a <script type="application/ld+json"> tag.
@@ -52,6 +52,11 @@ export function organizationSchema() {
 /**
  * Product + Offer schema for the two membership tiers.
  * Emitted on the homepage so pricing is machine-readable.
+ *
+ * `dateModified` signals freshness to AI search engines (Perplexity,
+ * ChatGPT-Search, Claude). Driven by SITE_UPDATED so the visible
+ * "Zuletzt aktualisiert" stamp and the structured-data freshness signal
+ * never drift apart.
  */
 export function offersSchema() {
   return {
@@ -61,6 +66,7 @@ export function offersSchema() {
     description:
       "Fernmitgliedschaft mit offizieller Mitgliederkarte. Akzeptiert auf rund 95 % der österreichischen Golfplätze.",
     brand: { "@type": "Organization", name: SITE.name },
+    dateModified: SITE_UPDATED,
     offers: [
       {
         "@type": "Offer",

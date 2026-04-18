@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE } from "@/lib/site-config";
+import { JsonLd } from "@/components/JsonLd";
+import { UpdatedAt } from "@/components/UpdatedAt";
+import { SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Über uns",
-  description: `Die Geschichte hinter dem ${SITE.name}. Gegründet ${SITE.founded}. Betrieben aus Thailand. Mitglieder in der DACH-Region.`,
+  description: `Die Geschichte hinter dem ${SITE.name}. Gegründet ${SITE.founded}. Betrieben aus Deutschland. Mitglieder in der DACH-Region.`,
   alternates: { canonical: "/ueber-uns" },
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: `${SITE.url}/ueber-uns`,
+  name: `Über uns — ${SITE.name}`,
+  dateModified: SITE_UPDATED,
 };
 
 /**
@@ -16,6 +26,7 @@ export const metadata: Metadata = {
 export default function UeberUnsPage() {
   return (
     <article className="container-page py-20 md:py-24">
+      <JsonLd id="about-page-schema" data={aboutPageSchema} />
       <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
         Über uns
       </p>
@@ -43,10 +54,10 @@ export default function UeberUnsPage() {
             haben können, ohne Teil eines traditionellen Clubs zu sein.
           </p>
           <p>
-            Heute wird der Club aus Thailand heraus betrieben. Die Mitgliederbasis
-            ist primär in Deutschland, Österreich und der Schweiz, mit einzelnen
-            Mitgliedern in Thailand, Brasilien, Großbritannien, Indien, Dänemark
-            und Italien.
+            Heute wird der Club aus Deutschland heraus betrieben. Die
+            Mitgliederbasis ist primär in Deutschland, Österreich und der
+            Schweiz, mit einzelnen Mitgliedern in Thailand, Brasilien,
+            Großbritannien, Indien, Dänemark und Italien.
           </p>
 
           <h2 className="mt-10 font-heading text-2xl tracking-tight">
@@ -91,7 +102,7 @@ export default function UeberUnsPage() {
               Betrieb
             </p>
             <p className="mt-1 font-heading text-2xl tracking-tight text-[var(--color-ink)]">
-              Thailand
+              Deutschland
             </p>
           </div>
         </aside>
@@ -122,6 +133,8 @@ export default function UeberUnsPage() {
           </Link>
         </div>
       </div>
+
+      <UpdatedAt />
     </article>
   );
 }

@@ -5,6 +5,31 @@
  * Business facts come from BRIEFING.md §3 — do not drift from that source.
  */
 
+/**
+ * Date of the last meaningful content / structural change to the site.
+ * Format: YYYY-MM-DD (parseable by Date()).
+ *
+ * Visible signal in the page footer ("Zuletzt aktualisiert: …") and used
+ * as `dateModified` in JSON-LD schemas for AI-freshness signals
+ * (Perplexity / ChatGPT-Search / Claude weight `dateModified` heavily for
+ * citation freshness — MASCHIN-SEO-Audit Must-Have).
+ *
+ * Bump this on any meaningful change to homepage / FAQ / about / pricing /
+ * legal. Trivial-edit-only commits do NOT need a bump.
+ */
+export const SITE_UPDATED = "2026-04-18";
+
+/** Render SITE_UPDATED as a German long date for visible UI text. */
+export function formatUpdatedAtDe(iso: string = SITE_UPDATED): string {
+  const date = new Date(`${iso}T00:00:00Z`);
+  return date.toLocaleDateString("de-DE", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
 export const SITE = {
   name: "Oakwood Golf Club",
   tagline: "Fernmitgliedschaft im Golfclub für 55 Euro",

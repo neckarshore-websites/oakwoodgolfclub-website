@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
+import { UpdatedAt } from "@/components/UpdatedAt";
 import {
   getFaqsByCategory,
   getPublishedCount,
   getPublishedFaqs,
 } from "@/lib/faqs/items";
 import { CATEGORY_LABEL } from "@/lib/faqs/types";
-import { SITE } from "@/lib/site-config";
+import { SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Häufig gestellte Fragen",
@@ -30,6 +31,7 @@ export default function FaqPage() {
   const faqPageSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    dateModified: SITE_UPDATED,
     mainEntity: all.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -121,6 +123,8 @@ export default function FaqPage() {
             Zum Kontaktformular
           </a>
         </footer>
+
+        <UpdatedAt />
       </article>
     </>
   );
