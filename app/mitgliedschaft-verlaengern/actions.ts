@@ -10,6 +10,10 @@ import {
   fieldErrorsFromZod,
   formDataToRecord,
 } from "@/lib/forms/helpers";
+import {
+  CAPTCHA_FORM_FIELD,
+  verifyFriendlyCaptchaSolution,
+} from "@/lib/captcha/verify";
 import type { FormActionState } from "@/components/forms/FormStatus";
 
 export async function submitRenewalAction(
@@ -33,6 +37,25 @@ export async function submitRenewalAction(
 
   if (parsed.data.website && parsed.data.website.length > 0) {
     return { ok: true, status: "blocked", submitCount: nextSubmitCount };
+  }
+
+  // Friendly Captcha — siehe Kontakt-Action für vollen Kontext.
+  const captchaSolution = raw[CAPTCHA_FORM_FIELD];
+  const captcha = await verifyFriendlyCaptchaSolution(captchaSolution);
+  if (!captcha.ok) {
+    return {
+      ok: false,
+      status: "validation-error",
+      fieldErrors: {
+        captcha: [
+          "Spam-Schutz konnte nicht bestätigt werden. Bitte warte einen Moment, bis die Prüfung abgeschlossen ist, und versuche es dann erneut.",
+        ],
+      },
+      message:
+        "Spam-Schutz konnte nicht bestätigt werden. Bitte warte einen Moment und sende die Verlängerung dann erneut ab.",
+      values: raw,
+      submitCount: nextSubmitCount,
+    };
   }
 
   const result = await sendFormEmail(composeRenewalEmail(parsed.data));

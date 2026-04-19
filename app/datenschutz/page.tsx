@@ -16,6 +16,8 @@ import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
  *  - Hosting: Vercel Inc., USA (mit EU-Region für die Auslieferung).
  *  - Web Analytics: Vercel Web Analytics — cookieless, keine PII.
  *  - E-Mail: IONOS SE, Deutschland (SMTP für info@ + Form-Notifications).
+ *  - Spam-Schutz auf Formularen: Friendly Captcha GmbH, Wörthsee (Proof-of-
+ *    Work, DSGVO-konform, DE-Firma, EU-Server). Details in §6.
  *  - Zahlungen aktuell: Banküberweisung an DKB-Konto (kein AV — normale
  *    Bankkundenbeziehung) ODER PayPal (IST Auftragsverarbeiter, in §6
  *    dokumentiert). Stripe ist NICHT live; kommt → Backlog #25.
@@ -33,7 +35,7 @@ import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
  *    Operator-Setup mehr).
  */
 
-const STAND = "18. April 2026";
+const STAND = "20. April 2026";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung",
@@ -259,6 +261,47 @@ export default function DatenschutzPage() {
           alle Form-Submissions). Datenschutz:{" "}
           <a href="https://www.ionos.de/terms-gtc/datenschutzerklaerung" rel="noopener noreferrer" target="_blank">
             ionos.de/terms-gtc/datenschutzerklaerung
+          </a>
+          .
+        </p>
+
+        <h3>Friendly Captcha GmbH (Spam-Schutz auf Formularen)</h3>
+        <p>
+          Am Anger 3-5, 82237 Wörthsee, Deutschland. Auf unseren
+          Kontakt-, Anmelde- und Verlängerungsformularen setzen wir den
+          Spam-Schutz &bdquo;Friendly Captcha&ldquo; ein. Das Verfahren
+          arbeitet mit einem sogenannten Proof-of-Work: Der Browser des
+          Absenders rechnet im Hintergrund kurz eine kryptografische
+          Aufgabe und übermittelt die Lösung mit dem Formular. Unser
+          Server prüft die Lösung serverseitig bei Friendly Captcha.
+          Dabei werden keine Cookies gesetzt und keine biometrischen
+          oder verhaltensbasierten Tracking-Daten erhoben. Die IP-
+          Adresse wird ausschließlich zur technischen Abwicklung der
+          Prüfung verarbeitet und nicht langfristig gespeichert.
+        </p>
+        <p>
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+          (berechtigtes Interesse am Schutz der Formulare vor
+          automatisiertem Missbrauch). Friendly Captcha agiert als
+          Auftragsverarbeiter nach Art. 28 DSGVO, der Sitz liegt in
+          Deutschland, die Prüfung läuft über EU-Server.
+        </p>
+        <p>
+          Datenschutz:{" "}
+          <a
+            href="https://friendlycaptcha.com/legal/privacy-end-users/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            friendlycaptcha.com/legal/privacy-end-users
+          </a>
+          . Auftragsverarbeitungsvertrag:{" "}
+          <a
+            href="https://friendlycaptcha.com/legal/data-processing-agreement/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            friendlycaptcha.com/legal/data-processing-agreement
           </a>
           .
         </p>

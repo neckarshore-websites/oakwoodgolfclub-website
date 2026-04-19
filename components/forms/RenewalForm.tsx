@@ -16,6 +16,7 @@ import {
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
+import { FriendlyCaptcha } from "@/components/forms/FriendlyCaptcha";
 import { COUNTRY_VALUES } from "@/lib/forms/schemas";
 
 const INITIAL: FormActionState = { ok: null };
@@ -171,6 +172,8 @@ export function RenewalForm() {
         </Link>{" "}
         gelesen und stimme zu.
       </ConsentField>
+
+      <FriendlyCaptcha />
 
       <FormStatus state={state} />
 

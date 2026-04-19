@@ -15,6 +15,7 @@ import {
   SubmitButton,
   type FormActionState,
 } from "@/components/forms/FormStatus";
+import { FriendlyCaptcha } from "@/components/forms/FriendlyCaptcha";
 
 const INITIAL: FormActionState = { ok: null };
 
@@ -91,6 +92,8 @@ export function ContactForm() {
         </Link>
         .
       </ConsentField>
+
+      <FriendlyCaptcha />
 
       <FormStatus state={state} />
 
