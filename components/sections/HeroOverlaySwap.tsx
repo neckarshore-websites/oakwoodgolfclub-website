@@ -24,12 +24,21 @@ export function HeroOverlaySwap() {
     <section
       className="relative overflow-hidden border-b border-[var(--color-border)] bg-black"
     >
-      {/* Bottom layer (always visible beneath): Vintage 1906 */}
+      {/* Bottom layer (always visible beneath): Vintage 1906.
+        * `priority` bewusst auf BEIDEN Layern: Chromium-LCP-Tracker
+        * registriert das Bottom-Layer-Vintage-Image als LCP-Element
+        * (beide Layer viewport-fuellend gleich gross; Vintage paint
+        * spaeter → resettet LCP-Timestamp). Ohne priority lazy-loaded
+        * das Bottom-Bild mit ~556 ms Resource-Load-Delay → LCP 3.0 s.
+        * Mit priority laden beide parallel, LCP ~1.8 s, Home-Mobile-
+        * Perf 94 → 97+. Siehe Session-Report 2026-04-19-c.
+        */}
       <div className="absolute inset-0">
         <Image
           src="/brand/hero-golfplatz.webp"
           alt=""
           fill
+          priority
           sizes="100vw"
           className="object-cover"
           style={{ objectPosition: "50% 20%" }}
