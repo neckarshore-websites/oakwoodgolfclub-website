@@ -109,7 +109,10 @@
     line-height: 1.25;
     margin-top: 2.2em;
     margin-bottom: 0.4em;
-    color: var(--color-ink);
+    /* Fairway-Grün — gleicher Token wie der "Jetzt Mitglied werden"-CTA,
+       sorgt für visuelle Wiedererkennung der Brand-Akzentfarbe in der
+       Blog-Lese-Hierarchie (User-Direktive 2026-04-19). */
+    color: var(--color-fairway);
   }
 
   .ogc-prose h3 {
