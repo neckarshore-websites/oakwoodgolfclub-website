@@ -3,6 +3,7 @@ import type {
   SignupFormData,
   RenewalFormData,
 } from "@/lib/forms/schemas";
+import { defangFormData, wrapForLLM } from "@/lib/email/sanitize";
 import { SITE } from "@/lib/site-config";
 
 /**
@@ -141,7 +142,8 @@ const RENEWAL_DATA_KEYS = [
 // ---------------------------------------------------------------------------
 // Kontakt
 
-export function composeContactEmail(data: ContactFormData): EmailComposition {
+export function composeContactEmail(rawData: ContactFormData): EmailComposition {
+  const data = defangFormData(rawData);
   const text =
     header("Kontakt / Contact — oakwoodgolfclub.de") +
     field("Name", data.name) +
@@ -149,7 +151,9 @@ export function composeContactEmail(data: ContactFormData): EmailComposition {
     receivedAt() +
     field("Datenschutz zugestimmt", data.consent ? "Ja" : "Nein") +
     "\n" +
-    multilineField("Nachricht", data.message) +
+    "Nachricht:\n" +
+    wrapForLLM("Nachricht", data.message) +
+    "\n\n" +
     rawDataBlock(data, CONTACT_DATA_KEYS);
 
   return {
@@ -195,7 +199,8 @@ function formatStartDate(iso: string): string {
   return `${day}.${month}.${year}`;
 }
 
-export function composeSignupEmail(data: SignupFormData): EmailComposition {
+export function composeSignupEmail(rawData: SignupFormData): EmailComposition {
+  const data = defangFormData(rawData);
   const salutationLabel = data.salutation
     ? SALUTATION_LABEL[data.salutation]
     : "";
@@ -219,7 +224,9 @@ export function composeSignupEmail(data: SignupFormData): EmailComposition {
     field("Geworben durch", data.referredBy) +
     field("Gruppe", data.group) +
     "\n" +
-    multilineField("Nachricht", data.message) +
+    "Nachricht:\n" +
+    wrapForLLM("Nachricht", data.message) +
+    "\n\n" +
     rawDataBlock(data, SIGNUP_DATA_KEYS);
 
   return {
@@ -243,8 +250,9 @@ function formatRenewalAddress(data: RenewalFormData): string {
 }
 
 export function composeRenewalEmail(
-  data: RenewalFormData,
+  rawData: RenewalFormData,
 ): EmailComposition {
+  const data = defangFormData(rawData);
   const text =
     header("Verlängerung / Renewal — oakwoodgolfclub.de") +
     field("Name", data.name) +
@@ -255,7 +263,9 @@ export function composeRenewalEmail(
     field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein") +
     "\n" +
     multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
-    multilineField("Nachricht", data.message) +
+    "Nachricht:\n" +
+    wrapForLLM("Nachricht", data.message) +
+    "\n\n" +
     rawDataBlock(data, RENEWAL_DATA_KEYS);
 
   return {
@@ -311,8 +321,9 @@ function autoresponseFooter(): string {
 }
 
 export function composeContactAutoresponse(
-  data: ContactFormData,
+  rawData: ContactFormData,
 ): EmailComposition {
+  const data = defangFormData(rawData);
   const recap =
     field("Name", data.name) +
     field("E-Mail", data.email) +
@@ -341,8 +352,9 @@ export function composeContactAutoresponse(
 }
 
 export function composeSignupAutoresponse(
-  data: SignupFormData,
+  rawData: SignupFormData,
 ): EmailComposition {
+  const data = defangFormData(rawData);
   const salutationLabel = data.salutation
     ? SALUTATION_LABEL[data.salutation]
     : "";
@@ -389,8 +401,9 @@ export function composeSignupAutoresponse(
 }
 
 export function composeRenewalAutoresponse(
-  data: RenewalFormData,
+  rawData: RenewalFormData,
 ): EmailComposition {
+  const data = defangFormData(rawData);
   const recap =
     field("Name", data.name) +
     field("Mitgliedsnummer", data.memberNumber) +

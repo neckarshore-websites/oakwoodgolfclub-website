@@ -10,7 +10,26 @@ import { z } from "zod";
  *   - `consent` must equal "on" (the DSGVO-acknowledgement checkbox).
  *   - All free-text fields are length-capped to keep the email payload small
  *     and prevent accidental log-blowup.
+ *   - The `message` field on every form is additionally word-capped at
+ *     MAX_MESSAGE_WORDS (User-Direktive 2026-04-19): keeps the inbox-noise
+ *     low and aligns with the small-business-real-reply tone of the auto-
+ *     responders. Char-cap stays as a safety net for absurd input shapes
+ *     (e.g. one massive whitespace-free token).
  */
+
+export const MAX_MESSAGE_WORDS = 300;
+
+function countWords(text: string): number {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
+const MESSAGE_WORD_LIMIT_ERROR = `Bitte maximal ${MAX_MESSAGE_WORDS} Wörter.`;
+
+function withMaxWords<S extends z.ZodString>(schema: S) {
+  return schema.refine((s) => countWords(s) <= MAX_MESSAGE_WORDS, {
+    message: MESSAGE_WORD_LIMIT_ERROR,
+  });
+}
 
 const nameField = z
   .string({ message: "Name ist Pflicht." })
@@ -68,11 +87,13 @@ const startDateField = z
 export const contactFormSchema = z.object({
   name: nameField,
   email: emailField,
-  message: z
-    .string({ message: "Nachricht ist Pflicht." })
-    .trim()
-    .min(10, "Bitte mindestens 10 Zeichen.")
-    .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen)."),
+  message: withMaxWords(
+    z
+      .string({ message: "Nachricht ist Pflicht." })
+      .trim()
+      .min(10, "Bitte mindestens 10 Zeichen.")
+      .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen)."),
+  ),
   consent: consentField,
   website: honeypotField,
 });
@@ -172,10 +193,12 @@ export const signupFormSchema = z.object({
     .optional()
     .or(z.literal("")),
 
-  message: z
-    .string()
-    .trim()
-    .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen).")
+  message: withMaxWords(
+    z
+      .string()
+      .trim()
+      .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen)."),
+  )
     .optional()
     .or(z.literal("")),
 
@@ -230,10 +253,12 @@ export const renewalFormSchema = z.object({
     .max(100, "Ort ist zu lang."),
   country: z.enum(COUNTRY_VALUES, { message: "Bitte Land wählen." }),
 
-  message: z
-    .string()
-    .trim()
-    .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen).")
+  message: withMaxWords(
+    z
+      .string()
+      .trim()
+      .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen)."),
+  )
     .optional()
     .or(z.literal("")),
 
