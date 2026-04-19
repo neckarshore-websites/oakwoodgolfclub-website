@@ -1,6 +1,7 @@
 ---
 title: "DJI Osmo Pocket 3: Die Kamera für Swing-Videos und Golf-Reisen"
 date: "2026-04-10"
+modified: "2026-04-19"
 excerpt: "Eine Kompaktkamera mit 1-Zoll-Sensor, Gimbal und 4K bei 120 Bildern pro Sekunde — ideal für Swing-Aufnahmen in Slow-Motion und für alles, was sonst auf und neben dem Platz passiert. Warum wir sie ambitionierten Golfern empfehlen."
 categories:
   - "Equipment"
@@ -10,6 +11,10 @@ draft: false
 
 ## TL;DR – Fazit
 Die **DJI Osmo Pocket 3** ist die kompakte 1-Zoll-Sensor-Gimbal-Kamera, die wir Golfern für **Swing-Videos** und **Golf-Reisen** empfehlen. **4K bei 120 Bildern pro Sekunde** ermöglicht echte Slow-Motion-Schwung-Analyse, **ActiveTrack 6.0** macht Solo-Aufnahmen ohne Kamera-Assistenten möglich. Klare Empfehlung für alle, die ihre Technik datenbasiert verbessern oder auf Reisen mehr als Handy-Qualität mitnehmen wollen.
+
+![DJI Osmo Pocket 3 — kompakte Gimbal-Kamera mit hochkant stehendem Touchscreen, aufgeklappt und betriebsbereit](/blog/images/dji-osmo-pocket-3-product.webp)
+
+*Produktfoto: [Kyu3a](https://commons.wikimedia.org/wiki/File:DJI_Osmo_Pocket_3_-_1.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), via Wikimedia Commons. Für die Einbindung skaliert und in WebP konvertiert.*
 
 ## Warum Video für Golfer?
 
