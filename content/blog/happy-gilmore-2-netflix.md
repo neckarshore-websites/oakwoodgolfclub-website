@@ -1,6 +1,7 @@
 ---
 title: "Happy Gilmore 2 auf Netflix: Adam Sandler kehrt auf den Platz zurück"
 date: "2026-03-28"
+modified: "2026-04-19"
 excerpt: "Fast 30 Jahre nach dem Kult-Original ist Adam Sandlers Happy Gilmore zurück — als Netflix-Sequel. Für Golfer ein kleiner Kultur-Moment, für alle anderen ein entspannter Abend. Warum das erste Happy Gilmore ein Genre für sich war und was wir vom zweiten Teil erwarten."
 categories:
   - "Golfkultur"
@@ -10,6 +11,8 @@ draft: false
 
 ## TL;DR – Fazit
 **Happy Gilmore 2** ist seit 2026 auf **Netflix** verfügbar — der lang erwartete Sequel zu **Adam Sandlers** 1996er Golf-Komödie. Sandler kehrt als gereifter Happy zurück, mit neuen Figuren und **PGA-Tour-Cameos**. Für Golfer, die das Original mögen, ein gelungener Nostalgie-Abend; für Neulinge auch eigenständig funktional, gewinnt aber durch Kontext aus Teil 1.
+
+![Adam Sandler als Happy Gilmore in einem Boston-Bruins-Eishockey-Trikot, den Golfschläger wie einen Hockey-Stick haltend auf dem Fairway, mit Zuschauerkulisse im Hintergrund (Quelle: Netflix)](/blog/images/happy-gilmore-2-netflix.webp)
 
 ## Ein Film, der die Golf-Welt geteilt hat
 
