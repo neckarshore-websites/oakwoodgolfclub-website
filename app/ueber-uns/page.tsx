@@ -27,7 +27,7 @@ export default function UeberUnsPage() {
   return (
     <article className="container-page py-20 md:py-24">
       <JsonLd id="about-page-schema" data={aboutPageSchema} />
-      <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[var(--color-gold)]">
+      <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
         Über uns
       </p>
       <h1 className="font-heading text-4xl tracking-tight md:text-5xl lg:text-6xl">

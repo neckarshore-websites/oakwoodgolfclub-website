@@ -109,7 +109,7 @@ export default function FaqPage() {
             Kontaktformular oder E-Mail an{" "}
             <a
               href={MAILTO_FEEDBACK}
-              className="text-[var(--color-fairway)] underline-offset-4 hover:underline"
+              className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
             >
               {SITE.email}
             </a>

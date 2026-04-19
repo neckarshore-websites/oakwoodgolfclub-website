@@ -64,3 +64,4 @@ scratch/
 *.sqlite3
 backup-*.zip
 .env*.local
+.lighthouse/
