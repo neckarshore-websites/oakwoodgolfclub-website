@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { MAILTO_FEEDBACK, SITE, SITE_UPDATED } from "@/lib/site-config";
+import { SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Über uns",
@@ -18,9 +18,10 @@ const aboutPageSchema = {
 };
 
 /**
- * Über uns — Skelett. Finaler Bio-Text + Fotos in dedizierter Session.
- * Struktur ist gesetzt, Copy ist Platzhalter-Prosa mit den Eckdaten aus
- * BRIEFING.md (darf zitiert werden, ist nicht "echter" Founder-Text).
+ * Über uns — Eckdaten + Geschichte + Differenzierung. Finale Founder-Bio
+ * + Fotos folgen in dedizierter Session, der bestehende Text ist eine
+ * faktenbasierte Kurzfassung aus BRIEFING.md ohne Platzhalter-Marker
+ * (User-Direktive 2026-04-19).
  */
 export default function UeberUnsPage() {
   return (
@@ -43,14 +44,14 @@ export default function UeberUnsPage() {
 
       <div className="grid gap-12 md:grid-cols-3">
         <div className="md:col-span-2 space-y-6 text-base leading-relaxed text-[var(--color-ink)]/75">
-          <h2 className="font-heading text-2xl tracking-tight">
+          <h2 className="font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
             Die Geschichte
           </h2>
           <p>
-            <em>[Platzhalter — finaler Text folgt.]</em> Der Club wurde {SITE.founded}
-            gegründet, um eine einfache Idee umzusetzen: Golferinnen und Golfer
-            sollten ein offizielles Handicap und eine anerkannte Vereinsmitgliedschaft
-            haben können, ohne Teil eines traditionellen Clubs zu sein.
+            Der Club wurde {SITE.founded} gegründet, um eine einfache Idee
+            umzusetzen: Golferinnen und Golfer sollten ein offizielles Handicap
+            und eine anerkannte Vereinsmitgliedschaft haben können, ohne Teil
+            eines traditionellen Clubs zu sein.
           </p>
           <p>
             Heute wird der Club aus Deutschland heraus betrieben. Die
@@ -59,15 +60,22 @@ export default function UeberUnsPage() {
             Großbritannien, Indien, Dänemark und Italien.
           </p>
 
-          <h2 className="mt-10 font-heading text-2xl tracking-tight">
+          <h2 className="mt-10 font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
             Was uns anders macht
           </h2>
           <p>
-            <em>[Platzhalter.]</em> Keine Warteliste, keine Umlage, keine versteckten
-            Gebühren. Eine klare Jahresmitgliedschaft zu einem festen Preis und
-            eine offizielle Mitgliederkarte, die auf rund 95 % der österreichischen
-            Golfplätze akzeptiert wird. Handicap-Verwaltung ist aktuell nicht Teil
-            des Angebots — siehe FAQ.
+            Keine Warteliste, keine Umlage, keine versteckten Gebühren. Eine
+            klare Jahresmitgliedschaft zu einem festen Preis und eine
+            offizielle Mitgliederkarte, die auf rund 95 % der österreichischen
+            Golfplätze akzeptiert wird. Handicap-Verwaltung ist aktuell nicht
+            Teil des Angebots — Details dazu in den{" "}
+            <Link
+              href="/faq"
+              className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
+            >
+              FAQs
+            </Link>
+            .
           </p>
         </div>
 
@@ -110,18 +118,11 @@ export default function UeberUnsPage() {
       <hr className="my-14 border-[var(--color-ink)]/10" />
 
       <div>
-        <h2 className="font-heading text-2xl tracking-tight">
+        <h2 className="font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
           Fragen? Sprich direkt mit uns.
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-ink)]/75">
-          Antwort zeitnah, in der Regel innerhalb weniger Tage. Per E-Mail an{" "}
-          <a
-            href={MAILTO_FEEDBACK}
-            className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
-          >
-            {SITE.email}
-          </a>
-          .
+          Antwort zeitnah, in der Regel innerhalb weniger Tage.
         </p>
         <div className="mt-8">
           <Link
