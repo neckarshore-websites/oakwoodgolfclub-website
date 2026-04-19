@@ -15,20 +15,19 @@ import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
  *    Ventures, Geschäftsbereich Oakwood Golf Club" — laut User-Aussage
  *    04-18 fällt OGC in den Bereich "Digital Ventures" des angemeldeten
  *    Gewerbes.
- *  - Anschrift: Stuttgart + "ladungsfähige Anschrift auf Anfrage" —
- *    konsistent mit rauhut.com-Pattern. **Bekanntes Risiko (Backlog #28):**
- *    bei einer commercial-Site mit zahlenden Mitgliedern ist § 5 TMG
- *    strenger interpretierbar als bei einem Portfolio. User hat das
- *    Risiko zur Abwägung im Backlog.
- *  - USt-IdNr. (§ 5 Abs. 1 Nr. 6 TMG): noch nicht geklärt — Backlog #27.
- *    Im Draft komplett weggelassen, bis Steuerstatus feststeht.
+ *  - Anschrift (User-Entscheidung 2026-04-19, D3=a): volle ladungsfähige
+ *    Anschrift Rotebühlstr. 176, 70197 Stuttgart — TMG-sicher für
+ *    commercial-Site mit zahlenden Mitgliedern. Backlog #28 Done.
+ *  - USt-Status (User-Entscheidung 2026-04-19, D2=Kleinunternehmer):
+ *    Hinweis nach § 19 UStG ergänzt, keine USt-IdNr. ausgewiesen.
+ *    Backlog #27 Done.
  *  - OS-Plattform-Hinweis (EU-Verordnung 524/2013) ergänzt.
  *  - VSBG-Hinweis (§ 36 Abs. 1 VSBG) ergänzt.
  *  - TGA-Kontaktblock entfernt (gehört in "Über uns", nicht ins Impressum).
  *  - Cookie-Hinweis entfernt — die neue Site verwendet keine Cookies.
  */
 
-const STAND = "18. April 2026";
+const STAND = "19. April 2026";
 
 export const metadata: Metadata = {
   title: "Impressum",
@@ -61,13 +60,11 @@ export default function ImpressumPage() {
           <br />
           <strong>Geschäftsbereich: Oakwood Golf Club</strong>
           <br />
-          Stuttgart
+          Rotebühlstr. 176
+          <br />
+          70197 Stuttgart
           <br />
           Deutschland
-        </p>
-        <p>
-          Die ladungsfähige Anschrift wird auf schriftliche Anfrage per
-          E-Mail innerhalb von 24 Stunden übermittelt.
         </p>
 
         <h2>Kontakt</h2>
@@ -82,9 +79,11 @@ export default function ImpressumPage() {
         <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
         <p>German Rauhut (Anschrift wie oben).</p>
 
-        {/* TODO Backlog #27: USt-IdNr. einsetzen sobald Steuerstatus
-            geklärt ist (Kleinunternehmer §19 UStG vs. Regelbesteuerung).
-            Pflichtbestandteil nach § 5 Abs. 1 Nr. 6 TMG bei Regelbesteuerung. */}
+        <h2>Umsatzsteuer</h2>
+        <p>
+          Gemäß § 19 UStG wird keine Umsatzsteuer erhoben und
+          ausgewiesen (Kleinunternehmerregelung).
+        </p>
 
         <h2>Streitbeilegung</h2>
         <p>

@@ -85,11 +85,9 @@ export default function DatenschutzPage() {
           <br />
           Geschäftsbereich Oakwood Golf Club
           <br />
-          Stuttgart, Deutschland
-        </p>
-        <p>
-          Die ladungsfähige Anschrift wird auf schriftliche Anfrage per
-          E-Mail innerhalb von 24 Stunden übermittelt.
+          Rotebühlstr. 176
+          <br />
+          70197 Stuttgart, Deutschland
         </p>
         <p>
           E-Mail: <a href={MAILTO_FEEDBACK}>{SITE.email}</a>

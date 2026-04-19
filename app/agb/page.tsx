@@ -23,11 +23,13 @@ import { MAILTO_FEEDBACK, PRICING, SITE } from "@/lib/site-config";
  *  - OS-Plattform- und VSBG-Hinweis (analog Impressum).
  *  - Gerichtsstand "Bangkok" entfernt (war gegenüber Verbrauchern
  *    ohnehin nicht durchsetzbar, außerdem Anbieter jetzt DE).
- *  - USt-Klausel bewusst neutral gehalten ("ggf. gesetzliche USt"),
- *    weil Steuerstatus noch geklärt wird (Backlog #27).
+ *  - USt-Klausel: Kleinunternehmer nach § 19 UStG (User-Entscheidung
+ *    2026-04-19, D2). Keine USt wird ausgewiesen. Backlog #27 Done.
+ *  - Anschrift: Rotebühlstr. 176, 70197 Stuttgart (User-Entscheidung
+ *    2026-04-19, D3=volle Adresse). Backlog #28 Done.
  */
 
-const STAND = "18. April 2026";
+const STAND = "19. April 2026";
 
 export const metadata: Metadata = {
   title: "Allgemeine Geschäftsbedingungen",
@@ -66,8 +68,9 @@ export default function AgbPage() {
         </p>
         <p>
           Anbieter ist <strong>German Rauhut – IT Consulting &amp; Digital
-          Ventures, Geschäftsbereich Oakwood Golf Club</strong>, Stuttgart,
-          Deutschland. Vollständige Anbieter-Angaben siehe{" "}
+          Ventures, Geschäftsbereich Oakwood Golf Club</strong>,
+          Rotebühlstr. 176, 70197 Stuttgart, Deutschland. Vollständige
+          Anbieter-Angaben siehe{" "}
           <Link href="/impressum">Impressum</Link>.
         </p>
         <p>
@@ -143,11 +146,12 @@ export default function AgbPage() {
           </li>
         </ul>
         <p>
-          Die genannten Beträge enthalten ggf. die gesetzliche
-          Umsatzsteuer. Der <strong>Versand der Mitgliederkarte ist
-          kostenlos — weltweit in alle Länder.</strong> Etwaige Zoll-
-          oder Einfuhrabgaben bei Versand außerhalb der EU trägt das
-          Mitglied.
+          Die genannten Beträge verstehen sich als Endpreise. Gemäß
+          § 19 UStG wird keine Umsatzsteuer erhoben und ausgewiesen
+          (Kleinunternehmerregelung). Der <strong>Versand der
+          Mitgliederkarte ist kostenlos — weltweit in alle
+          Länder.</strong> Etwaige Zoll- oder Einfuhrabgaben bei
+          Versand außerhalb der EU trägt das Mitglied.
         </p>
 
         <h2>§ 5 Zahlung</h2>
@@ -201,17 +205,18 @@ export default function AgbPage() {
           <br />
           Geschäftsbereich Oakwood Golf Club
           <br />
-          Stuttgart, Deutschland
+          Rotebühlstr. 176
+          <br />
+          70197 Stuttgart, Deutschland
           <br />
           E-Mail: <a href={MAILTO_FEEDBACK}>{SITE.email}</a>
         </p>
         <p>
           mittels einer eindeutigen Erklärung (z.&nbsp;B. ein mit der Post
           versandter Brief oder eine E-Mail) über deinen Entschluss, diesen
-          Vertrag zu widerrufen, informieren. Die ladungsfähige Anschrift
-          teilen wir dir auf Anfrage innerhalb von 24 Stunden per E-Mail
-          mit. Du kannst für den Widerruf das beigefügte Muster-Widerrufs­
-          formular verwenden, das jedoch nicht vorgeschrieben ist.
+          Vertrag zu widerrufen, informieren. Du kannst für den Widerruf
+          das beigefügte Muster-Widerrufs­formular verwenden, das jedoch
+          nicht vorgeschrieben ist.
         </p>
         <p>
           Zur Wahrung der Widerrufsfrist reicht es aus, dass du die
@@ -251,8 +256,8 @@ export default function AgbPage() {
         <hr />
         <p>
           An: German Rauhut – IT Consulting &amp; Digital Ventures,
-          Geschäftsbereich Oakwood Golf Club, Stuttgart, Deutschland —
-          E-Mail: {SITE.email}
+          Geschäftsbereich Oakwood Golf Club, Rotebühlstr. 176,
+          70197 Stuttgart, Deutschland — E-Mail: {SITE.email}
         </p>
         <p>
           Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*)
