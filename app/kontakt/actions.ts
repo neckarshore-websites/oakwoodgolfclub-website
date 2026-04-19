@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { contactFormSchema } from "@/lib/forms/schemas";
 import {
   composeContactEmail,
@@ -14,6 +15,7 @@ import {
   CAPTCHA_FORM_FIELD,
   verifyFriendlyCaptchaSolution,
 } from "@/lib/captcha/verify";
+import { checkRateLimit } from "@/lib/ratelimit";
 import type { FormActionState } from "@/components/forms/FormStatus";
 
 export async function submitContactAction(
@@ -57,6 +59,22 @@ export async function submitContactAction(
       },
       message:
         "Spam-Schutz konnte nicht bestätigt werden. Bitte warte einen Moment und sende die Nachricht dann erneut ab.",
+      values: raw,
+      submitCount: nextSubmitCount,
+    };
+  }
+
+  // Rate-Limit (Security-Sweep F2, 2026-04-19). Pro IP, forms-übergreifend,
+  // 5 Submits pro Stunde. Kommt NACH Schema-, Honeypot- und Captcha-Checks
+  // damit wir legitime Form-Errors nicht gegen das Budget zählen. Ein
+  // Proxy-Header-Spoof erzeugt im schlimmsten Fall einen "anon"-Bucket.
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0]?.trim() ?? "anon";
+  if (!checkRateLimit(`form:${ip}`)) {
+    return {
+      ok: false,
+      status: "server-error",
+      message:
+        "Zu viele Anfragen von dieser Verbindung. Bitte versuche es in einer Stunde erneut oder schreibe direkt an info@oakwoodgolfclub.de.",
       values: raw,
       submitCount: nextSubmitCount,
     };

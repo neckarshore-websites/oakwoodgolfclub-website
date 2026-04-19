@@ -323,13 +323,12 @@ function autoresponseFooter(): string {
 export function composeContactAutoresponse(
   rawData: ContactFormData,
 ): EmailComposition {
+  // F1 (Security-Sweep 2026-04-19): Recap-Block entfernt. Ein Angreifer
+  // hätte über die OGC-Domain mit echtem DKIM-Siegel beliebige Inhalte
+  // (Name + Nachricht) an beliebige Opfer ausliefern lassen können —
+  // klassischer Phishing-Amplifier. Der Autoresponder liefert jetzt nur
+  // noch neutrale OGC-Informationen, keine User-Echoes mehr.
   const data = defangFormData(rawData);
-  const recap =
-    field("Name", data.name) +
-    field("E-Mail", data.email) +
-    "\n" +
-    multilineField("Nachricht", data.message) +
-    field("Datenschutz zugestimmt", data.consent ? "Ja" : "Nein");
 
   const text =
     `Hallo ${data.name},\n\n` +
@@ -338,10 +337,6 @@ export function composeContactAutoresponse(
     nextStepsBlock +
     "\n\n" +
     SIGNATURE +
-    "\n\n" +
-    divider +
-    "\n\nÜbersicht deiner Anfrage:\n\n" +
-    recap +
     autoresponseFooter();
 
   return {
@@ -354,29 +349,9 @@ export function composeContactAutoresponse(
 export function composeSignupAutoresponse(
   rawData: SignupFormData,
 ): EmailComposition {
+  // F1 (Security-Sweep 2026-04-19): Recap-Block entfernt, siehe
+  // composeContactAutoresponse für Begründung.
   const data = defangFormData(rawData);
-  const salutationLabel = data.salutation
-    ? SALUTATION_LABEL[data.salutation]
-    : "";
-
-  const referralLabel = data.referralSource
-    ? REFERRAL_LABEL[data.referralSource]
-    : "";
-
-  const recap =
-    field("Anrede", salutationLabel) +
-    field("Name", data.name) +
-    field("E-Mail", data.email) +
-    field("Handicap", data.handicap) +
-    field("Gewünschtes Startdatum", formatStartDate(data.startDate)) +
-    "\n" +
-    multilineField("Postanschrift", formatAddress(data)) +
-    field("Wie gefunden", referralLabel) +
-    field("Geworben durch", data.referredBy) +
-    field("Gruppe", data.group) +
-    "\n" +
-    multilineField("Nachricht", data.message) +
-    field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein");
 
   const text =
     `Hallo ${data.name},\n\n` +
@@ -386,10 +361,6 @@ export function composeSignupAutoresponse(
     nextStepsBlock +
     "\n\n" +
     SIGNATURE +
-    "\n\n" +
-    divider +
-    "\n\nÜbersicht deiner Anmeldedaten:\n\n" +
-    recap +
     autoresponseFooter();
 
   return {
@@ -403,16 +374,9 @@ export function composeSignupAutoresponse(
 export function composeRenewalAutoresponse(
   rawData: RenewalFormData,
 ): EmailComposition {
+  // F1 (Security-Sweep 2026-04-19): Recap-Block entfernt, siehe
+  // composeContactAutoresponse für Begründung.
   const data = defangFormData(rawData);
-  const recap =
-    field("Name", data.name) +
-    field("Mitgliedsnummer", data.memberNumber) +
-    field("E-Mail", data.email) +
-    field("Aktuelles Handicap", data.handicap) +
-    "\n" +
-    multilineField("Aktuelle Postanschrift", formatRenewalAddress(data)) +
-    multilineField("Nachricht", data.message) +
-    field("AGB + Datenschutz zugestimmt", data.consent ? "Ja" : "Nein");
 
   const text =
     `Hallo ${data.name},\n\n` +
@@ -423,10 +387,6 @@ export function composeRenewalAutoresponse(
     "\n\n" +
     "Bei Änderungen (Adresse, E-Mail, Bankverbindung) antworte ebenfalls einfach auf diese E-Mail.\n\n" +
     SIGNATURE +
-    "\n\n" +
-    divider +
-    "\n\nÜbersicht deiner Daten:\n\n" +
-    recap +
     autoresponseFooter();
 
   return {

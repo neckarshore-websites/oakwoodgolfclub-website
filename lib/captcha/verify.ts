@@ -44,18 +44,38 @@ export type CaptchaVerifyResult =
 export async function verifyFriendlyCaptchaSolution(
   solution: string | undefined | null,
 ): Promise<CaptchaVerifyResult> {
+  // Feature-Flag (User-Entscheidung 2026-04-19): Launch OHNE Captcha.
+  // Spam-Schutz kommt aus Rate-Limit (siehe lib/ratelimit.ts). Captcha-
+  // Code bleibt dormant für Phase 2 — sobald `CAPTCHA_ENABLED=true` gesetzt
+  // ist (server-seitig) + `NEXT_PUBLIC_CAPTCHA_ENABLED=true` (client-
+  // seitig) gemeinsam gesetzt werden, greift der normale fail-closed-Flow.
+  //
+  // `=== "true"` als strikter Check: unset, leer, "false", oder irgendein
+  // anderer Wert → Flag ist aus. Sicherer Default: aus.
+  const captchaEnabled = process.env.CAPTCHA_ENABLED === "true";
+  if (!captchaEnabled) {
+    return { ok: true, skipped: true };
+  }
+
   const apiKey = process.env.FRIENDLY_CAPTCHA_API_KEY;
   const sitekey = process.env.NEXT_PUBLIC_FRIENDLY_CAPTCHA_SITEKEY;
 
-  // Graceful degradation — keine Captcha-Config, keine Verifikation.
-  // Wird während Onboarding + Dev-Umgebung erwartet. Production-Deploy
-  // ohne beide Vars: der Funnel läuft, aber ohne Spam-Schutz.
+  // Flag aktiv, aber Keys fehlen → in Production fail-closed, sonst
+  // graceful (Dev/Preview-Komfort, kein Launch-Blocker).
   if (!apiKey || !sitekey) {
     if (process.env.NODE_ENV === "production") {
-      console.warn(
-        "[captcha] FRIENDLY_CAPTCHA_API_KEY or NEXT_PUBLIC_FRIENDLY_CAPTCHA_SITEKEY not set — spam-schutz ist inaktiv.",
+      console.error(
+        "[captcha] CAPTCHA_ENABLED=true but API key or sitekey missing in production — rejecting submit.",
       );
+      return {
+        ok: false,
+        reason: "verification-failed",
+        detail: "captcha-not-configured",
+      };
     }
+    console.warn(
+      "[captcha] CAPTCHA_ENABLED=true but keys missing — dev/preview fallback (submit accepted).",
+    );
     return { ok: true, skipped: true };
   }
 

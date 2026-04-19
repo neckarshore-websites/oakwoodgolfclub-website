@@ -34,17 +34,25 @@ export async function sendFormEmail(
   const transporter = getTransporter();
 
   if (!config || !transporter) {
-    // Dev / preview without creds — log the composed email so local runs
-    // still give feedback about what would have been sent.
-    // In production this branch means we forgot to set env vars in Vercel
-    // — the Server Action still returns ok=true to the user (they shouldn't
-    // eat a 500 because of a config slip) but we log loudly for ops.
+    // Fail-closed in production: if SMTP env vars are missing in a
+    // production deploy we MUST NOT pretend the submit succeeded. The user
+    // would see a "Danke" confirmation, the membership-lifecycle never
+    // kicks off, and the form data is lost in the Vercel log stream.
+    //
+    // Dev / preview without creds: we log the subject line only (no PII)
+    // so local runs give feedback that composition happened — the body
+    // carries names, addresses, emails, messages and MUST NOT end up in
+    // any log destination, even in development.
+    if (process.env.NODE_ENV === "production") {
+      console.error(
+        "[email/send] SMTP not configured in production — refusing to accept submit.",
+      );
+      return { ok: false, reason: "no-smtp" };
+    }
     console.warn(
-      "[email/send] SMTP not configured — logging composition instead.",
+      "[email/send] SMTP not configured — dev-only fallback (body suppressed).",
     );
     console.info("[email/send] subject:", composition.subject);
-    console.info("[email/send] reply-to:", composition.replyTo);
-    console.info("[email/send] body:\n" + composition.text);
     return { ok: true, reason: "no-smtp" };
   }
 
@@ -84,13 +92,19 @@ export async function sendAutoresponse(
   const transporter = getTransporter();
 
   if (!config || !transporter) {
+    // Same rationale as sendFormEmail: fail-closed in production (no silent
+    // success when env is misconfigured), dev-only fallback logs subject
+    // only. The user-facing `to:` is not logged — it is PII like the body.
+    if (process.env.NODE_ENV === "production") {
+      console.error(
+        "[email/autoresponse] SMTP not configured in production — cannot send autoresponse.",
+      );
+      return { ok: false, reason: "no-smtp" };
+    }
     console.warn(
-      "[email/autoresponse] SMTP not configured — logging composition instead.",
+      "[email/autoresponse] SMTP not configured — dev-only fallback (body + recipient suppressed).",
     );
-    console.info("[email/autoresponse] to:", to);
     console.info("[email/autoresponse] subject:", composition.subject);
-    console.info("[email/autoresponse] reply-to:", composition.replyTo);
-    console.info("[email/autoresponse] body:\n" + composition.text);
     return { ok: true, reason: "no-smtp" };
   }
 

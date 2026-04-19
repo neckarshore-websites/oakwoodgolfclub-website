@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { renewalFormSchema } from "@/lib/forms/schemas";
 import {
   composeRenewalEmail,
@@ -14,6 +15,7 @@ import {
   CAPTCHA_FORM_FIELD,
   verifyFriendlyCaptchaSolution,
 } from "@/lib/captcha/verify";
+import { checkRateLimit } from "@/lib/ratelimit";
 import type { FormActionState } from "@/components/forms/FormStatus";
 
 export async function submitRenewalAction(
@@ -53,6 +55,19 @@ export async function submitRenewalAction(
       },
       message:
         "Spam-Schutz konnte nicht bestätigt werden. Bitte warte einen Moment und sende die Verlängerung dann erneut ab.",
+      values: raw,
+      submitCount: nextSubmitCount,
+    };
+  }
+
+  // Rate-Limit — siehe app/kontakt/actions.ts für den vollen Rationale.
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0]?.trim() ?? "anon";
+  if (!checkRateLimit(`form:${ip}`)) {
+    return {
+      ok: false,
+      status: "server-error",
+      message:
+        "Zu viele Anfragen von dieser Verbindung. Bitte versuche es in einer Stunde erneut oder schreibe direkt an info@oakwoodgolfclub.de.",
       values: raw,
       submitCount: nextSubmitCount,
     };
