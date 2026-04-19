@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
 
 /**
  * Datenschutzerklärung — DSGVO-konformer Volltext.
@@ -87,7 +87,7 @@ export default function DatenschutzPage() {
           E-Mail innerhalb von 24 Stunden übermittelt.
         </p>
         <p>
-          E-Mail: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          E-Mail: <a href={MAILTO_FEEDBACK}>{SITE.email}</a>
           <br />
           Telefon: <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>
         </p>
@@ -217,7 +217,7 @@ export default function DatenschutzPage() {
         <p>
           <strong>Übermittlung:</strong> Die Formulardaten werden per
           E-Mail an unsere Adresse{" "}
-          <a href={`mailto:${SITE.email}`}>{SITE.email}</a> übermittelt.
+          <a href={MAILTO_FEEDBACK}>{SITE.email}</a> übermittelt.
           Der E-Mail-Versand erfolgt verschlüsselt (STARTTLS bzw. TLS) über
           den E-Mail-Anbieter IONOS SE (siehe Abschnitt 6). Eine
           Speicherung in einer Datenbank dieser Webseite findet nicht

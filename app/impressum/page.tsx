@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
 
 /**
  * Impressum — § 5 TMG.
@@ -74,7 +74,7 @@ export default function ImpressumPage() {
         <p>
           Telefon: <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>
           <br />
-          E-Mail: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          E-Mail: <a href={MAILTO_FEEDBACK}>{SITE.email}</a>
           <br />
           Web: <a href={SITE.url}>{SITE.url.replace(/^https?:\/\//, "")}</a>
         </p>

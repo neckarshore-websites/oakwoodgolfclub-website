@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -41,7 +41,7 @@ export default function KontaktPage() {
               <dt className="text-[var(--color-muted)]">E-Mail</dt>
               <dd className="mt-0.5">
                 <a
-                  href={`mailto:${SITE.email}`}
+                  href={MAILTO_FEEDBACK}
                   className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
                 >
                   {SITE.email}

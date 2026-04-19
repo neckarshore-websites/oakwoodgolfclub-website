@@ -49,6 +49,25 @@ export const SITE = {
   },
 } as const;
 
+/**
+ * Default `mailto:` href for generic contact / feedback links across the
+ * site. Pre-fills the subject line so messages can be triaged in the
+ * inbox at a glance — the trailing " - " is intentional so the user's
+ * mail client appends their own topic after the prefix.
+ *
+ * NOT to be used in contexts with a specific legal trigger:
+ *   - Kündigungs-Mailtos (AGB §Kündigung) — needs a Kündigung-marker
+ *     so the recipient hits the Vertrags-Frist correctly
+ *   - DSGVO-Rechte-Mailtos (Datenschutz §Rechte) — Art. 12 macht eine
+ *     1-Monats-Antwortfrist verbindlich, wrong subject = risk of miss
+ *
+ * For those, keep the bare `mailto:${SITE.email}` (no prefilled subject)
+ * so the user types the topic themselves and the inbox triage is clean.
+ */
+export const MAILTO_FEEDBACK = `mailto:${SITE.email}?subject=${encodeURIComponent(
+  "Oakwoodgolfclub.de - Feedback - ",
+)}`;
+
 export const PRICING = {
   individual: {
     id: "individual",

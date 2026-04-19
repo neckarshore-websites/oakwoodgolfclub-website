@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE, SITE_UPDATED, formatUpdatedAtDe } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE, SITE_UPDATED, formatUpdatedAtDe } from "@/lib/site-config";
 
 const currentYear = new Date().getFullYear();
 
@@ -48,7 +48,7 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href={`mailto:${SITE.email}`} className="hover:text-[var(--color-gold)] transition-colors">
+                <a href={MAILTO_FEEDBACK} className="hover:text-[var(--color-gold)] transition-colors">
                   {SITE.email}
                 </a>
               </li>

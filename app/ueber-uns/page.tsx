@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { SITE, SITE_UPDATED } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Über uns",
@@ -116,7 +116,7 @@ export default function UeberUnsPage() {
         <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-ink)]/75">
           Antwort zeitnah, in der Regel innerhalb weniger Tage. Per E-Mail an{" "}
           <a
-            href={`mailto:${SITE.email}`}
+            href={MAILTO_FEEDBACK}
             className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
           >
             {SITE.email}

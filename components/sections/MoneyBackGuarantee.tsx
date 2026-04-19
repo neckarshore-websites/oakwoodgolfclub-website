@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
 
 /**
  * Money-Back-Garantie — trust block on the homepage.
@@ -47,7 +47,7 @@ export function MoneyBackGuarantee() {
             <strong>Lebenslang. Formfrei. Ohne Begründung.</strong> Eine
             kurze Mail an{" "}
             <a
-              href={`mailto:${SITE.email}`}
+              href={MAILTO_FEEDBACK}
               className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
             >
               {SITE.email}

@@ -7,7 +7,7 @@ import {
   getPublishedFaqs,
 } from "@/lib/faqs/items";
 import { CATEGORY_LABEL } from "@/lib/faqs/types";
-import { SITE, SITE_UPDATED } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Häufig gestellte Fragen",
@@ -88,7 +88,7 @@ export default function FaqPage() {
             >
               <h2
                 id={`heading-${category}`}
-                className="mb-8 font-heading text-xl tracking-tight md:text-2xl"
+                className="mb-8 font-heading text-xl tracking-tight text-[var(--color-fairway)] md:text-2xl"
               >
                 {CATEGORY_LABEL[category]}
               </h2>
@@ -102,13 +102,13 @@ export default function FaqPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
             Frage nicht dabei?
           </p>
-          <h2 className="mt-2 font-heading text-2xl tracking-tight">
+          <h2 className="mt-2 font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
             Schreib uns direkt.
           </h2>
           <p className="mt-3 max-w-xl text-base text-[var(--color-ink)]/75">
             Kontaktformular oder E-Mail an{" "}
             <a
-              href={`mailto:${SITE.email}`}
+              href={MAILTO_FEEDBACK}
               className="text-[var(--color-fairway)] underline-offset-4 hover:underline"
             >
               {SITE.email}

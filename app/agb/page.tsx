@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { PRICING, SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, PRICING, SITE } from "@/lib/site-config";
 
 /**
  * Allgemeine Geschäftsbedingungen.
@@ -203,7 +203,7 @@ export default function AgbPage() {
           <br />
           Stuttgart, Deutschland
           <br />
-          E-Mail: <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+          E-Mail: <a href={MAILTO_FEEDBACK}>{SITE.email}</a>
         </p>
         <p>
           mittels einer eindeutigen Erklärung (z.&nbsp;B. ein mit der Post
