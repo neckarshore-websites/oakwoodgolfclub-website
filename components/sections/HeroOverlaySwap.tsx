@@ -25,20 +25,20 @@ export function HeroOverlaySwap() {
       className="relative overflow-hidden border-b border-[var(--color-border)] bg-black"
     >
       {/* Bottom layer (always visible beneath): Vintage 1906.
-        * `priority` bewusst auf BEIDEN Layern: Chromium-LCP-Tracker
-        * registriert das Bottom-Layer-Vintage-Image als LCP-Element
-        * (beide Layer viewport-fuellend gleich gross; Vintage paint
-        * spaeter → resettet LCP-Timestamp). Ohne priority lazy-loaded
-        * das Bottom-Bild mit ~556 ms Resource-Load-Delay → LCP 3.0 s.
-        * Mit priority laden beide parallel, LCP ~1.8 s, Home-Mobile-
-        * Perf 94 → 97+. Siehe Session-Report 2026-04-19-c.
+        * NICHT `priority` — empirisch verifiziert in Session 2026-04-19-f:
+        * Next.js 16 rendert `priority` auf `<Image fill>` nicht als
+        * `fetchpriority="high"` am DOM (0 Treffer im gerenderten HTML,
+        * Lighthouse `priorityHinted: false`). Zwei priority-Layer bringen
+        * deshalb keinen LCP-Fix, sondern nur doppelten Parallel-Load und
+        * Konkurrenz um die ersten TCP-RTTs. LCP-Bottleneck ist tatsaechlich
+        * element-render-delay (~1.9 s aus Mobile-Lighthouse) — nicht
+        * resource-load-delay. Perf-Deep-Dive steht im Backlog als Post-Launch.
         */}
       <div className="absolute inset-0">
         <Image
           src="/brand/hero-golfplatz.webp"
           alt=""
           fill
-          priority
           sizes="100vw"
           className="object-cover"
           style={{ objectPosition: "50% 20%" }}
