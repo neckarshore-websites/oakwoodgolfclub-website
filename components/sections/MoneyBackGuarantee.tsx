@@ -52,13 +52,13 @@ export function MoneyBackGuarantee() {
             >
               {SITE.email}
             </a>{" "}
-            genügt — wir erstatten den Beitrag über denselben Zahlungsweg
-            zurück, auf dem du ihn überwiesen hast.
+            genügt — wir erstatten den Beitrag über denselben Zahlungsweg,
+            auf dem du ihn überwiesen hast.
           </p>
           <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[var(--color-ink)]/65">
             Seit der Gründung des Clubs wurde diese Garantie vier- bis
             fünfmal in Anspruch genommen — jedes Mal hat das Mitglied sein
-            Geld zurück bekommen. Uns ist wichtiger, dass niemand
+            Geld zurückbekommen. Uns ist wichtiger, dass niemand
             unzufrieden Mitglied bleibt, als dass wir jeden Beitrag
             einbehalten.
           </p>

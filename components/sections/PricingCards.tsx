@@ -46,7 +46,7 @@ export function PricingCards() {
             </div>
             <ul className="mt-8 space-y-3 text-sm text-[var(--color-ink)]/80">
               <li>· Offizielle Mitgliederkarte (Plastik)</li>
-              <li>· Akzeptiert auf ~95 % der AT-Plätze</li>
+              <li>· Akzeptiert auf ~95 % der Plätze in Österreich</li>
               <li>· Flexibler Startmonat</li>
               <li>· Kein Auto-Renewal</li>
             </ul>
