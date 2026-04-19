@@ -55,6 +55,21 @@ test.describe("Kontakt-Form", () => {
     await expect(page.getByText(/Ungültige E-Mail-Adresse/i)).toBeVisible();
   });
 
+  test("TC-FORM-CON-008 validation — E-Mail auf blockierter TLD wird abgelehnt (.ru/.cn/.in/.id)", async ({
+    page,
+  }) => {
+    await page.getByLabel("Name").fill(mockContact.name);
+    await page.getByLabel("E-Mail-Adresse").fill("spam@example.ru");
+    await page.getByLabel("Nachricht").fill(mockContact.message);
+    await page.getByLabel(/Datenschutzerklärung/).check();
+
+    await page.getByRole("button", { name: "Nachricht senden" }).click();
+
+    await expect(
+      page.getByText(/Diese E-Mail-Domain wird aktuell nicht unterstützt/i),
+    ).toBeVisible();
+  });
+
   test("TC-FORM-CON-004 validation — Nachricht unter 10 Zeichen wird abgelehnt", async ({
     page,
   }) => {

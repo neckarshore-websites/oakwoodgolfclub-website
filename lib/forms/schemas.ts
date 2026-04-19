@@ -37,9 +37,33 @@ const nameField = z
   .min(1, "Name ist Pflicht.")
   .max(100, "Name ist zu lang.");
 
+/**
+ * TLD-Block — User-Entscheidung 2026-04-20: E-Mail-Domains auf diesen TLDs
+ * ablehnen. Hintergrund: 99 % der Spam-Submissions in der Funnel-Telemetrie
+ * kommen aus diesen vier Regionen. OGC-Mitglieder in Indien / Brasilien /
+ * Großbritannien sind statistische Einzelfälle und nutzen ohnehin eine
+ * `.com`-Adresse als Erstkontakt (Gmail, Outlook, iCloud). Der Trade-Off
+ * "ggf. aussperren" ist akzeptiert.
+ *
+ * Check ist case-insensitive und greift nur auf den letzten TLD-Segment
+ * der Domain. `user@example.com` mit `.com` → ok. `user@x.co.in` → blocked.
+ */
+export const BLOCKED_EMAIL_TLDS = [".ru", ".cn", ".in", ".id"] as const;
+
+function emailHasBlockedTld(email: string): boolean {
+  const atIndex = email.lastIndexOf("@");
+  if (atIndex < 0) return false;
+  const domain = email.slice(atIndex + 1).toLowerCase();
+  return BLOCKED_EMAIL_TLDS.some((tld) => domain.endsWith(tld));
+}
+
 const emailField = z
   .email({ message: "Ungültige E-Mail-Adresse." })
-  .max(200, "E-Mail-Adresse ist zu lang.");
+  .max(200, "E-Mail-Adresse ist zu lang.")
+  .refine((value) => !emailHasBlockedTld(value), {
+    message:
+      "Diese E-Mail-Domain wird aktuell nicht unterstützt. Bitte nutze eine andere Adresse (z. B. .com, .de).",
+  });
 
 /**
  * Consent checkbox — HTML sendet `"on"` wenn checked, nichts wenn unchecked.
