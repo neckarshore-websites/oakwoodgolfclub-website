@@ -95,11 +95,10 @@ export default function DatenschutzPage() {
           Telefon: <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>
         </p>
 
-        {/* TODO USER-CHECK: Datenschutzbeauftragter (DSB).
-            Annahme: Es ist KEIN DSB benannt, weil keine 20+ Personen
-            ständig mit der automatisierten Verarbeitung personenbezogener
-            Daten beschäftigt sind (§ 38 Abs. 1 BDSG). Falls anders,
-            DSB-Block hier ergänzen. */}
+        {/* DSB: nicht benannt. Begründung: kein Betrieb mit 20+ Personen,
+            die ständig mit automatisierter Verarbeitung personenbezogener
+            Daten befasst sind (§ 38 Abs. 1 BDSG). Einzelunternehmer mit
+            Admin-Workflow durch Inhaber selbst. User-bestätigt 2026-04-19. */}
 
         <h2>2. Aufruf der Webseite (Server-Logs)</h2>
         <p>
@@ -110,7 +109,10 @@ export default function DatenschutzPage() {
           umfassen:
         </p>
         <ul>
-          <li>IP-Adresse (gekürzt bzw. nur in technischen Logs)</li>
+          <li>
+            IP-Adresse (wird nur in technischen Server-Logs kurzfristig
+            vorgehalten, siehe Speicherdauer)
+          </li>
           <li>Datum und Uhrzeit des Zugriffs</li>
           <li>Aufgerufene URL und HTTP-Statuscode</li>
           <li>Übertragene Datenmenge</li>
@@ -228,25 +230,57 @@ export default function DatenschutzPage() {
           Postfach gesendet und dort verarbeitet.
         </p>
         <p>
-          <strong>Speicherdauer:</strong> Mitglieder-Stammdaten werden so
-          lange gespeichert, wie eine aktive Mitgliedschaft besteht und
-          darüber hinaus für die gesetzlichen Aufbewahrungsfristen
-          (insbesondere § 147 AO, § 257 HGB; bis zu 10 Jahre für
-          buchungsrelevante Unterlagen). Allgemeine Kontaktanfragen werden
-          gelöscht, sobald die Bearbeitung abgeschlossen ist und keine
-          gesetzlichen Aufbewahrungspflichten entgegenstehen.
+          <strong>Speicherdauer:</strong>
         </p>
+        <ul>
+          <li>
+            <strong>
+              Mitglieder-Stammdaten (Name, Anschrift, E-Mail,
+              Mitgliedsnummer):
+            </strong>{" "}
+            Dauer der aktiven Mitgliedschaft zzgl. 3 Jahre nach
+            Vertragsende (regelmäßige Verjährung vertraglicher Ansprüche,
+            § 195 BGB).
+          </li>
+          <li>
+            <strong>Zahlungs- und Buchungsbelege:</strong> 10 Jahre ab
+            Ende des Kalenderjahres der Leistungserbringung
+            (§ 147 Abs. 1 Nr. 4 AO, § 257 Abs. 4 HGB).
+          </li>
+          <li>
+            <strong>Allgemeine Kontaktanfragen ohne Vertragsbezug:</strong>{" "}
+            6 Monate nach letzter Interaktion.
+          </li>
+          <li>
+            <strong>Abgelehnte Anmeldungen:</strong> 3 Monate nach
+            Ablehnungs-Entscheidung.
+          </li>
+          <li>
+            <strong>Server-Logs (IP, Zugriffszeit):</strong> wenige Tage
+            (Vercel-Default).
+          </li>
+        </ul>
 
-        <h2>6. Auftragsverarbeiter und Empfänger</h2>
+        <h2>6. Empfänger personenbezogener Daten</h2>
         <p>
-          Wir setzen für den technischen Betrieb der Webseite, für
-          E-Mail-Kommunikation und für die Abwicklung von Zahlungen
-          folgende Dienstleister ein, mit denen ein
-          Auftragsverarbeitungsvertrag (Art. 28 DSGVO) besteht oder die
-          nach den jeweiligen Anbieter-AGB als Auftragsverarbeiter agieren:
+          Für den technischen Betrieb der Webseite, die E-Mail-Kommunikation,
+          das Mitglieder-CRM und die Zahlungsabwicklung nutzen wir externe
+          Dienstleister. Wir unterscheiden zwei Rollen:
+          <strong> Auftragsverarbeiter</strong> verarbeiten deine Daten
+          weisungsgebunden in unserem Auftrag (Art. 28 DSGVO);{" "}
+          <strong>eigenverantwortliche Empfänger</strong> verarbeiten
+          deine Daten in eigener Verantwortung für eigene Zwecke (Art. 4
+          Nr. 7 DSGVO).
         </p>
 
-        <h3>Vercel Inc. (Hosting + Web Analytics)</h3>
+        <h3>6.1 Auftragsverarbeiter (Art. 28 DSGVO)</h3>
+        <p>
+          Folgende Dienstleister verarbeiten Daten weisungsgebunden in
+          unserem Auftrag auf Basis eines Auftragsverarbeitungsvertrags
+          bzw. einer äquivalenten vertraglichen Regelung:
+        </p>
+
+        <h4>Vercel Inc. (Hosting + Web Analytics)</h4>
         <p>
           440 N Barranca Avenue #4133, Covina, CA 91723, USA. Vercel
           stellt die technische Infrastruktur für die Auslieferung dieser
@@ -255,7 +289,7 @@ export default function DatenschutzPage() {
           Datenschutz: <a href="https://vercel.com/legal/privacy-policy" rel="noopener noreferrer" target="_blank">vercel.com/legal/privacy-policy</a>.
         </p>
 
-        <h3>IONOS SE (E-Mail-Versand)</h3>
+        <h4>IONOS SE (E-Mail-Versand)</h4>
         <p>
           Elgendorfer Straße 57, 56410 Montabaur, Deutschland. IONOS
           versendet und empfängt unsere Geschäfts-E-Mails (info@ und
@@ -266,7 +300,7 @@ export default function DatenschutzPage() {
           .
         </p>
 
-        <h3>Microsoft Corporation (CRM via Outlook)</h3>
+        <h4>Microsoft Corporation (CRM via Outlook)</h4>
         <p>
           Microsoft Corporation, One Microsoft Way, Redmond, WA 98052,
           USA (vertreten in der EU durch Microsoft Ireland Operations
@@ -277,6 +311,17 @@ export default function DatenschutzPage() {
           Stammdaten (Name, Anschrift, E-Mail, Mitgliedsnummer,
           Mitgliedschaftsstatus) sowie die gesamte E-Mail-Historie
           abgelegt.
+        </p>
+        <p>
+          <strong>Microsoft 365 Copilot</strong> ist in unserem
+          M365-Abonnement aktiv. Wir setzen Copilot nicht gezielt für
+          die Verarbeitung von OGC-Mitgliederdaten ein. Bei der Nutzung
+          von Outlook in der Administrator-Umgebung kann Copilot als
+          integrierte Assistenzfunktion eingreifen. Copilot läuft
+          innerhalb derselben Microsoft-365-Infrastruktur und des
+          gleichen Auftragsverarbeitungsvertrags wie in diesem Abschnitt
+          &bdquo;Microsoft Corporation (CRM via Outlook)&ldquo;
+          beschrieben.
         </p>
         <p>
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
@@ -294,88 +339,80 @@ export default function DatenschutzPage() {
           .
         </p>
 
-        <h3>KI-Assistenz für internen Workflow</h3>
+        <h4>Anthropic PBC (KI-Assistenz für internen Workflow)</h4>
         <p>
-          Zur effizienten Beantwortung von Mitgliederanfragen und zur
-          Formulierung von Standardtexten setzen wir ergänzend
-          KI-basierte Assistenz-Tools ein. Dabei können einzelne
-          Nachrichten-Inhalte oder Mitgliederdaten zur Bearbeitung an den
-          jeweiligen Anbieter übermittelt werden; es werden keine
-          kompletten Datensätze hochgeladen und keine Modelle mit deinen
-          Daten trainiert.
+          Anthropic PBC, 548 Market Street PMB 90375, San Francisco,
+          CA 94104, USA. Wir nutzen Claude-KI-Assistenz zur internen
+          Textaufbereitung (Formulierungsvorschläge, Übersetzungsentwürfe,
+          Antwort-Drafts). Dabei können einzelne Nachrichten-Inhalte oder
+          Mitgliederdaten zur Bearbeitung an Anthropic übermittelt werden;
+          es werden keine kompletten Datensätze hochgeladen und keine
+          Modelle mit deinen Daten trainiert.
         </p>
         <p>
-          <strong>Eingesetzter Anbieter:</strong>
-        </p>
-        <ul>
-          <li>
-            <strong>Anthropic PBC</strong>, 548 Market Street PMB 90375,
-            San Francisco, CA 94104, USA — Claude-KI-Assistenz zur
-            internen Textaufbereitung (Formulierungsvorschläge,
-            Übersetzungsentwürfe, Antwort-Drafts). Wir nutzen den
-            API-Tarif mit &bdquo;Zero Retention&ldquo;-Zusicherung:
-            Anthropic verarbeitet Eingaben ausschließlich zur
-            Antwortgenerierung und löscht sie im Anschluss; keine
-            Trainingsnutzung. Datenschutz:{" "}
-            <a
-              href="https://www.anthropic.com/legal/privacy"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              anthropic.com/legal/privacy
-            </a>
-            . Auftragsverarbeitungsvertrag:{" "}
-            <a
-              href="https://www.anthropic.com/legal/dpa"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              anthropic.com/legal/dpa
-            </a>
-            .
-          </li>
-        </ul>
-        <p>
-          Darüber hinaus kann beim Verfassen von Mails auf macOS/iOS
-          gelegentlich <strong>Apple Intelligence</strong> (Apple Inc.,
-          One Apple Park Way, Cupertino, CA 95014, USA) als integrierte
-          System-Assistenz eingreifen. Apple Intelligence verarbeitet
-          Eingaben primär on-device; rechenintensivere Anfragen werden
-          über Apples &bdquo;Private Cloud Compute&ldquo; ausgeführt,
-          ohne persistente Speicherung außerhalb der Laufzeit der
-          Anfrage. Falls künftig <strong>Microsoft 365 Copilot</strong>
-          in Microsoft Outlook zum Einsatz kommt, ist Microsoft bereits
-          in Abschnitt &bdquo;Microsoft (E-Mail-Infrastruktur)&ldquo;
-          als Auftragsverarbeiter genannt; Copilot läuft innerhalb
-          derselben Microsoft-365-Umgebung und derselben DPA.
+          Wir nutzen den API-Tarif mit &bdquo;Zero Retention&ldquo;-
+          Zusicherung: Anthropic verarbeitet Eingaben ausschließlich zur
+          Antwortgenerierung und löscht sie im Anschluss; keine
+          Trainingsnutzung.
         </p>
         <p>
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
           (Vertragsdurchführung) sowie Art. 6 Abs. 1 lit. f DSGVO
           (berechtigtes Interesse an einer effizienten Bearbeitung).
-          Die eingesetzten Anbieter agieren auf Basis ihrer jeweiligen
-          Auftragsverarbeitungsverträge als Auftragsverarbeiter nach
-          Art. 28 DSGVO. Wir nutzen dabei ausschließlich Tarife mit
-          &bdquo;Zero Retention&ldquo;- bzw. &bdquo;No Training&ldquo;-Zusicherung,
-          soweit der Anbieter dies anbietet.
+          Anthropic agiert auf Basis des Auftragsverarbeitungsvertrags
+          als Auftragsverarbeiter nach Art. 28 DSGVO.
+        </p>
+        <p>
+          Datenschutz:{" "}
+          <a
+            href="https://www.anthropic.com/legal/privacy"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            anthropic.com/legal/privacy
+          </a>
+          . Auftragsverarbeitungsvertrag:{" "}
+          <a
+            href="https://www.anthropic.com/legal/dpa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            anthropic.com/legal/dpa
+          </a>
+          .
         </p>
 
-        <h3>PayPal (Zahlungsdienstleister)</h3>
+        <h3>6.2 Eigenverantwortliche Empfänger (Art. 4 Nr. 7 DSGVO)</h3>
         <p>
-          PayPal (Europe) S.à r.l. et Cie, S.C.A., 22-24 Boulevard Royal,
-          L-2449 Luxembourg. Wenn du den Mitgliedsbeitrag per PayPal
-          zahlst, übermittelst du im Zuge der Zahlung folgende Daten an
-          PayPal: Name, E-Mail-Adresse, Zahlungsbetrag, ggf. weitere
-          PayPal-Konto-Identifikatoren sowie deine IP-Adresse.
+          Folgende Empfänger verarbeiten personenbezogene Daten in
+          eigener Verantwortung für eigene Zwecke und auf Basis eigener
+          Rechtsgrundlagen. Es besteht kein Auftragsverarbeitungsverhältnis
+          mit uns.
+        </p>
+
+        <h4>PayPal (Europe) S.à r.l. et Cie, S.C.A. — Zahlungsdienstleister</h4>
+        <p>
+          22-24 Boulevard Royal, L-2449 Luxembourg. Wenn du den
+          Mitgliedsbeitrag per PayPal zahlst, übermittelst du im Zuge
+          der Zahlung folgende Daten an PayPal: Name, E-Mail-Adresse,
+          Zahlungsbetrag, ggf. weitere PayPal-Konto-Identifikatoren sowie
+          deine IP-Adresse.
         </p>
         <p>
-          <strong>Zweck:</strong> Abwicklung der Beitragszahlung,
-          Betrugsprävention und Erfüllung gesetzlicher Aufbewahrungspflichten.
+          <strong>
+            PayPal ist eigenverantwortlicher Verantwortlicher im Sinne
+            von Art. 4 Nr. 7 DSGVO.
+          </strong>{" "}
+          PayPal verarbeitet die Daten zur Abwicklung der Zahlung, zur
+          Betrugsprävention und zur Erfüllung eigener gesetzlicher
+          Aufbewahrungs- und Meldepflichten — auf Grundlage der
+          PayPal-eigenen Datenschutzerklärung.
         </p>
         <p>
-          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
-          (Vertragserfüllung) sowie Art. 6 Abs. 1 lit. c DSGVO
-          (rechtliche Verpflichtung aus Steuer- und Buchhaltungsrecht).
+          <strong>Rechtsgrundlage auf unserer Seite:</strong> Art. 6
+          Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie Art. 6 Abs. 1
+          lit. c DSGVO (rechtliche Verpflichtung aus Steuer- und
+          Buchhaltungsrecht).
         </p>
         <p>
           PayPal kann die Daten an Wirtschaftsauskunfteien zur
@@ -393,6 +430,31 @@ export default function DatenschutzPage() {
           normale Bankkundenbeziehung. Wir sehen in diesem Fall lediglich
           die Standard-Überweisungsdaten (Name, IBAN, Verwendungszweck,
           Betrag) zu Buchhaltungszwecken.
+        </p>
+
+        <h4>Apple Inc. — Apple Intelligence (OS-Funktion)</h4>
+        <p>
+          Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA.
+          Apple Intelligence ist in der macOS/iOS-Umgebung des
+          Administrators aktiv. Wir setzen diese Funktion nicht gezielt
+          für die Verarbeitung von OGC-Mitgliederdaten ein. Bei der
+          Nutzung der Administrator-Endgeräte kann Apple Intelligence als
+          Betriebssystem-Funktion eingreifen.
+        </p>
+        <p>
+          Apple Intelligence verarbeitet Eingaben primär on-device;
+          rechenintensivere Anfragen werden über Apples
+          &bdquo;Private Cloud Compute&ldquo; ausgeführt, ohne
+          persistente Speicherung außerhalb der Laufzeit der Anfrage.
+        </p>
+        <p>
+          <strong>
+            Apple agiert dabei als eigenverantwortlicher Anbieter einer
+            OS-Funktion im Sinne von Art. 4 Nr. 7 DSGVO; es besteht kein
+            Auftragsverarbeitungsverhältnis mit uns.
+          </strong>{" "}
+          Zu den mit der Nutzung verbundenen Drittlandtransfers siehe
+          Abschnitt 7.
         </p>
 
         <h2>7. Übermittlung in Drittländer</h2>

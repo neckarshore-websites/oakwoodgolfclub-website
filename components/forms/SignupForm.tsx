@@ -40,8 +40,13 @@ const COUNTRY_OPTIONS = COUNTRY_VALUES.map((country) => ({
   label: country,
 }));
 
-function todayString(): string {
+// Default-Startdatum: heute + 14 Tage — Mindestdauer laut Schema
+// (Widerrufsfrist, siehe lib/forms/schemas.ts startDateField). Muss
+// synchron zum Schema-Min bleiben, sonst zeigt das Formular einen Wert
+// an, der beim Submit direkt abgelehnt wird.
+function defaultStartDate(): string {
   const d = new Date();
+  d.setDate(d.getDate() + 14);
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const day = String(d.getDate()).padStart(2, "0");
@@ -119,7 +124,7 @@ export function SignupForm() {
         label="Gewünschtes Startdatum"
         type="date"
         required
-        defaultValue={values.startDate ?? todayString()}
+        defaultValue={values.startDate ?? defaultStartDate()}
         error={errors.startDate}
       />
 

@@ -82,15 +82,14 @@ export function ContactForm() {
         defaultChecked={values.consent === "on"}
         error={errors.consent}
       >
-        Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage
-        verwendet werden. Es erfolgt keine Weitergabe an Dritte. Siehe{" "}
+        Ich habe die{" "}
         <Link
           href="/datenschutz"
           className="text-[var(--color-fairway)] underline underline-offset-2 hover:text-[var(--color-fairway-hover)]"
         >
           Datenschutzerklärung
-        </Link>
-        .
+        </Link>{" "}
+        zur Kenntnis genommen.
       </ConsentField>
 
       <FriendlyCaptcha />

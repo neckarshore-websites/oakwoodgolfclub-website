@@ -198,6 +198,12 @@ export default function AgbPage() {
           Vertragsabschlusses (im Sinne von § 3 dieser AGB).
         </p>
         <p>
+          Die Mitgliedschaft beginnt frühestens 14 Tage nach Vertragsschluss.
+          Damit läuft die Widerrufsfrist regulär vor Leistungsbeginn ab — eine
+          gesonderte Zustimmung zum vorzeitigen Leistungsbeginn im Sinne
+          von § 356 Abs. 4 BGB ist nicht erforderlich.
+        </p>
+        <p>
           Um dein Widerrufsrecht auszuüben, musst du uns
         </p>
         <p>
@@ -215,7 +221,7 @@ export default function AgbPage() {
           mittels einer eindeutigen Erklärung (z.&nbsp;B. ein mit der Post
           versandter Brief oder eine E-Mail) über deinen Entschluss, diesen
           Vertrag zu widerrufen, informieren. Du kannst für den Widerruf
-          das beigefügte Muster-Widerrufs­formular verwenden, das jedoch
+          das nachfolgende Muster-Widerrufs­formular verwenden, das jedoch
           nicht vorgeschrieben ist.
         </p>
         <p>

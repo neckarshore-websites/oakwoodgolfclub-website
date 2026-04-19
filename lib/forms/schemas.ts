@@ -89,21 +89,31 @@ const consentField = z
 // same commit.)
 const honeypotField = z.string().optional().or(z.literal(""));
 
-// Shared start-date format — YYYY-MM-DD from <input type="date">, must be
-// today or later. We don't look further ahead than ~5 years to catch
-// fat-finger typos.
+// Shared start-date format — YYYY-MM-DD from <input type="date">. Must lie
+// between today + 14 days and today + 5 years.
+//
+// Why +14 days: Quick-Fix für Compliance-Sweep H5 (Dr. Sommer, 2026-04-19).
+// Ein Vertragsschluss innerhalb der 14-tägigen Widerrufsfrist ohne
+// ausdrückliche Vorab-Zustimmung nach § 356 BGB würde die Widerrufsfrist
+// gesetzlich auf 12 Monate + 14 Tage verlängern. Wir schieben das
+// Mitgliedschafts-Startdatum über die Widerrufsfrist hinaus — damit ist
+// der Vertrag bis zum Leistungsbeginn jederzeit gefahrlos widerruflich
+// und die Frist läuft regulär aus.
+//
+// Obergrenze +5 Jahre: fat-finger-Schutz (User tippt 2066 statt 2026).
 const startDateField = z
   .string({ message: "Startdatum ist Pflicht." })
   .regex(/^\d{4}-\d{2}-\d{2}$/, "Bitte ein gültiges Datum wählen.")
   .refine((value) => {
     const selected = new Date(`${value}T00:00:00`);
     if (Number.isNaN(selected.getTime())) return false;
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const minStart = new Date();
+    minStart.setHours(0, 0, 0, 0);
+    minStart.setDate(minStart.getDate() + 14);
     const maxYears = new Date();
     maxYears.setFullYear(maxYears.getFullYear() + 5);
-    return selected >= today && selected <= maxYears;
-  }, "Startdatum muss zwischen heute und 5 Jahren in der Zukunft liegen.");
+    return selected >= minStart && selected <= maxYears;
+  }, "Startdatum muss mindestens 14 Tage in der Zukunft liegen (Widerrufsfrist) und darf höchstens 5 Jahre in der Zukunft liegen.");
 
 // ---------------------------------------------------------------------------
 // Kontakt — general inquiry.
