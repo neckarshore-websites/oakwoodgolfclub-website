@@ -7,7 +7,7 @@
  * name + email in Outlook when a member invents a number).
  */
 
-import { expect, test } from "@playwright/test";
+import { expect, test } from "../fixtures/test";
 import { mockRenewal } from "../fixtures/mock-data";
 
 test.describe("Renewal-Form (/mitgliedschaft-verlaengern)", () => {

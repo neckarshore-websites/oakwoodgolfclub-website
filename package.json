@@ -14,6 +14,7 @@
     "smoke:send": "tsx --env-file=.env.local scripts/smoke-smtp-send.ts",
     "test:e2e": "playwright test",
     "test:e2e:prod": "E2E_BASE_URL=https://oakwoodgolfclub-website.vercel.app playwright test",
+    "test:e2e:nightly": "E2E_BASE_URL=https://oakwoodgolfclub-website.vercel.app E2E_THROTTLE_MS=10000 playwright test",
     "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {

@@ -6,7 +6,7 @@
  * fields; validation cases target the most error-prone inputs.
  */
 
-import { expect, test } from "@playwright/test";
+import { expect, test } from "../fixtures/test";
 import { mockSignup } from "../fixtures/mock-data";
 
 test.describe("Signup-Form (/mitglied-werden)", () => {
