@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useCallback, useEffect, useRef } from "react";
 import { NAV, SITE } from "@/lib/site-config";
 
 /**
@@ -17,10 +21,31 @@ import { NAV, SITE } from "@/lib/site-config";
  * PNG/SVG-Variante, skalierbare Wordmark, Brand-Konsistenz. Für Launch
  * genügt die Original-JPG.
  *
- * Mobile: hamburger menu via <details> (zero-JS fallback), dropdown
- * panel ebenfalls dunkel für Kontinuität.
+ * Mobile: hamburger menu via <details> (zero-JS fallback). Diese
+ * Komponente ist Client wegen des Auto-Close-Verhaltens — siehe
+ * `closeMobileMenu` und der `pathname`-Effekt unten. Hintergrund:
+ * native `<details>` behält ihre `open`-Property über Next.js
+ * Client-side-Navigation, weil der DOM-Knoten der Sticky-Nav
+ * persistiert. Ohne dieses Schließen blieb das Menü auf dem iPhone
+ * 12 Pro Max nach Klick auf einen Menüpunkt offen über dem neuen
+ * Inhalt liegen (Bug 2026-04-19).
  */
 export function Nav() {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+  const pathname = usePathname();
+
+  const closeMobileMenu = useCallback(() => {
+    if (detailsRef.current) {
+      detailsRef.current.open = false;
+    }
+  }, []);
+
+  // Catch-all für Pfad-Wechsel — auch dann zu, wenn der User von
+  // ausserhalb des Menüs navigiert (z.B. via In-Content-Link).
+  useEffect(() => {
+    closeMobileMenu();
+  }, [pathname, closeMobileMenu]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-black">
       <div className="container-page flex h-20 items-center justify-between gap-4">
@@ -58,8 +83,8 @@ export function Nav() {
           </Link>
         </nav>
 
-        {/* Mobile nav — zero-JS disclosure */}
-        <details className="relative md:hidden">
+        {/* Mobile nav — disclosure mit Auto-Close on Link-Click */}
+        <details ref={detailsRef} className="relative md:hidden">
           <summary
             className="cursor-pointer list-none rounded-sm border border-white/20 px-3 py-2 text-sm text-white hover:border-white/40"
             aria-label="Menü öffnen"
@@ -75,6 +100,7 @@ export function Nav() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={closeMobileMenu}
                     className="block rounded-sm px-3 py-2 text-sm text-white/85 transition-colors hover:bg-white/10 hover:text-white"
                   >
                     {item.label}
@@ -84,6 +110,7 @@ export function Nav() {
               <li className="mt-2 border-t border-white/10 pt-2">
                 <Link
                   href="/mitglied-werden"
+                  onClick={closeMobileMenu}
                   className="block rounded-sm bg-[var(--color-fairway)] px-3 py-2 text-center text-sm font-medium text-white hover:bg-[var(--color-fairway-hover)]"
                 >
                   Jetzt Mitglied werden
