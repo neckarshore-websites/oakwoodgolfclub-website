@@ -109,6 +109,20 @@ User: Zeitstempel + neue Werte in Session-Chat zu Linus posten. Linus hält das 
 
 ## 5. Verification (T+5 Min bis T+60 Min)
 
+### 5.0 One-Shot Verify (Recommended First Pass)
+
+```bash
+cd ~/Developer/projects/oakwoodgolfclub-de/oakwoodgolfclub-website && npm run verify:cutover
+```
+
+Script: `scripts/verify-b14-cutover.sh`. Läuft alle Checks aus §5a–c + Content-Smoke nacheinander, farbkodierte Pass/Warn/Fail-Ausgabe, Exit-Code (0 pass, 1 hard-fail, 2 soft-warn). Optional `EXPECTED_APEX_IP=<vercel-ip>` vorher exportieren, dann assertet der Script die DNS-Antwort statt sie nur anzuzeigen. Beispiel:
+
+```bash
+cd ~/Developer/projects/oakwoodgolfclub-de/oakwoodgolfclub-website && EXPECTED_APEX_IP=76.76.21.21 npm run verify:cutover
+```
+
+Bei "RESULT: PASS" ist §5a–c redundant. Bei "RESULT: FAIL" bzw. "PASS with warnings" die folgenden Einzelschritte manuell nachziehen.
+
 ### 5a. DNS-Propagation Checks
 
 ```bash
