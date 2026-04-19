@@ -164,7 +164,7 @@ imageAlt: "Alt-Text für das Bild"
 | B11 | Legal | Impressum, Datenschutz, AGB — statische Seiten | XS | Offen |
 | B12 | Analytics | Vercel Web Analytics einbinden | XS | Offen |
 | B13 | Pre-Launch | Lighthouse 95+, visuelle Abnahme (User), smoke test Formulare | S | Offen |
-| B14 | DNS-Cutover | IONOS A+CNAME → Vercel, MX unberührt (analog rauhut.com-Pattern) | XS | Offen |
+| B14 | DNS-Cutover | IONOS A+CNAME → Vercel, MX unberührt (analog rauhut.com-Pattern) — Runbook: [`docs/runbooks/b14-dns-cutover.md`](runbooks/b14-dns-cutover.md) | XS | Offen |
 
 **Gesamtaufwand Phase 1:** ~2–3 Linus-Build-Sessions
 
