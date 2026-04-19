@@ -142,6 +142,37 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     await expect(page.getByRole("status")).toBeVisible();
   });
 
+  test("TC-FORM-SIG-009 mobile UX — Success-Panel wird in den Viewport gescrollt + bekommt Focus", async ({
+    page,
+  }) => {
+    // Regression-Lock für den iPhone-12-Pro-Max-Bug 2026-04-19: nach Submit
+    // ersetzt das (kürzere) Success-Panel die Form, die Seite kollabiert,
+    // der Browser behält die alte Scroll-Position — User landet im Footer
+    // statt auf der Bestätigung. Fix in `FormSuccessPanel`: scrollIntoView
+    // + focus on mount. Da der Fix zentral in der Shared Component sitzt,
+    // reicht ein Test auf der Form mit dem größten Form/Success-Größen-
+    // Delta (Signup hat die meisten Felder → größter Kollaps).
+    await page.setViewportSize({ width: 428, height: 926 });
+    // Vorher hochscrollen ist nicht nötig — Submit-Button liegt am Ende
+    // der Form, der Browser ist nach dem Klick automatisch im unteren
+    // Drittel der Page. Genau dort entsteht der Bug.
+    await fillHappyPath(page);
+    await page.getByRole("button", { name: "Anmeldung absenden" }).click();
+
+    const successPanel = page
+      .getByRole("status")
+      .filter({ hasText: /Zahlungsdetails/i });
+
+    // Sichtbar UND im Viewport (mind. 50% der Höhe). Ohne den Fix hätte
+    // der User nach unten scrollen müssen um den Banner zu sehen.
+    await expect(successPanel).toBeVisible();
+    await expect(successPanel).toBeInViewport({ ratio: 0.5 });
+    // Programmatisch fokussiert für Screenreader-Ankündigung + a11y-
+    // Continuity. tabIndex=-1 macht das `<section>` fokussierbar ohne
+    // es in die Tab-Order zu hängen.
+    await expect(successPanel).toBeFocused();
+  });
+
   test("TC-FORM-SIG-008 preservation — Validation-Error erhält User-Eingaben", async ({
     page,
   }) => {

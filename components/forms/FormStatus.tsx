@@ -12,6 +12,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
 
 export type FormActionState = {
@@ -90,11 +91,37 @@ export function FormSuccessPanel({
   title: string;
   description: string;
 }) {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // Scroll the success panel into view and focus it after the form has
+    // been replaced. Background: this panel is much shorter than the form
+    // it replaces, so the page collapses while the browser keeps the old
+    // scroll position. On mobile (iPhone 12 Pro Max, 2026-04-19) this lands
+    // the user in the page footer, so they can't see that their submit
+    // succeeded. Scroll + focus puts the confirmation in front of them and
+    // makes screen readers announce it. Honour prefers-reduced-motion so
+    // motion-sensitive users get an instant jump instead of a smooth slide.
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+    el.focus({ preventScroll: true });
+  }, []);
+
   return (
     <section
+      ref={ref}
+      tabIndex={-1}
       role="status"
       aria-live="polite"
-      className="rounded-sm border border-[var(--color-fairway)]/30 bg-[var(--color-fairway)]/5 px-6 py-10 text-center md:px-10 md:py-14"
+      className="scroll-mt-24 rounded-sm border border-[var(--color-fairway)]/30 bg-[var(--color-fairway)]/5 px-6 py-10 text-center outline-none md:px-10 md:py-14"
     >
       <div
         aria-hidden
