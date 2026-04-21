@@ -183,6 +183,8 @@ cd ~/Developer/projects/oakwoodgolfclub-de/oakwoodgolfclub-website && E2E_BASE_U
 
 User sendet eine Test-Mail aus beliebigem externen Account an `info@oakwoodgolfclub.de` UND `kontakt@oakwoodgolfclub.de` (falls vorhanden), prüft Ankunft in IONOS-Postfach. Wenn MX korrekt unberührt blieb: Mail kommt innerhalb 1 Min an. Wenn nicht: **SOFORT Rollback Schritt 6**, MX-Records wurden aus Versehen geändert.
 
+**Status:** ✅ Verifiziert durch User 2026-04-21 — externe Mails an `info@` + `kontakt@` angekommen, Mail-Infrastruktur intakt nach Cutover.
+
 ---
 
 ## 6. Rollback (falls etwas nicht stimmt)
