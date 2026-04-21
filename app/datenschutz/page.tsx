@@ -350,10 +350,10 @@ export default function DatenschutzPage() {
           Modelle mit deinen Daten trainiert.
         </p>
         <p>
-          Wir nutzen den API-Tarif mit &bdquo;Zero Retention&ldquo;-
-          Zusicherung: Anthropic verarbeitet Eingaben ausschließlich zur
-          Antwortgenerierung und löscht sie im Anschluss; keine
-          Trainingsnutzung.
+          Wir nutzen die Anthropic-API auf Basis der Commercial Terms.
+          Eingaben werden von Anthropic bis zu 30 Tage zur
+          Missbrauchserkennung gespeichert und anschließend gelöscht.
+          Eine Nutzung zu Trainingszwecken findet nicht statt.
         </p>
         <p>
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO
