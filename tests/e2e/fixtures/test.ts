@@ -1,20 +1,22 @@
 /**
- * Shared Playwright test-fixture with optional post-test throttle.
+ * Shared Playwright test-fixture mit zwei Cross-Test-Mechaniken:
  *
- * Why: the nightly prod E2E run (`test:e2e:nightly`) hits live IONOS SMTP
- * once per test (happy-path specs = 6 real mails per run). Without a
- * per-test delay, 23 tests × 2 mails in ~52 s triggers IONOS's burst
- * rate-limit and flakes the happy-path assertions. Sequential workers
- * alone aren't enough — the mails still land inside the burst window.
+ * 1. **Per-Test Rate-Limit-Reset (lokal).** Der In-Memory-Rate-Limiter in
+ *    `lib/ratelimit.ts` zählt 5 Submits pro IP pro Stunde. Die 23 E2E-Tests
+ *    produzieren ~5 successful submits — exakt am Limit. Jeder zusätzliche
+ *    Happy-Path-Test reißt die Grenze (CTX3 aus Session 2026-04-19-h).
+ *    Lösung: `beforeEach` ruft `POST /api/test-hooks/reset-rate-limit` auf,
+ *    welches in Dev-Mode den Counter leert. In Production retourniert der
+ *    Endpoint 404 → Reset wirkt nur lokal/preview, nie auf Live-Traffic.
  *
- * The `E2E_THROTTLE_MS` env var, if set to a positive integer, causes
- * each test to sleep that many milliseconds *after* its assertions
- * finish. Local runs leave the var unset → zero overhead. The nightly
- * GHA workflow sets it to `10000` (10 s) — that spreads 23 tests over
- * ~4 min, well under IONOS's throttle threshold.
+ * 2. **Optionaler Post-Test-Throttle (nightly Prod-Run).** `test:e2e:nightly`
+ *    schickt echte SMTP-Mails über IONOS. Ohne Per-Test-Delay rate-limited
+ *    IONOS nach ~16 Mails in 52 s. `E2E_THROTTLE_MS=10000` spreizt die 23
+ *    Tests auf ~4 min — under IONOS's burst-threshold. Local runs lassen
+ *    die Var unset → null Overhead.
  *
- * Usage: specs import `{ expect, test }` from this file instead of
- * `@playwright/test` directly. Nothing else changes.
+ * Usage: specs importieren `{ expect, test }` von dieser Datei statt
+ * direkt aus `@playwright/test`. Nichts sonst ändert sich.
  */
 
 import { test as base, expect } from "@playwright/test";
@@ -22,6 +24,15 @@ import { test as base, expect } from "@playwright/test";
 const throttleMs = Number.parseInt(process.env.E2E_THROTTLE_MS ?? "0", 10);
 
 export const test = base.extend({});
+
+test.beforeEach(async ({ request }) => {
+  const response = await request.post("/api/test-hooks/reset-rate-limit");
+  if (!response.ok() && response.status() !== 404) {
+    throw new Error(
+      `Rate-limit reset hook failed: ${response.status()} ${response.statusText()}`,
+    );
+  }
+});
 
 if (Number.isFinite(throttleMs) && throttleMs > 0) {
   test.afterEach(async () => {
