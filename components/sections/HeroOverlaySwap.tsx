@@ -65,9 +65,12 @@ export function HeroOverlaySwap() {
       />
 
       <div className="container-page relative py-24 md:py-32 lg:py-40">
-        <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)]">
+        <Link
+          href="/ueber-uns"
+          className="mb-6 inline-block text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-gold)] hover:text-[var(--color-gold-deep)] transition-colors"
+        >
           Seit {SITE.founded} · {SITE.memberCount}+ Mitglieder weltweit
-        </p>
+        </Link>
 
         <h1 className="font-heading text-4xl leading-[1.1] tracking-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl lg:text-7xl">
           Fernmitgliedschaft<br />

@@ -3,7 +3,7 @@ import { SignupForm } from "@/components/forms/SignupForm";
 import { PRICING } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Mitglied werden",
+  title: "Fernmitglied werden | Oakwood Golf Club",
   description:
     "Fernmitgliedschaft im Oakwood Golf Club beantragen. Einzel €55 / Jahr, Flight €143 / Jahr für 4 Personen. Kein Auto-Renewal.",
   alternates: { canonical: "/mitglied-werden" },

@@ -17,7 +17,7 @@
  * Bump this on any meaningful change to homepage / FAQ / about / pricing /
  * legal. Trivial-edit-only commits do NOT need a bump.
  */
-export const SITE_UPDATED = "2026-04-18";
+export const SITE_UPDATED = "2026-04-21";
 
 /** Render SITE_UPDATED as a German long date for visible UI text. */
 export function formatUpdatedAtDe(iso: string = SITE_UPDATED): string {

@@ -6,7 +6,7 @@ excerpt: "Was soll man als Amateur trainieren? Die Antwort ist nicht Putten."
 categories:
   - "Training"
 author: "Oakwood Golf Club"
-draft: false
+draft: true
 ---
 ####
 
