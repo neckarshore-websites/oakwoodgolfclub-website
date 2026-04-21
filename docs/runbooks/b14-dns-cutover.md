@@ -1,6 +1,6 @@
 # Runbook B14 — DNS-Cutover `oakwoodgolfclub.de` zu Vercel
 
-**Status:** Draft 2026-04-19, Session `linus-fe-g`. Nicht ausgeführt.
+**Status:** ✅ **Executed 2026-04-21** — Session `linus-fe` (b). Phase-1 live. Siehe §10 für Sign-off-Details.
 **Owner Execution:** User (DNS + Vercel Dashboard)
 **Owner Verification:** Linus (CLI-Checks, Cert-Verify, Cache-Propagation)
 **Estimated Window:** 30–60 Min plus TTL-Propagation (bis 24 h, erwartet 10–60 Min bei IONOS-Default-TTL 3600).
@@ -27,14 +27,14 @@ Ziel: `oakwoodgolfclub.de` und `www.oakwoodgolfclub.de` von der aktuellen WordPr
 
 | # | Gate | Verifiziert durch | Status |
 |---|------|-------------------|--------|
-| 1 | B13 Pre-Launch Lighthouse 95+ (Mobile Median 92 akzeptiert als Launch-Gate, siehe Session -f D1) | Linus 2026-04-19-f | ✅ |
-| 2 | B5 Form-Funnel e2e-verified auf Prod | Linus 2026-04-18-F (18/18 Playwright pass) | ✅ |
+| 1 | B13 Pre-Launch Lighthouse 95+ (alle 5 Pages > 95 Perf, 3-Run-Median) | Linus 2026-04-21 | ✅ |
+| 2 | B5 Form-Funnel e2e-verified auf Prod | Linus 2026-04-18-F (18/18 Playwright pass), 2026-04-21 (23/23) | ✅ |
 | 3 | Legal-Seiten live (Impressum, AGB, Datenschutz, Widerrufsbelehrung) mit volle Anschrift + § 19 UStG-Klausel | Linus 2026-04-19-e | ✅ |
-| 4 | Visual-Sichtkontrolle auf Prod-Alias durch User (T2) | User | ⬜ **Offen** |
-| 5 | End-to-End Test-Membership: Signup + Mail-Empfang + Renewal gegen `oakwoodgolfclub-website.vercel.app` | User + Linus | ⬜ **Offen** |
-| 6 | Prod-Alias serves aktuellster Main-Commit (Source↔Prod-Parität) — Session -f Revert 808d475 ist live | User-Decision D1 aus Session -f Frontmatter | ⬜ **Offen** |
-| 7 | IONOS Zone-Snapshot als Rollback-Backup (Backlog #12) | User | ⬜ **Offen** |
-| 8 | Custom-Domain in Vercel-Projekt `oakwoodgolfclub-website` hinzugefügt und SSL-Cert vorbereitet | User im Vercel-Dashboard | ⬜ **Offen** |
+| 4 | Visual-Sichtkontrolle auf Prod-Alias durch User | User 2026-04-21 | ✅ |
+| 5 | End-to-End Test-Membership: Signup + Mail-Empfang + Renewal gegen `oakwoodgolfclub-website.vercel.app` | User + Linus 2026-04-21 | ✅ |
+| 6 | Prod-Alias serves aktuellster Main-Commit (HEAD `cc23247`) | Linus 2026-04-21 | ✅ |
+| 7 | IONOS Zone-Snapshot als Rollback-Backup (Backlog #12) | User 2026-04-21 | ✅ |
+| 8 | Custom-Domain in Vercel-Projekt `oakwoodgolfclub-website` hinzugefügt (apex + www → 308 → apex) | User 2026-04-21 (Cutover-Session) | ✅ |
 
 Wenn **irgendein** ⬜ nicht erledigt ist: STOP. Nicht umziehen.
 
@@ -259,18 +259,20 @@ cd ~/Developer/projects/oakwoodgolfclub-de/oakwoodgolfclub-website && E2E_BASE_U
 
 ## 10. Sign-Off
 
-Runbook executed by: _______________ Date: _______________ Time: _______________
+Runbook executed by: **User (DNS in IONOS) + Linus (Vercel-Domain-Setup + Verify)** Date: **2026-04-21** Time: **~15:35 UTC**
 
-Snapshot location: _______________
+Snapshot location: **User lokal (Desktop) — vor Cutover durch User angefertigt**
 
-Cutover-A-Record before: _______________ → after: _______________
+Cutover-A-Record before: **`217.160.0.22` (IONOS Webhosting)** → after: **`76.76.21.21` (Vercel Anycast)**
 
-Cert valid-until: _______________
+Zusätzlich: A `www` gelöscht + CNAME `www` → `cname.vercel-dns.com` angelegt. AAAA-Records (`@` + `www`) entfernt (IPv6-Split-Brain-Vermeidung). MX/SPF/DMARC/DKIM/autodiscover unberührt.
 
-Test-Membership signup @: _______________ Verified by: _______________
+Cert valid-until: **2026-07-20 14:37 UTC** (Let's Encrypt R12, 90-day, auto-renew via Vercel)
 
-Mail-Delivery test: _______________ Verified by: _______________
+Test-Membership signup @: **Pre-Cutover am `oakwoodgolfclub-website.vercel.app` (Gate #5)** Verified by: **User 2026-04-21**
 
-Go-live freigegeben durch: German Rauhut / _______________
+Mail-Delivery test: **Gate #5 bestätigt vor Cutover. Mail-Records nach Cutover via `dig @8.8.8.8 oakwoodgolfclub.de MX` verifiziert unverändert (mx00/mx01.ionos.de).** Verified by: **Linus 2026-04-21**
 
-Backlog #11 B14 geschlossen durch Commit: _______________
+Go-live freigegeben durch: **German Rauhut 2026-04-21**
+
+Backlog #11 B14 geschlossen durch Commit: **(this commit)**
