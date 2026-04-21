@@ -28,7 +28,8 @@ import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
  *    agiert unter den Online Services Terms / DPA als Auftragsverarbeiter.
  *  - KI-Assistenz für den internen Workflow (Formulierung von
  *    E-Mail-Antworten, Übersetzungs-Drafts): Anthropic PBC (Claude
- *    via API, Zero-Retention-Tarif) als primärer Anbieter. Gelegentlich
+ *    via API, Commercial Terms mit 30-Tage-Retention) als primärer
+ *    Anbieter. Gelegentlich
  *    Apple Intelligence auf macOS/iOS (on-device / Private Cloud
  *    Compute) und ggf. Microsoft 365 Copilot innerhalb der bestehenden
  *    Microsoft-Outlook-Umgebung. Details in §6 "KI-Assistenz".
@@ -489,7 +490,8 @@ export default function DatenschutzPage() {
             Anbieter. Die Übermittlung in die USA erfolgt auf Basis der
             EU-Standardvertragsklauseln im Anthropic-DPA sowie
             ergänzender technischer Schutzmaßnahmen (Verschlüsselung in
-            Transit und at Rest, &bdquo;Zero Retention&ldquo;-Tarif).
+            Transit und at Rest, zeitlich begrenzte Aufbewahrung von
+            maximal 30 Tagen zur Missbrauchserkennung).
           </li>
           <li>
             <strong>Apple Inc., USA</strong> — sofern Apple Intelligence
