@@ -219,21 +219,21 @@ export function SignupForm() {
         defaultChecked={values.consent === "on"}
         error={errors.consent}
       >
-        Ich habe die{" "}
+        Ich akzeptiere die{" "}
         <Link
           href="/agb"
           className="text-[var(--color-fairway)] underline underline-offset-2 hover:text-[var(--color-fairway-hover)]"
         >
           AGB
         </Link>{" "}
-        und die{" "}
+        und habe die{" "}
         <Link
           href="/datenschutz"
           className="text-[var(--color-fairway)] underline underline-offset-2 hover:text-[var(--color-fairway-hover)]"
         >
           Datenschutzerklärung
         </Link>{" "}
-        gelesen und stimme zu.
+        zur Kenntnis genommen.
       </ConsentField>
 
       <FriendlyCaptcha />

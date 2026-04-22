@@ -22,8 +22,10 @@ import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
  *    aktiviert sich erst wenn NEXT_PUBLIC_FRIENDLY_CAPTCHA_SITEKEY +
  *    FRIENDLY_CAPTCHA_API_KEY in Vercel gesetzt sind — graceful degrade).
  *  - Zahlungen aktuell: Banküberweisung an DKB-Konto (kein AV — normale
- *    Bankkundenbeziehung) ODER PayPal (IST Auftragsverarbeiter, in §6
- *    dokumentiert). Stripe ist NICHT live; kommt → Backlog #25.
+ *    Bankkundenbeziehung) ODER PayPal (eigenverantwortlicher Empfänger
+ *    nach Art. 4 Nr. 7 DSGVO, in §6.2 dokumentiert — PayPal ist KEIN
+ *    Auftragsverarbeiter, siehe page-copy §6.2 für die rechtliche
+ *    Einordnung). Stripe ist NICHT live; kommt → Backlog #25.
  *  - CRM: Microsoft Outlook (Member-Kontakte + Mail-Historie). Microsoft
  *    agiert unter den Online Services Terms / DPA als Auftragsverarbeiter.
  *  - KI-Assistenz für den internen Workflow (Formulierung von
@@ -32,7 +34,8 @@ import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
  *    Anbieter. Gelegentlich
  *    Apple Intelligence auf macOS/iOS (on-device / Private Cloud
  *    Compute) und ggf. Microsoft 365 Copilot innerhalb der bestehenden
- *    Microsoft-Outlook-Umgebung. Details in §6 "KI-Assistenz".
+ *    Microsoft-Outlook-Umgebung. Details in §6.1 "Anthropic PBC
+ *    (KI-Assistenz)".
  *  - Keine Cookies, keine Werbung, kein Tracking, kein Google Analytics,
  *    kein Facebook-Pixel.
  *  - Verantwortlicher: German Rauhut, Deutschland (kein Drittland-
