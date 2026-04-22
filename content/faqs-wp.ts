@@ -5,9 +5,9 @@
  * file. For hand-kuratierte FAQs use content/faqs-curated.ts.
  * content/faqs.ts aggregates both.
  *
- * published=false + needsReview=true means the imported FAQ
- * contradicts our D9 truth-alignment (active handicap claims).
- * Decision per FAQ: rewrite honestly in faqs-curated.ts, or drop.
+ * 2026-04-22: All needsReview entries removed (8 stale handicap FAQs
+ * that referenced discontinued services or were replaced by curated
+ * rewrites). No needsReview entries remain in this file.
  */
 
 import type { FaqItem } from "@/lib/faqs/types";
