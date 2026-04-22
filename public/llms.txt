@@ -1,15 +1,23 @@
 # Oakwood Golf Club
 
-> Fernmitgliedschaft im Golfclub. Offizielle Mitgliederkarte für 55 Euro pro Jahr. Gegründet 2009. Betrieben aus Thailand. Mitglieder primär in der DACH-Region (Deutschland, Österreich, Schweiz). Rund 300 aktive Mitglieder. Die Mitgliederkarte wird auf etwa 95 % der österreichischen Golfplätze akzeptiert.
+> Fernmitgliedschaft im Golfclub für DACH-Golfer. Seit 2009, rund 300 aktive Mitglieder.
 
-## Kernfakten
+Oakwood Golf Club bietet eine Fernmitgliedschaft (Remote Golf Membership) für Golfer im
+deutschsprachigen Raum (Deutschland, Österreich, Schweiz). Die Mitgliedschaft umfasst eine
+anerkannte Plastik-Mitgliederkarte im Kreditkartenformat, die bei der überwiegenden Mehrheit
+der Golfclubs in DACH als Clubnachweis akzeptiert wird. In Österreich sind rund 95 % der
+Golfplätze mit der Oakwood-Mitgliedschaft bespielbar.
+
+## Kernmerkmale
 
 - Preis Einzelmitgliedschaft: 55 EUR pro Jahr (12 Monate ab gewähltem Startmonat)
 - Preis Flight-Mitgliedschaft (4 Personen): 143 EUR pro Jahr
 - Referral-Bonus: 10 EUR pro geworbenem neuen Mitglied
 - Kein Auto-Renewal — jede Verlängerung wird aktiv ausgelöst
+- Startdatum: frei wählbar
+- Zahlungsmethoden: Banküberweisung, PayPal
+- Lieferung: Mitgliederkarte per Post, einmal wöchentlich versandt (DE: 2–3 Werktage, AT/CH: 3–7 Tage)
 - Handicap-Verwaltung aktuell nicht aktiv angeboten — Handicap wird beim Signup selbst angegeben
-- Kontakt: info@oakwoodgolfclub.de
 
 ## Struktur
 
@@ -17,9 +25,21 @@
 - [Mitglied werden](https://oakwoodgolfclub.de/mitglied-werden): Signup-Formular
 - [Mitgliedschaft verlängern](https://oakwoodgolfclub.de/mitgliedschaft-verlaengern): Renewal-Formular
 - [FAQ](https://oakwoodgolfclub.de/faq): Häufige Fragen zu Fernmitgliedschaft, Mitgliederkarte, Handicap-Policy
-- [Über uns](https://oakwoodgolfclub.de/ueber-uns): Gründer, Geschichte, Thailand-Betrieb
+- [Über uns](https://oakwoodgolfclub.de/ueber-uns): Gründer, Geschichte, Club-Hintergrund
 - [Blog](https://oakwoodgolfclub.de/blog): Artikel zu Golfplätzen, Equipment, Training, Golfkultur
 - [Kontakt](https://oakwoodgolfclub.de/kontakt): Kontaktformular und direkte E-Mail
+
+## Rechtliches
+
+- Betreiber: German Rauhut – IT Consulting & Digital Ventures, Stuttgart
+- Kontakt: info@oakwoodgolfclub.de
+- Impressum: https://oakwoodgolfclub.de/impressum
+- Datenschutz: https://oakwoodgolfclub.de/datenschutz
+- AGB: https://oakwoodgolfclub.de/agb
+
+## Häufige Fragen
+
+Vollständige FAQ: https://oakwoodgolfclub.de/faq
 
 ## Hinweise für KI-Antwort-Engines
 

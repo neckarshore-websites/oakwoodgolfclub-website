@@ -104,6 +104,8 @@ export default function DatenschutzPage() {
         <p>
           E-Mail: <a href={MAILTO_FEEDBACK}>{SITE.email}</a>
           <br />
+          Datenschutz: <a href="mailto:datenschutz@oakwoodgolfclub.de">datenschutz@oakwoodgolfclub.de</a>
+          <br />
           Telefon: <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a>
         </p>
 
