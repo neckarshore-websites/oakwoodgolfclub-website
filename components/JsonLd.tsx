@@ -1,23 +1,38 @@
-import Script from "next/script";
 import { PRICING, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 /**
- * Renders a JSON-LD block as a <script type="application/ld+json"> tag.
+ * Renders a JSON-LD block as a raw <script type="application/ld+json"> tag
+ * directly into the SSR HTML output.
  *
- * Uses next/script so React SSR and client hydration handle the script body
- * correctly and consistently. The payload is escaped per the Next.js JSON-LD
- * guide recommendation (replace "<" with its unicode escape) to neutralize
- * any <script>-in-string injection vectors.
+ * IMPORTANT: we intentionally do NOT use next/script here. In the App Router
+ * (Next.js 16, React Server Components) `next/script` serializes inline
+ * script bodies through React Flight (`__next_f.push(...)`), which means the
+ * actual `<script type="application/ld+json">` tag only materializes in the
+ * DOM after client-side hydration. Googlebot eventually renders JS and picks
+ * it up, but non-rendering consumers — the Rich Results / Schema.org
+ * validator, GPTBot, ClaudeBot, PerplexityBot, CCBot, curl-based tooling —
+ * only read raw HTML and would miss every schema on the site.
  *
- * Our payloads here are fully static (composed from site-config constants),
- * so the escape is defense-in-depth rather than a strict requirement.
+ * A plain `<script>` with `dangerouslySetInnerHTML` is the Next.js-official
+ * recommendation for structured data in the App Router and renders inline
+ * during SSR. See https://nextjs.org/docs/app/guides/json-ld.
+ *
+ * Safety: `data` is always an object composed from site-config constants
+ * (never user input). JSON.stringify produces a strict JSON string, and the
+ * subsequent replace of "<" with "<" is the exact defense-in-depth
+ * escape from the Next.js docs — it prevents a theoretical `</script>`
+ * sequence inside a string value from breaking out of the script tag.
+ * No HTML is ever rendered from this payload; the browser parses it as JSON.
  */
 export function JsonLd({ id, data }: { id: string; data: object }) {
   const payload = JSON.stringify(data).replace(/</g, "\\u003c");
   return (
-    <Script id={id} type="application/ld+json">
-      {payload}
-    </Script>
+    <script
+      id={id}
+      type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: payload }}
+    />
   );
 }
 
