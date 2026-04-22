@@ -36,6 +36,24 @@ OUTPUT = ROOT / 'lib' / 'redirects.ts'
 
 NS = {'wp': 'http://wordpress.org/export/1.2/'}
 
+
+def normalize_source(path: str) -> str:
+    """
+    Strip the trailing slash from a redirect source.
+
+    Next.js 16 with the default ``trailingSlash: false`` normalizes any
+    incoming request path BEFORE the ``redirects()`` config is consulted.
+    A request for ``/foo/`` is first 308'd to ``/foo`` and THEN matched.
+    Writing ``source: "/foo/"`` in the config therefore never matches
+    anything — the config only sees ``/foo`` (already slashless).
+
+    This bit James 2026-04-22 during the post-launch check: all 59
+    entries used trailing-slash sources and silently 404'd on prod.
+
+    Keeps the site root ``/`` as-is (rstrip would produce ``""``).
+    """
+    return path.rstrip('/') or '/'
+
 # Hand-curated page mapping. Keys are WP path-with-trailing-slash.
 # Values are the new destination (anchor hashes are supported).
 PAGE_MAPPING = {
@@ -109,7 +127,7 @@ def collect_post_redirects():
             destination = BLOG_POST_OVERRIDES.get(slug, f'/blog/{slug}')
 
             entries.append({
-                'source': f'/{slug}/',
+                'source': normalize_source(f'/{slug}/'),
                 'destination': destination,
                 'category': 'blog-post',
             })
@@ -132,7 +150,7 @@ def collect_faq_redirects():
             slug = name.text.strip()
 
             entries.append({
-                'source': f'/faq-items/{slug}/',
+                'source': normalize_source(f'/faq-items/{slug}/'),
                 'destination': f'/faq#{slug}',
                 'category': 'faq',
             })
@@ -146,7 +164,7 @@ def collect_page_redirects():
         # Skip root — already /
         if src == '/': continue
         entries.append({
-            'source': src,
+            'source': normalize_source(src),
             'destination': dest,
             'category': 'page',
         })
@@ -167,8 +185,15 @@ def emit_typescript(entries):
         ' * wordpress-exports/ and URL changes need to be reflected.',
         ' *',
         ' * Consumed by next.config.ts → async redirects(). All entries are',
-        ' * permanent (308) by default. Next.js automatically handles both',
-        ' * trailing-slash and non-trailing-slash variants of the source path.',
+        ' * permanent (308) by default.',
+        ' *',
+        ' * IMPORTANT: sources are written WITHOUT a trailing slash. Next.js 16',
+        ' * (default trailingSlash: false) normalizes trailing slashes BEFORE',
+        ' * the redirects() config is consulted, so "/foo/" as source never',
+        ' * matches a request — the config only sees "/foo". This was the',
+        ' * root cause of James 2026-04-22 F-PL-1 (59 silent-broken redirects',
+        ' * for 24h post-launch). The generator script normalizes sources via',
+        ' * scripts/generate-redirects.py::normalize_source().',
         ' */',
         '',
         'export type RedirectEntry = {',
