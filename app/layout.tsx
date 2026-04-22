@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { JsonLd, organizationSchema } from "@/components/JsonLd";
@@ -92,6 +93,11 @@ export default function RootLayout({
             warning for stray console errors even though the script itself
             is server-side a no-op). */}
         {process.env.VERCEL && <Analytics />}
+        {/* Vercel Speed Insights — Real-User Core Web Vitals (CWV).
+            Cookieless, DSGVO-safe, no consent banner. Lab-only Lighthouse
+            in CI stays the floor; Speed Insights gives us field data from
+            actual members. Same VERCEL-guard as Analytics above. */}
+        {process.env.VERCEL && <SpeedInsights />}
       </body>
     </html>
   );
