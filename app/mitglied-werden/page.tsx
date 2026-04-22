@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import { SignupForm } from "@/components/forms/SignupForm";
-import { PRICING } from "@/lib/site-config";
+import { pageOpenGraph, PRICING } from "@/lib/site-config";
+
+const PAGE_TITLE = "Fernmitglied werden";
+const PAGE_DESCRIPTION =
+  "Fernmitgliedschaft im Oakwood Golf Club beantragen. Einzel €55 / Jahr, Flight €143 / Jahr für 4 Personen. Kein Auto-Renewal.";
 
 export const metadata: Metadata = {
-  title: "Fernmitglied werden | Oakwood Golf Club",
-  description:
-    "Fernmitgliedschaft im Oakwood Golf Club beantragen. Einzel €55 / Jahr, Flight €143 / Jahr für 4 Personen. Kein Auto-Renewal.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/mitglied-werden" },
+  openGraph: pageOpenGraph({
+    path: "/mitglied-werden",
+    title: `${PAGE_TITLE} — Oakwood Golf Club`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 export default function MitgliedWerdenPage() {

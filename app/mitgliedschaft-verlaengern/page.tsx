@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import { RenewalForm } from "@/components/forms/RenewalForm";
+import { pageOpenGraph } from "@/lib/site-config";
+
+const PAGE_TITLE = "Mitgliedschaft verlängern";
+const PAGE_DESCRIPTION =
+  "Bestehende Oakwood-Golf-Club-Mitgliedschaft für weitere 12 Monate verlängern. Kein Auto-Renewal — aktive Verlängerung.";
 
 export const metadata: Metadata = {
-  title: "Mitgliedschaft verlängern",
-  description:
-    "Bestehende Oakwood-Golf-Club-Mitgliedschaft für weitere 12 Monate verlängern. Kein Auto-Renewal — aktive Verlängerung.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/mitgliedschaft-verlaengern" },
+  openGraph: pageOpenGraph({
+    path: "/mitgliedschaft-verlaengern",
+    title: `${PAGE_TITLE} — Oakwood Golf Club`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 export default function VerlaengernPage() {

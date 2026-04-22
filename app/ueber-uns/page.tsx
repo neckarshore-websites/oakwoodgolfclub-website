@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
-import { SITE, SITE_UPDATED } from "@/lib/site-config";
+import { pageOpenGraph, SITE, SITE_UPDATED } from "@/lib/site-config";
+
+const PAGE_TITLE = "Über uns";
+const PAGE_DESCRIPTION = `Die Geschichte hinter dem ${SITE.name}. Gegründet ${SITE.founded}. Betrieben aus Deutschland. Mitglieder in der DACH-Region.`;
 
 export const metadata: Metadata = {
-  title: "Über uns",
-  description: `Die Geschichte hinter dem ${SITE.name}. Gegründet ${SITE.founded}. Betrieben aus Deutschland. Mitglieder in der DACH-Region.`,
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/ueber-uns" },
+  openGraph: pageOpenGraph({
+    path: "/ueber-uns",
+    title: `${PAGE_TITLE} — ${SITE.name}`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 const aboutPageSchema = {

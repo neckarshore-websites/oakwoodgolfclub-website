@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { MAILTO_FEEDBACK, PRICING, SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, pageOpenGraph, PRICING, SITE } from "@/lib/site-config";
 
 /**
  * Allgemeine Geschäftsbedingungen.
@@ -31,15 +31,23 @@ import { MAILTO_FEEDBACK, PRICING, SITE } from "@/lib/site-config";
 
 const STAND = "19. April 2026";
 
+const PAGE_TITLE = "Allgemeine Geschäftsbedingungen";
+const PAGE_DESCRIPTION =
+  "Allgemeine Geschäftsbedingungen (AGB) für die Fernmitgliedschaft im " +
+  "Oakwood Golf Club — Vertragsschluss, Leistungsumfang, Preise, " +
+  "Zahlungsbedingungen, Widerrufsrecht, Geld-zurück-Garantie, " +
+  "Laufzeit und Haftung.";
+
 export const metadata: Metadata = {
-  title: "Allgemeine Geschäftsbedingungen",
-  description:
-    "Allgemeine Geschäftsbedingungen (AGB) für die Fernmitgliedschaft im " +
-    "Oakwood Golf Club — Vertragsschluss, Leistungsumfang, Preise, " +
-    "Zahlungsbedingungen, Widerrufsrecht, Geld-zurück-Garantie, " +
-    "Laufzeit und Haftung.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/agb" },
   robots: { index: true, follow: true },
+  openGraph: pageOpenGraph({
+    path: "/agb",
+    title: `${PAGE_TITLE} — ${SITE.name}`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 export default function AgbPage() {

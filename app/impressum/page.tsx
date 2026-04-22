@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
 
 /**
  * Impressum — § 5 TMG.
@@ -29,13 +29,21 @@ import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
 
 const STAND = "19. April 2026";
 
+const PAGE_TITLE = "Impressum";
+const PAGE_DESCRIPTION =
+  "Rechtliche Angaben gemäß § 5 TMG für oakwoodgolfclub.de — Anbieter, " +
+  "Anschrift, Kontakt, Verantwortlicher, Hinweise zur Streitbeilegung.";
+
 export const metadata: Metadata = {
-  title: "Impressum",
-  description:
-    "Rechtliche Angaben gemäß § 5 TMG für oakwoodgolfclub.de — Anbieter, " +
-    "Anschrift, Kontakt, Verantwortlicher, Hinweise zur Streitbeilegung.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/impressum" },
   robots: { index: true, follow: true },
+  openGraph: pageOpenGraph({
+    path: "/impressum",
+    title: `${PAGE_TITLE} — ${SITE.name}`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 export default function ImpressumPage() {

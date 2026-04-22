@@ -2,19 +2,18 @@ import type { Metadata } from "next";
 import { CategoryList } from "@/components/blog/CategoryList";
 import { PostCard } from "@/components/blog/PostCard";
 import { getAllCategories, getAllPosts } from "@/lib/blog/posts";
-import { SITE } from "@/lib/site-config";
+import { pageOpenGraph, SITE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Blog",
   description:
     "Beiträge rund um Fernmitgliedschaft, Handicap, Mitgliederkarte und das Drumherum beim Oakwood Golf Club.",
   alternates: { canonical: "/blog" },
-  openGraph: {
+  openGraph: pageOpenGraph({
+    path: "/blog",
     title: `Blog · ${SITE.name}`,
     description: "Fernmitgliedschaft, Mitgliederkarte, Golf-Praxis.",
-    url: `${SITE.url}/blog`,
-    type: "website",
-  },
+  }),
 };
 
 export default function BlogIndexPage() {

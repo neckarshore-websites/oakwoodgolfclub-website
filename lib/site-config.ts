@@ -50,6 +50,54 @@ export const SITE = {
 } as const;
 
 /**
+ * Returns a complete OpenGraph metadata object for a subpage.
+ *
+ * WHY THIS HELPER EXISTS: Next.js App Router does not deep-merge the
+ * `openGraph` metadata object. When a page sets its own `openGraph`, it
+ * fully REPLACES the layout's `openGraph` — `siteName`, `locale`, `type`
+ * and any other fields defined at the root do NOT carry over. Without
+ * this helper, subpages that set their own og:title lose og:site_name
+ * and og:locale, and subpages that do NOT set their own end up showing
+ * the Home og:title/og:url on every social share (verified against
+ * prod HTML 2026-04-22: /impressum, /datenschutz, /agb, /mitglied-werden,
+ * /mitgliedschaft-verlaengern, /ueber-uns, /kontakt all served Home
+ * values in og:title + og:url).
+ *
+ * Pass this helper's return value as the page's `openGraph` metadata
+ * field to guarantee complete, consistent OG tags on every page.
+ *
+ * @param path  Absolute path from site root (e.g. "/faq"). Joined to
+ *              SITE.url to produce og:url.
+ * @param title og:title (and `title.absolute` preferred at the top-level
+ *              Metadata) for the page.
+ * @param description og:description for the page.
+ * @param type  OG type — defaults to "website" (most subpages). Pass
+ *              "article" on blog posts.
+ */
+export function pageOpenGraph(opts: {
+  path: string;
+  title: string;
+  description: string;
+  type?: "website" | "article";
+}): {
+  type: "website" | "article";
+  locale: string;
+  url: string;
+  siteName: string;
+  title: string;
+  description: string;
+} {
+  return {
+    type: opts.type ?? "website",
+    locale: SITE.locale,
+    url: `${SITE.url}${opts.path}`,
+    siteName: SITE.name,
+    title: opts.title,
+    description: opts.description,
+  };
+}
+
+/**
  * Default `mailto:` href for generic contact / feedback links across the
  * site. Pre-fills the subject line so messages can be triaged in the
  * inbox at a glance — the trailing " - " is intentional so the user's

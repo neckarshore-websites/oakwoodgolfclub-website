@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
 
 /**
  * Datenschutzerklärung — DSGVO-konformer Volltext.
@@ -41,14 +41,22 @@ import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
 
 const STAND = "19. April 2026";
 
+const PAGE_TITLE = "Datenschutzerklärung";
+const PAGE_DESCRIPTION =
+  "Datenschutzerklärung gemäß DSGVO für oakwoodgolfclub.de — " +
+  "Verantwortlicher, Verarbeitungstätigkeiten, Speicherdauer, " +
+  "Drittlandtransfer, Betroffenenrechte und Beschwerderecht.";
+
 export const metadata: Metadata = {
-  title: "Datenschutzerklärung",
-  description:
-    "Datenschutzerklärung gemäß DSGVO für oakwoodgolfclub.de — " +
-    "Verantwortlicher, Verarbeitungstätigkeiten, Speicherdauer, " +
-    "Drittlandtransfer, Betroffenenrechte und Beschwerderecht.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/datenschutz" },
   robots: { index: true, follow: true },
+  openGraph: pageOpenGraph({
+    path: "/datenschutz",
+    title: `${PAGE_TITLE} — ${SITE.name}`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 export default function DatenschutzPage() {

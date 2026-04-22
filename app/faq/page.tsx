@@ -7,19 +7,18 @@ import {
   getPublishedFaqs,
 } from "@/lib/faqs/items";
 import { CATEGORY_LABEL } from "@/lib/faqs/types";
-import { MAILTO_FEEDBACK, SITE, SITE_UPDATED } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, pageOpenGraph, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Häufig gestellte Fragen",
   description:
     "Antworten auf die häufigsten Fragen zur Fernmitgliedschaft im Oakwood Golf Club — Mitgliedschaft, Mitgliederkarte, Anerkennung, Handicap.",
   alternates: { canonical: "/faq" },
-  openGraph: {
+  openGraph: pageOpenGraph({
+    path: "/faq",
     title: `FAQ · ${SITE.name}`,
     description: "Mitgliedschaft, Mitgliederkarte, Anerkennung — in Kurzform.",
-    url: `${SITE.url}/faq`,
-    type: "website",
-  },
+  }),
 };
 
 export default function FaqPage() {

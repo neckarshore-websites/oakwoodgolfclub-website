@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
-import { MAILTO_FEEDBACK, SITE } from "@/lib/site-config";
+import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
+
+const PAGE_TITLE = "Kontakt";
+const PAGE_DESCRIPTION =
+  "Kontaktformular und direkte E-Mail-Adresse des Oakwood Golf Club. Antwort in der Regel innerhalb weniger Tage.";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
-  description:
-    "Kontaktformular und direkte E-Mail-Adresse des Oakwood Golf Club. Antwort in der Regel innerhalb weniger Tage.",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
   alternates: { canonical: "/kontakt" },
+  openGraph: pageOpenGraph({
+    path: "/kontakt",
+    title: `${PAGE_TITLE} — ${SITE.name}`,
+    description: PAGE_DESCRIPTION,
+  }),
 };
 
 export default function KontaktPage() {
