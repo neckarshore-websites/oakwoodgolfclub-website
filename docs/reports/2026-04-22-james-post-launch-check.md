@@ -195,11 +195,78 @@ done
 
 ---
 
+## 🔧 Process Issue — Stale Baseline at Session Start
+
+**Primary finding for MASCHIN. Methodisch wichtig, nicht nur für diese Session.**
+
+### Was passiert ist
+
+Mein Persona-Startup-Protokoll hat `cd && pwd && git status` gelaufen — aber **kein `git fetch`**. Ergebnis:
+
+- Der Session-Prompt-Snapshot zeigte "clean, auf demselben Stand wie origin/main" — das war zum Session-Start bereits stale
+- `git log` lokal zeigte als HEAD `040be99` (Linus-Session -h Datenschutz-Fixup)
+- `origin/main` war zu dem Zeitpunkt aber bereits 10 Commits weiter — `395281f` (Custom 404-Page)
+- Ich habe die gesamte erste Session-Hälfte auf 15+ Stunden veralteter Datenbasis gearbeitet
+
+### Konkret — was ich dadurch falsch eingeordnet habe
+
+Die ersten zwei Antworten an den User waren materially wrong im Framing. Erst nach User-Korrektur ("Wir haben gestern schon gelauncht") habe ich korrigiert. Konkret:
+
+| # | Claim in meiner ersten Antwort | Realität (in origin/main zum Session-Start schon committed) |
+|---|-------------------------------|-------------------------------------------------------------|
+| 1 | "B14 DNS-Cutover gated on user-actions" | `c18ab16` — DNS-Cutover executed 2026-04-21, Site seit >12h live |
+| 2 | "UA3 Visual-Acceptance auf Prod — offen, blocking" | `3241cfb` — B14-Runbook §5e signed off 2026-04-21 durch User |
+| 3 | "Backlog #16 Vercel Analytics Dashboard — offen" | `9720c60` — Dashboard aktiviert 2026-04-21 |
+| 4 | "4-Agent-SEO-Audit unbekannt" | `ec8410f` — Audit lief, Quick-Wins bereits geshippt |
+| 5 | Nicht erwähnt, obwohl relevant | `395281f` — Custom 404-Page ("Fore!") live, 404-Routing bereits als Thema auf dem Tisch |
+| 6 | Nicht erwähnt, obwohl relevant | `2cfe7b1` + `408bfb0` — GSC Domain-Property done, 43 pages discovered |
+| 7 | Nicht erwähnt, obwohl relevant | `6cbfd65` — FritzBox DNS-Cache Thema bekannt + resolved |
+
+### Was davon Verschwendung war
+
+Die passive Security-Check-Arbeit selbst war NICHT verschwendet (Header-Scan, Exposure-Probes, TLS-Cert, npm audit müssen ohnehin gegen Live-Domain laufen und waren vorher nicht adressiert). **Der Redirect-Bug-Finding ist ebenfalls substantiell neu** — nicht gefixt in keinem der 11 neuen Commits.
+
+**Aber:** Das Framing meiner Antworten an den User, die Priorisierungs-Empfehlungen, und die "Was gibt es zu tun"-Liste waren zu ~30 % auf stale Daten gebaut. Der User hat das sofort bemerkt und musste mich korrigieren.
+
+### Root-Cause
+
+Im Persona-Prompt steht "Read `session-state.md` for current tasks and ecosystem status" — das Planning-Repo-`docs/process/` ist aber leer, kein session-state da. Der Persona-Startup hat **keine Fallback-Logik** für den Fall, dass session-state fehlt. Ein `git fetch` im Target-Repo hätte den Gap geschlossen.
+
+### Proposed Fix (für ALLE Personae, nicht nur James)
+
+Persona-Startup erweitern, direkt nach dem `pwd && git status`:
+
+```bash
+git fetch origin main 2>/dev/null && \
+  git log --oneline HEAD..origin/main -20 | head -20 && \
+  echo "---lokal ahead---" && \
+  git log --oneline origin/main..HEAD -5
+```
+
+Falls `HEAD..origin/main` nicht leer ist, MUSS die Persona entscheiden:
+- **Option A** — Rebase lokal (`git pull --rebase origin main`) bevor irgendwas anderes passiert
+- **Option B** — User fragen, ob lokaler WIP erst zu sichern ist
+- **Option C** — Falls man diverged hat und nicht rebasen will: explizit als "stale fork" deklarieren und entsprechend qualifizieren
+
+### Warum das für den ganzen Agent-Fleet gilt
+
+OGC ist ein Multi-Agent-Repo — Linus, Sommer, James, MASCHIN committen alle auf `main` (siehe `git log --pretty=format:"%an"` der letzten 50 Commits: ausschließlich German Rauhut als Author, Claude-Varianten als Co-Author). Jede Persona, die ohne Fetch startet, arbeitet im schlimmsten Fall auf einer Basis die 12-24h veraltet ist. Das produziert:
+
+- Phantom-Findings (bereits gefixt)
+- Doppelarbeit (jemand hat schon gemacht was ich vorschlage)
+- Falsche Roadmap-Einschätzungen (gated-on-Items sind längst erledigt)
+- User-Reibung (User muss den Agent korrigieren statt Arbeit bekommen)
+
+Fix ist zwei Zeilen im Persona-Startup. ROI ist hoch.
+
+---
+
 ## FOR MASCHIN
 
+- **PROZESS-PRIMÄR (siehe §Process Issue):** Persona-Startup-Protokoll um `git fetch` + Divergenz-Check erweitern. Gilt für alle Personae auf Multi-Agent-Repos (OGC, OMNIXIS, etc.). Ohne Fix wird der Stale-Baseline-Fehler wiederholt — diese Session war ein Beispiel, nicht die Ausnahme.
+- **Session-State-Dispatch-Pfad fehlt:** Planning-Repo `~/Developer/projects/OMNIXIS-planning/docs/process/` ist leer. Persona-Briefings können aktuell nicht via Prompts-Folder laufen. Entweder Planning-Dispatch-Pfad aufbauen **oder** die Persona-Specs so anpassen, dass sie ohne session-state funktionieren (Target-Repo-`git log` + `docs/reports/` lesen als Dispatch-Fallback).
 - **Backlog #9 / D16 Status falsch:** `Done` → muss auf `In Progress` oder `Rework`. Code war geshippt, aber nicht live-verifiziert — die falsche Annahme im Generator-Script ist im Build durchgerutscht. Red-Green-Test hätte das erwischt; gab's bislang nicht.
-- **Post-Launch-Process-Lerning:** Nach B14-DNS-Cutover braucht es einen Smoke-Sweep, der **alle** B10-Redirects gegen Prod curlt (nicht nur ein Sample). Gehört in den B14-Runbook als Post-Cutover-Gate.
-- **Session-State:** Planning-Repo `docs/process/` ist leer. Wenn MASCHIN Personae briefen will, muss der Dispatch-Pfad aufgebaut werden (Prompts-Folder + session-state.md). Aktuell kommunizieren Personae via User-Chat statt via Planning-Repo.
+- **Post-Launch-Process-Learning:** Nach B14-DNS-Cutover braucht es einen Smoke-Sweep, der **alle** B10-Redirects gegen Prod curlt (nicht nur ein Sample). Gehört in den B14-Runbook als Post-Cutover-Gate. Hätte F-PL-1 noch gestern abend entdeckt, nicht erst heute früh.
 - **Backlog updates:**
   - Neu: F-PL-1 (Redirect-Bug) → P1, Linus
   - Neu: F-PL-2 (ACAO `*` tightening) → P3, James/Linus
@@ -220,7 +287,8 @@ done
 
 ## Commit Log
 
-Keine Commits in dieser Session — read-only Check + Report.
+- `c2bf3fb` — `docs(reports): james 2026-04-22 post-launch check — redirect-bug P1 found` (initial report)
+- (this commit) — `docs(reports): james 2026-04-22 addendum — stale-baseline process issue for MASCHIN`
 
 ---
 
