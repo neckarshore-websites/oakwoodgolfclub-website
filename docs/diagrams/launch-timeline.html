@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oakwood Golf Club &mdash; Launch Timeline (17.&ndash;22. April 2026)</title>
+<meta name="description" content="Oakwood Golf Club website launch — from Phase 1 scaffold to Go Live across six days in April 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* OGC palette — mirrored from app/globals.css production values */
+    --color-ink: #0a0a0a;
+    --color-parchment: #fafafa;
+    --color-muted: #4b5563;
+    --color-border: #e5e7eb;
+    --color-fairway: #1b6640;
+    --color-fairway-hover: #2a8a52;
+    --color-fairway-bright: #52b27f;
+    --color-gold: #d4a12e;
+    --color-gold-deep: #7a5a0e;
+    --color-sand: #f3ead4;
+
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --radius: 10px;
+    --shadow-soft: 0 6px 20px rgba(10, 10, 10, 0.06);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-parchment);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-fairway);
+    margin: 0 0 16px;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    color: var(--color-fairway);
+    margin: 0 0 16px;
+  }
+
+  .lede {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--color-ink);
+    max-width: 68ch;
+    margin: 0 0 48px;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding: 48px 0 0;
+    margin: 0 0 56px;
+  }
+
+  .rail {
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: 50%;
+    height: 2px;
+    background: var(--color-border);
+    transform: translateY(-50%);
+  }
+
+  .rail-fill {
+    position: absolute;
+    left: 4%;
+    width: 92%;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-fairway) 0%, var(--color-fairway-hover) 100%);
+    transform: translateY(-50%);
+    opacity: 0.35;
+  }
+
+  .days {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  .day {
+    position: relative;
+    text-align: center;
+    padding: 0;
+  }
+
+  .marker {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-ink);
+    border: 3px solid var(--color-parchment);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 0 1px var(--color-border);
+  }
+
+  .marker.milestone {
+    width: 26px;
+    height: 26px;
+    background: var(--color-gold);
+    border: 4px solid var(--color-parchment);
+    box-shadow: 0 0 0 1px var(--color-gold-deep), 0 4px 12px rgba(212, 161, 46, 0.3);
+  }
+
+  .marker.milestone::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-gold-deep);
+    transform: translate(-50%, -50%);
+  }
+
+  .day-date {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 2px;
+  }
+
+  .day-weekday {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  /* Card above or below */
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+    position: relative;
+  }
+
+  .card.above {
+    margin: 0 6px 28px;
+  }
+
+  .card.below {
+    margin: 28px 6px 0;
+  }
+
+  .card.milestone-card {
+    background: var(--color-sand);
+    border-color: var(--color-gold-deep);
+    border-left: 3px solid var(--color-gold);
+  }
+
+  .card-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-fairway);
+    margin: 0 0 6px;
+  }
+
+  .milestone-card .card-kicker {
+    color: var(--color-gold-deep);
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-ink);
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+
+  .card-body {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .card-commits {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-fairway);
+    background: rgba(27, 102, 64, 0.08);
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  .milestone-card .card-commits {
+    color: var(--color-gold-deep);
+    background: rgba(212, 161, 46, 0.15);
+  }
+
+  /* Stat strip */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 32px;
+    background: var(--color-sand);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-top: 8px;
+  }
+
+  .stat {
+    text-align: left;
+  }
+
+  .stat-value {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-fairway);
+    line-height: 1;
+    margin: 0 0 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  /* Meta */
+  .meta {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--color-border);
+    font-size: 13px;
+    color: var(--color-muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .meta a {
+    color: var(--color-fairway);
+    text-decoration: none;
+  }
+
+  .meta a:hover { text-decoration: underline; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    h1 { font-size: 36px; }
+    .timeline { padding-top: 24px; }
+    .days { grid-template-columns: 1fr; gap: 0; }
+    .day { display: grid; grid-template-columns: 88px 1fr; gap: 18px; align-items: flex-start; text-align: left; padding: 16px 0; border-bottom: 1px solid var(--color-border); }
+    .day > .card.above, .day > .card.below { margin: 0; grid-column: 2; }
+    .marker-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .rail, .rail-fill { display: none; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <p class="eyebrow">Launch Timeline</p>
+    <h1>Oakwood Golf Club &mdash; from scaffold to live in six days.</h1>
+    <p class="lede">
+      17.&ndash;22. April 2026. From the Next.js 16 scaffold on day one to a production-verified launch with
+      Speed Insights on day six. Two gold milestones: Engineering Gate on 21 April and Go Live on 22 April.
+    </p>
+
+    <section class="timeline" aria-label="Launch timeline, 17 to 22 April 2026">
+      <div class="rail" aria-hidden="true"></div>
+      <div class="rail-fill" aria-hidden="true"></div>
+
+      <div class="days">
+        <div class="day">
+          <div class="marker-wrap">
+            <div class="card above" aria-label="17 April kickoff">
+              <p class="card-kicker">Kick-off</p>
+              <p class="card-title">Phase 1 Scaffold</p>
+              <p class="card-body">Next.js 16 up, homepage and route shells shipped. Foundation locked.</p>
+              <span class="card-commits">1 commit</span>
+            </div>
+            <div class="marker" aria-hidden="true"></div>
+            <p class="day-date" style="margin-top: 14px">17 Apr</p>
+            <p class="day-weekday">Freitag</p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="marker-wrap">
+            <p class="day-weekday" style="margin-bottom: 4px">Samstag</p>
+            <p class="day-date">18 Apr</p>
+            <div class="marker" aria-hidden="true" style="margin-top: 14px"></div>
+            <div class="card below" aria-label="18 April breathing room">
+              <p class="card-kicker">Breathing room</p>
+              <p class="card-title">Review &amp; plan</p>
+              <p class="card-body">Scope calibration, UAT bug list shaped, forms hardening queued.</p>
+              <span class="card-commits">0 commits</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="marker-wrap">
+            <div class="card above" aria-label="19 April security polish">
+              <p class="card-kicker">Security &amp; Polish</p>
+              <p class="card-title">7 focused sessions</p>
+              <p class="card-body">Mobile UAT bugs fixed, brand H2 green, mailto prefill, prompt-injection defense, 300-word cap.</p>
+              <span class="card-commits">6 commits</span>
+            </div>
+            <div class="marker" aria-hidden="true"></div>
+            <p class="day-date" style="margin-top: 14px">19 Apr</p>
+            <p class="day-weekday">Sonntag</p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="marker-wrap">
+            <p class="day-weekday" style="margin-bottom: 4px">Montag</p>
+            <p class="day-date">20 Apr</p>
+            <div class="marker" aria-hidden="true" style="margin-top: 14px"></div>
+            <div class="card below" aria-label="20 April forms lockdown">
+              <p class="card-kicker">Forms Lockdown</p>
+              <p class="card-title">Captcha + TLD block</p>
+              <p class="card-body">Friendly Captcha (EU endpoint), TLD rejection on .ru/.cn/.in/.id, Datenschutz updated.</p>
+              <span class="card-commits">2 commits</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="marker-wrap">
+            <div class="card above milestone-card" aria-label="21 April engineering gate">
+              <p class="card-kicker">&#9733; Engineering Gate</p>
+              <p class="card-title">Lighthouse 95+ Prod-Pass</p>
+              <p class="card-body">B13 prelaunch gate cleared, prod deploy READY in 31&thinsp;s. All security + compliance patches live.</p>
+              <span class="card-commits">2 commits &middot; dpl_8mnMDJSPzwdRMCG2d6x13GqBfuJS</span>
+            </div>
+            <div class="marker milestone" aria-label="Milestone: Engineering Gate"></div>
+            <p class="day-date" style="margin-top: 14px">21 Apr</p>
+            <p class="day-weekday">Dienstag</p>
+          </div>
+        </div>
+
+        <div class="day">
+          <div class="marker-wrap">
+            <p class="day-weekday" style="margin-bottom: 4px">Mittwoch</p>
+            <p class="day-date">22 Apr</p>
+            <div class="marker milestone" aria-label="Milestone: Go Live" style="margin-top: 14px"></div>
+            <div class="card below milestone-card" aria-label="22 April go live">
+              <p class="card-kicker">&#9733; Go Live</p>
+              <p class="card-title">Post-Launch Fix-Pass</p>
+              <p class="card-body">JSON-LD SSR, OG + titles, PL1&ndash;PL3 compliance, Speed Insights wired. Prod R2-verified on oakwoodgolfclub.de.</p>
+              <span class="card-commits">4 commits &middot; RUM sampling live</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Launch summary">
+      <div class="stat">
+        <p class="stat-value">6</p>
+        <p class="stat-label">Days</p>
+      </div>
+      <div class="stat">
+        <p class="stat-value">15</p>
+        <p class="stat-label">Commits to main</p>
+      </div>
+      <div class="stat">
+        <p class="stat-value">95+</p>
+        <p class="stat-label">Lighthouse, all metrics</p>
+      </div>
+      <div class="stat">
+        <p class="stat-value">0</p>
+        <p class="stat-label">Open P0 / P1</p>
+      </div>
+    </section>
+
+    <div class="meta">
+      <span>oakwoodgolfclub.de &mdash; launch timeline, v2 (2026-04-23)</span>
+      <span><a href="https://oakwoodgolfclub.de">oakwoodgolfclub.de</a></span>
+    </div>
+  </main>
+</body>
+</html>
