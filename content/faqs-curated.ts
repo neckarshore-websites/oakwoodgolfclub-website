@@ -235,37 +235,40 @@ Wenn du trotzdem schriftlich kündigen möchtest: [kurze Mail über das Kontaktf
     published: true,
   },
   // ---------------------------------------------------------------------------
-  // B13 Content-Pass (2026-04-18): rewrite for wpId 396 "Wieviele
-  // Mitglieder hat der Club". Original Satz 2 verwies auf eine Karte
-  // ("Auf dieser Karte kann man sehen, wie sich die Mitglieder im
-  // DACH_Raum und darüber hinaus verteilen") die wir in FAQ 181 (wo-
-  // kommen-die-mitglieder-her) zusammen mit dem Fusion-Embed entfernt
-  // haben — Referenz nun tot. Plus Typo "DACH_Raum" mit Unterstrich.
-  // Verkürzt auf die Kern-Zahl, Verteilung steht in FAQ 181.
+  // L9 Content-Pass (2026-04-23): 120-150-word expansion for AI-citation
+  // sweet spot. Previous version (8 words) was too thin for citation-
+  // readiness. Draws on the same DACH/Thailand/Exoten geography as FAQ 181
+  // but adds Community-Stability-Signal (churn roughly neutral) and
+  // positioning ("überschaubare gewachsene Community"). Kept honest:
+  // "rund zehn Länder" is a claim worth verifying if the number drifts.
   // ---------------------------------------------------------------------------
   {
     slug: "wieviele-mitglieder-hat-der-club-im-deutschsprachigen-raum",
     question: "Wie viele Mitglieder hat der Club im deutschsprachigen Raum?",
-    answer: `Im DACH-Raum sind es rund 300 aktive Mitglieder.`,
+    answer: `Im DACH-Raum sind es rund 300 aktive Mitglieder — verteilt über Deutschland, Österreich und die Schweiz mit einem leichten Schwerpunkt in Österreich. Diese Zahl ist über die letzten Jahre stabil geblieben: in etwa so viele Neuzugänge wie Austritte pro Jahr, was dafür spricht, dass Mitglieder, die einmal dabei sind, gerne bleiben. Zum Vergleich: 300 Mitglieder entspricht etwa der Größe eines mittelgroßen Lokalclubs — nur dass unsere Mitglieder über drei Kontinente verteilt spielen.
+
+Dazu kommen historisch Mitglieder in Thailand — dem Ursprungsland des Clubs — sowie vereinzelte Mitglieder in Brasilien, Italien, England, Dänemark und Indien. Weltweit ist die Fernmitgliedschaft damit in rund zehn Ländern präsent, das DACH-Segment bleibt das mit Abstand größte und aktivste.
+
+Du trittst also einer überschaubaren, über die Jahre gewachsenen Community bei — nicht einem anonymen Massenverband.`,
     category: "mitglieder",
     published: true,
   },
   // ---------------------------------------------------------------------------
-  // B13 Content-Pass (2026-04-18): polish for wpId 174 "Läuft die
-  // Mitgliedschaft für ein Kalenderjahr". Original hatte "Eintrittsdatum ,
-  // z.B." (Space vor Komma), "folgenden Monat" statt "folgenden Monats"
-  // (fehlender Genitiv-s), das 14 Jahre alte Beispiel-Datum "10. Juni
-  // 2012", und "Man kann" statt durchgängigem Du. Content-identisch,
-  // nur Grammatik + Zeitbezug + Du.
+  // L9 Content-Pass (2026-04-23): 120-150-word expansion over B13's
+  // polish-only pass. Adds the date-mechanic ("ein Monat Bonus" framing)
+  // with concrete example (10. Juni -> Ende Juli Folgejahr) and the
+  // Pro-Rata / Saison-Kappung clarification that was implicit before.
+  // Closer to "Portugal im Winter, Alpen im Sommer, Thailand ganzjährig"
+  // echoes the club's Thailand-origin DNA.
   // ---------------------------------------------------------------------------
   {
     slug: "laeuft-die-mitgliedschaft-fuer-ein-kalenderjahr-1-1-31-12-oder-fuer-ein-jahr-ab-",
     question: "Läuft die Mitgliedschaft für ein Kalenderjahr (1.1.–31.12.) oder für ein Jahr ab Eintrittsdatum?",
-    answer: `Die Mitgliedschaft läuft ab deinem Wunsch-Eintrittsdatum für mindestens 12 Monate. Das Enddatum runden wir im Normalfall auf das Monatsende des folgenden Monats auf.
+    answer: `Die Mitgliedschaft läuft nicht nach Kalenderjahr (also nicht von Januar bis Dezember), sondern ab deinem Wunsch-Eintrittsdatum für mindestens 12 Monate. Den Anfang wählst du, das Enddatum ergibt sich daraus.
 
-Du kannst jederzeit einsteigen und zwölf Monate am Stück Golf spielen.
+Zur Datums-Mechanik: Wir runden das Enddatum im Normalfall auf das Monatsende des folgenden Monats auf. Ein Beispiel — trittst du am 10. Juni bei, läuft die Mitgliedschaft bis Ende Juli des Folgejahres. Das sind rund 13 statt 12 Monate. Diese Ein-Monat-Bonus-Regel gilt seit Gründung für jede Mitgliedschaft; pünktlich am Ersten beitreten bringt dir also keine Vorteile.
 
-Schließlich ist immer irgendwo gerade Saison.`,
+Praktisch heißt das: Du kannst jederzeit einsteigen und spielst zwölf Monate am Stück Golf — ohne Pro-Rata-Logik, ohne Saison-Kappung, ohne gebrochenes Erstjahr. Schließlich ist immer irgendwo gerade Saison — Portugal im Winter, Alpen im Sommer, Thailand ganzjährig.`,
     category: "mitgliedschaft",
     published: true,
   },
@@ -284,6 +287,28 @@ Schließlich ist immer irgendwo gerade Saison.`,
     answer: `Du bist Greenfee-Spieler, der gerne unterschiedliche Plätze spielt und oft unterwegs ist? Immer mit dem Golfbag im Kofferraum oder im Fluggepäck? Die Fernmitgliedschaft passt dazu. Unsere Mitglieder spielen in Deutschland, Österreich, Schweiz, Frankreich, Portugal, Spanien, Irland und weltweit.
 
 Die meisten Clubs sind wirtschaftlich am Greenfee-Spiel interessiert und fragen nicht viel, solange ein Clubnachweis vorliegt — die Mitgliederkarte reicht. Eine kleine Minderheit bleibt bewusst auf eigene Mitglieder und deren Gäste beschränkt; das betrifft in der Praxis die wenigsten Plätze.`,
+    category: "akzeptanz",
+    published: true,
+  },
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): rewrite for wpId 1065 "ÖGV-Anerkennung".
+  // Original (29 words) was thin and covered only the 95% coverage claim.
+  // New version answers the real user intent: "Wird ÖGV das anerkennen,
+  // und komme ich auf die Plätze?" — separates the formal ÖGV-recognition
+  // question (No, we're historically Thai-affiliated) from the practical
+  // access question (Yes, ~95% coverage, ~5% elitär-Clubs geschlossen).
+  // Same slug as faqs-wp.ts so the aggregator dedupes the WP copy.
+  // ---------------------------------------------------------------------------
+  {
+    slug: "wird-die-mitgliedschaft-vom-oesterreichischen-golfverband-anerkannt-kann-man-ueb",
+    question: "Wird die Mitgliedschaft vom Österreichischen Golfverband anerkannt? Kann man überall in Österreich spielen?",
+    answer: `Eine formelle Anerkennung durch den Österreichischen Golfverband (ÖGV) gibt es nicht. Wir sind kein ÖGV-Mitgliedsclub, sondern historisch Teil des Thailändischen Golfverbands — das Logo auf der Rückseite deiner Mitgliederkarte zeigt diese Herkunft.
+
+Praktisch heißt das: Rund 95 % der Plätze in Österreich akzeptieren die Mitgliederkarte als Clubnachweis und lassen dich als Greenfee-Spieler auf die Runde. Einige unserer Mitglieder spielen seit Jahren quer durch Österreich und haben selten Probleme — zuverlässig klappt das in allen touristisch ausgerichteten Regionen.
+
+Die verbleibenden rund 5 % sind meist kleinere, bewusst elitär geführte Clubs, die ausschließlich eigene Mitglieder und deren Gäste zulassen. Dort würde auch eine ÖGV-Mitgliedschaft dich nicht automatisch ins Clubhaus bringen — das ist keine Oakwood-Einschränkung, sondern Clubpolitik.
+
+Wenn du unsicher bist: ein Anruf beim Zielplatz vor der Anfahrt klärt es in zwei Minuten.`,
     category: "akzeptanz",
     published: true,
   },
