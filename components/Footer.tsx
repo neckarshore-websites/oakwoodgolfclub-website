@@ -39,6 +39,16 @@ export function Footer() {
                   Style Guide <span className="text-xs">(intern)</span>
                 </Link>
               </li>
+              <li>
+                <a
+                  href="https://vercel.com/germans-projects-6b1b9831/oakwoodgolfclub-website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-parchment)]/50 hover:text-[var(--color-gold)] transition-colors"
+                >
+                  Dashboard <span className="text-xs">(intern)</span>
+                </a>
+              </li>
             </ul>
           </nav>
 
