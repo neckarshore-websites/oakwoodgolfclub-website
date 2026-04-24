@@ -31,6 +31,7 @@ const SANITIZE_CONFIG: sanitizeHtml.IOptions = {
     "ul", "ol", "li",
     "strong", "em", "code", "pre", "del", "sup", "sub",
     "a", "img",
+    "figure", "figcaption",
     "table", "thead", "tbody", "tr", "th", "td",
     "div",
   ],
@@ -40,7 +41,7 @@ const SANITIZE_CONFIG: sanitizeHtml.IOptions = {
     code: ["class"], // language- hints from fenced code blocks
     pre: ["class"],
     th: ["scope"],
-    // `div` and `p` get class permission so the post-render TL;DR-Fazit
+    // `div` and `p` get class permission so the post-render TL;DR
     // wrapper (div.ogc-tldr containing two classed <p> children) can
     // survive sanitisation. The risk surface is tiny because the markdown
     // source path can't authentically introduce class attributes anyway —
@@ -71,25 +72,29 @@ const POSTS_DIR = path.join(process.cwd(), "content", "blog");
 const IS_PROD = process.env.NODE_ENV === "production";
 
 // ---------------------------------------------------------------------------
-// TL;DR – Fazit wrapper.
+// TL;DR / Zusammenfassung wrapper.
 //
-// Posts that open with a "## TL;DR – Fazit" section get the rendered HTML
-// of that section wrapped in a <div class="ogc-tldr"> so .ogc-prose CSS
-// can give it a sand-tinted callout treatment. Pure HTML rewrite — no
-// frontmatter changes needed, posts without the TL;DR remain untouched.
+// Posts that open with a "## TL;DR / Zusammenfassung" section get the
+// rendered HTML of that section wrapped in a <div class="ogc-tldr"> so
+// .ogc-prose CSS can give it the standfirst callout treatment. Pure HTML
+// rewrite — no frontmatter changes needed, posts without the TL;DR remain
+// untouched.
 //
-// The regex deliberately requires the TL;DR-Fazit phrase verbatim so a
-// post with a coincidental first H2 ("## Was ist X?") doesn't get the
-// callout styling.
-const TLDR_BLOCK_RE = /^(\s*)<h2[^>]*>TL;DR\s*[–-]\s*Fazit<\/h2>\s*<p>([\s\S]*?)<\/p>/;
+// The regex deliberately requires the "TL;DR" phrase plus a subtitle
+// (Zusammenfassung | Fazit — latter kept for legacy posts during any
+// transition window) so a post with a coincidental first H2 ("## Was
+// ist X?") doesn't get the callout styling. Separator accepts slash,
+// en-dash, or hyphen.
+const TLDR_BLOCK_RE =
+  /^(\s*)<h2[^>]*>TL;DR\s*[\/–-]\s*(?:Zusammenfassung|Fazit)<\/h2>\s*<p>([\s\S]*?)<\/p>/;
 
-function wrapTldrFazit(html: string): string {
+function wrapTldr(html: string): string {
   const match = html.match(TLDR_BLOCK_RE);
   if (!match) return html;
   const [full, leadingWhitespace, paragraphInner] = match;
   const wrapper =
     `${leadingWhitespace}<div class="ogc-tldr">` +
-    `<p class="ogc-tldr__eyebrow">TL;DR – Fazit</p>` +
+    `<p class="ogc-tldr__eyebrow">TL;DR / Zusammenfassung</p>` +
     `<p class="ogc-tldr__body">${paragraphInner}</p>` +
     `</div>`;
   return wrapper + html.slice(full.length);
@@ -158,7 +163,7 @@ function loadAll(): CachedAll {
     if (isDraft && IS_PROD) continue;
 
     const rawHtml = marked.parse(parsed.content, { async: false }) as string;
-    const wrappedHtml = wrapTldrFazit(rawHtml);
+    const wrappedHtml = wrapTldr(rawHtml);
     const html = sanitizeHtml(wrappedHtml, SANITIZE_CONFIG);
     const readingTime = Math.max(
       1,

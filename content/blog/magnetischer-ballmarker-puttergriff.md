@@ -8,7 +8,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
-## TL;DR – Fazit
+## TL;DR / Zusammenfassung
 **Magnetische Ballmarker-Halter** am Puttergriff lösen das Alltags-Problem verlorener Marker auf simple Art: der Marker hängt magnetisch am Putter und ist dadurch immer dabei. Beim Kauf auf **Haltekraft des Magneten**, **Griff-Kompatibilität**, **Marker-Größe** (24 mm USGA-Standard) und **Material** (Edelstahl/Aluminium statt Plastik) achten. Niedriger Preis, täglich spürbarer Nutzen für jeden, der regelmäßig spielt.
 
 ## Das Problem, das niemand bespricht
