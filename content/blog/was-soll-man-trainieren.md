@@ -8,9 +8,10 @@ categories:
 author: "Oakwood Golf Club"
 draft: true
 ---
-####
+## TL;DR / Zusammenfassung
+Was soll man als Amateur trainieren? Die Antwort ist nicht Putten.
 
-## ...sondern lange Schläge und Annäherungen
+## Lange Schläge und Annäherungen — nicht Putten
 
 Was soll man als Amateur trainieren? Die Antwort ist nicht Putten.
 Schaut Euch [dieses interessante Video](https://www.youtube.com/watch?v=Zb4CQX2n160) von Oliver Heuler mal an.

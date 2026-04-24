@@ -8,9 +8,14 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
-### Erst die Buchkunst ermöglichte die Überlieferung von schriftlichen Aufzeichnungen wie einer parlamentarischen Urkunde aus dem Jahr 1457, mit dem der schottische König James II und das Parlament den Adeligen das exzessive Ausüben des Golfsports untersagten.
+## TL;DR / Zusammenfassung
+1457 verbot König James II den Schotten Golf — Bogenschießen sei wichtiger fürs Land. Ein Streifzug durch das 15. und 16. Jahrhundert.
+
+Erst die Buchkunst ermöglichte die Überlieferung von schriftlichen Aufzeichnungen — wie einer parlamentarischen Urkunde aus dem Jahr 1457, mit der der schottische König James II und das Parlament den Adeligen das exzessive Ausüben des Golfsports untersagten.
 
 Der Obrigkeit erschien es angemessen, die Untergebenen zum Bogenschießen anzuhalten, denn das wurde zur Erhaltung der Wehrhaftigkeit des Landes als wichtiger angesehen.
 
-Auch die Nachfolger von James II im Amt, James III und James IV, hielten ausdrücklich am Golfverbot fest. Erst als 1502 ein Friedensvertrag zwischen England und Schottland geschlossen wurde, ließ sich das Volk zu militärischen Übungen nicht mehr verpflichten. Eine undichte Quelle in der Finanzverwaltung des königlichen Hofes von James IV verriet durch eine Rechnung über einen Golfschläger, dass der König selbst ein Anhänger des Golfsports war.Golf verbreitete sich im Laufe des Jahrhunderts über die gesamten britischen Inseln. Auch in St. Andrews wurde nachweislich bereits 1552 Golf gespielt. Selbst der Erzbischof kann seine Zuneigung zum Golf nicht verbergen und gestattet der Bevölkerung im Jahr 1553, die öffentlichen Grünflächen für das Ballspiel zu nutzen. Die Flucht der Königin Maria Stuart vor ihren Verwandten nach Frankreich sorgte dafür, dass sich Golf auch auf der anderen Seite des Ärmelkanals rasch ausbreitete.
+Auch die Nachfolger von James II im Amt, James III und James IV, hielten ausdrücklich am Golfverbot fest. Erst als 1502 ein Friedensvertrag zwischen England und Schottland geschlossen wurde, ließ sich das Volk zu militärischen Übungen nicht mehr verpflichten. Eine undichte Quelle in der Finanzverwaltung des königlichen Hofes von James IV verriet durch eine Rechnung über einen Golfschläger, dass der König selbst ein Anhänger des Golfsports war.
+
+Golf verbreitete sich im Laufe des Jahrhunderts über die gesamten britischen Inseln. Auch in St. Andrews wurde nachweislich bereits 1552 Golf gespielt. Selbst der Erzbischof kann seine Zuneigung zum Golf nicht verbergen und gestattet der Bevölkerung im Jahr 1553, die öffentlichen Grünflächen für das Ballspiel zu nutzen. Die Flucht der Königin Maria Stuart vor ihren Verwandten nach Frankreich sorgte dafür, dass sich Golf auch auf der anderen Seite des Ärmelkanals rasch ausbreitete.
 ![Golfszene 15. und 16. Jahrhundert](/blog/images/golf_im_15_und_16_jahrhundert-1-300x192.webp)

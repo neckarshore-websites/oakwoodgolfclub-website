@@ -10,7 +10,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
-## TL;DR – Fazit
+## TL;DR / Zusammenfassung
 Unsere **Webseite ist neu**. Schneller beim Laden, sauber auf dem Handy lesbar, ohne Tracker Dritter, mit funktionierenden Formularen. Alle bestehenden Inhalte bleiben erhalten — **Fernmitgliedschaft**, **Preise**, **Partnerplätze**, **FAQ**, **Blog**. Der Bestellweg zur Mitgliedschaft ist kürzer geworden. An der Mitgliedschaft selbst ändert sich nichts.
 
 ## Was Mitglieder konkret davon haben

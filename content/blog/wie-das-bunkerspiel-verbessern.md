@@ -12,13 +12,15 @@ tags:
 author: "Oakwood Golf Club"
 draft: false
 ---
-## Wie geht's beim Golf? Ich habe hier ein paar coole Tipps für Dich, wie Du Dein Bunker-Spiel verbessern kannst.
+## TL;DR / Zusammenfassung
+Bunker-Technik in drei Schritten: stabile Stand-Basis, Ballposition vor dem linken Fuß, Loft und Bounce halten. Plus: wie Du den Bunker-Zustand liest.
 
-![Golfer im Bunker beim Sand-Schlag](/blog/images/golf-bunker-shot.jpg)
+Hier ein paar Tipps für Dich, wie Du Dein Bunker-Spiel verbessern kannst.
 
-```
-Image by Stefan Waldvogel from Pixabay
-```
+<figure>
+  <img src="/blog/images/golf-bunker-shot.jpg" alt="Golfer im Bunker beim Sand-Schlag" />
+  <figcaption>Bild: Stefan Waldvogel / Pixabay.</figcaption>
+</figure>
 
 Egal, ob Du ein Amateur oder ein fortgeschrittener Spieler bist, es ist immer wichtig, an Deinem Kurzspiel zu arbeiten. Das Ausweichen von Grünfallen ist eine Fähigkeit, die Du beherrschen solltest, um auf dem Golfplatz erfolgreich zu sein.
 
@@ -28,11 +30,4 @@ Ein weiterer wichtiger Punkt ist der Rückschwung. Du musst sicherstellen, dass 
 
 Nun geht es darum, den Zustand des Bunkers zu lesen und Deine Technik anzupassen. Wenn Du eine kompakte Lage hast, solltest Du die Ballposition etwas nach hinten verlagern und den Schläger am Schaft etwas nach vorne neigen. Dadurch taucht die Schlagkante mehr in den Sand ein und Du vermeidest es, den Ball durch das Grün zu schießen.
 
-Ich hoffe, diese Tipps helfen Dir dabei, Dein Bunker-Spiel zu verbessern und mehr Erfolg auf dem Golfplatz zu haben. Denk daran, Übung macht den Meister! Also ab auf den Platz und arbeite an Deinem Kurzspiel!
-
-- Golf, Bunker-Spiel, Kurzspiel, Grünfallen, Technik, Tipps, Übungen
-- Golfplatz, Golfclub, Golfspieler, Golf-Tipps, Golf-Training
-- Wie verbessert man sein Bunker-Spiel? Wie liest man den Zustand des Bunkers?
-- Bunker-Spiel für Anfänger, Bunker-Spiel für Fortgeschrittene, Golf-Tipps für alle Niveaus
-- Bunker-Spiel Aufstellung, Ballposition, Rückschwung, Lesen des Bunker-Zustands, Technikanpassungen, Loft und Bounce, Übungen für das Bunker-Spiel
-- Golf-Training für das Kurzspiel, Golf-Tipps für das Bunker-Spiel, Besser Golf spielen
+Ich hoffe, diese Tipps helfen Dir dabei, Dein Bunker-Spiel zu verbessern und mehr Erfolg auf dem Golfplatz zu haben. Denk daran, Übung macht den Meister. Also ab auf den Platz und arbeite an Deinem Kurzspiel.

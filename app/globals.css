@@ -258,6 +258,28 @@
     margin-bottom: 1.5em;
   }
 
+  /* Figure + figcaption for images with captions. Replaces the legacy
+     "H5 as caption" anti-pattern that came in with the WordPress import.
+     The figure itself carries the vertical rhythm — the nested <img>
+     resets its own margins so we don't get double spacing. */
+  .ogc-prose figure {
+    margin: 1.5em 0;
+  }
+
+  .ogc-prose figure img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .ogc-prose figcaption {
+    margin-top: 0.6em;
+    font-size: 0.875em;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--color-muted);
+    text-align: left;
+  }
+
   .ogc-prose table {
     width: 100%;
     border-collapse: collapse;

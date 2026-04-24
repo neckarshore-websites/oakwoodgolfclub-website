@@ -7,6 +7,8 @@ categories:
 author: "Oakwood Golf Club"
 draft: true
 ---
+## TL;DR / Zusammenfassung
+Drei Worte. Kein Setup, keine Pointe. Und trotzdem erzählt er alles über das Golfspielen — die Hoffnung, den Moment der Klarheit, und den Schlag danach.
 
 Der kürzeste Golfwitz der Welt hat genau drei Worte. Er erzählt eine komplette Geschichte über das Spiel: die Hoffnung, den Moment der Klarheit, und — kurz danach — den nächsten verkackten Schlag.
 
