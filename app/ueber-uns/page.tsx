@@ -56,27 +56,47 @@ export default function UeberUnsPage() {
             Die Geschichte
           </h2>
           <p>
-            Der Club wurde {SITE.founded} gegründet, um eine einfache Idee
-            umzusetzen: Golferinnen und Golfer sollten ein offizielles Handicap
-            und eine anerkannte Vereinsmitgliedschaft haben können, ohne Teil
-            eines traditionellen Clubs zu sein.
+            Der Oakwood Golf Club wurde {SITE.founded} in Thailand gegründet,
+            ursprünglich unter dem Dach des Thailändischen Golfverbands, zu
+            dem der Club bis heute historisch gehört. Die Idee dahinter war
+            einfach: Golferinnen und Golfern ein offizielles Handicap und eine
+            anerkannte Vereinsmitgliedschaft geben — ohne dass sie Teil eines
+            traditionellen Heimatclubs sein müssen.
           </p>
           <p>
-            Heute wird der Club aus Deutschland heraus betrieben. Die
-            Mitgliederbasis ist primär in Deutschland, Österreich und der
-            Schweiz, mit einzelnen Mitgliedern in Thailand, Brasilien,
-            Großbritannien, Indien, Dänemark und Italien.
+            Betrieben wird der Club heute aus Deutschland heraus. Die
+            Mitgliederbasis hat sich über die Jahre in den DACH-Raum
+            verlagert, mit einem leichten Überhang in Österreich, weil die
+            Mitgliederkarte dort auf rund 95 % der Golfplätze als
+            Vereinsnachweis anerkannt ist. Einzelne Mitglieder leben in
+            Thailand, Brasilien, Großbritannien, Indien, Dänemark und Italien
+            — echte Einzelfälle, kein Muster, kein Marketing-Ziel. Aktuell
+            sind rund {SITE.memberCount} Mitglieder aktiv. Seit{" "}
+            {SITE.founded} ist die Fernmitgliedschaft das Grundkonzept; alles
+            andere hat sich drumherum entwickelt.
           </p>
 
           <h2 className="mt-10 font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
             Was uns anders macht
           </h2>
           <p>
-            Keine Warteliste, keine Umlage, keine versteckten Gebühren. Eine
-            klare Jahresmitgliedschaft zu einem festen Preis und eine
-            offizielle Mitgliederkarte, die auf rund 95 % der österreichischen
-            Golfplätze akzeptiert wird. Handicap-Verwaltung ist aktuell nicht
-            Teil des Angebots — Details dazu in den{" "}
+            Keine Warteliste, keine Umlage, keine versteckten Gebühren. Die
+            Jahresmitgliedschaft ist eine klare Sache: ein fester Preis, ein
+            fester Zeitraum, kein Auto-Renewal am Ende. Das Startdatum wählt
+            das Mitglied selbst, die Laufzeit beträgt ab dann genau zwölf
+            Monate. Wer nicht verlängern will, tut schlicht nichts.
+          </p>
+          <p>
+            Kernstück ist die offizielle Mitgliederkarte im Kreditkartenformat
+            — sie wird auf rund 95 % der österreichischen Golfplätze als
+            Vereinsnachweis anerkannt. Das Format ist seit über 15 Jahren
+            unverändert; das visuelle Design folgt dem Corporate Design der
+            Webseite und entwickelt sich über die Jahre mit. Und wenn die
+            Mitgliedschaft nicht passt:{" "}
+            <strong>Geld-zurück-Garantie, ohne Wenn und Aber</strong>. In 15
+            Jahren haben das drei oder vier Mitglieder genutzt. Details zur
+            Handicap-Frage — aktuell pausiert wegen WHS-2021-Verwerfungen —
+            in den{" "}
             <Link
               href="/faq"
               className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
@@ -127,17 +147,25 @@ export default function UeberUnsPage() {
 
       <div>
         <h2 className="font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
-          Fragen? Sprich direkt mit uns.
+          Bereit für eine Mitgliedschaft, die einfach funktioniert?
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--color-ink)]/75">
-          Antwort zeitnah, in der Regel innerhalb weniger Tage.
+          Signup in unter fünf Minuten. Startdatum wählst du selbst, danach
+          zwölf Monate feste Laufzeit — kein Auto-Renewal. Bei Rückfragen
+          antworten wir zeitnah, in der Regel innerhalb weniger Tage.
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-wrap gap-3">
           <Link
-            href="/kontakt"
+            href="/mitglied-werden"
             className="inline-flex items-center justify-center rounded-sm bg-[var(--color-fairway)] px-6 py-3 text-sm font-medium text-[var(--color-parchment)] hover:bg-[var(--color-fairway-hover)] transition-colors"
           >
-            Kontaktformular öffnen
+            Mitglied werden
+          </Link>
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center justify-center rounded-sm border border-[var(--color-fairway)] px-6 py-3 text-sm font-medium text-[var(--color-fairway)] transition-colors hover:bg-[var(--color-fairway)]/5"
+          >
+            Kontaktformular
           </Link>
         </div>
       </div>
