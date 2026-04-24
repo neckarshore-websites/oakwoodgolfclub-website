@@ -14,23 +14,47 @@
 import type { FaqItem } from "@/lib/faqs/types";
 
 export const CURATED_FAQS: FaqItem[] = [
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): 66 W -> ~143 W. User-correction:
+  // initial v1 blamed "Aufwand" as reason for pause — that was factually
+  // wrong. Real reason: the 2021 WHS (World Handicap System) transition
+  // caused "Verwerfungen" that the club is still sorting out. Tone kept
+  // slightly self-deprecating per user's own phrasing ("in Anführungs-
+  // zeichen leiden"). Deliberate: "Verwerfungen" stays vague — no
+  // concrete detail that would invite detail-questions we can't cleanly
+  // answer.
+  // ---------------------------------------------------------------------------
   {
     slug: "warum-aktuell-keine-handicap-verwaltung",
     question: "Warum verarbeitet ihr aktuell keine Handicaps?",
-    answer: `Handicap-Verwaltung war über Jahre Teil der Mitgliedschaft, wird aktuell aber nicht aktiv angeboten.
+    answer: `Handicap-Verwaltung war über Jahre Teil der Mitgliedschaft, wird aktuell aber nicht aktiv angeboten. Operativ könnten wir das grundsätzlich wieder anbieten — die Pause hat einen anderen Grund: Mit der Umstellung auf das WHS (World Handicap System) 2021 gab es im Hintergrund Verwerfungen, unter denen wir bis heute „leiden". Bevor wir eine Handicap-Führung offiziell wieder anbieten, müssen diese Nachwirkungen sauber aufgearbeitet sein.
 
-Dein Handicap erfasst du beim Signup selbst — ohne Verifizierung. Wenn du ein offizielles Handicap führst, nutze dafür die Systeme deines Heimat- oder Gastplatzes. Eine eigene Recreational-Handicap-Lösung ist in Planung, hat aber keinen festen Termin.
+Für dich heißt das: Dein Handicap erfasst du beim Signup selbst — als Selbstauskunft, ohne Verifizierung durch uns. Wenn du ein offiziell geführtes Handicap brauchst (Turniere, handicap-limitierte Plätze, DGV-/ÖGV-Wertungen), nutze dafür die Systeme deines Heimat- oder Gastplatzes.
 
-Die Mitgliederkarte bleibt auf rund 95 % der österreichischen Plätze als Clubnachweis anerkannt — unabhängig von der Handicap-Frage.`,
+Eine eigene Recreational-Handicap-Lösung — alle gespielten Runden einbeziehen, nicht nur Turniere — ist in Planung, hat aber keinen festen Termin. Sobald sie reif ist, hörst du davon.
+
+Die Mitgliederkarte bleibt bis dahin auf rund 95 % der österreichischen Plätze als Clubnachweis anerkannt — unabhängig von der Handicap-Frage.`,
     category: "handicap",
     published: true,
   },
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): 24 W -> 121 W expansion. Trust-Signale
+  // ("ohne Lastschrift", "ohne Kündigung") preserved in P1. New content:
+  // the "why" behind the no-auto-renewal decision (Lebensphasen,
+  // konkrete Beispiele: Schulter-Op, Umzug, Prioritäten) + the
+  // Rückkehrer-Signal. AI-citation-ready for "oakwood auto renewal"
+  // query.
+  // ---------------------------------------------------------------------------
   {
     slug: "gibt-es-ein-auto-renewal",
     question: "Gibt es ein Auto-Renewal?",
-    answer: `Nein. Deine Mitgliedschaft läuft nach 12 Monaten automatisch aus.
+    answer: `Nein. Deine Mitgliedschaft läuft nach 12 Monaten automatisch aus — ohne automatische Verlängerung, ohne Lastschrift, ohne Kündigung.
 
-Du entscheidest aktiv, ob du verlängern möchtest. Keine Kündigung nötig, keine versteckten Gebühren, keine Lastschrift.`,
+Du entscheidest aktiv, ob du verlängern möchtest. Rechtzeitig vor Ablauf schreiben wir dich 1–2 Mal per E-Mail an; antwortest du nicht, endet die Mitgliedschaft einfach.
+
+Wir machen das bewusst so, weil sich Lebensphasen ändern. Manche Mitglieder pausieren nach einem Jahr — wegen einer Schulter-Op, eines Umzugs, wegen anderer Prioritäten oder schlicht, weil dieses Jahr weniger Reisezeit da ist. Ein Auto-Renewal würde die Mitgliedschaft dann weiterlaufen lassen, obwohl der Nutzen gerade nicht da ist.
+
+Wer zurückkommt, entscheidet aktiv und mit frischem Kopf. Ein Jahr Pause, dann wieder dabei — das kommt bei unseren Mitgliedern immer wieder vor, ohne Drama, ohne Vertragsakrobatik. Für die Wiederanmeldung reicht das normale Anmeldeformular.`,
     category: "mitgliedschaft",
     published: true,
   },
@@ -97,11 +121,13 @@ Beim Oakwood Golf Club ist ein eigenes Recreational-Handicap-Produkt aktuell nic
   {
     slug: "wie-sieht-die-clubkarte-aus-aus-welchem-material-ist-sie",
     question: "Wie sieht die Mitgliederkarte aus? Aus welchem Material ist sie?",
-    answer: `Die Mitgliederkarte ist eine Plastikkarte im Kreditkartenformat (DIN ID-1). Beidseitig farbig bedruckt, hochwertige Oberfläche, haltbar.
+    answer: `Die Mitgliederkarte ist eine Plastikkarte im Kreditkartenformat (DIN ID-1, 85,6 × 54 mm) — beidseitig farbig bedruckt, hochwertige Oberfläche, robust für einen 12-Monats-Einsatz in Bag-Seitentasche und Portemonnaie.
 
-Auf der Vorderseite stehen dein Name, Mitgliedsnummer, das Gültigkeitsdatum und dein Handicap — alles im Golddruck. Die Rückseite zeigt ein Unterschriftsfeld und das Logo des Thailändischen Golfverbandes, dem der Club historisch angehört.
+Auf der Vorderseite stehen dein Name, Mitgliedsnummer, das Gültigkeitsdatum und dein Handicap — alles im Golddruck. Logo, Layout und Farben sind auf dem Kartenrohling schon vorgedruckt; die persönlichen Daten werden vor dem Versand in Gold aufgebracht.
 
-Die Karte ist das, was du im Pro-Shop oder am Counter vorzeigst — kompakt, wiedererkennbar, seit über 15 Jahren im gleichen Format im Einsatz.`,
+Die Rückseite zeigt ein Unterschriftsfeld und das Logo des Thailändischen Golfverbands, dem der Club historisch angehört (Gründung 2007). Das visuelle Design der Karte folgt dem Corporate Design der Webseite und entwickelt sich über die Jahre mit. Unverändert ist das Format selbst — Kreditkartengröße, seit Beginn dasselbe.
+
+Die Karte ist das, was du im Pro-Shop oder am Counter vorzeigst — kompakt, wiedererkennbar, seit über 15 Jahren im Kreditkartenformat im Einsatz.`,
     category: "karte",
     published: true,
     images: [
@@ -131,12 +157,23 @@ Die Karte ist das, was du im Pro-Shop oder am Counter vorzeigst — kompakt, wie
   // CTOs — Tonalität darf entspannt sein). Ersatz für die Karte als
   // stilisierte anonymisierte Version ist Backlog-Item #37.
   // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): 60 W -> ~121 W. User-corrections 2026-04-23:
+  // (1) Gründungsjahr = 2007 (not "gut 15 Jahre", exact); (2) die Exoten
+  // waren echte Einzelfälle, keine Pattern — ursprünglicher Expat/Reisende-
+  // Entwurf war Spekulation und wurde verworfen. Neue Frame: internationale
+  // Spannbreite ist Nebeneffekt der Bauart, nicht Marketingziel.
+  // Abgrenzung zu FAQ 396 (Wieviele Mitglieder): dort Fokus auf Zahl +
+  // Community-Größe, hier Fokus auf Geografie + "warum die Leute hier landen".
+  // ---------------------------------------------------------------------------
   {
     slug: "wo-kommen-die-mitglieder-her",
     question: "Wo kommen die Mitglieder her?",
-    answer: `Die Mehrheit unserer Mitglieder lebt im DACH-Raum — Deutschland, Österreich, Schweiz. Dazu gehört historisch Thailand, das Ursprungsland des Clubs, wo die Handicap-Verwaltung lange ihren Sitz hatte.
+    answer: `Die Mehrheit unserer Mitglieder lebt im DACH-Raum — Deutschland, Österreich, Schweiz — mit einem leichten Schwerpunkt in Österreich. Historisch gehört Thailand dazu: der Club ist dort 2007 gegründet worden, die Handicap-Verwaltung hatte lange ihren Sitz vor Ort.
 
-Dazu kommen über die Jahre einzelne Exoten: Mitglieder in Brasilien, Italien, England, Dänemark, Indien. Golf ist international — eine Fernmitgliedschaft passt zu jemandem, der den eigenen Platz nicht braucht, weil er ohnehin unterwegs ist.`,
+Dazu kommen über die Jahre einzelne Exoten: Mitglieder in Brasilien, Italien, England, Dänemark, Indien. Das waren echte Einzelfälle — keine Gruppe, kein Muster, keine Community, die sich über Mundpropaganda fortsetzt. Jede dieser Mitgliedschaften hat ihre eigene, unwiederholbare Geschichte. Diese Reichweite ist kein strategisches Marketingziel, sondern ein reiner Nebeneffekt der Bauart: Wer mit der Oakwood-Fernmitgliedschaft Golf spielen möchte, kann das von überall auf der Welt aus — wir verschicken die Mitgliederkarte weltweit.
+
+Gemeinsam ist allen Mitgliedern: eine klassische lokale Vereinsbindung passt nicht zur eigenen Situation. Die Fernmitgliedschaft schon.`,
     category: "mitglieder",
     published: true,
   },
@@ -153,15 +190,17 @@ Dazu kommen über die Jahre einzelne Exoten: Mitglieder in Brasilien, Italien, E
   {
     slug: "wie-kann-ich-mitglied-werden",
     question: "Wie kann ich Mitglied werden?",
-    answer: `Am einfachsten über das [Anmeldeformular](/mitglied-werden) — dort fragen wir alle nötigen Angaben ab und du bekommst nach dem Absenden eine Bestätigung per E-Mail.
+    answer: `Am einfachsten über das [Anmeldeformular](/mitglied-werden) — dort fragen wir alle nötigen Angaben ab und du bekommst nach dem Absenden eine Bestätigung per E-Mail. Kein Telefongespräch, kein Probemonat, keine Interviewrunde — das Formular ist der ganze Weg rein.
 
 Wir brauchen:
 
 - Name — so, wie er auf der Mitgliederkarte stehen soll
 - Eigene E-Mail-Adresse — möglichst privat, nicht beruflich. Berufliche Adressen wechseln, wir wollen dich auch in einem Jahr für die Verlängerung erreichen können.
 - Postanschrift für den Kartenversand
-- Dein Handicap
-- Dein gewünschtes Startdatum — das Enddatum ergibt sich daraus automatisch (12 Monate)`,
+- Dein Handicap — als Selbstauskunft, ohne Verifizierung durch uns
+- Dein gewünschtes Startdatum — das Enddatum ergibt sich daraus automatisch (12 Monate, plus die Rundungs-Regel auf das Monatsende des Folgemonats)
+
+Nach dem Absenden: Bestätigung per Mail, Zahlung auf dem gewählten Weg, Karte im wöchentlichen Druck-Rhythmus und per Post. Ab dem Startdatum bist du Mitglied — der richtige Moment, um die Karte das erste Mal einzusetzen.`,
     category: "mitgliedschaft",
     published: true,
   },
@@ -172,17 +211,27 @@ Wir brauchen:
   // dass/das grammar error). Mirrored user decisions from FAQ 183:
   // Form-Link only, Handicap neutral, Sonderwünsche dropped.
   // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): 71 W -> ~145 W. Additions: reminder-mail
+  // signal im Intro (customer load low), Handicap-Selbstauskunft-Hinweis
+  // (D9-consistent), Pause-Optionen erweitert auf Jahreswechsel + Reiseplan,
+  // Post-Submit-Ablauf transparent (consistent with FAQ #2, #6), alte
+  // Karte behalten mit user-confirmed Begründung (Ablaufdatum = natural
+  // invalidation, daher unkritisch als Andenken).
+  // ---------------------------------------------------------------------------
   {
     slug: "wie-kann-ich-die-mitgliedschaft-verlaengern",
     question: "Wie kann ich die Mitgliedschaft verlängern?",
-    answer: `Am einfachsten über das [Verlängerungsformular](/mitgliedschaft-verlaengern) — aktuelle Daten eintragen, absenden, Bestätigung per E-Mail.
+    answer: `Am einfachsten über das [Verlängerungsformular](/mitgliedschaft-verlaengern) — aktuelle Daten eintragen, absenden, Bestätigung per E-Mail. Vor Ablauf erinnern wir dich per E-Mail, du musst dir nichts im Kalender merken.
 
 Wir brauchen:
 
 - Aktuelle E-Mail-Adresse — möglichst privat, nicht beruflich. Berufliche Adressen wechseln, wir wollen dich auch im nächsten Jahr für die Verlängerung erreichen können.
 - Aktuelle Postanschrift — falls sich diese in den letzten 12 Monaten geändert hat
-- Dein Handicap
-- Wunsch-Startdatum der neuen 12 Monate — nahtlos oder mit Pause, z.B. bis zum nächsten Frühling`,
+- Dein Handicap — als Selbstauskunft wie beim ersten Signup
+- Wunsch-Startdatum der neuen 12 Monate — nahtlos oder mit Pause, z. B. zum nächsten Frühling oder passend zu deinem Reiseplan
+
+Nach dem Absenden: Bestätigung per Mail, Zahlung auf dem gewählten Weg, Karte im wöchentlichen Druck-Rhythmus. Die neue Karte kommt per Post; die alte kannst du behalten — auf ihr steht ein Ablaufdatum, sie verliert ihre Funktion. In 15 Jahren hat kein Mitglied eine Karte zurückgeschickt — als Andenken offenbar willkommener als im Papierkorb.`,
     category: "mitgliedschaft",
     published: true,
   },
@@ -199,17 +248,32 @@ Wir brauchen:
   // PayPal/Stripe — User erwägt Stripe-Umstieg, FAQ soll zukunftssicher
   // sein).
   // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): 63 W -> ~123 W. User-corrections:
+  // (1) Karten sind vorgedruckte Rohlinge mit Logo/Layout/Farben drauf,
+  //     nur Name/Handicap/Enddatum werden in Gold aufgedruckt (NICHT
+  //     "beidseitig farbig in Deutschland gedruckt" — das war Spekulation).
+  // (2) "Per Post" statt "Mit der Deutschen Post" (Carrier-neutral).
+  // (3) International: 1-2 Wochen (nicht 1-3).
+  // New content: Personalisierungs-Absatz erklärt den Druck-Prozess, plus
+  // international-Bullet + international-Fallback im Eskalations-Satz
+  // (konsistent mit FAQ wo-kommen-die-mitglieder-her, die internationale
+  // Mitglieder referenziert).
+  // ---------------------------------------------------------------------------
   {
     slug: "wie-lange-dauert-es-bis-die-clubkarte-bei-mir-eintrifft",
     question: "Wie lange dauert es, bis die Mitgliederkarte bei mir ankommt?",
-    answer: `Nach Zahlungseingang drucken und verschicken wir in der Regel einmal pro Woche — bei Bedarf auch schneller. Wichtig: Bei Banküberweisung dauert der Zahlungseingang 2–3 Werktage; bei sofortigen Zahlungsarten geht der Versandprozess direkt los.
+    answer: `Nach Zahlungseingang drucken und verschicken wir in der Regel einmal pro Woche — bei Bedarf auch schneller. Wichtig für die Gesamt-Zeitrechnung: Bei Banküberweisung dauert der Zahlungseingang 2–3 Werktage; bei sofortigen Zahlungsarten geht der Versandprozess direkt los.
 
-Lieferzeit mit der Deutschen Post:
+Wie die Personalisierung läuft: Die Karten liegen als vorgedruckte Rohlinge bereit — Logo, Layout und Farben sind schon drauf. Aufgebracht wird nur noch dein Name, dein Handicap und das Enddatum deiner Mitgliedschaft, und zwar in Golddruck. Das dauert pro Karte wenige Minuten, wir bündeln sie aber zu einem wöchentlichen Druck- und Versand-Rhythmus.
+
+Lieferzeit per Post:
 
 - Deutschland: 2–3 Werktage
 - Österreich / Schweiz: 3–7 Werktage
+- Außerhalb DACH: 1–2 Wochen je nach Zielland
 
-Wenn du nach 7–10 Tagen noch keine Karte hast, [melde dich](/kontakt) — wir schauen nach.`,
+Wenn du nach 7–10 Tagen innerhalb DACH (bzw. 2 Wochen international) noch keine Karte hast, [melde dich](/kontakt) — wir schauen nach.`,
     category: "karte",
     published: true,
   },
@@ -223,14 +287,24 @@ Wenn du nach 7–10 Tagen noch keine Karte hast, [melde dich](/kontakt) — wir 
   // DRY-basiert; (3A) /kontakt-Link; (4A) "keine Lastschrift" als
   // Trust-Signal explizit drinlassen.
   // ---------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------
+  // L9 Content-Pass (2026-04-23): 66 W -> ~146 W. User-confirmed policy:
+  // vorzeitig aussteigen geht via Geld-zurück-Garantie "ohne Wenn und Aber",
+  // in 15 Jahren 3-4x insgesamt genutzt. Das Trust-Signal wird prominent
+  // nach vorn gezogen statt als defensive Ausnahme erwähnt. P2-Tonalität
+  // ("Kein Entkommen-Gefühl, keine Schuldfrage") betont die bewusste
+  // Design-Entscheidung gegen Retention-Dark-Patterns.
+  // ---------------------------------------------------------------------------
   {
     slug: "wie-kann-ich-die-mitgliedschaft-kuendigen",
     question: "Wie kann ich die Mitgliedschaft kündigen?",
-    answer: `Eine Kündigung ist nicht notwendig. Die Mitgliedschaft läuft auf 12 Monate und endet automatisch zum Enddatum, das auf deiner Karte angedruckt ist. Keine automatische Verlängerung, keine Fristen, keine Lastschrift.
+    answer: `Eine Kündigung ist nicht notwendig. Die Mitgliedschaft läuft auf 12 Monate und endet automatisch zum Enddatum, das auf deiner Karte angedruckt ist. Keine automatische Verlängerung, keine Fristen, keine Lastschrift — du musst nichts aktiv abbestellen.
 
-Rechtzeitig vor Ablauf schreiben wir dich 1–2 Mal per E-Mail an und bieten dir die Verlängerung an. Antwortest du nicht, läuft die Mitgliedschaft einfach aus.
+Rechtzeitig vor Ablauf schreiben wir dich 1–2 Mal per E-Mail an und bieten dir die Verlängerung an. Antwortest du nicht, läuft die Mitgliedschaft einfach aus. Kein Entkommen-Gefühl, kein erzwungenes Nein, keine Schuldfrage — das ist gewollt.
 
-Wenn du trotzdem schriftlich kündigen möchtest: [kurze Mail über das Kontaktformular](/kontakt) reicht.`,
+Wenn du trotzdem ausdrücklich schriftlich kündigen möchtest (z. B. für dein Privataktenarchiv oder weil dein Firmenadministrator eine formale Abmeldung braucht): Eine [kurze Mail über das Kontaktformular](/kontakt) reicht. Wir bestätigen per Antwort.
+
+Vorzeitig aus einer laufenden Mitgliedschaft aussteigen geht — wir haben eine Geld-zurück-Garantie ohne Wenn und Aber. In der Praxis wird das extrem selten genutzt: in 15 Jahren drei- bis viermal insgesamt. Aber die Tür steht offen, wenn dir etwas Wichtiges dazwischenkommt. [Melde dich](/kontakt), wir regeln das unbürokratisch.`,
     category: "mitgliedschaft",
     published: true,
   },
@@ -286,7 +360,11 @@ Praktisch heißt das: Du kannst jederzeit einsteigen und spielst zwölf Monate a
     question: "Wird die Fernmitgliedschaft von anderen Clubs in Deutschland und international akzeptiert?",
     answer: `Du bist Greenfee-Spieler, der gerne unterschiedliche Plätze spielt und oft unterwegs ist? Immer mit dem Golfbag im Kofferraum oder im Fluggepäck? Die Fernmitgliedschaft passt dazu. Unsere Mitglieder spielen in Deutschland, Österreich, Schweiz, Frankreich, Portugal, Spanien, Irland und weltweit.
 
-Die meisten Clubs sind wirtschaftlich am Greenfee-Spiel interessiert und fragen nicht viel, solange ein Clubnachweis vorliegt — die Mitgliederkarte reicht. Eine kleine Minderheit bleibt bewusst auf eigene Mitglieder und deren Gäste beschränkt; das betrifft in der Praxis die wenigsten Plätze.`,
+Die meisten Clubs sind wirtschaftlich am Greenfee-Spiel interessiert und fragen nicht viel, solange ein Clubnachweis vorliegt — die Mitgliederkarte reicht. Der Pro-Shop prüft kurz, bucht die Runde, fertig. Das ist in Deutschland und international die Regel.
+
+Eine kleine Minderheit bleibt bewusst auf eigene Mitglieder und deren Gäste beschränkt — private Member-Only-Clubs, High-End-Resortkurse mit Hotelbuchungspflicht, gelegentlich einzelne Matchplay-Tage, an denen grundsätzlich keine Gäste spielen. Das betrifft in der Praxis die wenigsten Plätze, und auch eine DGV- oder ÖGV-Mitgliedschaft würde dich dort nicht automatisch hineinbringen.
+
+Faustregel: Wer Golfreise-tauglich unterwegs ist, kommt mit unserer Karte praktisch überall rein.`,
     category: "akzeptanz",
     published: true,
   },
