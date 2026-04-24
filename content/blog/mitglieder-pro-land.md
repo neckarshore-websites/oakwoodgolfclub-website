@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: true
 ---
+## TL;DR / Zusammenfassung
+OGC-Mitgliederverteilung: 52% Deutschland, 42% Österreich, 5% Schweiz, 1% Rest der Welt. Warum gerade Österreich überproportional vertreten ist.
+
 ## ... wobei Österreich mit einer wesentlich kleineren Gesamtbevölkerung im Vergleich zu Deutschland einen beachtlichen Anteil der Mitglieder stellt:
 
 - 52% aus Deutschland

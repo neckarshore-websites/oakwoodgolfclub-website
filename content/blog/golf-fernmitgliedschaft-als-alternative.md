@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Klassische Mitgliedschaft kostet mehrere Tausend Euro im Jahr, Fernmitgliedschaft rund 200. Wann sich der Wechsel lohnt — und wo die Grenzen liegen.
+
 Wenn die neue Golfsaison vor der Tür steht, stellt sich oft die Frage nach der Wahl der passenden Mitgliedschaft. In letzter Zeit erfreut sich die Golf Fernmitgliedschaft immer größerer Beliebtheit. Doch was genau sind die Vorteile gegenüber einer vollwertigen örtlichen Golfclub-Mitgliedschaft? Gibt es auch Nachteile? Alles Wissenswertes zu dem Thema erfahren Sie hier.
 
 ## Alternative etabliert sich

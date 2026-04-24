@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+9 Löcher auf Wüstensand, Krater statt Bunker, Minenwarnschilder am Fairway: die Geschichte des Kabul Golf Club zwischen Sport, Krieg und Diplomatie.
+
 ## Lage
 
 Direkt vor der Hintertür der Landeshauptstadt liegt der Kabul Golf Club. Auf dem Logo des Kabul Golf Club steht [ein arabisches Wort, das auf Englisch „Frieden" bedeutet.](https://translate.google.com/?hl=en&sl=de&tl=ar&text=Frieden%E2%80%9C%20bedeutet.&op=translate "Salam")

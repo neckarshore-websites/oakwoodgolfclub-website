@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: true  # needs truth-align review (D9)
 ---
+## TL;DR / Zusammenfassung
+mScorecard als App-Begleiter zur OGC-Fernmitgliedschaft: Scorecard-Erfassung, GPS-Entfernungen, Handicap-Berechnung und Runden-Statistik auf dem Mobiltelefon.
+
 ## Schnelle und einfache Erfassung
 
 Zeichne alle Details Deines Spiels auf, einschließlich Schlägen, Putts, Fairway-Treffern, Chips, Sandschüssen, Höhen und Tiefen und Schlägern. Du kannst bis zu fünf Spieler pro Runde erfassen. Die Scorecard-Ansicht ermöglicht eine schnelle Punktezählung für alle Spieler in Deiner Gruppe, genau wie bei einer herkömmlichen Scorecard. mScorecard unterstützt Dich bei der Handicapverwaltung für Deine Fernmitgliedschaft im Golfclub.

@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Konzentration, Ausdauer, Netzwerk und Stress-Reset in einer Disziplin: warum Golf für viele zum ultimativen Sport für Körper und Geist wird.
+
 Golf ist weit mehr als nur ein nettes Spiel im Freien. Es ist ein Sport, der Körper und Geist stärkt und eine wunderbare Gelegenheit bietet, sich zu entspannen und die Natur zu genießen. In diesem Blog werden wir einen Blick hinter die Greens werfen, um herauszufinden, was Golf zum ultimativen Sport macht. Wir werden sehen, wie die Kombination aus körperlicher und geistiger Anstrengung zu einem gesünderen, glücklicheren und produktiveren Leben führen kann.
 
 ![](/blog/images/golf-brain.png)

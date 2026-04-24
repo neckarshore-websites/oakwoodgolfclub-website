@@ -12,6 +12,9 @@ tags:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Bunker-Technik in drei Schritten: stabile Stand-Basis, Ballposition vor dem linken Fuß, Loft und Bounce halten. Plus: wie Du den Bunker-Zustand liest.
+
 Hier ein paar Tipps für Dich, wie Du Dein Bunker-Spiel verbessern kannst.
 
 <figure>

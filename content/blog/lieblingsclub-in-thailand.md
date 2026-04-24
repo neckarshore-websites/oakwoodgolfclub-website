@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Santiburi Samui Country Club, Koh Samui: 18 Löcher Par 72, 6.237 Meter durch Kokospalmen und Urwald — einer dieser Plätze, die man einmal gespielt haben sollte.
+
 Der Santiburi Samui Country Club auf [Koh Samui](https://de.wikipedia.org/wiki/Ko_Samui "Wikipedia Koh Samui") in [Thailand](https://de.wikipedia.org/wiki/Thailand "Wikipedia Thailand") ist ein Golfkurs, den man einmal im Leben gespielt haben sollte.
 
 <figure>

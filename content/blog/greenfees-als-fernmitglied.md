@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Lokale Mitgliedschaft 1.140 € im Jahr plus Greenfee, Fernmitgliedschaft 55 € plus Greenfee: ein konkretes Beispiel aus der Region Stuttgart, wann sich was rechnet.
+
 ## Wie ist die Greenfee-Situation im Allgemeinen und im Besonderen?
 
 Eine Frage, die  immer wieder aufkommt ist, warum zahle ich als Fernmitglied erhöhte Greenfees. Eine meiner Antworten ist dann folgendes Beispiel aus der realen Welt und meiner realen Region Stuttgart anhand der [Golfanlage Schloss Nippenburg](https://www.golfnippenburg.de/ "Golfanlage Schloss Nippenburg")

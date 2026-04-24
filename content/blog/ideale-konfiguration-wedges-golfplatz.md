@@ -22,6 +22,9 @@ tags:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Welche Wedges (44–58°) ins Bag gehören, warum die 4-6°-Gap-Regel zählt, und wie Du mit Griff-Technik aus vier Schlägern acht Distanzen holst.
+
 Die ideale Konfiguration Deiner Wedges für bessere Ergebnisse auf dem Golfplatz.
 
 <figure>

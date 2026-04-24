@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Golfer pro Einwohner im internationalen Vergleich: 1:14 in Irland, 1:23 in Schottland, 1:149 in Deutschland, 1:285.000 in Afghanistan.
+
 Golfer pro Einwohner — ein internationaler Vergleich.
 
 ## Deutschland und Österreich im Vergleich

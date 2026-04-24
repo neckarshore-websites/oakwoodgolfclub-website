@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Mehr Bälle als Tees, Schläger wie Angelruten, anatomisch fragwürdige Schwung-Posen: warum KI bei Golfbildern (noch) so spektakulär scheitert.
+
 Golf und künstliche Intelligenz (KI) sind zwei Begriffe, die man nicht unbedingt sofort miteinander in Verbindung bringen würde. Doch in der Welt der KI-generierten Bilder treffen sie aufeinander – und das Ergebnis ist oft amüsant und kurios. In diesem Blogbeitrag werfen wir einen humorvollen Blick auf die skurrilen Fehler, die KI-generierte Golfbilder aufweisen, und zeigen, dass es noch ein weiter Weg ist, bis künstliche Intelligenz die Feinheiten des Golfsports vollständig erfasst.
 Mit ein paar simple Anweisungen an die KI kann man im Glücksfall schon ganz gute Ergebnisse erzielen:
 ![KI-generiertes Golfbild über den Edge Browser](/blog/images/KI-via-Edge-Browser.png)

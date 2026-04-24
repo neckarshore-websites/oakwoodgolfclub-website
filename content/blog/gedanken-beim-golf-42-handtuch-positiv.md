@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Eine Mindmap der typischen Golfer-Gedanken — und warum die Sportpsychologie sagt: nur 3% einer Runde sind Schläge. Der Rest ist Kopf.
+
 ## Eine kleine Mindmap, was dem Durchschnittsgolfer durch den Kopf geht
 
 <figure>

@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Erstes Damenturnier 1810, der Hickory-Schaft, der Gutta-Ball, der Haskell-Ball: wie das 19. Jahrhundert Golf modernisierte und die USGA gründete.
+
 Das 19. Jahrhundert steht für Industrialisierung, Mobilität, Individualisierung der Massen — und für Emanzipation. Das erste Damenturnier im Golfsport wurde in der Nähe von Edinburgh im Jahr 1810 abgehalten. In St. Andrews entstand, wenn auch erst 1867, sogar ein Golfclub für Damen.
 
 Französische Golfsportlerinnen gründeten ein kontinentaleuropäisches Pendant bereits 1856 in der südfranzösischen Stadt Pau. Die deutschen Golfer zogen erst in der boomenden Gründerzeit nach und etablierten 1982 den ersten deutschen Golfclub in Darmstadt. Auch in Bad Homburg und in Cannstatt bei Stuttgart wurden Kur- und Grünanlagen zum Golfspielen genutzt.

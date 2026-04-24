@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+1457 verbot König James II den Schotten Golf — Bogenschießen sei wichtiger fürs Land. Ein Streifzug durch das 15. und 16. Jahrhundert.
+
 Erst die Buchkunst ermöglichte die Überlieferung von schriftlichen Aufzeichnungen — wie einer parlamentarischen Urkunde aus dem Jahr 1457, mit der der schottische König James II und das Parlament den Adeligen das exzessive Ausüben des Golfsports untersagten.
 
 Der Obrigkeit erschien es angemessen, die Untergebenen zum Bogenschießen anzuhalten, denn das wurde zur Erhaltung der Wehrhaftigkeit des Landes als wichtiger angesehen.

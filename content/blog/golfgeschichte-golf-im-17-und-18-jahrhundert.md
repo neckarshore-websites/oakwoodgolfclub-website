@@ -8,6 +8,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+Erster Profi-Schlägerbauer 1603, erstes Länderspiel 1682, erster Club außerhalb Schottlands 1766 — wie Golf im 17. und 18. Jahrhundert seine Form bekam.
+
 Der Schotte William Mayne lässt sich über eine Urkunde aus dem Jahr 1603 als der erste professionelle Golfausrüster nachweisen. Die von ihm gebauten Golfschläger wurden vom schottischen König James VI eingesetzt, der ihm zum Dank den Prestigetitel des Royal Clubmaker verleiht. Als Spielball wird mittlerweile ein Lederball verwendet, der mit Federn aufgefüllt ist.
 
 Wer das Spiel aus der Kolonialmacht in die amerikanischen Kolonien eingeführt hat, bleibt unbekannt. Doch dass in der amerikanischen Stadt Albany bereits in den Sechziger Jahren des 17. Jahrhunderts Golf gespielt wurde, beweist ein urkundlich belegtes Verbot, das Spiel auf der Straße zu praktizieren.

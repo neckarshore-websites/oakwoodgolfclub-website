@@ -7,6 +7,9 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
+## TL;DR / Zusammenfassung
+1920er, USA: Stuntpilot Al Wilson schlägt einen Golfball vom Oberflügel eines fliegenden Doppeldeckers — die waghalsigste Szene der Golfgeschichte.
+
 <figure>
   <img src="/blog/images/daredevil-al-wilson-golfing-on-biplane_u-l-pzs9zd0.webp" alt="Al Wilson spielt Golf auf dem Oberflügel eines fliegenden Doppeldeckers" />
   <figcaption>Golfgeschichte & Wahnsinn: Al Wilson spielt Golf auf einem Doppeldecker.</figcaption>
