@@ -8,13 +8,14 @@ categories:
 author: "Oakwood Golf Club"
 draft: false
 ---
-####
+## Eine kleine Mindmap, was dem Durchschnittsgolfer durch den Kopf geht
 
-## Eine kleine Mindmap, was dem Durchschnittsgolfer durch den Kopf geht...
+<figure>
+  <img src="/blog/images/thoughts-of-golf.jpg" alt="Mindmap typischer Golfer-Gedanken während einer Runde" />
+  <figcaption>Gedanken beim Golf.</figcaption>
+</figure>
 
-![Gedanken beim Golf](/blog/images/thoughts-of-golf.jpg) Gedanken beim Golf
-
-## Steuere Deine Gedanken positiv - wirf nicht das Handtuch
+## Steuere Deine Gedanken positiv — wirf nicht das Handtuch
 
 In kaum einer Sportart hat man so viel Zeit zum Nachdenken wie im Golf. Umso besser sollte man seine Gedanken bewusst steuern können.
 Die besondere Herausforderung auf einer Golfrunde liegt aus sportpsychologischer Sicht in der Zeit zwischen den Schlägen.

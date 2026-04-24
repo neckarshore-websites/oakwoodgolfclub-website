@@ -12,14 +12,14 @@ draft: false
 
 Eine Frage, die  immer wieder aufkommt ist, warum zahle ich als Fernmitglied erhöhte Greenfees. Eine meiner Antworten ist dann folgendes Beispiel aus der realen Welt und meiner realen Region Stuttgart anhand der [Golfanlage Schloss Nippenburg](https://www.golfnippenburg.de/ "Golfanlage Schloss Nippenburg")
 
-##### Beispiel 1 - Lokales Mitglied - Golfanlage Schloss Nippenburg bei Stuttgart
+### Beispiel 1 - Lokales Mitglied - Golfanlage Schloss Nippenburg bei Stuttgart
 
 - Die billigste "Mitgliedschaft Standard" auf der [Golfanlage Schloss Nippenburg](https://www.golfnippenburg.de/) kostete 95 Euro im Monat ohne Aufnahmegebühr. Das sind im Jahr 1.140 Euro.
 - Greenfee muss ich trotzdem zahlen! Das sind 60 Euro von Montag bis Freitag, 70 Euro Samstags und 80 Euro am Sonntag
 - Grund zum Jubeln: Die Rangegebühr von 10 Euro entfällt, aber die Bälle zahle ich weiterhin.
 - Bei 20 Runden (nur Mo-Fr) im Jahr nur auf diesem Platz zahle kosten also 2.340 Euro oder 117 Euro pro Runde!
 
-#### Beispiel 2 - Exotisches Fernmitglied spielt auf Golfanlage Schloss Nippenburg bei Stuttgart
+### Beispiel 2 - Exotisches Fernmitglied spielt auf Golfanlage Schloss Nippenburg bei Stuttgart
 
 - 55 Euro im Jahr Mitgliedschaft im OGC
 - 20 Runden mit Aufschlag von fiktiven 10 Euro für die Fernmitgliedschaft

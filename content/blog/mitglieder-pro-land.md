@@ -16,4 +16,7 @@ draft: true
 - 1% Rest der Welt
 
 Selbst unter den 1% sind noch weiter deutschsprachige Golfer, die es in die weite Welt verstreut hat und die vor Ort eine Fernmitgliedschaft benötigen.
-![Statistik Mitgliederverteilung pro Land](/blog/images/statistikMitgliederverteilung.jpg) Statistik Mitgliederverteilung pro Land (Stand Mitte 2016)
+<figure>
+  <img src="/blog/images/statistikMitgliederverteilung.jpg" alt="Tortendiagramm der OGC-Mitgliederverteilung nach Land" />
+  <figcaption>Statistik Mitgliederverteilung pro Land (Stand Mitte 2016).</figcaption>
+</figure>
