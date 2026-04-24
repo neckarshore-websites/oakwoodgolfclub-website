@@ -103,7 +103,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-white/10 pt-6 text-xs text-[var(--color-parchment)]/50 md:flex-row md:items-center md:justify-between">
           <p>© {currentYear} {SITE.name}. Alle Rechte vorbehalten.</p>
-          <p>Seit {SITE.founded}. Betrieben aus Thailand. Mitglieder in der DACH-Region.</p>
+          <p>Seit {SITE.founded}. Betrieben aus Deutschland. Mitglieder in der DACH-Region.</p>
         </div>
 
         <p className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-[var(--color-parchment)]/70">
