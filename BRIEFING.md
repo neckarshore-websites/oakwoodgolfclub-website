@@ -21,7 +21,7 @@ Snapshot taken 2026-04-17. Scope-Interview abgeschlossen (Session C + D). Alle 1
 ## 1. Kontext
 
 - **Betreiber:** User (German Rauhut). OGC ist **sein** 16-Jahres-Side-Hustle, nicht fremd, nicht Kundenprojekt, nicht Neckarshore-Produkt.
-- **Betriebsdauer:** 16 Jahre Live-Betrieb. Wird von Thailand aus operiert, Hauptmarkt DACH.
+- **Betriebsdauer:** 16 Jahre Live-Betrieb. Wird von Deutschland aus operiert, Hauptmarkt DACH. (Truth-Drift-Fix 2026-04-27 — Linus L13 Korrektur 2026-04-24 propagiert; Member-Geo unten unverändert, dort sind Thailand-basierte Members legitim.)
 - **Mitgliederzahl:** ~300 aktive Mitglieder — substanziell genug um 16 Jahre zu laufen.
 - **Priorität:** User hat explizit gesagt: "OGC ist mein Baby und aus meiner Sicht wichtiger als Goldoni." Für den User die **höchstpriore Nebenprojekt-Website**.
 - **Strategische Implikation:** Goldoni wird als schneller MVP gebaut (Design-Proving-Ground). OGC bekommt strukturierte, mehrsession-Session-Planung — **Risiko eines botched Relaunches ist hoch**: ein bestehendes Mitglied darf nicht plötzlich seine Scorecards verlieren oder ein falsches Handicap auf einem echten Golfplatz haben.
