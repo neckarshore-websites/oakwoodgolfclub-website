@@ -3,14 +3,27 @@
 ## Repo Context
 
 - **Owner:** Linus (Frontend Artist) — this is the maintainer's own 16-year side-hustle, NOT a Neckarshore AI product and NOT a client favor. The business is his.
-- **GitHub home:** `oakwoodgolfclub-de/oakwoodgolfclub-website` (private, dedicated OGC GitHub org — NOT the `neckarshore-ai` Org, NOT the User's personal `GmanFooFoo`). Side effect: Vercel Hobby-Plan kann den Repo nicht automatisch per GitHub-Integration verbinden (409 "private & owned by organization" — Pro-Plan needed, oder Repo-Transfer nach `GmanFooFoo`). Deploys laufen aktuell via `vercel deploy --prod` manuell — kein Auto-Deploy-on-push. Siehe Backlog #15.
+- **GitHub home:** `oakwoodgolfclub-de/oakwoodgolfclub-website` (private, dedicated OGC GitHub org — NOT the `neckarshore-ai` Org, NOT the User's personal `GmanFooFoo`). Vercel-GitHub-Integration ist mittlerweile angebunden (PR #16 2026-05-19 hat Vercel-Check ✅ und Vercel-Preview-Comments ✅ — Auto-Deploy auf PR-Push funktioniert). Die ursprüngliche Briefing-Era-Doku ("Hobby-Plan blockiert private Org-Repos, manuelle Deploys via `vercel deploy --prod`") ist veraltet; die genaue Plan-Stufe + Setup-Datum kennt nur der User. Vor DNS-Cutover (B14) trotzdem nicht auf `git push → live` vertrauen — `oakwoodgolfclub.de` zeigt aktuell noch auf WordPress.
 - **Domain:** `oakwoodgolfclub.de` — currently WordPress. Live production with ~300 paying members. Migration will be phased.
 - **Business:** Fernmitgliedschaft im Golfclub. Members pay €55/year (€143/year for a 4-person flight). Service: handicap management + printed membership card that is accepted by ~95% of Austrian golf courses. Operated from Germany; payments and members are primarily DACH (founding history is Thailand 2007 — Thai-Golfverband origin — but the business has been run from Germany for years; Thailand still appears in the member geo distribution as legitimate ~5% share).
 - **Why this matters:** This is a **live business**, not a marketing site. Members log in, submit scores, track their handicap, receive cards in the mail. A botched deploy does not just annoy visitors — it risks a member losing their scorecard history, or worse, their handicap being wrong when they play a real course.
 
 ## Status
 
-**Briefing stage.** No code, no Next.js bootstrap, no database. Only `BRIEFING.md` + this file. Scope decisions (big-bang vs. phased migration, member-portal build vs. SaaS, CMS choice, payment gateway, etc.) happen in dedicated OGC sessions with the User. The Briefing has 12 open scope questions (section 6) — none of them are answered yet.
+**Implementation in progress** — past briefing stage. The Next.js app is bootstrapped and deploying to Vercel preview. Shipped routes today (`app/`):
+
+- `/` (homepage)
+- `/mitglied-werden` (new-member signup form)
+- `/mitgliedschaft-verlaengern` (renewal form)
+- `/blog` (Markdown-driven, gray-matter + marked)
+- `/faq`, `/agb`, `/impressum`, `/datenschutz`, `/kontakt`
+- `/api/*` (server actions / form endpoints)
+
+Member-portal (login, scorecards, handicap-management) is **not yet built** — that is the next big block and still needs scope decisions with the User. CMS choice for the 16 years of WordPress blog posts is still open. Payment gateway is wired (Stripe deps in `package.json`); test-mode end-to-end not yet verified.
+
+The DNS cutover to `oakwoodgolfclub.de` (Backlog **B14**) has NOT happened — the live business still runs on the WordPress site. Vercel preview ≠ production for paying members. Treat every "is this in scope?" question for member-portal features as still-open until confirmed in a dedicated OGC session.
+
+`BRIEFING.md` § 6 (12 scope questions) — some answered implicitly by what's been built; others (member-portal architecture, payment-flow details, scorecard migration) still unresolved.
 
 ## Working Directory Rule
 
