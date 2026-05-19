@@ -14,10 +14,10 @@
 
 ## Working Directory Rule
 
-This repo lives at `~/Developer/projects/oakwoodgolfclub-website/`. Every Bash command must start with:
+This repo lives at `~/Developer/projects/oakwoodgolfclub-de/oakwoodgolfclub-website/`. Every Bash command must start with:
 
 ```bash
-cd ~/Developer/projects/oakwoodgolfclub-website && ...
+cd ~/Developer/projects/oakwoodgolfclub-de/oakwoodgolfclub-website && ...
 ```
 
 The Claude Code harness resets `cwd` after every Bash call. Unscoped commands risk writing to the wrong repo (rauhut-website, neckarshore-website, goldoni-website, omnopsis-backend, planning repos, Obsidian vault). Same discipline as all other Linus repos. Non-negotiable.
