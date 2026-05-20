@@ -74,6 +74,26 @@ export const SITE = {
  * @param type  OG type — defaults to "website" (most subpages). Pass
  *              "article" on blog posts.
  */
+/**
+ * Default OG / Twitter image — emitted site-wide by the file-convention
+ * route at `app/opengraph-image.tsx`. The route renders a 1200×630 PNG
+ * at build time via `next/og`'s `ImageResponse`.
+ *
+ * NOTE: We do NOT rely on Next.js's "auto-fill og:image from file
+ * convention" cascade for subpages — because `pageOpenGraph()` below
+ * REPLACES the layout's openGraph object (no deep-merge), the auto-fill
+ * cascade is bypassed. Subpages must therefore pass this constant
+ * explicitly via the helper. Verified against prod 2026-05-20: without
+ * this, og:image was emitted only on `/`, all 9 subroutes lacked the tag.
+ */
+const DEFAULT_OG_IMAGE = {
+  url: `${SITE.url}/opengraph-image`,
+  width: 1200,
+  height: 630,
+  alt: `${SITE.name} — ${SITE.tagline}`,
+  type: "image/png",
+} as const;
+
 export function pageOpenGraph(opts: {
   path: string;
   title: string;
@@ -86,6 +106,13 @@ export function pageOpenGraph(opts: {
   siteName: string;
   title: string;
   description: string;
+  images: Array<{
+    url: string;
+    width: number;
+    height: number;
+    alt: string;
+    type: string;
+  }>;
 } {
   return {
     type: opts.type ?? "website",
@@ -94,6 +121,11 @@ export function pageOpenGraph(opts: {
     siteName: SITE.name,
     title: opts.title,
     description: opts.description,
+    // og:image — kept identical across all subpages (single brand card).
+    // Twitter inherits this when twitter.images is not set at page level,
+    // so this single addition fixes both og:image AND twitter:image across
+    // every page that calls `pageOpenGraph`.
+    images: [DEFAULT_OG_IMAGE],
   };
 }
 
