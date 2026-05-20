@@ -23,11 +23,11 @@ import { SITE } from "@/lib/site-config";
  *   - parchment      #fafafa
  *   - sand           #f3ead4
  *
- * Typography: system-fallback serif (Georgia) for headlines and
- * system-sans for the eyebrow / footer. A future iteration can fetch
- * the Playfair Display TTF at build time and pass it via `fonts:[]`
- * for stricter visual parity — for the v1 OG card the system serif is
- * sufficient and removes a remote-fetch risk at request time.
+ * Typography: Playfair Display (matches the site's heading face from
+ * `next/font/google` in `layout.tsx`) and Inter (body face), both
+ * fetched at build time as static TTF binaries from the fontsource
+ * CDN. Fetches happen during the static-prerender pass, not at request
+ * time, so the prod render is offline-safe once built.
  */
 
 export const runtime = "nodejs";
@@ -41,7 +41,34 @@ export const size = {
 
 export const contentType = "image/png";
 
+/**
+ * Stable, single-weight TTF binaries from fontsource (mirrors
+ * Google Fonts; jsdelivr-served, no auth). Pinned via the version-
+ * tagged path so a future fontsource major doesn't silently change
+ * glyph metrics.
+ */
+const FONT_PLAYFAIR_SEMIBOLD =
+  "https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@latest/latin-600-normal.ttf";
+const FONT_PLAYFAIR_SEMIBOLD_ITALIC =
+  "https://cdn.jsdelivr.net/fontsource/fonts/playfair-display@latest/latin-600-italic.ttf";
+const FONT_INTER_MEDIUM =
+  "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-500-normal.ttf";
+
+async function loadFont(url: string): Promise<ArrayBuffer> {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to load font ${url}: ${res.status}`);
+  }
+  return res.arrayBuffer();
+}
+
 export default async function OpengraphImage() {
+  const [playfair, playfairItalic, inter] = await Promise.all([
+    loadFont(FONT_PLAYFAIR_SEMIBOLD),
+    loadFont(FONT_PLAYFAIR_SEMIBOLD_ITALIC),
+    loadFont(FONT_INTER_MEDIUM),
+  ]);
+
   return new ImageResponse(
     (
       <div
@@ -54,7 +81,7 @@ export default async function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px 96px",
-          fontFamily: "Georgia, 'Times New Roman', serif",
+          fontFamily: "Playfair Display",
         }}
       >
         {/* Top: eyebrow + gold rule */}
@@ -62,7 +89,7 @@ export default async function OpengraphImage() {
           <span
             style={{
               fontSize: 24,
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: "Inter",
               letterSpacing: 8,
               textTransform: "uppercase",
               color: "#f3ead4",
@@ -104,7 +131,13 @@ export default async function OpengraphImage() {
             }}
           >
             im Golfclub für{" "}
-            <span style={{ color: "#52b27f", fontStyle: "italic" }}>
+            <span
+              style={{
+                color: "#52b27f",
+                fontStyle: "italic",
+                fontFamily: "Playfair Display",
+              }}
+            >
               55 Euro
             </span>
           </span>
@@ -116,7 +149,7 @@ export default async function OpengraphImage() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
-            fontFamily: "system-ui, sans-serif",
+            fontFamily: "Inter",
             fontSize: 22,
             color: "#f3ead4",
           }}
@@ -130,6 +163,26 @@ export default async function OpengraphImage() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: "Playfair Display",
+          data: playfair,
+          weight: 600,
+          style: "normal",
+        },
+        {
+          name: "Playfair Display",
+          data: playfairItalic,
+          weight: 600,
+          style: "italic",
+        },
+        {
+          name: "Inter",
+          data: inter,
+          weight: 500,
+          style: "normal",
+        },
+      ],
     },
   );
 }
