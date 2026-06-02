@@ -21,10 +21,10 @@ export default function HomePage() {
       <HeroOverlaySwap />
       <ValueProp />
       <PricingCards />
+      <MoneyBackGuarantee />
       <FAQTeaser />
       <Tools />
       <CTASection />
-      <MoneyBackGuarantee />
       <JsonLd id="offer-schema" data={offersSchema()} />
     </>
   );
