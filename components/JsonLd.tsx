@@ -42,7 +42,7 @@ export function JsonLd({ id, data }: { id: string; data: object }) {
 export function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "SportsClub",
     name: SITE.name,
     alternateName: "OGC",
     url: SITE.url,
