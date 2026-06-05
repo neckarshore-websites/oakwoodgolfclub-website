@@ -9,6 +9,7 @@ Open any file directly in a browser — no build step, no server.
 | File | Subject | Last updated |
 |---|---|---|
 | `launch-timeline.html` | Six-day launch timeline 17.–22. April 2026, with Engineering Gate (21 Apr) and Go Live (22 Apr) as gold milestones | 2026-04-23 |
+| `architecture.html` | Technical architecture: Next.js 16 (App Router) on Vercel · Markdown content (gray-matter/marked) · Server Actions (kontakt / mitglied-werden / verlängern) · FriendlyCaptcha · SMTP. Full-editorial variant. | 2026-06-05 |
 
 ## Conventions
 
