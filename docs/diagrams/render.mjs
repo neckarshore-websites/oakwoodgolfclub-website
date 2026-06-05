@@ -7,27 +7,45 @@
  * changing any *.html here.
  *
  * Modes:
- *   default   clip to the first <svg> region  -> <name>.png
- *   --full    full editorial page screenshot  -> <name>-full.png
+ *   default     clip to the first <svg> region  -> <name>.png
+ *   --full      full editorial page screenshot  -> <name>-full.png
+ *   --publish   no render; copy all *.html + *.png here -> ../../public/diagrams/
+ *               so the assets page (/assets) can serve them at /diagrams/<file>
  *
  * Usage:
  *   node docs/diagrams/render.mjs                      # all *.html -> region PNGs
  *   node docs/diagrams/render.mjs architecture.html    # one file, region
  *   node docs/diagrams/render.mjs --full               # all *.html -> *-full.png
  *   node docs/diagrams/render.mjs architecture.html --full
+ *   node docs/diagrams/render.mjs --publish            # sync html+png to public/diagrams
  *
  * Requires: playwright (already a devDependency) + the Chromium browser binary
  * (`npx playwright install chromium`). Output is rendered at 2x for retina sharpness.
  */
 import { chromium } from 'playwright';
-import { readdirSync } from 'node:fs';
+import { readdirSync, mkdirSync, copyFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, basename } from 'node:path';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const args = process.argv.slice(2);
 const full = args.includes('--full');
+const publish = args.includes('--publish');
 const named = args.filter((a) => !a.startsWith('--'));
+
+// --publish: copy the diagram artifacts into public/ so Next.js serves them
+// (docs/diagrams/ is outside the build). Source of truth stays in docs/diagrams.
+if (publish) {
+  const dest = join(here, '..', '..', 'public', 'diagrams');
+  mkdirSync(dest, { recursive: true });
+  const artifacts = readdirSync(here).filter((f) => f.endsWith('.html') || f.endsWith('.png'));
+  for (const f of artifacts) {
+    copyFileSync(join(here, f), join(dest, f));
+    console.log('published', `public/diagrams/${f}`);
+  }
+  console.log(`\n${artifacts.length} artifacts published to public/diagrams/.`);
+  process.exit(0);
+}
 
 const files = named.length
   ? named.map((f) => basename(f))
