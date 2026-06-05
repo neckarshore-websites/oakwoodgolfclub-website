@@ -10,7 +10,23 @@ Open any file directly in a browser — no build step, no server.
 |---|---|---|
 | `launch-timeline.html` | Six-day launch timeline 17.–22. April 2026, with Engineering Gate (21 Apr) and Go Live (22 Apr) as gold milestones | 2026-04-23 |
 | `architecture.html` | Technical architecture: Next.js 16 (App Router) on Vercel · Markdown content (gray-matter/marked) · Server Actions (kontakt / mitglied-werden / verlängern) · FriendlyCaptcha · SMTP. Full-editorial variant. | 2026-06-05 |
-| `architecture.png` | Rendered raster export of `architecture.html` (diagram region only), embedded at the top of the root [`README.md`](../../README.md). Re-render when `architecture.html` changes. | 2026-06-05 |
+| `architecture.png` | Rendered raster export of `architecture.html` — **diagram region only** (clipped to the `<svg>`), embedded at the top of the root [`README.md`](../../README.md). | 2026-06-05 |
+| `architecture-full.png` | Rendered raster export of `architecture.html` — **full editorial page** (diagram + stat cards + summary cards). For slides, briefings, or a hero placement. | 2026-06-05 |
+
+## Rendering
+
+`render.mjs` regenerates the PNGs from the HTML via headless Chromium (Playwright, already a devDependency). Output is 2× for retina sharpness.
+
+```bash
+npx playwright install chromium     # one-time, if not already present
+node docs/diagrams/render.mjs                    # all *.html → region PNGs
+node docs/diagrams/render.mjs architecture.html  # one file, region only
+node docs/diagrams/render.mjs --full             # all *.html → *-full.png
+node docs/diagrams/render.mjs architecture.html --full
+# or: npm run render:diagrams [-- <file.html>] [-- --full]
+```
+
+Default mode clips to the first `<svg>`; HTML/CSS-only diagrams (e.g. `launch-timeline.html`, which has no `<svg>`) are skipped in region mode — render those with `--full`.
 
 ## Conventions
 
