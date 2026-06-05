@@ -13,7 +13,9 @@
  *   3. Mobile Slow — Edge-of-coverage 5G / weak signal            [soft warn only]
  *
  * Gate Policy:
- *   - Hard profiles exit 1 if any score is below threshold.
+ *   - Hard profiles run RUNS_HARD times (default 3) and gate on the MEDIAN
+ *     score — a single noisy CI run can't flip the build. Soft profiles run once.
+ *   - Hard profiles exit 1 if any median score is below threshold.
  *   - Soft profiles report warnings but never fail the build.
  *   - Mobile Slow Stage 2 thresholds set 2026-04-13 after 5-run baseline
  *     (median 68, threshold = median − 5 = 63).
@@ -25,7 +27,7 @@
  */
 
 import { execFileSync, spawn } from "node:child_process";
-import { readFileSync, existsSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -88,6 +90,15 @@ const PROFILES = [
 const URL = process.env.LIGHTHOUSE_URL || "http://localhost:3000";
 const QUICK = process.argv.includes("--quick");
 const MAX_RETRIES = 3;
+
+// Flakiness control: hard-gate profiles run N times and the MEDIAN score is
+// gated, so a single noisy run (e.g. a TBT spike on shared CI CPU) can't flip
+// a green build red. (MAX_RETRIES above only re-runs on *errored* audits — a
+// successful-but-low run still counts, which is exactly the flake we hit:
+// Desktop Performance 83 on one runner vs 95 on another for identical code.)
+// Soft profiles run once. Override with LIGHTHOUSE_RUNS (e.g. =1 for a fast
+// local pass). Median of 3 is the web.dev-recommended baseline.
+const RUNS_HARD = Math.max(1, Number(process.env.LIGHTHOUSE_RUNS) || 3);
 
 // Optional: filter to a single profile via --profile=desktop|mobile-4g|mobile-slow
 const profileArg = process.argv.find((a) => a.startsWith("--profile="));
@@ -245,12 +256,36 @@ try {
       }
     }
 
-    log(`Running Lighthouse audit (${profile.label})...`);
-    runLighthouse(lhBin, URL, reportPath, profile.lhArgs);
+    // Hard gates run N times and gate on the median; soft profiles run once.
+    const runs = profile.gate === "hard" ? RUNS_HARD : 1;
+    const samples = [];
+    for (let r = 1; r <= runs; r++) {
+      log(
+        runs > 1
+          ? `Running Lighthouse audit (${profile.label}) — run ${r}/${runs}...`
+          : `Running Lighthouse audit (${profile.label})...`
+      );
+      runLighthouse(lhBin, URL, reportPath, profile.lhArgs);
+      const runReport = JSON.parse(readFileSync(reportPath, "utf-8"));
+      samples.push({
+        report: runReport,
+        scores: getScores(runReport),
+        metrics: getMetrics(runReport),
+      });
+    }
 
-    const report = JSON.parse(readFileSync(reportPath, "utf-8"));
-    const scores = getScores(report);
-    const metrics = getMetrics(report);
+    // Gate on the MEDIAN run (by performance) — robust to single-run CI noise.
+    const median = [...samples].sort(
+      (a, b) => a.scores.performance - b.scores.performance
+    )[Math.floor(samples.length / 2)];
+    const scores = median.scores;
+    const metrics = median.metrics;
+
+    // Persist the median run as the report artifact (not whichever ran last).
+    writeFileSync(reportPath, JSON.stringify(median.report));
+
+    const runSpread =
+      runs > 1 ? samples.map((s) => s.scores.performance).join(", ") : null;
 
     console.log(`\n── ${profile.label} [${profile.gate}] ──`);
 
@@ -283,6 +318,11 @@ try {
         `TBT: ${fmtMs(metrics.tbt)} | CLS: ${fmtCls(metrics.cls)} | ` +
         `SI: ${fmtMs(metrics.si)}`
     );
+    if (runSpread) {
+      console.log(
+        `    Performance runs: [${runSpread}] → median ${scores.performance} (gated)`
+      );
+    }
 
     summary.push({ profile: profile.label, gate: profile.gate, scores, metrics });
   }
