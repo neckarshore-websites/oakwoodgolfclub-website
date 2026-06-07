@@ -3,7 +3,46 @@ import { ALL_REDIRECTS } from "./lib/redirects";
 
 // Security headers — Phase-1-Plan "SEO Must-Haves" (B3).
 // Applied globally to every route via headers().
+//
+// Content-Security-Policy (Linus 2026-06-07, L-RH-CSP-PER-SITE oakwood leg,
+// shipped together with the Turnstile swap because the CSP must allow the
+// captcha origins). Pragmatic policy for a static + server-action business
+// site:
+//   - script-src 'unsafe-inline' is REQUIRED (Next.js inline hydration/RSC +
+//     inline JSON-LD). A nonce-based strict CSP would need middleware and
+//     force every route out of static generation — not worth it here.
+//     'unsafe-eval' is DEV-ONLY (React dev + HMR); production stays strict.
+//   - Cloudflare Turnstile: the widget script, the challenge <iframe>, and
+//     the widget's challenge fetches all hit https://challenges.cloudflare.com
+//     → allowed in script-src + frame-src + connect-src. (siteverify is
+//     server-side, so it needs no CSP allowance.)
+//   - @vercel/analytics + @vercel/speed-insights are edge-proxied SAME-ORIGIN
+//     (/_vercel/insights/script.js verified HTTP 200 on oakwoodgolfclub.de) →
+//     script-src 'self' + connect-src 'self' cover them, no external host.
+//   - Fonts are self-hosted at build time via next/font/google → font-src
+//     'self', no Google Fonts CDN at runtime.
+//   - frame-ancestors 'none' mirrors X-Frame-Options: DENY below.
+const isDev = process.env.NODE_ENV !== "production";
+const scriptSrc = isDev
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://challenges.cloudflare.com"
+  : "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com";
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  scriptSrc,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  "connect-src 'self' https://challenges.cloudflare.com",
+  "form-action 'self'",
+  "frame-src https://challenges.cloudflare.com",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "object-src 'none'",
+].join("; ");
+
 const securityHeaders = [
+  { key: "Content-Security-Policy", value: contentSecurityPolicy },
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",

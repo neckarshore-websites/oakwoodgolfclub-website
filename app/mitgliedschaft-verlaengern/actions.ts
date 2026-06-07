@@ -13,7 +13,7 @@ import {
 } from "@/lib/forms/helpers";
 import {
   CAPTCHA_FORM_FIELD,
-  verifyFriendlyCaptchaSolution,
+  verifyCaptchaToken,
 } from "@/lib/captcha/verify";
 import { checkRateLimit } from "@/lib/ratelimit";
 import type { FormActionState } from "@/components/forms/FormStatus";
@@ -43,7 +43,7 @@ export async function submitRenewalAction(
 
   // Friendly Captcha — siehe Kontakt-Action für vollen Kontext.
   const captchaSolution = raw[CAPTCHA_FORM_FIELD];
-  const captcha = await verifyFriendlyCaptchaSolution(captchaSolution);
+  const captcha = await verifyCaptchaToken(captchaSolution);
   if (!captcha.ok) {
     return {
       ok: false,
