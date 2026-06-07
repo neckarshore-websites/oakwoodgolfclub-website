@@ -95,8 +95,8 @@ export default function UeberUnsPage() {
             Mitgliedschaft nicht passt:{" "}
             <strong>Geld-zurück-Garantie, ohne Wenn und Aber</strong>. In 15
             Jahren haben das drei oder vier Mitglieder genutzt. Details zur
-            Handicap-Frage — aktuell pausiert wegen WHS-2021-Verwerfungen —
-            in den{" "}
+            Handicap-Frage — wir nutzen das World Handicap System (WHS, gültig
+            seit 2020–2021), führen Handicaps aktuell aber nicht aktiv — in den{" "}
             <Link
               href="/faq"
               className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SignupForm } from "@/components/forms/SignupForm";
-import { pageOpenGraph, PRICING } from "@/lib/site-config";
+import { pageOpenGraph, PRICING, SITE } from "@/lib/site-config";
 
 const PAGE_TITLE = "Fernmitglied werden";
 const PAGE_DESCRIPTION =
@@ -71,6 +71,22 @@ export default function MitgliedWerdenPage() {
               <dd className="mt-1 text-[var(--color-ink)]/75">
                 Banküberweisung oder PayPal. Kein Abo, kein
                 Lastschrift-Einzug, kein Auto-Renewal.
+              </dd>
+            </div>
+            <div>
+              <dt className="font-medium text-[var(--color-ink)]">
+                Geld-zurück-Garantie
+              </dt>
+              <dd className="mt-1 text-[var(--color-ink)]/75">
+                Wenn die Mitgliedschaft nicht passt — formlose E-Mail an{" "}
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="underline underline-offset-2"
+                >
+                  {SITE.email}
+                </a>
+                , Geld zurück. Ohne Begründung, ohne Frist. Vertraglich
+                verankert in AGB&nbsp;§&nbsp;8.
               </dd>
             </div>
             <div>
