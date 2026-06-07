@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/mitgliedschaft-verlaengern", changeFrequency: "monthly", priority: 0.9 },
     { path: "/faq", changeFrequency: "monthly", priority: 0.8 },
     { path: "/ueber-uns", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/oakwood-golf-club-fernmitgliedschaft", changeFrequency: "monthly", priority: 0.7 },
     { path: "/kontakt", changeFrequency: "yearly", priority: 0.5 },
     { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
     { path: "/impressum", changeFrequency: "yearly", priority: 0.3 },

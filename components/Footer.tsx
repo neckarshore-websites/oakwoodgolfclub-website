@@ -29,6 +29,7 @@ export function Footer() {
               <li><Link href="/mitgliedschaft-verlaengern" className="hover:text-[var(--color-gold)] transition-colors">Verlängern</Link></li>
               <li><Link href="/faq" className="hover:text-[var(--color-gold)] transition-colors">FAQ</Link></li>
               <li><Link href="/ueber-uns" className="hover:text-[var(--color-gold)] transition-colors">Über uns</Link></li>
+              <li><Link href="/oakwood-golf-club-fernmitgliedschaft" className="hover:text-[var(--color-gold)] transition-colors">Welcher Oakwood?</Link></li>
               <li><Link href="/blog" className="hover:text-[var(--color-gold)] transition-colors">Blog</Link></li>
               <li><Link href="/kontakt" className="hover:text-[var(--color-gold)] transition-colors">Kontakt</Link></li>
               <li className="pt-3 mt-3 border-t border-white/10">

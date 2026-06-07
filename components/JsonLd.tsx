@@ -44,13 +44,30 @@ export function organizationSchema() {
     "@context": "https://schema.org",
     "@type": "SportsClub",
     name: SITE.name,
-    alternateName: "OGC",
+    alternateName: ["OGC", "Oakwood Golf Club DACH"],
     url: SITE.url,
     logo: `${SITE.url}/icon.svg`,
     email: SITE.email,
     telephone: SITE.phoneDisplay,
     foundingDate: String(SITE.founded),
     description: SITE.description,
+    // JK-11: entity disambiguation against the saturated "Oakwood" field
+    // (US country clubs, UK golf club, The Oakwood apparel, Oakwood Sport &
+    // Fitness Pfungstadt, Oakwood by Ascott). Standard Schema.org mechanism
+    // read by knowledge-graph algorithms.
+    disambiguatingDescription:
+      "DACH-Fernmitgliedschaft im Golfsport, gegründet 2007 in Thailand unter dem Thailändischen Golfverband, betrieben aus Stuttgart, Deutschland. Nicht zu verwechseln mit US-amerikanischen Oakwood Country Clubs, dem britischen Oakwood Golf Club, der Oakwood-Apparel-Marke „The Oakwood\", dem Oakwood Sport & Fitness Studio in Pfungstadt oder der Hotellerie-Marke Oakwood by Ascott.",
+    areaServed: [
+      { "@type": "Country", name: "Deutschland" },
+      { "@type": "Country", name: "Österreich" },
+      { "@type": "Country", name: "Schweiz" },
+    ],
+    knowsAbout: [
+      "Golf-Fernmitgliedschaft",
+      "World Handicap System WHS",
+      "Greenfee-Spiel",
+      "DACH-Golfsport",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer support",
