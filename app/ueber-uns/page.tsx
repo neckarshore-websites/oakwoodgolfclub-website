@@ -25,16 +25,30 @@ const aboutPageSchema = {
   dateModified: SITE_UPDATED,
 };
 
+const founderSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "German Rauhut",
+  jobTitle: "Gründer",
+  worksFor: {
+    "@type": "SportsOrganization",
+    name: SITE.name,
+    url: SITE.url,
+  },
+};
+
 /**
- * Über uns — Eckdaten + Geschichte + Differenzierung. Finale Founder-Bio
- * + Fotos folgen in dedizierter Session, der bestehende Text ist eine
- * faktenbasierte Kurzfassung aus BRIEFING.md ohne Platzhalter-Marker
+ * Über uns — Eckdaten + Geschichte + Named-Founder-Block + Differenzierung.
+ * Named Founder (German Rauhut, User-freigegeben) + Person-JSON-LD ergänzt
+ * via JK-3 AI-Citation-Pass (2026-06-07). Founder-Foto weiterhin optional /
+ * offen (BACKLOG #3). Text faktenbasiert ohne Platzhalter-Marker
  * (User-Direktive 2026-04-19).
  */
 export default function UeberUnsPage() {
   return (
     <article className="container-page py-20 md:py-24">
       <JsonLd id="about-page-schema" data={aboutPageSchema} />
+      <JsonLd id="founder-schema" data={founderSchema} />
       <p className="mb-4 text-xs uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
         Über uns
       </p>
@@ -75,6 +89,31 @@ export default function UeberUnsPage() {
             {SITE.founded} ist die Fernmitgliedschaft das Grundkonzept; alles
             andere hat sich drumherum entwickelt.
           </p>
+          <p>
+            Der Club ist heute vollständig auf digitale Infrastruktur
+            umgestellt — Anmeldung, Verlängerung und Karten-Versand laufen
+            online, die Mitgliederkarte kommt einmal pro Woche per Post. Die
+            Gründungs-DNA aus Thailand ist in der Mitgliederkarte sichtbar: Sie
+            trägt das Logo des Thailändischen Golfverbands — ein
+            Erkennungszeichen, das auf fast allen österreichischen Plätzen als
+            Clubnachweis akzeptiert wird.
+          </p>
+
+          <h2 className="mt-10 font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
+            Hinter dem Club: German Rauhut
+          </h2>
+          <p>
+            Der {SITE.name} ist das Projekt von German Rauhut, einem
+            passionierten Golfer. Er hat den Club {SITE.founded} in Bangkok
+            gegründet — ursprünglich als Lösung für ein persönliches Problem:
+            Golfen auf Reisen ohne den bürokratischen Overhead einer
+            klassischen Clubmitgliedschaft. Was als Nischenlösung für
+            Vielreisende begann, ist heute eine der bekanntesten
+            Fernmitgliedschaften im deutschsprachigen Raum mit rund{" "}
+            {SITE.memberCount} aktiven Mitgliedern. German betreibt den Club
+            nebenbei, mit dem Anspruch, dass jede Mitglieder-Interaktion so
+            unkompliziert ist wie das Spiel selbst.
+          </p>
 
           <h2 className="mt-10 font-heading text-2xl tracking-tight text-[var(--color-fairway)]">
             Was uns anders macht
@@ -93,8 +132,8 @@ export default function UeberUnsPage() {
             unverändert; das visuelle Design folgt dem Corporate Design der
             Webseite und entwickelt sich über die Jahre mit. Und wenn die
             Mitgliedschaft nicht passt:{" "}
-            <strong>Geld-zurück-Garantie, ohne Wenn und Aber</strong>. In 15
-            Jahren haben das drei oder vier Mitglieder genutzt. Details zur
+            <strong>Geld-zurück-Garantie, ohne Wenn und Aber</strong>. Seit der
+            Gründung {SITE.founded} haben wir sie viermal eingelöst. Details zur
             Handicap-Frage — wir nutzen das World Handicap System (WHS, gültig
             seit 2020–2021), führen Handicaps aktuell aber nicht aktiv — in den{" "}
             <Link

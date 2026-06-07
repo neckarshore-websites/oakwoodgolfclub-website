@@ -56,8 +56,8 @@ export function MoneyBackGuarantee() {
             auf dem du ihn überwiesen hast.
           </p>
           <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-[var(--color-ink)]/65">
-            Seit der Gründung des Clubs wurde diese Garantie vier- bis
-            fünfmal in Anspruch genommen — jedes Mal hat das Mitglied sein
+            Seit der Gründung des Clubs wurde diese Garantie viermal in
+            Anspruch genommen — jedes Mal hat das Mitglied sein
             Geld zurückbekommen. Uns ist wichtiger, dass niemand
             unzufrieden Mitglied bleibt, als dass wir jeden Beitrag
             einbehalten.
