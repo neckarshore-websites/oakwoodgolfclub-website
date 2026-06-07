@@ -46,6 +46,7 @@ export const SITE = {
   social: {
     facebook: "https://www.facebook.com/Oakwoodgolfclub.de/",
     instagram: "https://www.instagram.com/oakwoodgolfclub.de/",
+    x: "https://x.com/oakwoodgolf",
   },
 } as const;
 
