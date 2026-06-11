@@ -59,3 +59,57 @@ test.describe("B10 — Legacy-URL Redirects (F-PL-1)", () => {
     expect(new URL(page.url()).pathname).toBe("/blog/lieblingsclub-in-thailand");
   });
 });
+
+test.describe("JK-9 — single-hop legacy redirects (proxy.ts)", () => {
+  /**
+   * The proxy maps BOTH source variants directly to the destination in ONE
+   * 308, instead of the old 2-hop chain (slash-normalize → map). We assert
+   * the FIRST response is already 308-to-destination, not 308-to-slashless.
+   */
+  const firstHop = async (
+    request: import("@playwright/test").APIRequestContext,
+    base: string,
+    path: string,
+  ) => {
+    const res = await request.get(path, { maxRedirects: 0 });
+    const loc = res.headers()["location"] ?? "";
+    const u = new URL(loc, base);
+    return { status: res.status(), path: u.pathname, hash: u.hash };
+  };
+
+  test("page mapping: 1 hop WITH and WITHOUT trailing slash", async ({
+    request,
+    baseURL,
+  }) => {
+    const base = baseURL ?? "http://localhost:3000";
+    const withSlash = await firstHop(request, base, "/info/impressum/");
+    expect(withSlash.status).toBe(308);
+    expect(withSlash.path).toBe("/impressum"); // NOT "/info/impressum"
+
+    const noSlash = await firstHop(request, base, "/info/impressum");
+    expect(noSlash.status).toBe(308);
+    expect(noSlash.path).toBe("/impressum");
+  });
+
+  test("blog mapping: trailing-slash variant is 1 hop", async ({
+    request,
+    baseURL,
+  }) => {
+    const base = baseURL ?? "http://localhost:3000";
+    const hop = await firstHop(request, base, "/lieblingsclub-in-thailand/");
+    expect(hop.status).toBe(308);
+    expect(hop.path).toBe("/blog/lieblingsclub-in-thailand");
+  });
+
+  test("faq mapping: 1 hop preserves the #anchor", async ({
+    request,
+    baseURL,
+  }) => {
+    const base = baseURL ?? "http://localhost:3000";
+    const slug = "wie-sieht-die-clubkarte-aus-aus-welchem-material-ist-sie";
+    const hop = await firstHop(request, base, `/faq-items/${slug}/`);
+    expect(hop.status).toBe(308);
+    expect(hop.path).toBe("/faq");
+    expect(hop.hash).toBe(`#${slug}`);
+  });
+});

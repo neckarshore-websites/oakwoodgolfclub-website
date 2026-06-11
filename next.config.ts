@@ -58,6 +58,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // Trailing-slash normalization is handled in proxy.ts instead, so legacy
+  // redirects collapse from 2 hops to 1 for the trailing-slash variant (JK-9).
+  // proxy.ts re-implements the `/foo/` → `/foo` normalization for non-legacy
+  // paths, so canonical behaviour is unchanged.
+  skipTrailingSlashRedirect: true,
   async headers() {
     return [
       {
