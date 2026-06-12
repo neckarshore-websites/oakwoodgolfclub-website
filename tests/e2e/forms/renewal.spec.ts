@@ -35,6 +35,11 @@ test.describe("Renewal-Form (/mitgliedschaft-verlaengern)", () => {
   test("TC-FORM-REN-001 happy path — vollständig ausgefüllt zeigt Success-Banner", async ({
     page,
   }) => {
+    test.skip(
+      process.env.E2E_CAPTCHA_REAL === "1",
+      "Real Turnstile key (prod target) can't be solved by an automated browser — happy-path submit is covered locally/preview with test keys.",
+    );
+
     await fillHappyPath(page);
     await waitForTurnstileToken(page);
 

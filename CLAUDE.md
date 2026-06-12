@@ -21,6 +21,8 @@
 
 Member-portal (login, scorecards, handicap-management) is **not yet built** — that is the next big block and still needs scope decisions with the User. CMS choice for the 16 years of WordPress blog posts is still open. Payment gateway is wired (Stripe deps in `package.json`); test-mode end-to-end not yet verified.
 
+**Form spam-protection:** Cloudflare Turnstile is **live** on all 3 forms (signup/renewal/contact), activated 2026-06-12. Reusable procedure + the hard-won lessons (real keys can't be solved by automation → human round-trip; don't poll the live domain; `.vercel.app` must be in the widget allowlist; fail-closed activation order): [`docs/runbooks/turnstile-activation.md`](docs/runbooks/turnstile-activation.md). The same runbook applies to porting Turnstile to other sites (goldoni next).
+
 The DNS cutover to `oakwoodgolfclub.de` (Backlog **B14**) has NOT happened — the live business still runs on the WordPress site. Vercel preview ≠ production for paying members. Treat every "is this in scope?" question for member-portal features as still-open until confirmed in a dedicated OGC session.
 
 `BRIEFING.md` § 6 (12 scope questions) — some answered implicitly by what's been built; others (member-portal architecture, payment-flow details, scorecard migration) still unresolved.
