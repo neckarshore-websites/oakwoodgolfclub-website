@@ -19,6 +19,11 @@ test.describe("Kontakt-Form", () => {
   test("TC-FORM-CON-001 happy path — submit mit allen Pflichtfeldern zeigt Success-Banner", async ({
     page,
   }) => {
+    test.skip(
+      process.env.E2E_CAPTCHA_REAL === "1",
+      "Real Turnstile key (prod target) can't be solved by an automated browser — happy-path submit is covered locally/preview with test keys.",
+    );
+
     await page.getByLabel("Name").fill(mockContact.name);
     await page.getByLabel("E-Mail-Adresse").fill(mockContact.email);
     await page.getByLabel("Nachricht").fill(mockContact.message);
