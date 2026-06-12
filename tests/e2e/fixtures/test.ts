@@ -19,11 +19,36 @@
  * direkt aus `@playwright/test`. Nichts sonst ändert sich.
  */
 
-import { test as base, expect } from "@playwright/test";
+import { test as base, expect, type Page } from "@playwright/test";
 
 const throttleMs = Number.parseInt(process.env.E2E_THROTTLE_MS ?? "0", 10);
 
 export const test = base.extend({});
+
+/**
+ * Wait for the Cloudflare Turnstile widget to inject a non-empty
+ * `cf-turnstile-response` token into the form — but ONLY when the widget is
+ * actually rendered (`NEXT_PUBLIC_CAPTCHA_ENABLED=true` + sitekey set). When
+ * the captcha flag is off the `<Turnstile />` component renders nothing, so
+ * this is a no-op and the same happy-path specs stay green in BOTH contexts:
+ * captcha-off (default) and captcha-on (local/preview with test keys, prod
+ * after activation).
+ *
+ * Why it is needed: real users spend seconds filling a form, by which point
+ * the managed widget has long since auto-solved. The e2e happy-path tests
+ * click submit instantly and otherwise race the async script-load — submitting
+ * with an empty token, which the Server Action rejects as `missing-solution`
+ * (see lib/captcha/verify.ts). Call this right before the submit click in any
+ * test that expects a successful submission.
+ */
+export async function waitForTurnstileToken(page: Page): Promise<void> {
+  const widget = page.locator(".cf-turnstile");
+  if ((await widget.count()) === 0) return; // captcha off — nothing to await
+  await expect(page.locator('input[name="cf-turnstile-response"]')).toHaveValue(
+    /.+/,
+    { timeout: 15_000 },
+  );
+}
 
 test.beforeEach(async ({ request }) => {
   const response = await request.post("/api/test-hooks/reset-rate-limit");

@@ -8,7 +8,7 @@
  * end, not per test).
  */
 
-import { expect, test } from "../fixtures/test";
+import { expect, test, waitForTurnstileToken } from "../fixtures/test";
 import { mockContact } from "../fixtures/mock-data";
 
 test.describe("Kontakt-Form", () => {
@@ -23,6 +23,7 @@ test.describe("Kontakt-Form", () => {
     await page.getByLabel("E-Mail-Adresse").fill(mockContact.email);
     await page.getByLabel("Nachricht").fill(mockContact.message);
     await page.getByLabel(/Datenschutzerklärung/).check();
+    await waitForTurnstileToken(page);
 
     await page.getByRole("button", { name: "Nachricht senden" }).click();
 

@@ -17,10 +17,12 @@ import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
  *  - Web Analytics: Vercel Web Analytics — cookieless, keine PII.
  *  - E-Mail: IONOS SE, Deutschland (SMTP für info@ + Form-Notifications).
  *  - Spam-Schutz auf Formularen: serverseitige Zod-Validierung + TLD-Block
- *    auf dem E-Mail-Feld (.ru/.cn/.in/.id) + Honeypot. KEIN externer Captcha-
- *    Anbieter live (Friendly-Captcha-Code ist im Repo für Phase 2 ready,
- *    aktiviert sich erst wenn NEXT_PUBLIC_FRIENDLY_CAPTCHA_SITEKEY +
- *    FRIENDLY_CAPTCHA_API_KEY in Vercel gesetzt sind — graceful degrade).
+ *    auf dem E-Mail-Feld (.ru/.cn/.in/.id) + Honeypot + Cloudflare Turnstile
+ *    (privacy-friendly CAPTCHA, kein Cookie, kein Cross-Site-Tracking).
+ *    Turnstile aktiviert sich nur, wenn NEXT_PUBLIC_CAPTCHA_ENABLED +
+ *    CAPTCHA_ENABLED + die beiden Keys (NEXT_PUBLIC_TURNSTILE_SITEKEY +
+ *    TURNSTILE_SECRET_KEY) in Vercel gesetzt sind — sonst rendert das Widget
+ *    nichts (graceful degrade).
  *  - Zahlungen aktuell: Banküberweisung an DKB-Konto (kein AV — normale
  *    Bankkundenbeziehung) ODER PayPal (eigenverantwortlicher Empfänger
  *    nach Art. 4 Nr. 7 DSGVO, in §6.2 dokumentiert — PayPal ist KEIN
@@ -42,7 +44,7 @@ import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
  *    Operator-Setup mehr).
  */
 
-const STAND = "19. April 2026";
+const STAND = "12. Juni 2026";
 
 const PAGE_TITLE = "Datenschutzerklärung";
 const PAGE_DESCRIPTION =
@@ -314,6 +316,34 @@ export default function DatenschutzPage() {
           .
         </p>
 
+        <h4>Cloudflare, Inc. (Spam-Schutz der Formulare — Turnstile)</h4>
+        <p>
+          101 Townsend Street, San Francisco, CA 94107, USA. Zum Schutz
+          unserer Formulare vor automatisierten Spam-Einsendungen setzen wir
+          auf den drei Formularseiten (Kontakt, Anmeldung, Verlängerung){" "}
+          <strong>Cloudflare Turnstile</strong> ein. Beim Aufruf eines
+          Formulars lädt ein Skript von Cloudflare, das im Hintergrund prüft,
+          ob die Eingabe von einem Menschen stammt. Dabei verarbeitet
+          Cloudflare technische Daten deines Browsers (u.&nbsp;a. IP-Adresse,
+          Browser-Eigenschaften) sowie das Prüf-Ergebnis (einen Token).
+          Turnstile arbeitet <strong>ohne Cookies</strong> und ohne
+          Cross-Site-Tracking; die Daten werden nicht für Werbezwecke
+          verwendet.
+        </p>
+        <p>
+          <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
+          (berechtigtes Interesse an der Abwehr von Spam und missbräuchlichen
+          Formular-Einsendungen). Cloudflare agiert als Auftragsverarbeiter
+          nach Art. 28 DSGVO.
+        </p>
+        <p>
+          Datenschutz:{" "}
+          <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener noreferrer" target="_blank">
+            cloudflare.com/privacypolicy
+          </a>
+          .
+        </p>
+
         <h4>Microsoft Corporation (CRM via Outlook)</h4>
         <p>
           Microsoft Corporation, One Microsoft Way, Redmond, WA 98052,
@@ -483,6 +513,12 @@ export default function DatenschutzPage() {
             EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) sowie
             ergänzender Schutzmaßnahmen (Verschlüsselung in Transit und at
             Rest, EU-Region-Auslieferung wo verfügbar).
+          </li>
+          <li>
+            <strong>Cloudflare, Inc., USA</strong> — als Anbieter des
+            Formular-Spam-Schutzes (Turnstile). Die Übermittlung in die USA
+            erfolgt auf Basis der EU-Standardvertragsklauseln (Art. 46 Abs. 2
+            lit. c DSGVO) sowie ergänzender technischer Schutzmaßnahmen.
           </li>
           <li>
             <strong>PayPal</strong> — Konzerngesellschaften außerhalb des
