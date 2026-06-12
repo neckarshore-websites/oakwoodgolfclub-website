@@ -7,7 +7,7 @@
  * name + email in Outlook when a member invents a number).
  */
 
-import { expect, test } from "../fixtures/test";
+import { expect, test, waitForTurnstileToken } from "../fixtures/test";
 import { mockRenewal } from "../fixtures/mock-data";
 
 test.describe("Renewal-Form (/mitgliedschaft-verlaengern)", () => {
@@ -36,6 +36,7 @@ test.describe("Renewal-Form (/mitgliedschaft-verlaengern)", () => {
     page,
   }) => {
     await fillHappyPath(page);
+    await waitForTurnstileToken(page);
 
     await page
       .getByRole("button", { name: "Verlängerung absenden" })
