@@ -1,0 +1,66 @@
+name: E2E (Playwright)
+
+# Per-PR + push-to-main gate: runs the local Playwright suite (tests/e2e/ —
+# the three forms + the B10 legacy-redirect guards) against a dev server.
+# Until now the local suite ran only on developer machines and blocked no
+# merge (L-TEST-COVERAGE-PACKAGE; ported from neckarshore PR #27).
+#
+# This is DISTINCT from nightly-prod-e2e.yml: that one runs on a schedule
+# against the live Vercel deploy with real Turnstile + real SMTP (IONOS).
+# This gate runs locally — `next dev` short-circuits the Server Actions to a
+# console.log + ok=true (no SMTP creds), captcha is off (NEXT_PUBLIC_CAPTCHA_
+# ENABLED unset → <Turnstile/> renders null), and the per-test reset-rate-limit
+# hook works because dev mode keeps NODE_ENV !== "production". Deterministic,
+# no third-party hosts, fast.
+#
+# `test:e2e:ci` = `playwright test --grep-invert @external`. Oakwood's local
+# suite has no @external-tagged tests (the prod/real-host run is env-gated via
+# E2E_BASE_URL in the nightly workflow, not tag-gated), but the flag keeps the
+# family CI contract identical.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  # Cancel superseded PR runs; let every push-to-main run complete (each main
+  # commit stays gated).
+  group: e2e-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  e2e:
+    name: Playwright E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser (chromium)
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests (excludes @external)
+        run: npm run test:e2e:ci
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
