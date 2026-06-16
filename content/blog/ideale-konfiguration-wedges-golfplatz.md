@@ -25,14 +25,13 @@ draft: false
 ## TL;DR / Zusammenfassung
 Welche Wedges (44–58°) ins Bag gehören, warum die 4-6°-Gap-Regel zählt, und wie Du mit Griff-Technik aus vier Schlägern acht Distanzen holst.
 
-Die ideale Konfiguration Deiner Wedges für bessere Ergebnisse auf dem Golfplatz.
-
 <figure>
   <img src="/blog/images/golf-g607d33b06_1280.jpg" alt="Wedges auf der Driving Range" />
   <figcaption>Bild: Stefan Waldvogel / Pixabay.</figcaption>
 </figure>
 
-Hey Du, bist Du ein begeisterter Golfspieler und schon in einem gewissen Alter? Dann bist Du hier genau richtig! In diesem Artikel geht es um die ideale Konfiguration Deiner Wedges, damit Du auf dem Golfplatz noch bessere Ergebnisse erzielen kannst.
+Das kurze Spiel entscheidet über Deinen Score – und kaum etwas in der Tasche hat dabei so viel Hebel wie Deine Wedges. Trotzdem werden sie oft eher zufällig zusammengestellt. In diesem Artikel geht es darum, wie Du Deine Wedges sinnvoll konfigurierst: welche Lofts ins Bag gehören, warum gleichmäßige Lücken zwischen den Schlägern so wichtig sind und wie Du mit der richtigen Technik aus vier Wedges viele verschiedene Distanzen herausholst.
+
 Es ist wichtig, dass Du Dir zuerst Deine Wedge-Auswahl anschaust. Schau Dir die wichtigsten Entfernungen an, die Du mit Deinem Pitching Wedge und anderen Wedges erreichen möchtest. So kannst Du herausfinden, wie viele Wedges Du benötigst, damit Du den Ball von jedem Abstand innerhalb von 100 Yards relativ nahe ans Ziel bringen kannst. Eine gute Faustregel ist, zwischen Deinem Pitching Wedge und den anderen Wedges Lücken von 4-6° zu haben.
 Ich persönlich habe ein Pitching Wedge mit 44°, ein Gap Wedge mit 48° sowie ein Lob Wedge mit 54° und 58°. Alle wurden für mich angepasst, was auch sehr sinnvoll ist. Es ist wichtig, dass Du die Abstände zwischen den einzelnen Wedges kennst. Bei mir sind es etwa 15 Yards Abstand. Aber neben einem vollen Schwung für jedes Wedge habe ich auch eine andere Technik, die ich anwenden kann, um die Distanz zu variieren.
 Beim vollen Schwung nehme ich meinen Griff am Ende des Schlägergriffs, wobei sich der Ball in der Mitte meiner Standposition befindet. Durch das Greifen des Schlägers am Ende des Griffs erhältst Du einen breiteren Schwungbogen und mehr Geschwindigkeit, was sich in mehr Entfernung übersetzt. Wenn Du dieselbe Distanz mit demselben Wedge kürzen möchtest, greifst Du den Schläger weiter unten am Griff - so genannter "Grip-Down" - und verengst die Standposition. Mit einem engeren Schwungbogen erzeugst Du weniger Geschwindigkeit im Schwung, sodass der Ball nicht so weit fliegt. Aber auch wenn Du den Schläger weiter unten am Griff hältst, solltest Du aggressiv und positiv durch den Ball gehen.
