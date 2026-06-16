@@ -4,7 +4,7 @@ date: "2024-04-15"
 modified: "2026-06-16"
 excerpt: "1457 verbot König James II den Schotten Golf — Bogenschießen sei wichtiger für die Wehrhaftigkeit des Landes. Doch schon im 16. Jahrhundert dokumentieren Hofrechnungen golfende Könige, und St. Andrews wird zur Wiege des Spiels."
 categories:
-  - "Golfkultur"
+  - "Golfgeschichte"
 author: "Oakwood Golf Club"
 draft: false
 ---

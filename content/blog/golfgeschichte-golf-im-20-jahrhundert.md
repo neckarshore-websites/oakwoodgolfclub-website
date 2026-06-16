@@ -4,7 +4,7 @@ date: "2024-04-12"
 modified: "2024-07-10"
 excerpt: "Olympia 1900, DGV 1907, PGA-Tour 1916, Dimples und Stahlschäfte, gemeinsame Regeln von USGA und R&A ab 1951 — wie Golf im 20. Jahrhundert global wurde."
 categories:
-  - "Golfkultur"
+  - "Golfgeschichte"
 author: "Oakwood Golf Club"
 draft: false
 ---

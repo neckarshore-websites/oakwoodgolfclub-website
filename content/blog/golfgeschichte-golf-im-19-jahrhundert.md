@@ -4,7 +4,7 @@ date: "2024-04-13"
 modified: "2026-06-16"
 excerpt: "Hickory-Schäfte, der Gutta-percha-Ball und ab 1898 der Haskell-Ball — dazu Pau 1856, Darmstadt 1892 und die USGA 1894: Wie das 19. Jahrhundert Golf technisch und gesellschaftlich modernisierte."
 categories:
-  - "Golfkultur"
+  - "Golfgeschichte"
 author: "Oakwood Golf Club"
 draft: false
 ---

@@ -4,7 +4,7 @@ date: "2024-04-14"
 modified: "2026-06-16"
 excerpt: "Vom ersten Royal Clubmaker (1603) über den golfenden König Charles I. und das erste Länderspiel 1682 bis zu den ersten 13 Regeln (1744) und den 18 Löchern von St. Andrews (1764) — wie Golf seine moderne Form bekam."
 categories:
-  - "Golfkultur"
+  - "Golfgeschichte"
 author: "Oakwood Golf Club"
 draft: false
 ---
