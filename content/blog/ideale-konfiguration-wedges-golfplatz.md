@@ -1,7 +1,7 @@
 ---
 title: "Golf Technik Tipp: Mit welchen Wedges kommst Du garantiert an die Fahne?"
 date: "2024-04-05"
-modified: "2024-07-10"
+modified: "2026-06-16"
 excerpt: "Welche Wedges (44–58°) ins Bag gehören, warum die 4-6°-Gap-Regel zählt, und wie Du mit Griff-Technik aus vier Schlägern acht Distanzen holst."
 categories:
   - "Training"
@@ -40,8 +40,46 @@ Mit meinen vier Wedges und den zwei verschiedenen Techniken kann ich acht versch
 Ich würde Dir empfehlen, einen Eimer Bälle auf die Driving Range mitzunehmen und einfach mit Deinen Wedges zu experimentieren. Schlag einfach vier oder fünf Schläge mit jedem Wedge und schau, wo sie landen und notiere die Gruppierung. Wenn Du das Ziel entfernst, kannst Du Dich besser auf die Entfernungen und den Ballkontakt konzentrieren.
 Ich hoffe, ich konnte Dir mit diesem Artikel weiterhelfen und wünsche Dir viel Spaß auf dem Golfplatz.
 
-## Links
+## Die Lücken-Regel kurz erklärt
 
-[Wie oft sollte man neue Wedges kaufen? (diygolf.de)](https://www.diygolf.de/blog/wie-oft-neue-wedges-kaufen/)
-[Welche Wedge brauche ich wirklich? – Der Golf Blog](https://dergolfblog.de/)
-[Clubfixx erklärt: Wann sollte man sich neue Wedges kaufen? (golfpost.com)](https://www.golfpost.com/blogposts/113)
+Warum ausgerechnet 4–6°? Diese Spaltung sorgt in der Praxis für etwa **10–15 Yards Distanzunterschied** zwischen zwei Wedges — groß genug, dass sich die Schläger klar unterscheiden, klein genug, dass keine Lücke im kurzen Spiel entsteht. Zur Orientierung die üblichen Standard-Lofts:
+
+- **Pitching Wedge (PW):** 44–48°
+- **Gap-/Approach-Wedge (GW):** 50–52°
+- **Sand Wedge (SW):** 54–56°
+- **Lob Wedge (LW):** 58–60°
+
+Die oben beschriebene 44/48/54/58-Konfiguration hat durchgehend 4–6°-Spalten — also eine saubere, lückenlose Verteilung.
+
+## Noch mehr Distanzen: das Clock-System
+
+Neben dem Grip-Down gibt es eine zweite bewährte Methode, um mit einem einzigen Wedge mehrere Distanzen zu spielen: das **Clock-System**. Stell Dir vor, Dein führender Arm sei ein Uhrzeiger, und steuere die Länge des Rückschwungs:
+
+- **7:30 Uhr** ≈ 50 % der vollen Distanz
+- **9:00 Uhr** ≈ 75 %
+- **10:30 Uhr** ≈ 90 %
+
+Der Vorteil: gleicher Griff, gleiche Ballposition — Du regelst die Weite nur über die Schwunglänge. Kombiniert mit dem Grip-Down holst Du aus vier Wedges noch deutlich mehr als acht abrufbare Distanzen.
+
+## Bounce und Grind: der unterschätzte Faktor
+
+Der Loft bestimmt die Flughöhe — aber wie der Wedge aus einer bestimmten Lage funktioniert, hängt vom **Bounce** ab: dem Winkel zwischen Sohle und Boden. Er entscheidet, wie stark die Sohle „abprallt" und wie tief die Vorderkante eingräbt.
+
+| Bounce | Winkel | Ideal bei | Schwungstil |
+|--------|--------|-----------|-------------|
+| **Low** | 4–6° | harter Boden, flacher Sand, enge Lies | flach, „Sweeper", flache Divots |
+| **Mid** | 7–10° | normale Platzbedingungen, vielseitig | neutral, moderate Divots |
+| **High** | 10–14° | weiche Böden, fluffiger Sand, tiefer Rough | steil, tiefe Divots |
+
+Dazu kommt der **Grind** (die Formgebung der Sohle): Er bestimmt, wie sich der Wedge bei geöffnetem Schlägerblatt und aus verschiedenen Lagen verhält. Faustregel: Das **Sand Wedge** verträgt meist mehr Bounce, das **Lob Wedge** weniger.
+
+## Praxis-Tipp für deutsche Plätze
+
+Auf den meist normalen bis etwas festeren Böden hierzulande ist **Mid Bounce (7–10°)** eine gute Basis. Für Bunker mit weichem Sand oder nach Regen auf weichem Boden spielt ein **High-Bounce-Sand-Wedge (10–14°)** seine Stärken aus; auf hartem, trockenem Grund oder bei engen Lies hilft **Low Bounce**.
+
+## Weiterführend
+
+- [Vokey Wedge-Leitfaden: So geht Bounce – Titleist](https://www.titleist.de/news/8270/vokeys-wedgeleitfaden--so-geht-bounce)
+- [Golf Wedge Buying Guide – Callaway](https://www.callawaygolf.com/golf-guides/golf-wedge-buying-guide)
+- [Distanzkontrolle mit Wedges – golf.com](https://golf.com/instruction/short-game/clever-trick-wedge-distance-control/)
+- [Wie oft sollte man neue Wedges kaufen? – diygolf.de](https://www.diygolf.de/blog/wie-oft-neue-wedges-kaufen/)
