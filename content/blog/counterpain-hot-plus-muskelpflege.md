@@ -15,6 +15,10 @@ draft: false
 
 Japan ist eine der größten Golfnationen der Welt — mit einer ausgeprägten Kultur rund um Regeneration und Körperpflege nach dem Sport. Wer in japanischen Clubhäusern die Umkleiden sieht, entdeckt regelmäßig ein Produkt: [Counterpain](https://counterpain.net/produkt/counterpain-salbe-hot-rot-plus/) vom Hersteller Taisho.
 
+<img src="/blog/images/counterpain-hot-plus.webp" alt="Counterpain Analgesic Balm — silberne Salbentube und rot-weiße Verpackung des japanischen Herstellers Taisho" width="340" height="340" loading="lazy">
+
+*Counterpain von Taisho — seit Jahrzehnten Standard im japanischen Golfer-Kit. Bild: Taisho / Counterpain*
+
 Für uns ist das eine interessante Empfehlung, weil sie aus einer Golf-Tradition kommt, nicht aus dem europäischen Fitness-Marketing. Hier geht es nicht um ein Lifestyle-Produkt, sondern um eine schlichte, seit Jahrzehnten bewährte Muskel-Salbe.
 
 ## Was Counterpain ist
