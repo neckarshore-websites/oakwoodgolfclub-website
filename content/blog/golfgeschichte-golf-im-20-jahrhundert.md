@@ -46,6 +46,7 @@ So wurde Golf im Lauf des 20. Jahrhunderts vom „Adelssport" zur globalen, komm
 ## Weiterführend
 
 - [Golf im 19. Jahrhundert](/blog/golfgeschichte-golf-im-19-jahrhundert "Golfgeschichte 19. Jahrhundert")
+- [Golf im 21. Jahrhundert](/blog/golfgeschichte-golf-im-21-jahrhundert "Golfgeschichte 21. Jahrhundert")
 - [Deutscher Golf Verband – Wikipedia](https://de.wikipedia.org/wiki/Deutscher_Golf_Verband)
 - [PGA Tour – Wikipedia](https://en.wikipedia.org/wiki/PGA_Tour)
 - [Jack Nicklaus: Karriere-Erfolge – Wikipedia](https://en.wikipedia.org/wiki/List_of_career_achievements_by_Jack_Nicklaus)
