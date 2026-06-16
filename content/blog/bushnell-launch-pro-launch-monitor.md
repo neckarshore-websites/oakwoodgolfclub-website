@@ -11,6 +11,10 @@ draft: false
 ## TL;DR / Zusammenfassung
 Der **Bushnell Launch Pro** ist ein **kamera-basierter Launch Monitor** für ambitionierte Amateure und Club-Fitter — rund **3.200 Euro**, **13+ Datenpunkte**, Indoor und Outdoor, ohne die typischen Radar-Probleme bei wechselndem Licht. Das **Gold-Abonnement** (499 USD/Jahr) schaltet 25 virtuelle Kurse plus **GSPro-Integration** frei. Sinnvoll, wenn du mit Messwerten arbeitest oder einen Home-Simulator baust — kein Pflicht-Equipment für reine Greenfee-Spieler.
 
+![Bushnell Launch Pro von vorne und hinten — links die graue Front mit dem Drei-Kamera-Infrarot-System und dem Datendisplay, rechts das orange Gehäuse mit Anschlüssen und „Link Enabled"-Logo](/blog/images/bushnell-launch-pro-front-back.webp)
+
+*Der Launch Pro von vorne und hinten. Bild: Bushnell Golf*
+
 ## Was ist ein Launch Monitor eigentlich?
 
 Ein Launch Monitor misst den Ball- und Schlägerflug beim Aufprall. Früher stand so etwas nur im Fitter-Studio oder in der PGA-Tour-Garage. Heute gibt es Geräte, die auch Hobbyspieler sich leisten können — und am anderen Ende der Skala immer noch solche, die semi-professionell arbeiten.
@@ -31,11 +35,19 @@ Der Launch Pro nutzt ein Drei-Kamera-System mit Infrarot — kein Radar. Laut Bu
 
 Das ist der Datenumfang, den Tour-Profis für Fitting-Sessions verlangen. Zur Einordnung: Ein Driving-Range-Schwung wird damit deutlich transparenter als auf einer normalen Range-Matte.
 
+![Display des Bushnell Launch Pro mit Messwerten nach einem Schlag: Speed 150 mph, Launch Angle 12°, Push 2° R, Carry 260 yds, Side Spin 450 RPM, Back Spin 2500 RPM](/blog/images/bushnell-launch-pro-display.webp)
+
+*Alle Messwerte direkt nach dem Schlag — Geschwindigkeit, Launch-Winkel, Carry und Spin auf einen Blick. Bild: Bushnell Golf*
+
 ## Indoor, Outdoor, Simulator
 
 Der Launch Pro ist bewusst Dual-Use. Im Keller oder Garage-Simulator läuft er mit der FSX-Software — das ist Bushnells eigene Simulations-Umgebung mit virtuellen Kursen. Über ein Gold-Abonnement (ca. 499 USD/Jahr) bekommst du Zugang zu 25 Kursen plus Integration mit GSPro, einer weit verbreiteten Third-Party-Simulationssoftware.
 
 Draußen funktioniert das Gerät auf der Range und auf dem Platz, laut Hersteller ohne die typischen Radar-Probleme bei tiefstehender Sonne oder unruhigem Licht.
+
+![Bushnell Launch Pro im orangen Gehäuse auf dem Rasen der Driving Range, daneben ein Spieler und ein Haufen Übungsbälle](/blog/images/bushnell-launch-pro-range.webp)
+
+*Outdoor-Einsatz auf der Range — das Gerät wird einfach neben dem Ball platziert. Bild: Bushnell Golf*
 
 ## Preis — ehrlich kommuniziert
 
@@ -63,3 +75,17 @@ Ein 14-Tage-Gratis-Trial der Gold-Stufe ist dabei. Die Club-Daten (Speed, Path, 
 ## Die Konkurrenz in einem Satz
 
 TrackMan und Foresight GCHawk sind die großen Namen — beide mehr als doppelt so teuer und eher in professionellen Fitting-Studios zu finden. Der Garmin Approach R10 ist das populäre günstige Einsteiger-Radar (um 600 Euro), liefert aber weniger Datentiefe und weniger konstante Werte im Outdoor-Einsatz. Der Launch Pro sitzt genau dazwischen: ernsthaftes Messwerkzeug, aber für den ambitionierten Amateur noch greifbar.
+
+## Videos: der Launch Pro in Aktion
+
+Bushnell Golf zeigt das Gerät in mehreren kurzen Praxis-Videos. Wer vor dem Kauf sehen will, wie die Daten in Echtzeit aussehen und wie man damit arbeitet, findet hier einen guten Einstieg (Videos auf Englisch):
+
+- [Accuracy Above All — der Launch Pro im Überblick](https://youtu.be/kc8kbj1q6CM)
+- [Carry-Distanzen sauber einstellen](https://youtu.be/IxQ6KcXSCDc)
+- [Den Driver auf mehr Länge optimieren](https://youtu.be/TmJb06Lm6gM)
+- [Club Path verstehen](https://youtu.be/SCmyvoHLW6w)
+
+## Weiterführende Links
+
+- [Bushnell Launch Pro — Produktseite (Bushnell Golf Europe)](https://bushnellgolfeurope.com/product/launch-pro/)
+- [Bedienungsanleitung Launch Pro (PDF, englisch)](https://www.bushnellgolf.com/content/non_product/support/BushnellGolf_LP_Manual.pdf)
