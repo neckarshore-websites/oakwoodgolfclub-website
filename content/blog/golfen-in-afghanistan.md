@@ -1,7 +1,7 @@
 ---
 title: "Golfen in Afghanistan"
 date: "2024-03-31"
-modified: "2025-05-31"
+modified: "2026-06-16"
 excerpt: "9 Löcher auf Wüstensand, Krater statt Bunker, Minenwarnschilder am Fairway: die Geschichte des Kabul Golf Club zwischen Sport, Krieg und Diplomatie."
 categories:
   - "Golfkultur"
@@ -11,103 +11,88 @@ draft: false
 ## TL;DR / Zusammenfassung
 9 Löcher auf Wüstensand, Krater statt Bunker, Minenwarnschilder am Fairway: die Geschichte des Kabul Golf Club zwischen Sport, Krieg und Diplomatie.
 
+Der folgende Bericht geht auf eine englische Reportage aus dem Jahr 2011 zurück und beschreibt den Kabul Golf Club so, wie er sich damals darstellte. Die Lage in Afghanistan hat sich seither mehrfach grundlegend verändert.
+
 ## Lage
 
-Direkt vor der Hintertür der Landeshauptstadt liegt der Kabul Golf Club. Auf dem Logo des Kabul Golf Club steht [ein arabisches Wort, das auf Englisch „Frieden" bedeutet.](https://translate.google.com/?hl=en&sl=de&tl=ar&text=Frieden%E2%80%9C%20bedeutet.&op=translate "Salam")
+Rund 10 Kilometer vom Zentrum Kabuls entfernt liegt der Kabul Golf Club. Auf seinem Logo steht das Wort **Salam** – „Frieden". Ein bemerkenswerter Name für einen Ort, den die meisten mit allem anderen als Frieden verbinden: Erwähnt man Kabul und Afghanistan, denken viele zuerst an ein zerrissenes Land an der Front des weltweiten Konflikts.
 
 <figure>
-  <img src="/blog/images/Kabul-Golf-Club-Eingangsschild.gif" alt="Kabul Golf Club - Eingangsschild" />
+  <img src="/blog/images/Kabul-Golf-Club-Eingangsschild.gif" alt="Eingangsschild des Kabul Golf Club" />
   <figcaption>Der Eingang zum Kabul Golf Club.</figcaption>
 </figure>
 
-Erwähnen Sie jedoch Kabul und Afghanistan, und fast jeder Gedanke dreht sich um eine tragische, zerrissene Nation, die an der Spitze der Bekämpfung der weltweiten Bedrohung durch den Terrorismus steht.
-Der Golfclub liegt etwa 10 Kilometer vom Zentrum von Kabul entfernt.
-Es ist nicht Ihr üppig grünes, von Bäumen gesäumtes Layout, sondern ein hart aussehender, rudimentärer, hügeliger Platz mit neun Löchern, der auf Wüstensand mit ölimprägnierten Grüns angelegt ist.
-Das Clubhaus ist auch nicht die opulente Umgebung, die wir alle erwarten. Es ist ein baufälliges altes Gebäude, das nach zahlreichen Raketenangriffen umso schlechter aussieht.
-Die örtlichen Vorschriften erlauben die Verwendung eines T-Stücks oder eines Kunstrasenstreifens auf dem Fairway, auf dem steht: „Aufnehmen, abstauben und innerhalb von zwei Schlägerlängen platzieren, aber nicht näher am Loch“.
-[Straffreises Aufnehmen](https://www.golf.de/dgv/rules4you/regeln/regeln_detail.cfm?id=114 "Straffreises Aufnehmen") gibt es zudem aus Baumlöchern, [Ameisenlöchern](https://de.dreamstime.com/lizenzfreie-stockfotos-spinifex-ameisenl%C3%B6cher-image20181598 "Ameisenlöcher") und Gräben. Außerdem erhalten Golfer einen freien Tropfen, wenn ihr Ball in einem Krater zur Ruhe kommt, denn in Kabul spricht man in diesem Fall nicht von einem natürlichen Krater, sondern von den Löchern, die Raketen oder Panzerfeuer hinterlassen haben.
-![Kabul Golf Club - Warnung vor Minen](/blog/images/Kabul-Golf-Club-Warnung-vor-Minen.gif)
-Es gibt jedoch eine andere lokale Regel, die Sie auf der Scorecard nicht finden und die auch für den Kabul Club gelten muss: Waffen jeglicher Art sind auf dem Golfplatz nicht gestattet.
+Es ist kein üppig grünes, von Bäumen gesäumtes Layout, sondern ein karger, hügeliger Neun-Loch-Platz auf Wüstensand – mit ölgetränkten Grüns. Auch das Clubhaus entspricht nicht dem, was man erwartet: ein baufälliges altes Gebäude, das nach zahlreichen Raketenangriffen umso mitgenommener aussieht.
+
+Die örtlichen Platzregeln erlauben auf dem Fairway die Verwendung eines Tees oder eines Kunstrasenstreifens: „Aufnehmen, abstauben und innerhalb von zwei Schlägerlängen platzieren, aber nicht näher zum Loch." [Straffreies Aufnehmen](https://www.golf.de/dgv/rules4you/regeln/regeln_detail.cfm?id=114 "Straffreies Aufnehmen") gibt es außerdem aus Baumlöchern, Ameisenlöchern und Gräben. Und einen Freidrop bekommt, wessen Ball in einem Krater liegen bleibt – denn diese Krater sind hier keine natürlichen Senken, sondern Einschläge von Raketen oder Panzerfeuer.
+
+<figure>
+  <img src="/blog/images/Kabul-Golf-Club-Warnung-vor-Minen.gif" alt="Warnschild vor Minen am Kabul Golf Club" />
+  <figcaption>Minenwarnung am Rand des Platzes.</figcaption>
+</figure>
+
+Eine weitere lokale Regel steht auf keiner Scorecard, gilt aber selbstverständlich: Waffen jeglicher Art sind auf dem Golfplatz nicht gestattet.
 
 ## Geschichte
 
-Golf wurde erstmals 1911 von [König Emir Hajibullah Khan](https://de.wikipedia.org/wiki/Habibullah_Khan "König Emir Hajibullah Khan") in Afghanistan eingeführt, zwei Jahre bevor der erste in Amerika geborene Spieler die US Open gewann. Aber wenn Sie die Geschichte studieren, liest sich der Kabul Golf Club wie kein anderer Sportclub, geschweige denn ein Golfclub.
-Der Platz wurde erstmals 1967 während der Regierungszeit von Mohammed Zahir Shah eröffnet und bestand nur aus neun Löchern.
-Nach dem Sturz des Königs wurde es 1973 an seinen heutigen Standort verlegt und nach einem kommunistischen Staatsstreich von 1978 vollständig geschlossen.
-1993 wurde es wiedereröffnet, aber drei Jahre später geschlossen, als das Taliban-Regime das Spielen jeglicher Sportart verbot.
-Nach dem Einmarsch der Koalition in Afghanistan im Jahr 2001 wurde der Kurs als Gebiet für die militärische Ausbildung zur Beseitigung von Landminen genutzt.
-Bei der Wiederherstellung des Gebiets in einer Art Ähnlichkeit mit einem Golfplatz mussten drei beschädigte sowjetische Panzer und mehrere Raketenstarts entfernt werden.
+Der Überlieferung nach wurde Golf in Afghanistan erstmals 1911 unter Emir [Habibullah Khan](https://de.wikipedia.org/wiki/Habibullah_Khan "Habibullah Khan") gespielt. Doch wer die Geschichte des Kabul Golf Club studiert, merkt schnell: Sie liest sich wie die keines anderen Sportvereins.
 
-Leider hatten sich die [sowjetischen Panzer](https://www.spiegel.de/geschichte/sowjetische-invasion-in-afghanistan-1979-das-vietnam-der-russen-a-1301765.html "Das Vietnam der Russen") tief in die Fairways eingegraben.
-Es gab auch eine Zeit, in der sich die 8. Division der afghanischen Armee in einem Tal befand und der Golfplatz in ein Kreuzfeuer nächtlicher Kämpfe zwischen den aus dem Westen angreifenden Mudschaheddin und den sowjetischen und afghanischen Streitkräften geriet.
-Jahre zuvor gab es im Verlauf des Krieges in Qargha 1987 eine bizarre Golfgeschichte.
-Es scheint, dass die Regierung und die Guerillas informell einen Waffenstillstand vereinbart haben, damit westliche Diplomaten in der Hauptstadt dorthin gehen können, um Golf zu spielen.
-Schließlich wurde der Kabul Golf Club im Jahr 2004 mit einem Bericht des Christian Science Monitor wiedereröffnet: „Der endgültige Minenräumungsprozess wurde aus Mitteln des US-Militärs finanziert, die auf die Abrüstung lokaler Kriegsherren abzielten, aber die Gewinne landeten tatsächlich in den Händen von a Kriegsherr, ein Befehlshaber der Nordallianz namens Adbul Rashid '.
-Seltsamerweise trugen Schafherden, die in der Region weideten, unwissentlich zur Auferstehung des Kurses bei, indem sie gelegentlich Minen zur Explosion brachten.
-![Kabul Golf Club - Loch Nummer 1](/blog/images/Kabul-Golf-Club-Loch-Nummer-1.gif)
+Der Platz wurde 1967 unter der Regentschaft von Mohammed Zahir Shah eröffnet – schon damals mit neun Löchern. Nach dem Sturz des Königs verlegte man ihn 1973 an seinen heutigen Standort; nach dem kommunistischen Staatsstreich von 1978 wurde er vollständig geschlossen. 1993 öffnete er wieder, nur um drei Jahre später erneut zu schließen, als das Taliban-Regime jede Sportausübung verbot.
+
+Nach dem Einmarsch der Koalition 2001 diente das Gelände zunächst als Übungsgebiet zur Beseitigung von Landminen. Bei der späteren Wiederherstellung zu etwas, das einem Golfplatz ähnelte, mussten drei beschädigte [sowjetische Panzer](https://www.spiegel.de/geschichte/sowjetische-invasion-in-afghanistan-1979-das-vietnam-der-russen-a-1301765.html "Das Vietnam der Russen") und mehrere Raketenwerfer entfernt werden – die Panzer hatten sich tief in die Fairways eingegraben.
+
+Schon Jahre zuvor war der Platz Schauplatz des Krieges gewesen: Die 8. Division der afghanischen Armee lag in einem nahen Tal, und der Golfplatz geriet ins nächtliche Kreuzfeuer zwischen den aus dem Westen vorrückenden Mudschaheddin und den sowjetischen und afghanischen Truppen. 1987 spielte sich in Qargha eine bizarre Golfepisode ab: Regierung und Guerilla vereinbarten informell einen Waffenstillstand, damit westliche Diplomaten aus der Hauptstadt zum Golfspielen anreisen konnten.
+
+2004 wurde der Kabul Golf Club schließlich wiedereröffnet. Der *Christian Science Monitor* berichtete damals, der abschließende Minenräumprozess sei aus Mitteln des US-Militärs finanziert worden, die eigentlich der Entwaffnung lokaler Kriegsherren dienen sollten – die Gewinne aber landeten ausgerechnet in den Händen eines Warlords, eines Befehlshabers der Nordallianz namens Abdul Rashid. Und kurioserweise trugen weidende Schafherden unwissentlich zur Wiederauferstehung des Platzes bei: Sie brachten gelegentlich Minen zur Explosion.
+
+<figure>
+  <img src="/blog/images/Kabul-Golf-Club-Loch-Nummer-1.gif" alt="Loch Nummer 1 des Kabul Golf Club" />
+  <figcaption>Blick auf Loch Nummer 1.</figcaption>
+</figure>
 
 ## Spieler
 
-Anfang dieses 2011 besuchten drei Vertreter des Kabul Golf Club die Omega Dubai Desert Classic und gaben diesen einzigartigen Einblick in ihren Club. Für den Anfang waren die drei kaum zu übersehen, als sie sich auf den Emirates Course wagten und stolz Mützen mit den Worten "Kabul Golf Club, Afghanistan" auf der Vorderseite trugen.
+Anfang 2011 besuchten drei Vertreter des Kabul Golf Club die Omega Dubai Desert Classic und gaben einen seltenen Einblick in ihren Verein. Übersehen konnte man sie nicht: Stolz trugen sie Mützen mit der Aufschrift „Kabul Golf Club, Afghanistan", als sie den Emirates Course betraten.
+
 <figure>
-  <img src="/blog/images/Rory-with-Kabul-Golf-Club-Mitgliedern.jpg" alt="Rory mit Mitgliedern des Kabul Golf Club" />
-  <figcaption>Rory McIlroy trifft sich (von links nach rechts) mit Hashmatullah Sarwery, Mohammad Afzal Abdul — dem virtuellen Rückgrat des Kabul-Clubs — und Mohammad Omersa.</figcaption>
+  <img src="/blog/images/Rory-with-Kabul-Golf-Club-Mitgliedern.jpg" alt="Rory McIlroy mit Mitgliedern des Kabul Golf Club" />
+  <figcaption>Rory McIlroy trifft (von links) Hashmatullah Sarwery, Mohammad Afzal Abdul – das Rückgrat des Kabul-Clubs – und Mohammad Omersa.</figcaption>
 </figure>
-Hashmatullah Sarwery, der kleinste des Trios, ist 20 Jahre alt. Er begann mit einem Handicap von 30 und spielt jetzt mit acht.
-Sarwery, der auch als Taxifahrer in Kabul fungiert, ist auch der Kabul Golf Club-Champion und hält den Streckenrekord von 70 über die kombinierten zwei neun Löcher von 5.522 Metern, die einem Par 72 entsprechen.
-Trotz seiner Größe sagt er, dass er durchschnittlich 240 bis 260 Meter weit fahren kann, aber das Beste an seinem Spiel ist sein kurzes Spiel.
-Er und seine Kollegen aus Kabul wurden von den Organisatoren von Desert Classic nach Dubai gebracht und hatten den großen Nervenkitzel, Tiger Woods kennenzulernen und sich mit Leuten wie Rory McIlroy und Sergio Garcia fotografieren zu lassen.
-Woods und McIlroy erhielten ein Hemd und eine Mütze und mussten einige Gegenstände unterschreiben.
 
-Sarwery spricht kaum Englisch und wurde nie gesehen, ohne stolz seine rote Kabul Golf Club Mütze zu tragen.
-Zu ihm gesellten sich Mohammad Omersa, ein 28-jähriger, der gegen 16 spielt, und Mohammad Afzal Abdul, der Direktor und Lehrer des Clubs.
-Wenn Abdul nicht wäre, könnte man mit Sicherheit sagen, dass es keinen Kabul Golf Club geben würde.
-Abdul begann seine Beziehung zum Golf vor mehr als 50 Jahren, nachdem er im Alter von acht Jahren von einer amerikanischen Botschaft ein 5-Eisen bekommen hatte. Er arbeitete zuerst als Caddy im Club und wurde schnell zum Caddy Master befördert.
+Hashmatullah Sarwery, der Kleinste des Trios, war damals 20 Jahre alt. Er begann mit einem Handicap von 30 und spielte zu jener Zeit bereits eine Acht. Sarwery, im Hauptberuf Taxifahrer in Kabul, war zugleich Clubmeister und hielt den Platzrekord von 70 auf den kombinierten zwei Neuner-Runden (5.522 Meter, Par 72). Trotz seiner Statur fuhr er den Ball nach eigener Aussage 240 bis 260 Meter weit – am stärksten aber war sein kurzes Spiel.
 
-![Kabul Golf Club - Fairway](/blog/images/Kabul-Golf-Club-Fairway.gif)
+In Dubai erlebten er und seine Begleiter den großen Nervenkitzel: Sie lernten Tiger Woods kennen und ließen sich mit Größen wie Rory McIlroy und Sergio García fotografieren. Woods und McIlroy bekamen ein Hemd und eine Mütze geschenkt – und signierten im Gegenzug ein paar Erinnerungsstücke. Sarwery, der kaum Englisch spricht, war nie ohne seine rote Kabul-Golf-Club-Mütze zu sehen.
 
-Er wurde dann zum Clubprofi ernannt, aber heutzutage umfasst seine Arbeit Manager, Barmann, PR-Direktor sowie Geschirrspüler, Handwerker und Grünkeeper.
-Abdul ist das stolze Rückgrat des Kabul Golf Club und bemüht sich, Spenden zu sammeln und Bälle, T-Shirts und Handschuhe zu sammeln, um die Mitglieder auszurüsten.
-Er ist ein umgänglicher Kerl mit einem dieser lebenden Gesichter und spricht gerade genug Englisch, um durchzukommen.
-In einem Land, in dem Fußball und auch Cricket die wichtigste Sportart sind, kann der Kabul Golf Club Anspruch auf rund 120 Mitglieder erheben.
-Die Mehrheit von ihnen waren Männer, aber Abdul gab an: "Mädchen werden bald in den Club kommen".
-Etwa 15 bis 20 dieser Mitglieder sind diplomatische Mitarbeiter aus den verschiedenen Ländern, darunter Australien, USA und Deutschland, die an dem anhaltenden Konflikt beteiligt sind.
-Wenn die Diplomaten den Kurs belegen, ist dies normalerweise ein oder zwei Leibwächter als Begleitung. Tatsächlich gibt es einen Bereich, in dem Sie eine Straße überqueren, um das fünfte, sechste und siebte Loch zu spielen, das für Entführungen anfällig ist.
-Ein Kollege von mir, der an der Desert Classic teilnahm, sagte, er habe während der Woche des Turniers mit einem ehemaligen Straßenbauingenieur gesprochen, der in Kabul arbeitete, und ihm wurde gesagt, er sei aus genau diesem Grund vom Spielen des Platzes ausgeschlossen worden.
-Und es ist auch nicht ungewöhnlich, dass Abdul den Anblick von US-amerikanischen Black Hawk-Hubschraubern sah, die mit dem Personal, das Sportgewehre über der Schulter und Golfschläger in der Hand hatte, im Club landeten.
-Die übrigen Mitglieder des Clubs sind in der Region geborene Afghanen.
+Mit ihm reisten Mohammad Omersa, ein 28-Jähriger mit Handicap 16, sowie Mohammad Afzal Abdul, Direktor und Lehrer des Clubs. Ohne Abdul, so viel lässt sich mit Sicherheit sagen, gäbe es den Kabul Golf Club nicht. Seine Beziehung zum Golf begann vor über 50 Jahren: Mit acht Jahren bekam er von einer amerikanischen Botschaft ein 5-Eisen geschenkt. Er fing als Caddy an, wurde rasch zum Caddy-Master befördert und schließlich zum Clubprofi ernannt.
+
+<figure>
+  <img src="/blog/images/Kabul-Golf-Club-Fairway.gif" alt="Fairway des Kabul Golf Club" />
+  <figcaption>Ein Fairway des Platzes.</figcaption>
+</figure>
+
+Heute vereint Abdul gleich mehrere Rollen in einer Person: Manager, Barmann und PR-Direktor, dazu Geschirrspüler, Handwerker und Greenkeeper. Er sammelt Spenden, Bälle, T-Shirts und Handschuhe, um die Mitglieder auszustatten – ein umgänglicher Mann mit einem dieser markant gezeichneten Gesichter, der gerade genug Englisch spricht, um durchzukommen.
+
+In einem Land, in dem Fußball und Cricket die wichtigsten Sportarten sind, zählt der Kabul Golf Club rund 120 Mitglieder. Die Mehrheit sind Männer; „Mädchen werden bald in den Club kommen", versprach Abdul damals. Etwa 15 bis 20 Mitglieder sind diplomatische Mitarbeiter aus verschiedenen Ländern – darunter Australien, die USA und Deutschland –, die in den anhaltenden Konflikt eingebunden sind. Wenn Diplomaten spielen, sind meist ein oder zwei Leibwächter dabei. Es gibt sogar einen Abschnitt, an dem man eine Straße überqueren muss, um das fünfte, sechste und siebte Loch zu erreichen – ein Bereich, der als entführungsgefährdet gilt.
+
+Ein Bekannter, der bei der Desert Classic dabei war, erzählte, er habe während der Turnierwoche mit einem ehemaligen Straßenbauingenieur aus Kabul gesprochen; diesem sei das Spielen auf dem Platz aus eben diesem Grund untersagt worden. Und es war keineswegs ungewöhnlich, dass Abdul US-amerikanische Black-Hawk-Hubschrauber am Club landen sah – mit Personal, das Sportgewehre über der Schulter und Golfschläger in der Hand trug. Die übrigen Mitglieder sind in der Region geborene Afghanen.
 
 ## Mitgliedschaft
 
-"Diplomatische" [Mitglieder zahlen 500 US-Dollar pro Jahr](/mitglied-werden "OGC: 55 Euro pro Jahr"), einschließlich ihrer Familien, während die Einheimischen 300 US-Dollar (15.000 Afghani) erhalten.
-Aber es gibt einen Vorbehalt, wie Abdul erklärte: „Wenn ich weiß, dass es den Einheimischen gut geht und sie Geld haben, berechne ich ihnen 300 US-Dollar pro Jahr, aber wenn ich weiß, dass sie mit Geld zu kämpfen haben, ist die Mitgliedschaft kostenlos.“
-Den Gästen werden 20 US-Dollar berechnet, mit denen sie den ganzen Tag spielen können.
-Jetzt gibt es ein Angebot? Ganztägiges Golf für nur 20 US-Dollar.
-Wenn der afghanische Konflikt vorbei ist und alle Truppen abgereist sind und es sicher ist, die Straße zu überqueren, um den fünften zu spielen, wäre es schön, den Kabul Golf Club zu spielen.
-Und wenn auch nur für die Erfahrung, Abduls Augen leuchten zu sehen.
+„Diplomatische" [Mitglieder zahlen 500 US-Dollar pro Jahr](/mitglied-werden "Bei Oakwood: 55 Euro pro Jahr"), Familie inklusive, während Einheimische 300 US-Dollar (15.000 Afghani) entrichten. Doch es gibt einen Vorbehalt, wie Abdul erklärte: „Wenn ich weiß, dass es den Einheimischen gut geht und sie Geld haben, berechne ich ihnen 300 US-Dollar pro Jahr. Aber wenn ich weiß, dass sie mit dem Geld kämpfen, ist die Mitgliedschaft kostenlos." Gäste zahlen 20 US-Dollar – und dürfen dafür den ganzen Tag spielen.
 
-## Fußnote
+Wenn der Konflikt eines Tages vorbei ist, alle Truppen abgezogen sind und man die Straße zum fünften Loch gefahrlos überqueren kann, wäre es schön, den Kabul Golf Club einmal zu spielen – und sei es nur, um Abduls Augen leuchten zu sehen.
 
-Der Kabul Golf Club würde jede Spende von Golfschlägern, Bällen, T-Shirts, Handschuhen, Mützen, Hemden oder was auch immer lieben, die in eine Schachtel gepackt und an den Club geschickt werden könnte, sehr lieben.
-Sie können sie senden an:
-Herr Mohammad Afzal Abdul
-Direktor Kabul Golf Club
-Bandi Qargha, Kabul
-Afghanistan
+## Spenden
 
-## Quelle
+Der Kabul Golf Club freut sich über jede Spende – Golfschläger, Bälle, T-Shirts, Handschuhe, Mützen, Hemden oder was auch immer sich in eine Schachtel packen und verschicken lässt. Adresse:
 
-[Kabul Golf Club – The Most Dangerous Golf Course In The World](https://www.golfbytourmiss.com/2011/08/kabul-golf-club-the-most-dangerous-golf-course-in-the-world/)
-10 years ago by [Bernie McGuire](https://www.golfbytourmiss.com/author/bernie-mcguire/)
-aus dem Englischen übersetzt
-Videos
+> Herr Mohammad Afzal Abdul
+> Direktor Kabul Golf Club
+> Bandi Qargha, Kabul
+> Afghanistan
 
-### Afghanistan's first golf tournament in 30 years
+## Quellen & Weiterführend
 
-### Kabul Golf Club - War & Peace & Golf? Who knew?
-
-## Links
-
-[Kabul Golf Club - Webseite](http://www.kabulgolfclub.org/ "Kabul Golf Club - Webseite")
-[Wikipedia - Kabul Golf Club](https://en.wikipedia.org/wiki/Kabul_Golf_Club)
-[Kabul Golf Club im Albrecht Golfführer](https://www.1golf.eu/club/kabul-golf-club/ "Kabul Golf Club im Albrecht Golfführer")
+- [Kabul Golf Club – The Most Dangerous Golf Course In The World](https://www.golfbytourmiss.com/2011/08/kabul-golf-club-the-most-dangerous-golf-course-in-the-world/) (Bernie McGuire, 2011 – aus dem Englischen übersetzt und redigiert)
+- [Wikipedia – Kabul Golf Club (EN)](https://en.wikipedia.org/wiki/Kabul_Golf_Club)
+- [Kabul Golf Club im Albrecht Golfführer](https://www.1golf.eu/club/kabul-golf-club/ "Kabul Golf Club im Albrecht Golfführer")
