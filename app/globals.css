@@ -254,8 +254,11 @@
     max-width: 100%;
     height: auto;
     border-radius: 2px;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    /* Centre images in the reading column. A portrait product shot rendered
+       at its intrinsic width (via the width/height attrs) otherwise hugs the
+       left margin; the explicit attrs also reserve space to avoid CLS. */
+    margin: 1.5em auto;
+    display: block;
   }
 
   /* Figure + figcaption for images with captions. Replaces the legacy

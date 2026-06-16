@@ -23,7 +23,7 @@ Klassische Sonnencreme fühlt sich auf schwitziger Haut schnell klebrig an, ruts
 
 Unsere Empfehlung für die Bag: [NIVEA UV Dry Protect Sport Sonnenspray mit LSF 50](https://www.nivea.de/produkte/uv-dry-protect-sport-sonnenspray-lsf-50-200ml-40059006917740001.html).
 
-![NIVEA Sun UV Dry Protect Sport Sonnenspray, blaue 200-ml-Flasche mit oranger Sprühkappe, LSF 50, schweißresistent und extra wasserfest](/blog/images/nivea-uv-dry-protect-sport-bottle.webp)
+<img src="/blog/images/nivea-uv-dry-protect-sport-bottle.webp" alt="NIVEA Sun UV Dry Protect Sport Sonnenspray, blaue 200-ml-Flasche mit oranger Sprühkappe, LSF 50, schweißresistent und extra wasserfest" width="220" height="550" loading="lazy">
 
 *NIVEA UV Dry Protect Sport mit LSF 50 — unser Spray für die Golftasche. Bild: NIVEA / Beiersdorf*
 
@@ -38,7 +38,7 @@ Unsere Empfehlung für die Bag: [NIVEA UV Dry Protect Sport Sonnenspray mit LSF 
 
 Die Kombination aus UV-Filtern (u. a. Ethylhexyl Triazone, Diethylamino Hydroxybenzoyl Hexyl Benzoate) ist ein moderner Breitband-Schutz — kein antiquiertes Zinkoxid-Gefühl.
 
-![Übersicht der NIVEA-Sun-UV-Dry-Protect-Sport-Produktreihe mit den Merkmalen: leichte, nicht fettende Textur, speziell für Sportler entwickelt, sofortiger hochwirksamer UVA/UVB-Schutz, schweißresistent und extra wasserfest](/blog/images/nivea-uv-dry-protect-sport-features.webp)
+<img src="/blog/images/nivea-uv-dry-protect-sport-features.webp" alt="Übersicht der NIVEA-Sun-UV-Dry-Protect-Sport-Produktreihe mit den Merkmalen: leichte, nicht fettende Textur, speziell für Sportler entwickelt, sofortiger hochwirksamer UVA/UVB-Schutz, schweißresistent und extra wasserfest" width="480" height="480" loading="lazy">
 
 *Leicht und nicht fettend, schweißresistent und extra wasserfest — speziell für Sportler. Bild: NIVEA / Beiersdorf*
 
