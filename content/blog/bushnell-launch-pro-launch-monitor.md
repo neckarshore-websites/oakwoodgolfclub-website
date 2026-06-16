@@ -78,12 +78,30 @@ TrackMan und Foresight GCHawk sind die großen Namen — beide mehr als doppelt 
 
 ## Videos: der Launch Pro in Aktion
 
-Bushnell Golf zeigt das Gerät in mehreren kurzen Praxis-Videos. Wer vor dem Kauf sehen will, wie die Daten in Echtzeit aussehen und wie man damit arbeitet, findet hier einen guten Einstieg (Videos auf Englisch):
+Bushnell Golf zeigt das Gerät in mehreren kurzen Praxis-Videos. Wer vor dem Kauf sehen will, wie die Daten in Echtzeit aussehen und wie man damit arbeitet, findet hier einen guten Einstieg. Ein Klick öffnet das jeweilige Video auf YouTube (Videos auf Englisch):
 
-- [Accuracy Above All — der Launch Pro im Überblick](https://youtu.be/kc8kbj1q6CM)
-- [Carry-Distanzen sauber einstellen](https://youtu.be/IxQ6KcXSCDc)
-- [Den Driver auf mehr Länge optimieren](https://youtu.be/TmJb06Lm6gM)
-- [Club Path verstehen](https://youtu.be/SCmyvoHLW6w)
+<div class="video-grid">
+<a href="https://youtu.be/kc8kbj1q6CM" title="Video auf YouTube ansehen">
+<div class="video-card__thumb"><img src="/blog/images/bushnell-video-accuracy.webp" alt="Vorschaubild des YouTube-Videos „Accuracy Above All“" loading="lazy"></div>
+<div class="video-card__title">Accuracy Above All — der Launch Pro im Überblick</div>
+<div class="video-card__desc">Warum der Launch Pro so genau misst — der Überblick.</div>
+</a>
+<a href="https://youtu.be/IxQ6KcXSCDc" title="Video auf YouTube ansehen">
+<div class="video-card__thumb"><img src="/blog/images/bushnell-video-carry.webp" alt="Vorschaubild des YouTube-Videos „Dialing in Your Carry Distances“" loading="lazy"></div>
+<div class="video-card__title">Carry-Distanzen sauber einstellen</div>
+<div class="video-card__desc">Carry-Distanzen für jeden Schläger zuverlässig bestimmen.</div>
+</a>
+<a href="https://youtu.be/TmJb06Lm6gM" title="Video auf YouTube ansehen">
+<div class="video-card__thumb"><img src="/blog/images/bushnell-video-driver.webp" alt="Vorschaubild des YouTube-Videos „Optimize Your Driver for Increased Distance“" loading="lazy"></div>
+<div class="video-card__title">Den Driver auf mehr Länge optimieren</div>
+<div class="video-card__desc">Mehr Schlägerkopf-Speed und Distanz mit dem Driver.</div>
+</a>
+<a href="https://youtu.be/SCmyvoHLW6w" title="Video auf YouTube ansehen">
+<div class="video-card__thumb"><img src="/blog/images/bushnell-video-clubpath.webp" alt="Vorschaubild des YouTube-Videos „Understanding Club Path“" loading="lazy"></div>
+<div class="video-card__title">Club Path verstehen</div>
+<div class="video-card__desc">Club Path lesen und den Ball gezielt kurven.</div>
+</a>
+</div>
 
 ## Weiterführende Links
 
