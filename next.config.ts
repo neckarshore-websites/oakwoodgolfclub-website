@@ -76,6 +76,14 @@ const nextConfig: NextConfig = {
   async redirects() {
     return ALL_REDIRECTS;
   },
+  // QR splash: the printed membership card encodes /qr.html. Serve the /qr
+  // route at that exact (.html) URL via a rewrite (no redirect hop, URL bar
+  // stays /qr.html) so the card's QR code stays valid regardless of internal
+  // routing. The proxy.ts trailing-slash matcher skips any path with a dot, so
+  // /qr.html never collides with it.
+  async rewrites() {
+    return [{ source: "/qr.html", destination: "/qr" }];
+  },
 };
 
 export default nextConfig;
