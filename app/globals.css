@@ -280,7 +280,9 @@
     line-height: 1.5;
     font-style: italic;
     color: var(--color-muted);
-    text-align: left;
+    /* Centred under the (centred) image — a left-aligned caption sits alone
+       at the far left of the full-width figure and reads as detached. */
+    text-align: center;
   }
 
   .ogc-prose table {

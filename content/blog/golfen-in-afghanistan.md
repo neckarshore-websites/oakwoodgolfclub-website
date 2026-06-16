@@ -9,7 +9,7 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 ## TL;DR / Zusammenfassung
-9 Löcher auf Wüstensand, Krater statt Bunker, Minenwarnschilder am Fairway: die Geschichte des Kabul Golf Club zwischen Sport, Krieg und Diplomatie.
+Der Kabul Golf Club gilt als einer der außergewöhnlichsten – und gefährlichsten – Golfplätze der Welt: neun Löcher auf Wüstensand, ölgetränkte Grüns, Krater von Raketeneinschlägen statt Bunker und Minenwarnschilder am Fairway. Seine Geschichte reicht von der ersten Golfrunde 1911 über Kriege, einen kommunistischen Putsch und das Taliban-Sportverbot bis zur mühevollen Wiedereröffnung 2004 nach jahrelanger Minenräumung. Getragen wird der Club bis heute im Wesentlichen von einer einzigen Person – Direktor Mohammad Afzal Abdul – und zählt rund 120 Mitglieder: Einheimische, ein Taxifahrer als Clubmeister und westliche Diplomaten, die nur mit Leibwächtern aufs Fairway gehen. Ein Porträt zwischen Sport, Krieg und Diplomatie.
 
 Der folgende Bericht geht auf eine englische Reportage aus dem Jahr 2011 zurück und beschreibt den Kabul Golf Club so, wie er sich damals darstellte. Die Lage in Afghanistan hat sich seither mehrfach grundlegend verändert.
 
