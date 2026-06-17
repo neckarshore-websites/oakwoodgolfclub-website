@@ -11,6 +11,11 @@ draft: false
 ## TL;DR / Zusammenfassung
 Wo ist Golf wirklich verankert? Aussagekräftiger als reine Golferzahlen ist die Dichte der Golfplätze: Auf einen schottischen Platz kommen rund 8.800 Einwohner, auf einen irischen etwa 10.300 – auf einen deutschen dagegen rund 119.000. Deutschland holt zwar auf (Rekord 2025: **695.617 organisierte Golfer** auf 721 Anlagen) und stellt sogar Europas größten Frauen-Golf-Markt, bleibt bei der Dichte aber Mittelfeld. Dieser Beitrag vergleicht Plätze, Geschichte und die weltweite Entwicklung – vom Spitzenreiter Schottland bis zum einzigen Platz Afghanistans.
 
+<figure>
+<img src="/blog/images/top-golfnationen-st-andrews-swilcan-bridge.webp" alt="Swilcan Bridge auf dem Old Course in St Andrews, Schottland" width="760" height="515" />
+<figcaption>Der Swilcan Bridge auf dem Old Course in St Andrews — Schottland ist mit rund 8.800 Einwohnern pro Platz die dichteste Golfnation der Welt. (Foto: Gordon Hatton, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, via Wikimedia Commons)</figcaption>
+</figure>
+
 ## Plätze pro Einwohner – wo Golf wirklich dicht ist
 
 Die ehrlichste Kennzahl für „Golf-Dichte" ist nicht die reine Golferzahl, sondern wie viele Menschen sich einen Golfplatz teilen. Je kleiner der Wert, desto selbstverständlicher gehört Golf zum Alltag:

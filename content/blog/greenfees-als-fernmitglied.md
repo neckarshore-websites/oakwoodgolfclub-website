@@ -11,6 +11,11 @@ draft: false
 ## TL;DR / Zusammenfassung
 Als Fernmitglied zahlst du auf manchen Plätzen ein etwas höheres Greenfee als ein lokales Clubmitglied – und sparst trotzdem hunderte Euro im Jahr, weil der vierstellige Jahresbeitrag eines Heimatclubs komplett entfällt. Ein konkretes Beispiel aus der Region Stuttgart (Golfanlage Schloss Nippenburg): Wer 20 Runden im Jahr spielt, zahlt als lokales Mitglied rund **2.340 € (117 € pro Runde)**, als Fernmitglied im Oakwood Golf Club rund **1.455 € (73 € pro Runde)** – und kann seine Runden frei auf verschiedene Plätze verteilen. Dieser Beitrag zeigt die Rechnung, die ehrlichen Vor- und Nachteile und was die Fernmitgliedschaft im OGC konkret bietet.
 
+<figure>
+<img src="/blog/images/greenfees-golfplatz-wittenbeck.webp" alt="Luftaufnahme des Golfplatzes Wittenbeck an der Ostsee" width="760" height="509" />
+<figcaption>Golfplatz Wittenbeck an der Ostsee — als Fernmitglied verteilt man seine Runden frei über viele Plätze statt nur einen Heimatclub. (CC0, Foto: Beauwell, via Wikimedia Commons)</figcaption>
+</figure>
+
 ## Warum zahle ich als Fernmitglied ein höheres Greenfee?
 
 Eine Frage, die immer wieder aufkommt: Warum zahle ich als Fernmitglied auf manchen Plätzen ein erhöhtes Greenfee? Die ehrlichste Antwort ist ein Rechenbeispiel aus der realen Welt – aus meiner Region Stuttgart, anhand der [Golfanlage Schloss Nippenburg](https://www.golfnippenburg.de/ "Golfanlage Schloss Nippenburg"). Es zeigt, dass der höhere Greenfee am Ende kaum ins Gewicht fällt, solange der teure Jahresbeitrag entfällt.
