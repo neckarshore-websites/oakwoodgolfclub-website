@@ -19,6 +19,10 @@ Das typische Szenario: Ball auf dem Grün, Marker raus, gemarkert, Ball aufgenom
 
 ## Die Lösung: Magnet plus Puttergriff
 
+<img src="/blog/images/magnetischer-ballmarker-holder.webp" alt="Magnetischer Ballmarker-Halter und silberne Marker-Scheibe — schwarzer Klemmhalter für den Puttergriff mit magnetisch gehaltenem Marker aus Edelstahl" width="480" height="340" loading="lazy">
+
+*Magnetischer Halter mit Marker-Scheibe — repräsentatives Beispiel des im Text beschriebenen Setups.*
+
 Magnetische Ballmarker-Halter sind kleine Metallclips oder -plättchen, die dauerhaft am Puttergriff sitzen. Der eigentliche Marker ist eine dünne Metall-Scheibe, die magnetisch am Halter haftet. Workflow:
 
 - Grün erreicht, Putter in die Hand genommen
