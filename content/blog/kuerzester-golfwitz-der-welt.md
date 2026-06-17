@@ -14,7 +14,7 @@ Der kürzeste Golfwitz der Welt hat genau drei Worte. Er erzählt eine komplette
 
 Der Witz geht so:
 
-> „Jetzt kan ichs!"
+> „Jetzt kann ich es!"
 
 Mehr ist es nicht. Und trotzdem kennt jeder, der mehr als eine Saison spielt, genau diesen Moment: Drei Eisen-Schläge hintereinander sauber getroffen. Man hat den Schwung verstanden. Man spürt, wie es sich anfühlen muss. Man sagt es laut.
 
