@@ -35,7 +35,7 @@
     "lucide-react": "1.8.0",
     "marked": "18.0.2",
     "next": "16.2.6",
-    "nodemailer": "8.0.5",
+    "nodemailer": "8.0.9",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "sanitize-html": "2.17.4",
@@ -46,7 +46,7 @@
     "@playwright/test": "1.59.1",
     "@tailwindcss/postcss": "4.2.2",
     "@types/node": "25.6.0",
-    "@types/nodemailer": "8.0.0",
+    "@types/nodemailer": "8.0.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/sanitize-html": "2.16.1",
@@ -61,6 +61,7 @@
     "typescript": "6.0.3"
   },
   "overrides": {
-    "postcss": "8.5.15"
+    "postcss": "8.5.15",
+    "@babel/core": "7.29.7"
   }
 }
