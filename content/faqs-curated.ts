@@ -129,39 +129,39 @@ Beim Oakwood Golf Club ist ein eigenes Recreational-Handicap-Produkt aktuell nic
   // Dropped Fusion/Avada shortcodes, removed stale "Saison 2012/2013"
   // reference. TGA-Logo bleibt (User-confirmed 2026-04-18: Thailand-
   // historie ist Teil der Karte seit über 10 Jahren, auch wenn Betrieb
-  // nach DE verlegt wurde). Golddruck (nicht Prägung). Images sind noch
-  // die alten Thumbnails aus dem WP-Export — 250x161 / 180x116.
+  // nach DE verlegt wurde). Golddruck (nicht Prägung).
   //
-  // TODO-USER (Backlog): Neue hochaufgelöste Fotos der aktuellen
-  // Mitgliederkarte liefern (Vorder- + Rückseite, mind. 1200px breit,
-  // neutraler Hintergrund). Die aktuellen Bilder unter
-  // public/brand/card/card-2012-*.jpg sind 14 Jahre alte WP-Thumbnails.
+  // 2026-06-17 Facelift: card-2026 artwork delivered (RZ_260616_OGC_Clubkarte),
+  // 1219x766 webp, rendered from the print PDF. New design follows the website
+  // CD (black, serif wordmark with green O, course panorama, gold member fields,
+  // green QR code on the back). The old card-2012-*.jpg WP thumbnails are kept
+  // under public/brand/card/ for history + the facelift blog post's before/after.
   // ---------------------------------------------------------------------------
   {
     slug: "wie-sieht-die-clubkarte-aus-aus-welchem-material-ist-sie",
     question: "Wie sieht die Mitgliederkarte aus? Aus welchem Material ist sie?",
     answer: `Die Mitgliederkarte ist eine Plastikkarte im Kreditkartenformat (DIN ID-1, 85,6 × 54 mm) — beidseitig farbig bedruckt, hochwertige Oberfläche, robust für einen 12-Monats-Einsatz in Bag-Seitentasche und Portemonnaie.
 
-Auf der Vorderseite stehen dein Name, Mitgliedsnummer, das Gültigkeitsdatum und dein Handicap — alles im Golddruck. Logo, Layout und Farben sind auf dem Kartenrohling schon vorgedruckt; die persönlichen Daten werden vor dem Versand in Gold aufgebracht.
+Die Vorderseite trägt die Wortmarke „Oakwood Golf Club" über einem Golfplatz-Panorama; darunter stehen deine Mitgliedsnummer, das Gültigkeitsdatum und dein Handicap — in Golddruck. Layout, Logo und Farben sind auf dem Kartenrohling vorgedruckt; die persönlichen Daten werden vor dem Versand aufgebracht.
 
-Die Rückseite zeigt ein Unterschriftsfeld und das Logo des Thailändischen Golfverbands, dem der Club historisch angehört (Gründung 2007). Das visuelle Design der Karte folgt dem Corporate Design der Webseite und entwickelt sich über die Jahre mit. Unverändert ist das Format selbst — Kreditkartengröße, seit Beginn dasselbe.
+Auf der Rückseite findest du ein Unterschriftsfeld, den Hinweis „This card is not transferable", einen QR-Code, der auf oakwoodgolfclub.de führt, und das Logo des Thailändischen Golfverbands, dem der Club historisch angehört (Gründung 2007). Das visuelle Design der Karte folgt dem Corporate Design der Webseite und entwickelt sich über die Jahre mit — zuletzt 2026 grundlegend überarbeitet. Unverändert ist das Format selbst: Kreditkartengröße, seit Beginn dasselbe.
 
 Die Karte ist das, was du im Pro-Shop oder am Counter vorzeigst — kompakt, wiedererkennbar, seit über 15 Jahren im Kreditkartenformat im Einsatz.`,
     category: "karte",
     published: true,
     images: [
       {
-        src: "/brand/card/card-2012-front.jpg",
-        alt: "Vorderseite der Oakwood-Mitgliederkarte mit Name, Mitgliedsnummer, Gültigkeitsdatum und Handicap in Golddruck",
-        width: 250,
-        height: 161,
+        src: "/brand/card/card-2026-front.webp",
+        alt: "Vorderseite der Oakwood-Mitgliederkarte: Wortmarke über einem Golfplatz-Panorama, darunter Mitgliedsnummer, Gültigkeitsdatum und Handicap in Golddruck",
+        width: 1219,
+        height: 766,
         caption: "Vorderseite",
       },
       {
-        src: "/brand/card/card-2012-back.jpg",
-        alt: "Rückseite der Oakwood-Mitgliederkarte mit Unterschriftsfeld und Logo des Thailändischen Golfverbandes",
-        width: 180,
-        height: 116,
+        src: "/brand/card/card-2026-back.webp",
+        alt: "Rückseite der Oakwood-Mitgliederkarte mit Unterschriftsfeld, QR-Code und Logo des Thailändischen Golfverbandes",
+        width: 1219,
+        height: 766,
         caption: "Rückseite",
       },
     ],
