@@ -49,3 +49,54 @@ test("FAQ result deep-links and expands the answer", async ({ page }) => {
   // the targeted <details> is open
   await expect(page.locator("details[open]")).toHaveCount(1, { timeout: 5000 });
 });
+
+const combo = (page: Page) => page.getByRole("combobox", { name: /durchsuchen/i });
+
+test("Arrow keys move the active result; Enter opens the active one", async ({ page }) => {
+  await openWithShortcut(page, "Meta+k");
+  await combo(page).fill("golf"); // broad term → many results
+  const options = page.getByRole("option");
+  await expect(options.nth(1)).toBeVisible(); // need at least two
+  // first result is active by default
+  await expect(options.nth(0)).toHaveAttribute("aria-selected", "true");
+  await page.keyboard.press("ArrowDown");
+  await expect(options.nth(1)).toHaveAttribute("aria-selected", "true");
+  await expect(options.nth(0)).toHaveAttribute("aria-selected", "false");
+  await page.keyboard.press("ArrowUp");
+  await expect(options.nth(0)).toHaveAttribute("aria-selected", "true");
+  // Enter on the active result navigates to a blog/faq URL
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/(blog|faq)/, { timeout: 15_000 });
+});
+
+test("empty query shows the prompt placeholder", async ({ page }) => {
+  await openWithShortcut(page, "Meta+k");
+  // & renders as plain text — match a substring that avoids the entity
+  await expect(page.getByText("Tippe, um Blog")).toBeVisible();
+  await expect(page.getByRole("option")).toHaveCount(0);
+});
+
+test("gibberish query shows the no-results state", async ({ page }) => {
+  await openWithShortcut(page, "Meta+k");
+  await combo(page).fill("qzxqzxqzx");
+  await expect(page.getByText("Nichts gefunden")).toBeVisible();
+  await expect(page.getByRole("option")).toHaveCount(0);
+});
+
+test("clicking the backdrop closes the overlay", async ({ page }) => {
+  await openWithShortcut(page, "Meta+k");
+  // click the top-left of the full-screen dialog — backdrop, not the centered panel
+  await dialog(page).click({ position: { x: 5, y: 5 } });
+  await expect(dialog(page)).toHaveCount(0);
+});
+
+test("hovering a result makes it the active option", async ({ page }) => {
+  await openWithShortcut(page, "Meta+k");
+  await combo(page).fill("golf");
+  const options = page.getByRole("option");
+  await expect(options.nth(1)).toBeVisible();
+  await expect(options.nth(1)).toHaveAttribute("aria-selected", "false");
+  await options.nth(1).hover();
+  await expect(options.nth(1)).toHaveAttribute("aria-selected", "true");
+  await expect(options.nth(0)).toHaveAttribute("aria-selected", "false");
+});
