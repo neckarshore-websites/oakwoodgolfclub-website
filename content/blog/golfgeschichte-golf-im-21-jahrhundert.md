@@ -11,6 +11,11 @@ draft: false
 ## TL;DR / Zusammenfassung
 Im 21. Jahrhundert passiert mehr als in manchem ganzen Jahrhundert davor – Golf verdichtet und kommerzialisiert sich rasant. Die 2000er gehören **Tiger Woods** und seinem „Tiger Slam"; die 2010er bringen mit **Martin Kaymer** den ersten deutschen Major-Sieger, eine neue Spielergeneration und 2016 die **olympische Rückkehr** nach 112 Jahren. Die 2020er starten mit dem **World Handicap System**, einem Golf-Boom in der Pandemie, der Konkurrenz von **LIV Golf**, dem angekündigten **Golfball-Rollback** – und 2024 mit **Esther Henseleits** Silber, der ersten deutschen Olympia-Golfmedaille.
 
+<figure>
+<img src="/blog/images/golf-im-21-jahrhundert-martin-kaymer.webp" alt="Foto des deutschen Golfprofis Martin Kaymer" width="640" height="946" />
+<figcaption>Martin Kaymer, 2006 — 2010 gewann er als erster Deutscher ein Major (PGA Championship) und prägte das deutsche Golf-Jahrzehnt. (Gemeinfrei, Foto: Ulrich Haberland, via Wikimedia Commons)</figcaption>
+</figure>
+
 ## Die 2000er: die Tiger-Woods-Ära
 
 Kein Spieler prägte den Beginn des Jahrhunderts wie **Tiger Woods**. 2000 und 2001 gewann er vier Major-Titel in Folge – den legendären **„Tiger Slam"**. Zwar nicht in einem Kalenderjahr, aber er hielt als erster und bislang einziger Spieler alle vier Majors gleichzeitig. Seine Dominanz, sein Auftreten und seine Reichweite machten Golf endgültig zum globalen TV- und Werbegeschäft.
