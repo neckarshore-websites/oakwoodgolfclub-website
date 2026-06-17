@@ -11,6 +11,11 @@ draft: false
 ## TL;DR / Zusammenfassung
 Im 17. und 18. Jahrhundert wird aus dem schottischen Zeitvertreib ein organisierter Sport. 1603 ernennt König James VI. mit **William Mayne** den ersten Royal Clubmaker; gespielt wird mit dem teuren, federgestopften **Featherie**-Ball. König **Charles I.** golft 1641 in Leith, als ihn die Nachricht der Irischen Rebellion erreicht. Auf dem Kontinent existieren mit dem niederländischen **colf** und dem französischen **jeu de mail** verwandte Spiele – das colf reist sogar bis ins damals niederländische **Beverwyck** (Albany). 1682 messen sich in **Leith** Engländer und Schotten im ersten „Länderspiel"; 1744 schreibt **John Rattray** die ersten 13 Regeln nieder, 1754 entsteht die spätere Heimat des Spiels in **St. Andrews**, 1764 werden dort die **18 Löcher** zum Standard, und 1766 wird mit **Royal Blackheath** der erste Club außerhalb Schottlands gegründet.
 
+<figure>
+<img src="/blog/images/golf-im-17-und-18-jahrhundert-macdonald-boys.webp" alt="Gemälde der MacDonald-Brüder beim Golf, schottisches 18. Jahrhundert" width="700" height="855" />
+<figcaption>„The MacDonald Boys playing golf", zugeschrieben William Mosman, um 1740 — eine der frühesten erhaltenen Darstellungen des Golfspiels. (Gemeinfrei, via Wikimedia Commons)</figcaption>
+</figure>
+
 ## Der erste Profi: William Mayne, Royal Clubmaker (1603)
 
 Der Schotte **William Mayne** lässt sich über eine Urkunde von 1603 als erster professioneller Golfausrüster nachweisen. Seine Schläger spielte König **James VI.**, der ihm dafür den Prestigetitel **Royal Clubmaker** verlieh – der erste kommerzielle Schlägerbau der Golfgeschichte.
