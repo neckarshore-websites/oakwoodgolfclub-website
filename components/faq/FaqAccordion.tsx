@@ -97,7 +97,7 @@ export function FaqAccordion({
       {items.map((item) => {
         const Heading = headingLevel;
         return (
-          <details key={item.slug} id={item.slug} className="group">
+          <details key={item.slug} id={item.slug} className="group scroll-mt-24">
             <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-5 text-left transition-colors hover:text-[var(--color-fairway)]">
               <Heading className="font-heading text-lg tracking-tight">
                 {item.question}
