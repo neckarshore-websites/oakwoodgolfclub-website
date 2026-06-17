@@ -11,6 +11,11 @@ draft: false
 ## TL;DR / Zusammenfassung
 Im 20. Jahrhundert wird Golf vom Zeitvertreib der Oberschicht zur globalen Sportart. Es ist 1900 und 1904 kurz olympisch (mit Margaret Abbott als erster Olympiasiegerin), bekommt 1907 mit dem **Deutschen Golf Verband** eine Heimat in Deutschland und ab 1916 mit der **PGA** eine professionelle Struktur in den USA. Technisch bringen **Dimples** (1908) und **Stahlschäfte** (1920er) den Durchbruch, 1951 einigen sich **USGA und R&A** auf ein weltweit einheitliches Regelwerk. Und mit dem Fernsehen entstehen ab den 1950ern die ersten Superstars: Arnold Palmer, Jack Nicklaus und – zum Jahrhundertende – Tiger Woods.
 
+<figure>
+<img src="/blog/images/golf-im-20-jahrhundert-walter-hagen-1914.webp" alt="Porträtfoto des Golfers Walter Hagen aus dem Jahr 1914" width="469" height="663" />
+<figcaption>Walter Hagen, 1914 — fünffacher PGA-Champion und einer der Wegbereiter des amerikanischen Profigolfs. (Gemeinfrei, aus „Golf Illustrated" 1914, via Wikimedia Commons)</figcaption>
+</figure>
+
 ## Olympia 1900 und 1904: Golf wird (kurz) olympisch
 
 Wie sehr Golf in der Gesellschaft angekommen war, zeigte die Aufnahme als olympische Disziplin – **1900 in Paris** und **1904 in St. Louis**. Eine Fußnote der Geschichte: 1900 stand mit **Margaret Abbott** (USA) die erste Olympiasiegerin im Golf überhaupt am Abschlag – Frauen waren bei diesen Spielen erstmals zugelassen. Danach verschwand Golf allerdings für über ein Jahrhundert wieder von den Olympischen Spielen und kehrte erst 2016 zurück.
