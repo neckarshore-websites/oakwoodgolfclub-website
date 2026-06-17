@@ -11,9 +11,10 @@ draft: false
 ## TL;DR / Zusammenfassung
 Das 19. Jahrhundert modernisierte Golf technisch und gesellschaftlich: **Hickory-Schäfte** (ab den 1820er/30ern), der **Gutta-percha-Ball** und ab **1898** der **Haskell-Ball** veränderten Material und Spielweite. Gleichzeitig wurde Golf sozial breiter — frühe Frauenwettbewerbe in Schottland, der erste Kontinental-Club in **Pau (1856)**, der erste deutsche Club in **Darmstadt (1892)** und die Gründung der **USGA (1894)**.
 
-![Golfgeschichte 19. Jahrhundert](/blog/images/emotionheader5817950772-e1748697242855.webp)
-
-*Golf im 19. Jahrhundert: das Spiel modernisiert sich.*
+<figure>
+<img src="/blog/images/golf-im-19-jahrhundert-old-tom-morris-1901.webp" alt="Foto von Old Tom Morris, Golfpionier des 19. Jahrhunderts" width="501" height="878" />
+<figcaption>Old Tom Morris (1821–1908), prägende Figur des schottischen Golfsports im 19. Jahrhundert — hier auf einer Aufnahme von 1901. (Gemeinfrei, via Wikimedia Commons)</figcaption>
+</figure>
 
 Das 19. Jahrhundert steht für Industrialisierung, Mobilität und gesellschaftlichen Wandel — und genau in diesem Klima wurde Golf vom regionalen schottischen Spiel zum modernen, international organisierten Sport.
 

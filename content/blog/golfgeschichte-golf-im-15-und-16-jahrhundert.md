@@ -11,9 +11,10 @@ draft: false
 ## TL;DR / Zusammenfassung
 1457 verbot König James II den Schotten Golf — Bogenschießen sei wichtiger für die Wehrhaftigkeit des Landes. Doch schon im frühen 16. Jahrhundert belegen Hofrechnungen golfende Könige, und mit dem St.-Andrews-„Golfer's Charter" von 1553 wird das Spiel offiziell geduldet. Ein Streifzug durch das 15. und 16. Jahrhundert — mit klaren Eckdaten.
 
-![Historische Golfszene aus dem 15. und 16. Jahrhundert](/blog/images/golf_im_15_und_16_jahrhundert-1-300x192.webp)
-
-*Frühe Darstellung einer Golfszene aus dem 15./16. Jahrhundert.*
+<figure>
+<img src="/blog/images/golf-im-15-und-16-jahrhundert-golf-book-of-hours.webp" alt="Golfähnliche Szene aus dem Golf Book of Hours, um 1540" width="690" height="238" />
+<figcaption>Golfähnliche Szene aus dem „Golf Book of Hours", zugeschrieben Simon Bening, um 1540 (British Library, MS 24098) — eine der frühesten bildlichen Darstellungen des Spiels. (Gemeinfrei/CC0, via Wikimedia Commons)</figcaption>
+</figure>
 
 Die frühe Golfgeschichte ist im 15. und 16. Jahrhundert eng mit Schottland verbunden — und sie ist vor allem deshalb überliefert, weil Parlament und Königshof penibel Buch führten. Nicht der Buchdruck, sondern die schriftliche Verwaltungskultur (Parlamentsakten, Hofrechnungen) hat uns die ersten Spuren des Spiels bewahrt.
 
