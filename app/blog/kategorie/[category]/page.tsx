@@ -73,7 +73,7 @@ export default async function BlogCategoryPage(
           )}
         </div>
 
-        <aside className="md:col-span-2 md:pl-8 md:border-l md:border-[var(--color-border)]">
+        <aside className="order-first md:order-none md:col-span-2 md:pl-8 md:border-l md:border-[var(--color-border)]">
           <CategoryList categories={categories} activeSlug={cat.slug} />
         </aside>
       </div>
