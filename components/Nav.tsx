@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef } from "react";
 import { NAV, SITE } from "@/lib/site-config";
+import { SearchButton } from "@/components/search/SearchButton";
 
 /**
  * Top navigation — black header with logo left, nav right.
@@ -75,6 +76,7 @@ export function Nav() {
               {item.label}
             </Link>
           ))}
+          <SearchButton variant="desktop" />
           <Link
             href="/mitglied-werden"
             className="inline-flex items-center rounded-sm bg-[var(--color-fairway)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--color-fairway-hover)]"
@@ -83,8 +85,10 @@ export function Nav() {
           </Link>
         </nav>
 
-        {/* Mobile nav — disclosure mit Auto-Close on Link-Click */}
-        <details ref={detailsRef} className="relative md:hidden">
+        {/* Mobile: search + disclosure menu */}
+        <div className="flex items-center gap-2 md:hidden">
+          <SearchButton variant="mobile" />
+          <details ref={detailsRef} className="relative">
           <summary
             className="cursor-pointer list-none rounded-sm border border-white/20 px-3 py-2 text-sm text-white hover:border-white/40"
             aria-label="Menü öffnen"
@@ -118,7 +122,8 @@ export function Nav() {
               </li>
             </ul>
           </nav>
-        </details>
+          </details>
+        </div>
       </div>
     </header>
   );

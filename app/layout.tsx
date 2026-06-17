@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { SearchProvider } from "@/components/search/SearchProvider";
 import { JsonLd, organizationSchema } from "@/components/JsonLd";
 import { SITE } from "@/lib/site-config";
 import "./globals.css";
@@ -81,11 +82,13 @@ export default function RootLayout({
   return (
     <html lang={SITE.language} className={`${playfair.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col">
-        <Nav />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SearchProvider>
+          <Nav />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </SearchProvider>
         <JsonLd id="org-schema" data={organizationSchema()} />
         {/* Vercel Web Analytics — cookieless, DSGVO-safe, no consent banner.
             Guarded on process.env.VERCEL so local `npm run start` does not

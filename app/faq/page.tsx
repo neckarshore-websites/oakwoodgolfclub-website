@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
+import { FaqHashOpener } from "@/components/faq/FaqHashOpener";
 import { JsonLd } from "@/components/JsonLd";
 import {
   getFaqsByCategory,
@@ -42,6 +43,7 @@ export default function FaqPage() {
 
   return (
     <>
+      <FaqHashOpener />
       <JsonLd id="faq-page-schema" data={faqPageSchema} />
 
       <article className="container-page py-20 md:py-24">
