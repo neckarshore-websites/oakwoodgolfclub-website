@@ -5,7 +5,7 @@ excerpt: "Drei Worte. Kein Setup, keine Pointe. Und trotzdem erzählt er alles �
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"
-draft: true
+draft: false
 ---
 ## TL;DR / Zusammenfassung
 Drei Worte. Kein Setup, keine Pointe. Und trotzdem erzählt er alles über das Golfspielen — die Hoffnung, den Moment der Klarheit, und den Schlag danach.
