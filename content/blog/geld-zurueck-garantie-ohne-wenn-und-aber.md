@@ -12,6 +12,8 @@ draft: false
 
 Die meisten Garantien im Netz sind ein Absatz Kleingedrucktes mit drei Sternchen. Unsere ist ein Satz: Wenn dir die Mitgliedschaft nicht passt, bekommst du dein Geld zurück. Ohne Wenn und Aber. Weil das schnell zu schön klingt, hier die ganze Sache — ehrlich und im Detail.
 
+![Stillleben von oben: ein weißer Golfball, ein goldfarbenes Tee und zwei leere, übereinanderliegende Karten in Creme und Dunkelgrün auf hellem Hintergrund — schlicht, in den Farben des Clubs.](/blog/images/geld-zurueck-garantie-ohne-wenn-und-aber.webp)
+
 ## Das Versprechen
 
 Zusätzlich zum gesetzlichen 14-Tage-Widerrufsrecht gibt es bei uns eine lebenslange, formfreie Geld-zurück-Garantie. *Lebenslang* heißt: nicht 14 Tage, nicht 30 — solange deine Mitgliedschaft läuft, kannst du den Beitrag zurückfordern. *Formfrei* heißt: kein Formular, keine Frist, keine Begründung.
