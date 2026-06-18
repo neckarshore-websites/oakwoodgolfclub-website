@@ -36,6 +36,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Profile regression test (no Chrome needed)
+        run: npm run test:lighthouse:unit
+
       - name: Build production bundle
         run: npm run build
 

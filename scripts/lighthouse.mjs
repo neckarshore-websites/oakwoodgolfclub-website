@@ -7,100 +7,42 @@
  *   npm run lighthouse           (builds, starts, audits all profiles, stops)
  *   npm run lighthouse:quick     (skips build, assumes server is running on :3000)
  *
- * Device Matrix (3 profiles):
- *   1. Desktop     — LAN baseline, 1x CPU, 40ms / 10 Mbps         [hard gate]
- *   2. Mobile 4G   — Lighthouse default mobile (Slow 4G)          [hard gate]
- *   3. Mobile Slow — Edge-of-coverage 5G / weak signal            [soft warn only]
+ * Device Matrix (3 profiles) — defined in ./lighthouse-profiles.mjs:
+ *   1. Desktop    — LAN baseline, --preset=desktop, 1× CPU
+ *   2. Mobile 5G  — fast network (~50 Mbps, RTT 20ms), 4× CPU
+ *   3. Mobile 4G  — Lighthouse Slow-4G default (~1.6 Mbps, RTT 150ms), 4× CPU
  *
- * Gate Policy:
- *   - Hard profiles run RUNS_HARD times (default 3) and gate on the MEDIAN
- *     score — a single noisy CI run can't flip the build. Soft profiles run once.
- *   - Hard profiles exit 1 if any median score is below threshold.
- *   - Soft profiles report warnings but never fail the build.
- *   - Mobile Slow Stage 2 thresholds set 2026-04-13 after 5-run baseline
- *     (median 68, threshold = median − 5 = 63).
+ * 5G is FASTER than 4G — the network ordering is correct. The old
+ * "Mobile Slow (Edge-5G)" profile (400 Kbps / 6× CPU) was DELETED 2026-06-18:
+ * 400 Kbps is slower than 4G, so the "5G" label inverted reality.
  *
- * Thresholds history:
- *   - Perf 85 was chosen historically because mobile Next.js framework JS
- *     overhead costs ~12 points on 4x CPU throttle. Raised to 90 (Mobile 4G)
- *     and 95 (Desktop) in 2026-04-10 to catch silent regressions.
+ * Gate Policy (German Rauhut directive 2026-06-18):
+ *   - performance is SOFT on EVERY profile — advisory warning line, never blocks.
+ *     The exit code reflects ONLY hard-gate failures. No hard perf gate on 4G —
+ *     we do not block on an old-tech network the audience has moved past.
+ *   - accessibility / best-practices / seo are HARD @95 on every profile —
+ *     deterministic categories, a drop is a real defect.
+ *   - Per-metric soft override lives in each profile's `softMetrics` list.
+ *
+ * Full rationale + canonical design source: see ./lighthouse-profiles.mjs.
+ *
+ * Ported from neckarshore-website 2026-06-18 (same estate standard).
  */
 
 import { execFileSync, spawn } from "node:child_process";
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { PROFILES } from "./lighthouse-profiles.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-
-// ── Profile Definitions ──────────────────────────────────────────────
-
-const PROFILES = [
-  {
-    name: "desktop",
-    label: "Desktop",
-    gate: "hard",
-    lhArgs: ["--preset=desktop"],
-    thresholds: {
-      performance: 95,
-      accessibility: 95,
-      "best-practices": 95,
-      seo: 95,
-    },
-    reportFile: "report-desktop.json",
-  },
-  {
-    name: "mobile-4g",
-    label: "Mobile 4G",
-    gate: "hard",
-    lhArgs: ["--form-factor=mobile", "--screenEmulation.mobile"],
-    thresholds: {
-      performance: 90,
-      accessibility: 95,
-      "best-practices": 95,
-      seo: 95,
-    },
-    reportFile: "report-mobile-4g.json",
-  },
-  {
-    name: "mobile-slow",
-    label: "Mobile Slow (Edge-5G)",
-    gate: "soft",
-    lhArgs: [
-      "--form-factor=mobile",
-      "--screenEmulation.mobile",
-      "--throttling-method=simulate",
-      "--throttling.rttMs=400",
-      "--throttling.throughputKbps=400",
-      "--throttling.cpuSlowdownMultiplier=6",
-    ],
-    // Stage 2 thresholds (2026-04-13): baseline median 68, formula = baseline − 5.
-    // 5 runs (local+CI): [67, 68, 68, 70, 71]. Variance ±4 pts, stable enough.
-    thresholds: {
-      performance: 63,
-      accessibility: 95,
-      "best-practices": 95,
-      seo: 95,
-    },
-    reportFile: "report-mobile-slow.json",
-  },
-];
 
 const URL = process.env.LIGHTHOUSE_URL || "http://localhost:3000";
 const QUICK = process.argv.includes("--quick");
 const MAX_RETRIES = 3;
 
-// Flakiness control: hard-gate profiles run N times and the MEDIAN score is
-// gated, so a single noisy run (e.g. a TBT spike on shared CI CPU) can't flip
-// a green build red. (MAX_RETRIES above only re-runs on *errored* audits — a
-// successful-but-low run still counts, which is exactly the flake we hit:
-// Desktop Performance 83 on one runner vs 95 on another for identical code.)
-// Soft profiles run once. Override with LIGHTHOUSE_RUNS (e.g. =1 for a fast
-// local pass). Median of 3 is the web.dev-recommended baseline.
-const RUNS_HARD = Math.max(1, Number(process.env.LIGHTHOUSE_RUNS) || 3);
-
-// Optional: filter to a single profile via --profile=desktop|mobile-4g|mobile-slow
+// Optional: filter to a single profile via --profile=desktop|mobile-5g|mobile-4g
 const profileArg = process.argv.find((a) => a.startsWith("--profile="));
 const selectedProfile = profileArg ? profileArg.split("=")[1] : null;
 const PROFILES_TO_RUN = selectedProfile
@@ -256,36 +198,12 @@ try {
       }
     }
 
-    // Hard gates run N times and gate on the median; soft profiles run once.
-    const runs = profile.gate === "hard" ? RUNS_HARD : 1;
-    const samples = [];
-    for (let r = 1; r <= runs; r++) {
-      log(
-        runs > 1
-          ? `Running Lighthouse audit (${profile.label}) — run ${r}/${runs}...`
-          : `Running Lighthouse audit (${profile.label})...`
-      );
-      runLighthouse(lhBin, URL, reportPath, profile.lhArgs);
-      const runReport = JSON.parse(readFileSync(reportPath, "utf-8"));
-      samples.push({
-        report: runReport,
-        scores: getScores(runReport),
-        metrics: getMetrics(runReport),
-      });
-    }
+    log(`Running Lighthouse audit (${profile.label})...`);
+    runLighthouse(lhBin, URL, reportPath, profile.lhArgs);
 
-    // Gate on the MEDIAN run (by performance) — robust to single-run CI noise.
-    const median = [...samples].sort(
-      (a, b) => a.scores.performance - b.scores.performance
-    )[Math.floor(samples.length / 2)];
-    const scores = median.scores;
-    const metrics = median.metrics;
-
-    // Persist the median run as the report artifact (not whichever ran last).
-    writeFileSync(reportPath, JSON.stringify(median.report));
-
-    const runSpread =
-      runs > 1 ? samples.map((s) => s.scores.performance).join(", ") : null;
+    const report = JSON.parse(readFileSync(reportPath, "utf-8"));
+    const scores = getScores(report);
+    const metrics = getMetrics(report);
 
     console.log(`\n── ${profile.label} [${profile.gate}] ──`);
 
@@ -295,20 +213,24 @@ try {
 
       if (threshold != null) {
         const pass = score >= threshold;
-        const icon = pass ? "  ✓" : "  ✗";
+        // A metric is soft if the whole profile is soft OR it is listed in the
+        // profile's per-metric softMetrics override (e.g. performance everywhere).
+        const isSoftMetric =
+          profile.gate === "soft" || profile.softMetrics?.includes(key);
+        const icon = pass ? "  ✓" : isSoftMetric ? "  ⚠" : "  ✗";
         console.log(
           `${icon} ${capitalizeKey(key)}: ${score} (threshold: ${threshold})${delta}`
         );
         if (!pass) {
           const failure = `${profile.label} ${capitalizeKey(key)}: ${score} < ${threshold}`;
-          if (profile.gate === "hard") {
-            hardFailures.push(failure);
-          } else {
+          if (isSoftMetric) {
             softWarnings.push(failure);
+          } else {
+            hardFailures.push(failure);
           }
         }
       } else {
-        // No threshold set (soft profile, Stage 2 pending) — report only.
+        // No threshold set — report only.
         console.log(`  · ${capitalizeKey(key)}: ${score}${delta}`);
       }
     }
@@ -318,11 +240,6 @@ try {
         `TBT: ${fmtMs(metrics.tbt)} | CLS: ${fmtCls(metrics.cls)} | ` +
         `SI: ${fmtMs(metrics.si)}`
     );
-    if (runSpread) {
-      console.log(
-        `    Performance runs: [${runSpread}] → median ${scores.performance} (gated)`
-      );
-    }
 
     summary.push({ profile: profile.label, gate: profile.gate, scores, metrics });
   }
