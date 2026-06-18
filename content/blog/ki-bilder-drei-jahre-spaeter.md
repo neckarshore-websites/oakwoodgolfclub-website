@@ -6,12 +6,10 @@ excerpt: "2023: Golfer mit Angelruten, Schläger-Chimären, zu viele Bälle. 202
 categories:
   - "Golfkultur"
 author: "Oakwood Golf Club"
-draft: true
+draft: false
 ---
 ## TL;DR / Zusammenfassung
 2023: Golfer mit Angelruten, Schläger-Chimären, zu viele Bälle. 2026: fotorealistisch, aber mit neuen, subtileren Fehlern. Was sich verbessert hat — und was trotzdem noch nicht stimmt.
-
-> **Arbeits-Draft.** Follow-up zum Retrospektiv-Beitrag [KI-generierte Golfbilder (April 2023)](/blog/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte). Die Beispielbilder werden noch eingesetzt; der Text steht.
 
 Vor drei Jahren haben wir uns über KI-Golfbilder amüsiert: Spieler mit zwei Schlägern, Schläger wie Angelruten, ein halbes Dutzend Bälle nach dem Abschlag. Das war 2023. Seitdem hat sich die Bildgenerierung rasant weiterentwickelt — Zeit für einen ehrlichen Vergleich. Was kann die KI heute, wo scheitert sie noch, und was heißt das für einen Golfclub, der Bilder braucht?
 
@@ -71,4 +69,3 @@ Drei Jahre haben die KI-Golfbilder vom Lacher zum brauchbaren Werkzeug gemacht �
 ## Links
 
 - Rückblick, wie es 2023 anfing: [KI-generierte Golfbilder (April 2023)](/blog/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte)
-<!-- TODO Links: 1-2 aktuelle (2026) Stand-der-Technik-Artikel + Anbieter-Links (OpenAI / Midjourney / Google / Flux), sobald der finale Pass mit Bildern läuft. -->
