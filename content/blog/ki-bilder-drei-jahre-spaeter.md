@@ -1,6 +1,7 @@
 ---
 title: "KI-Bilder — drei Jahre später"
 date: "2026-04-24"
+modified: "2026-06-18"
 excerpt: "2023: Golfer mit Angelruten, Schläger-Chimären, zu viele Bälle. 2026: fotorealistisch, aber mit neuen, subtileren Fehlern. Was sich verbessert hat — und was trotzdem noch nicht stimmt."
 categories:
   - "Golfkultur"
@@ -10,63 +11,55 @@ draft: true
 ## TL;DR / Zusammenfassung
 2023: Golfer mit Angelruten, Schläger-Chimären, zu viele Bälle. 2026: fotorealistisch, aber mit neuen, subtileren Fehlern. Was sich verbessert hat — und was trotzdem noch nicht stimmt.
 
-> **Arbeits-Draft.** Follow-up zum Retrospektiv-Beitrag [KI-generierte Golfbilder (April 2023)](/blog/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte). Content-Outline steht, konkrete 2026-Beispielbilder und Formulierungen folgen in einem separaten Content-Pass.
+> **Arbeits-Draft.** Follow-up zum Retrospektiv-Beitrag [KI-generierte Golfbilder (April 2023)](/blog/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte). Die Beispielbilder werden noch eingesetzt; der Text steht.
+
+Vor drei Jahren haben wir uns über KI-Golfbilder amüsiert: Spieler mit zwei Schlägern, Schläger wie Angelruten, ein halbes Dutzend Bälle nach dem Abschlag. Das war 2023. Seitdem hat sich die Bildgenerierung rasant weiterentwickelt — Zeit für einen ehrlichen Vergleich. Was kann die KI heute, wo scheitert sie noch, und was heißt das für einen Golfclub, der Bilder braucht?
 
 ## Was sich verändert hat
 
-<!-- TODO:
-     - Kurzer Abriss: DALL·E 3 → GPT-4o Image, Midjourney v6/v7, Flux 1.1 Pro, Gemini 2
-     - Fotorealismus-Sprung: Hände, Proportionen, Licht
-     - Wie einfach die Tools geworden sind (ChatGPT, Gemini, Copilot nativ)
--->
+Zwischen den ersten Midjourney-Versionen von 2023 und der heutigen Generation der Bildmodelle liegen Welten. Die offensichtlichen Schnitzer — falsche Anzahl Finger, verbogene Schläger, unmögliche Körperhaltungen — sind weitgehend verschwunden. Heutige Modelle erzeugen Golfszenen in einer Qualität, die auf den ersten Blick von einem Foto kaum zu unterscheiden ist: stimmiges Licht, echte Tiefenschärfe, glaubwürdige Stoffe und Oberflächen.
+
+Mindestens so wichtig wie die Qualität ist, wie einfach es geworden ist. Wo man 2023 noch Prompts in eine Spezial-App tippte, generiert man Bilder heute beiläufig direkt im Chat — in ChatGPT, in Google Gemini, in Copilot. Bildgenerierung ist vom Nerd-Werkzeug zum Alltagsgegenstand geworden.
 
 ## Was die KI heute richtig macht
 
-<!-- TODO:
-     - Realistische Golfer-Posen
-     - Platz-Atmosphäre (Morgendunst, Sonnenstand, Rough)
-     - Equipment-Details: Schlägerform, Griff, Bag
-     - Beispielbild 1, 2, 3 — User oder Jack liefern Prompts + Outputs
--->
+<!-- IMG-PLACEHOLDER 1: starkes 2026-Beispiel — grafisch beeindruckende Golfszene (z.B. das Gemini-Bild vom 17.06.). User liefert Output; Modell/Prompt für die Bildunterschrift notieren. -->
+
+Was heute überzeugt:
+
+- **Spieler-Posen.** Schwung, Stand, Griff wirken anatomisch korrekt — kein verrenkter Twister mehr.
+- **Platz-Atmosphäre.** Morgendunst über dem Fairway, tiefstehende Sonne, Rough und Bunkerkanten: Die Stimmung eines echten Golfmorgens trifft die KI inzwischen verblüffend gut.
+- **Equipment-Details.** Schlägerform, Bag, Handschuh, sogar das Muster auf dem Ball sehen plausibel aus, solange man nicht zu genau hinschaut.
 
 ## Was immer noch falsch ist
 
-<!-- TODO:
-     - Subtile Regel-Fehler (Ballposition, Tee-Höhe, Bunker-Markierungen)
-     - Scorecard-Layouts, Anzeigetafeln (Text-Rendering)
-     - Handicap-Anzeiger, Pin-Positionen
-     - Klamotten-Dresscode auf deutschen Plätzen (Jeans auf Bahn etc.)
-     - Beispielbild 4, 5, 6 — je Fehler ein Beleg
--->
+Der Fortschritt hat die Fehler nicht beseitigt — er hat sie subtiler gemacht. Statt zu lachen muss man heute genauer hinsehen. Und das ist der eigentliche Witz an den heutigen Bildern: grafisch ein brutaler Sprung, technisch trotzdem voller Fehler, die nur ein Golfer bemerkt. Typische Schwachstellen 2026:
+
+- **Regel- und Detailfehler.** Ballposition, Tee-Höhe, Bunkerkanten, Fahnen und Markierungen — Dinge, die nur wer das Spiel kennt, als falsch erkennt.
+- **Text auf dem Bild.** Scorekarten, Anzeigetafeln, Logos: Sobald Schrift im Spiel ist, wird es krakelig. Lesbarer Text bleibt die Achillesferse der Bildmodelle.
+- **Der Alltag jenseits der Tour.** Ein deutscher Durchschnittsplatz an einem Dienstagvormittag sieht anders aus als ein Major-Finale — und genau diesen unspektakulären Alltag bekommt die KI seltener hin.
+
+<!-- IMG-PLACEHOLDER 2: Fehler-Beleg — Detailausschnitt aus dem oberen Beispielbild mit markierten technischen Fehlern (die konkrete Fehlerliste folgt aus der Bildanalyse). -->
 
 ## Warum bleibt etwas noch falsch?
 
-<!-- TODO:
-     - Trainingsdaten-Verteilung: Tour-Fotos überrepräsentiert, Amateur-Alltag unter
-     - Regel-Wissen ≠ Bild-Wissen: Modelle sehen Bilder, nicht Regelwerke
-     - Lange-Tail-Features (Fernmitgliedschafts-Ausweis, deutsche Beschilderung)
--->
+Zwei Gründe. Erstens die **Trainingsdaten**: Im Netz sind hochglanzpolierte Tour-Fotos massiv überrepräsentiert, der ganz normale Amateur-Alltag kaum. Die KI hat gelernt, wie ein Profi-Turnier aussieht — nicht, wie ein Feierabend-Neuner auf dem Heimatplatz aussieht.
+
+Zweitens: **Ein Bildmodell kennt Bilder, keine Regeln.** Es hat Millionen Golffotos gesehen, aber nie das Regelwerk gelesen. Es weiß, dass ein Bunker grob so aussieht — nicht, dass der Ball dort nicht aufgeteet wird. Solches Detailwissen steckt im Kontext, nicht im Pixel, und genau da bleibt die Lücke.
 
 ## Was das für uns im Club heißt
 
-<!-- TODO:
-     - Praktisch: KI-Bilder für Newsletter, Social, Blog-Header — wo ja, wo nein
-     - Bildhinweis-Pflicht (DSGVO + Urheberrecht) bei KI-Bildern
-     - Keine KI-Bilder für Handicap-Karten, Mitglieder-Kommunikation mit echten Namen
-     - Link zur OGC-Haltung / zum Impressum-Hinweis
--->
+Praktisch gefragt: Wo setzen wir KI-Bilder ein, wo nicht?
+
+- **Ja — für Atmosphäre.** Stimmungsbilder für Blog-Header, Newsletter oder Social Media, wo es um Gefühl statt um Fakten geht, sind heute brauchbar.
+- **Mit Kennzeichnung.** KI-generierte Bilder weisen wir als solche aus — Transparenz gegenüber unseren Mitgliedern gehört dazu.
+- **Nein — für alles Echte.** Mitgliederkarten, Handicap-Unterlagen, jede Kommunikation mit echten Namen und Daten: Da haben generierte Bilder nichts verloren. Was ein Mitglied betrifft, zeigt einen echten Menschen oder gar nichts.
 
 ## Fazit
 
-<!-- TODO:
-     - 2–3 Sätze. Wo wir heute stehen. Was der nächste Meilenstein wäre.
-     - Kein "Zukunft" prophezeien — nur was jetzt geht und was nicht.
--->
+Drei Jahre haben die KI-Golfbilder vom Lacher zum brauchbaren Werkzeug gemacht — für Stimmung, nicht für Wahrheit. Die offensichtlichen Pannen sind weg, die feinen Fehler geblieben. Für einen Club heißt das: nutzen, wo es um Atmosphäre geht, kennzeichnen, und überall dort die Finger lassen, wo es um echte Mitglieder geht.
 
 ## Links
 
-<!-- TODO:
-     - Aktuelle Stand-der-Technik-Artikel (2026, nicht 2023)
-     - Anbieter: OpenAI / Midjourney / Flux / Google / Anthropic
-     - Rückverweis auf den 2023er Beitrag als "wie es angefangen hat"
--->
+- Rückblick, wie es 2023 anfing: [KI-generierte Golfbilder (April 2023)](/blog/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte)
+<!-- TODO Links: 1-2 aktuelle (2026) Stand-der-Technik-Artikel + Anbieter-Links (OpenAI / Midjourney / Google / Flux), sobald der finale Pass mit Bildern läuft. -->
