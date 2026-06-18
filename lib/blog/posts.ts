@@ -16,6 +16,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
+import { injectImageDimensions } from "./image-dimensions";
 import type { Category, Post, PostMeta } from "./types";
 
 /**
@@ -164,7 +165,12 @@ function loadAll(): CachedAll {
 
     const rawHtml = marked.parse(parsed.content, { async: false }) as string;
     const wrappedHtml = wrapTldr(rawHtml);
-    const html = sanitizeHtml(wrappedHtml, SANITIZE_CONFIG);
+    const sanitized = sanitizeHtml(wrappedHtml, SANITIZE_CONFIG);
+    // Inject intrinsic width/height on dimensionless <img>s to prevent CLS
+    // (#71). Runs AFTER sanitize; values are build-time-computed integers
+    // (width/height are also in the sanitiser allow-list), so this adds no
+    // injection surface.
+    const html = injectImageDimensions(sanitized);
     const readingTime = Math.max(
       1,
       Math.round(parsed.content.split(/\s+/).length / 200),
