@@ -105,6 +105,21 @@ BLOG_POST_OVERRIDES = {
     # the WP-era post about MyGolf.gs as the in-house handicap app is
     # actively misleading. The Handicap-FAQ explains the current state.
     'mygolf-app': '/faq#warum-aktuell-keine-handicap-verwaltung',
+
+    # Not migrated (post deleted): the mscorecard handicap-management post was
+    # dropped in the same D9 truth-alignment. content/blog/mscorecard-...md is
+    # already deleted, so the un-overridden /blog/<slug> destination 404'd
+    # (308 → 404 chain, caught in the 2026-06-18 SEO audit). Route the legacy
+    # URL to the Handicap-FAQ, consistent with mygolf-app above.
+    'mscorecard-handicap-verwaltung-und-mehr': '/faq#warum-aktuell-keine-handicap-verwaltung',
+
+    # Slug-typo correction — NOT a removal, the post IS live. The WP slug
+    # carried a double-f typo ("ffernmitglied"); the migrated file was renamed
+    # to the correct single-f slug (content/blog/greenfees-als-fernmitglied.md).
+    # Without this override the generator emitted /blog/greenfees-als-ffernmitglied
+    # (double-f → 404, caught in the 2026-06-18 SEO audit). Map the old double-f
+    # WP URL to the live single-f post. Do NOT delete the .md for this one.
+    'greenfees-als-ffernmitglied': '/blog/greenfees-als-fernmitglied',
 }
 
 
