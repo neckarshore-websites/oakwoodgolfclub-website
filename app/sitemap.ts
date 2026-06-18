@@ -1,58 +1,86 @@
 import type { MetadataRoute } from "next";
-import { getAllCategories, getAllPosts } from "@/lib/blog/posts";
-import { SITE } from "@/lib/site-config";
+import {
+  getAllCategories,
+  getAllPosts,
+  getPostsByCategorySlug,
+} from "@/lib/blog/posts";
+import { SITE, SITE_UPDATED } from "@/lib/site-config";
 
 /**
  * Sitemap — Phase-1-Plan §SEO Must-Haves.
  * App-Router-native (not next-sitemap) — decision locked in B3.
  *
- * Dynamic: blog posts + blog categories from /content/blog.
- * Static: all canonical pages.
+ * `lastModified` carries a STABLE, content-derived date per route
+ * (SEO-audit 2026-06-18 #69). A build-time `new Date()` previously stamped
+ * every URL as freshly modified on every deploy — a false freshness signal
+ * that erodes a crawler's trust in the whole sitemap. Now:
+ *   - blog posts      → the post's own modified/date
+ *   - /blog           → the newest post's date
+ *   - category pages  → the newest post date within that category
+ *   - everything else → SITE_UPDATED (the site-wide content-revision marker)
+ *
+ * `changeFrequency` and `priority` are intentionally OMITTED: Google has
+ * publicly stated it ignores both. Emitting them only bloats the file and
+ * implies a precision we don't have. (Both fields are optional in
+ * MetadataRoute.Sitemap.)
  */
-export default function sitemap(): MetadataRoute.Sitemap {
-  const today = new Date();
 
-  const staticRoutes: Array<{
-    path: string;
-    changeFrequency: "yearly" | "monthly" | "weekly";
-    priority: number;
-  }> = [
-    { path: "/", changeFrequency: "monthly", priority: 1.0 },
-    { path: "/mitglied-werden", changeFrequency: "monthly", priority: 0.95 },
-    { path: "/mitgliedschaft-verlaengern", changeFrequency: "monthly", priority: 0.9 },
-    { path: "/faq", changeFrequency: "monthly", priority: 0.8 },
-    { path: "/ueber-uns", changeFrequency: "monthly", priority: 0.7 },
-    { path: "/oakwood-golf-club-fernmitgliedschaft", changeFrequency: "monthly", priority: 0.7 },
-    { path: "/kontakt", changeFrequency: "yearly", priority: 0.5 },
-    { path: "/blog", changeFrequency: "weekly", priority: 0.8 },
-    { path: "/impressum", changeFrequency: "yearly", priority: 0.3 },
-    { path: "/datenschutz", changeFrequency: "yearly", priority: 0.3 },
-    { path: "/agb", changeFrequency: "yearly", priority: 0.3 },
+function postDate(post: { modified?: string; date: string }): Date {
+  return new Date(post.modified ?? post.date);
+}
+
+/** Newest of the given dates, or `fallback` when the list is empty. */
+function latest(dates: Date[], fallback: Date): Date {
+  return dates.reduce((a, b) => (b > a ? b : a), fallback);
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUpdated = new Date(SITE_UPDATED);
+  const posts = getAllPosts();
+  const newestPost = latest(
+    posts.map(postDate),
+    siteUpdated,
+  );
+
+  // Logical lead order kept (home → conversion funnel → info → legal);
+  // priority is gone, but a human-readable URL order is still nice to have.
+  const staticRoutes: Array<{ path: string; lastModified: Date }> = [
+    { path: "/", lastModified: siteUpdated },
+    { path: "/mitglied-werden", lastModified: siteUpdated },
+    { path: "/mitgliedschaft-verlaengern", lastModified: siteUpdated },
+    { path: "/faq", lastModified: siteUpdated },
+    { path: "/ueber-uns", lastModified: siteUpdated },
+    {
+      path: "/oakwood-golf-club-fernmitgliedschaft",
+      lastModified: siteUpdated,
+    },
+    { path: "/kontakt", lastModified: siteUpdated },
+    { path: "/blog", lastModified: newestPost },
+    { path: "/impressum", lastModified: siteUpdated },
+    { path: "/datenschutz", lastModified: siteUpdated },
+    { path: "/agb", lastModified: siteUpdated },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${SITE.url}${route.path}`,
-    lastModified: today,
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
+    lastModified: route.lastModified,
   }));
 
   // Blog posts — each gets its own entry with its actual modified/date value.
-  const posts = getAllPosts();
   const postEntries: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE.url}/blog/${post.slug}`,
-    lastModified: new Date(post.modified ?? post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
+    lastModified: postDate(post),
   }));
 
-  // Blog category pages.
+  // Blog category pages — lastModified derived from the newest post in the
+  // category, so a category's freshness tracks its content.
   const categories = getAllCategories();
   const categoryEntries: MetadataRoute.Sitemap = categories.map((cat) => ({
     url: `${SITE.url}/blog/kategorie/${cat.slug}`,
-    lastModified: today,
-    changeFrequency: "weekly" as const,
-    priority: 0.5,
+    lastModified: latest(
+      getPostsByCategorySlug(cat.slug).map(postDate),
+      siteUpdated,
+    ),
   }));
 
   return [...staticEntries, ...postEntries, ...categoryEntries];
