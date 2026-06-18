@@ -1,0 +1,85 @@
+name: IndexNow
+
+# On every push to main that touches blog content, ping the IndexNow API
+# (Bing + Yandex — both DACH-relevant) with the changed post URLs so they
+# re-crawl within minutes instead of waiting for the next sitemap poll.
+# Google does NOT participate in IndexNow; it keeps relying on the sitemap.
+#
+# Security: the github.event.* values (before/after SHAs) are passed via env,
+# never interpolated into a shell command, so there is no command-injection
+# surface. The IndexNow key is public by design (served at /<key>.txt) — no
+# secret handling needed.
+#
+# fetch-depth: 0 is REQUIRED so `git diff <before> <after>` can see both
+# commits — the default shallow checkout (depth 1) has only the tip and the
+# diff would fail.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/blog/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    name: Submit changed posts to IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compute changed blog files
+        id: changed
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          ZERO="0000000000000000000000000000000000000000"
+          if [ -z "${BEFORE_SHA:-}" ] || [ "$BEFORE_SHA" = "$ZERO" ] \
+             || ! git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+            # First push / branch-create / force-push: base SHA unknown.
+            echo "mode=all" >> "$GITHUB_OUTPUT"
+            echo "Unknown base SHA — submitting all published posts."
+          else
+            FILES=$(git diff --name-only "$BEFORE_SHA" "$AFTER_SHA" -- content/blog/ || true)
+            echo "Changed blog files:"
+            echo "$FILES"
+            echo "mode=changed" >> "$GITHUB_OUTPUT"
+            {
+              echo "files<<__EOF__"
+              echo "$FILES"
+              echo "__EOF__"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Submit to IndexNow
+        env:
+          MODE: ${{ steps.changed.outputs.mode }}
+          FILES: ${{ steps.changed.outputs.files }}
+        run: |
+          set -euo pipefail
+          if [ "$MODE" = "all" ]; then
+            node scripts/indexnow-submit.mjs --all
+          elif [ -z "${FILES//[[:space:]]/}" ]; then
+            echo "No changed blog files — nothing to submit."
+          else
+            # content/blog filenames are slug-named (no spaces); safe to expand.
+            # shellcheck disable=SC2086
+            node scripts/indexnow-submit.mjs $FILES
+          fi

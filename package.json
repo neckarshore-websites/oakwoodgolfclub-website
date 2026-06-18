@@ -20,6 +20,8 @@
     "test:search:unit": "NODE_ENV=production tsx tests/search/strip-markdown.test.ts && NODE_ENV=production tsx tests/search/index-data.test.ts",
     "test:blog:unit": "tsx tests/blog/lead-image.test.ts",
     "test:sitemap:unit": "NODE_ENV=production tsx tests/sitemap/sitemap.test.ts",
+    "test:seo:unit": "tsx tests/seo/indexnow.test.ts",
+    "indexnow:dry-run": "node scripts/indexnow-submit.mjs --all --dry-run",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test --grep-invert @external",
     "test:e2e:prod": "E2E_CAPTCHA_REAL=1 E2E_BASE_URL=https://oakwoodgolfclub-website.vercel.app playwright test",
