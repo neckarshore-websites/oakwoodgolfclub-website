@@ -15,6 +15,11 @@ draft: true
 
 Vor drei Jahren haben wir uns über KI-Golfbilder amüsiert: Spieler mit zwei Schlägern, Schläger wie Angelruten, ein halbes Dutzend Bälle nach dem Abschlag. Das war 2023. Seitdem hat sich die Bildgenerierung rasant weiterentwickelt — Zeit für einen ehrlichen Vergleich. Was kann die KI heute, wo scheitert sie noch, und was heißt das für einen Golfclub, der Bilder braucht?
 
+<figure>
+  <img src="/blog/images/ki-2026-golf-damals-heute.webp" alt="KI-generiertes Split-Screen-Bild: links eine Golferin um 1900 in edwardianischer Kleidung mit Federhut vor einer Zuschauerkulisse, rechts eine moderne Profigolferin mit Driver, Visor und Handschuh, daneben eine TV-Kamera und Werbebanden." />
+  <figcaption>Mit Google Gemini erzeugt (2026): „Damals vs. heute" im Damengolf. Grafisch ein gewaltiger Sprung gegenüber 2023 — und trotzdem voller Fehler, die nur ein Golfer sieht (mehr dazu weiter unten). KI-generiertes Bild.</figcaption>
+</figure>
+
 ## Was sich verändert hat
 
 Zwischen den ersten Midjourney-Versionen von 2023 und der heutigen Generation der Bildmodelle liegen Welten. Die offensichtlichen Schnitzer — falsche Anzahl Finger, verbogene Schläger, unmögliche Körperhaltungen — sind weitgehend verschwunden. Heutige Modelle erzeugen Golfszenen in einer Qualität, die auf den ersten Blick von einem Foto kaum zu unterscheiden ist: stimmiges Licht, echte Tiefenschärfe, glaubwürdige Stoffe und Oberflächen.
@@ -23,9 +28,7 @@ Mindestens so wichtig wie die Qualität ist, wie einfach es geworden ist. Wo man
 
 ## Was die KI heute richtig macht
 
-<!-- IMG-PLACEHOLDER 1: starkes 2026-Beispiel — grafisch beeindruckende Golfszene (z.B. das Gemini-Bild vom 17.06.). User liefert Output; Modell/Prompt für die Bildunterschrift notieren. -->
-
-Was heute überzeugt:
+Das Bild oben zeigt es: Was heute überzeugt, ist —
 
 - **Spieler-Posen.** Schwung, Stand, Griff wirken anatomisch korrekt — kein verrenkter Twister mehr.
 - **Platz-Atmosphäre.** Morgendunst über dem Fairway, tiefstehende Sonne, Rough und Bunkerkanten: Die Stimmung eines echten Golfmorgens trifft die KI inzwischen verblüffend gut.
@@ -39,7 +42,13 @@ Der Fortschritt hat die Fehler nicht beseitigt — er hat sie subtiler gemacht. 
 - **Text auf dem Bild.** Scorekarten, Anzeigetafeln, Logos: Sobald Schrift im Spiel ist, wird es krakelig. Lesbarer Text bleibt die Achillesferse der Bildmodelle.
 - **Der Alltag jenseits der Tour.** Ein deutscher Durchschnittsplatz an einem Dienstagvormittag sieht anders aus als ein Major-Finale — und genau diesen unspektakulären Alltag bekommt die KI seltener hin.
 
-<!-- IMG-PLACEHOLDER 2: Fehler-Beleg — Detailausschnitt aus dem oberen Beispielbild mit markierten technischen Fehlern (die konkrete Fehlerliste folgt aus der Bildanalyse). -->
+**Unser Beispielbild oben ist ein Paradefall.** Auf den ersten Blick beeindruckend — beim zweiten verrät es sich Stück für Stück:
+
+- **Abschlag vom Holzboden.** Beide Golferinnen schlagen von einem Bretterboden ab, nicht vom Tee oder vom Rasen. So spielt man auf keinem Platz der Welt — der größte Schnitzer im Bild.
+- **Fantasie-Text auf den Werbebanden.** Die Sponsorenschilder rechts zeigen reinen Buchstabensalat. Sobald Schrift ins Bild soll, kapituliert die KI.
+- **Zwei Epochen durcheinandergewürfelt.** Links stehen „Paris 1900 — Olympische Spiele" und „Deutscher Golf Verband, gegr. 1907" nebeneinander. Das Pikante: Beide Fakten stimmen für sich (Damengolf war 1900 in Paris olympisch, der DGV wurde 1907 gegründet) — die KI kennt die Fakten, wirft sie aber wahllos in eine einzige Szene.
+- **Verstreute Schläger, recyceltes Clubhaus.** Links liegen Schläger lose am Boden statt im Bag; das Clubhaus ist links wie rechts erkennbar dasselbe Gebäude, nur umgefärbt.
+- **Und der Ball.** Rechts liegt er für einen Driver zu weit hinten im Stand, links überhaupt auf dem Holz statt auf Rasen oder Tee.
 
 ## Warum bleibt etwas noch falsch?
 
