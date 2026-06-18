@@ -1,6 +1,19 @@
 import { PRICING, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 /**
+ * Stable @id for the single Oakwood Golf Club organization entity. Every
+ * schema node that refers to the club (publisher, author, brand, worksFor)
+ * references this @id instead of re-declaring a look-alike node, so search
+ * engines and LLMs resolve ONE entity site-wide (SEO-audit M2, 2026-06-18).
+ * The full SportsClub node — carrying this @id — is emitted on every page
+ * via the root layout, so any same-page @id reference resolves.
+ */
+export const ORG_ID = `${SITE.url}/#organization`;
+
+/** Stable @id for the founder Person entity (full node defined on /ueber-uns). */
+export const FOUNDER_ID = `${SITE.url}/#founder`;
+
+/**
  * Renders a JSON-LD block as a raw <script type="application/ld+json"> tag
  * directly into the SSR HTML output.
  *
@@ -43,6 +56,7 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "SportsClub",
+    "@id": ORG_ID,
     name: SITE.name,
     alternateName: ["OGC", "Oakwood Golf Club DACH"],
     url: SITE.url,
@@ -96,7 +110,7 @@ export function offersSchema() {
     name: "Fernmitgliedschaft im Oakwood Golf Club",
     description:
       "Fernmitgliedschaft mit offizieller Mitgliederkarte. Akzeptiert auf rund 95 % der österreichischen Golfplätze.",
-    brand: { "@type": "Organization", name: SITE.name },
+    brand: { "@id": ORG_ID },
     dateModified: SITE_UPDATED,
     offers: [
       {

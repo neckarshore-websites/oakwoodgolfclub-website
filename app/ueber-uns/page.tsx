@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { JsonLd } from "@/components/JsonLd";
+import { FOUNDER_ID, JsonLd, ORG_ID } from "@/components/JsonLd";
 import { pageOpenGraph, SITE, SITE_UPDATED } from "@/lib/site-config";
 
 const PAGE_TITLE = "Über uns";
@@ -28,13 +28,12 @@ const aboutPageSchema = {
 const founderSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": FOUNDER_ID,
   name: "German Rauhut",
   jobTitle: "Gründer",
-  worksFor: {
-    "@type": "SportsOrganization",
-    name: SITE.name,
-    url: SITE.url,
-  },
+  // References the single org entity (defined site-wide in the root layout)
+  // via @id instead of re-declaring a look-alike node (SEO-audit M2).
+  worksFor: { "@id": ORG_ID },
 };
 
 /**

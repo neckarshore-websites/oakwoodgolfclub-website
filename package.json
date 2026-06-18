@@ -18,6 +18,7 @@
     "verify:cutover": "bash scripts/verify-b14-cutover.sh",
     "render:diagrams": "node docs/diagrams/render.mjs",
     "test:search:unit": "NODE_ENV=production tsx tests/search/strip-markdown.test.ts && NODE_ENV=production tsx tests/search/index-data.test.ts",
+    "test:blog:unit": "tsx tests/blog/lead-image.test.ts",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test --grep-invert @external",
     "test:e2e:prod": "E2E_CAPTCHA_REAL=1 E2E_BASE_URL=https://oakwoodgolfclub-website.vercel.app playwright test",

@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PostNavigation } from "@/components/blog/PostNavigation";
 import { Prose } from "@/components/blog/Prose";
-import { JsonLd } from "@/components/JsonLd";
+import { JsonLd, ORG_ID } from "@/components/JsonLd";
+import { absoluteImageUrl, firstImageSrc } from "@/lib/blog/lead-image";
 import {
   categorySlug,
   getAdjacentPosts,
@@ -61,23 +62,28 @@ export default async function BlogPostPage(
 
   const { prev, next } = getAdjacentPosts(slug);
 
+  // BlogPosting.image — sourced automatically from the first inline image of
+  // the post body (no coverImage frontmatter; SEO-audit H2, 2026-06-18).
+  const leadImageSrc = firstImageSrc(post.html);
+  const leadImage = leadImageSrc
+    ? absoluteImageUrl(leadImageSrc, SITE.url)
+    : undefined;
+
   const blogPostingSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
+    ...(leadImage ? { image: leadImage } : {}),
     datePublished: post.date,
     dateModified: post.modified ?? post.date,
-    author: {
-      "@type": "Organization",
-      name: post.author,
-      url: SITE.url,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
-    },
+    // Org-authored posts reference the single org entity via @id; a future
+    // named author (SEO-audit M3) would emit a Person node instead.
+    author:
+      post.author === SITE.name
+        ? { "@id": ORG_ID }
+        : { "@type": "Organization", name: post.author, url: SITE.url },
+    publisher: { "@id": ORG_ID },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${SITE.url}/blog/${post.slug}`,
@@ -86,9 +92,32 @@ export default async function BlogPostPage(
     inLanguage: SITE.language,
   };
 
+  // BreadcrumbList — marks up the visible Blog → Kategorie → Beitrag trail
+  // rendered below (SEO-audit M1, 2026-06-18).
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Blog", item: `${SITE.url}/blog` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: post.categories[0],
+        item: `${SITE.url}/blog/kategorie/${categorySlug(post.categories[0])}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `${SITE.url}/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <JsonLd id={`blogposting-${post.slug}`} data={blogPostingSchema} />
+      <JsonLd id={`breadcrumb-${post.slug}`} data={breadcrumbSchema} />
 
       <article className="container-page py-16 md:py-20">
         {/* Breadcrumb */}
