@@ -73,6 +73,14 @@ export function MoneyBackGuarantee() {
             {" — "}
             zusätzlich zum gesetzlichen 14-Tage-Widerrufsrecht.
           </p>
+          <p className="mt-6 text-sm">
+            <Link
+              href="/blog/geld-zurueck-garantie-ohne-wenn-und-aber"
+              className="text-[var(--color-fairway)] underline underline-offset-4 hover:text-[var(--color-fairway-hover)]"
+            >
+              Wie das in der Praxis aussieht →
+            </Link>
+          </p>
         </div>
       </div>
     </section>

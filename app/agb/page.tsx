@@ -309,7 +309,7 @@ export default function AgbPage() {
           </li>
         </ul>
         <p>
-          <em>Hintergrund:</em> OGC existiert seit 2009. In dieser Zeit
+          <em>Hintergrund:</em> OGC existiert seit 2007. In dieser Zeit
           haben wenige Mitglieder von dieser Garantie Gebrauch gemacht —
           aber jeder, der sie gebraucht hat, bekam sein Geld zurück. Uns
           ist wichtiger, dass niemand unzufrieden Mitglied bleibt als dass

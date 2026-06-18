@@ -321,7 +321,7 @@ export default function StyleGuidePage() {
               Body · text-base · text-ink/75
             </p>
             <p className="max-w-2xl text-base text-[var(--color-ink)]/75">
-              Der Oakwood Golf Club ist seit 2009 eine Fernmitgliedschaft für
+              Der Oakwood Golf Club ist seit 2007 eine Fernmitgliedschaft für
               Golferinnen und Golfer in der DACH-Region, die keinen klassischen
               Heimatplatz brauchen oder wollen.
             </p>
@@ -332,7 +332,7 @@ export default function StyleGuidePage() {
               text-gold-deep
             </p>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
-              Seit 2009
+              Seit 2007
             </p>
           </div>
           <div>
@@ -1162,7 +1162,7 @@ function IconSystemSection() {
               className="mt-0.5 shrink-0 text-[var(--color-fairway)]"
             />
             <div className="text-sm">
-              <p className="font-medium text-[var(--color-ink)]">Seit 2009</p>
+              <p className="font-medium text-[var(--color-ink)]">Seit 2007</p>
               <p className="mt-0.5 text-xs text-[var(--color-ink)]/70">
                 300+ Mitglieder, DACH-Region.
               </p>
