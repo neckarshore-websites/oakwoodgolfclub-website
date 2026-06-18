@@ -114,6 +114,11 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
   test("TC-FORM-SIG-007 validation — fehlende Quelle (referralSource) ist OK (optional)", async ({
     page,
   }) => {
+    test.skip(
+      process.env.E2E_CAPTCHA_REAL === "1",
+      "Real Turnstile key (prod target) can't be solved by an automated browser — this genuine-success submit is covered in the dev/preview push-gate with test keys.",
+    );
+
     // referralSource ("Wie hast Du von uns erfahren?") soll optional sein —
     // User-Entscheidung 2026-04-18 Session D: Feld nicht mehr required.
     await page.getByRole("radio", { name: "Herr" }).check();
@@ -151,6 +156,11 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
   test("TC-FORM-SIG-009 mobile UX — Success-Panel wird in den Viewport gescrollt + bekommt Focus", async ({
     page,
   }) => {
+    test.skip(
+      process.env.E2E_CAPTCHA_REAL === "1",
+      "Real Turnstile key (prod target) can't be solved by an automated browser — this genuine-success submit is covered in the dev/preview push-gate with test keys.",
+    );
+
     // Regression-Lock für den iPhone-12-Pro-Max-Bug 2026-04-19: nach Submit
     // ersetzt das (kürzere) Success-Panel die Form, die Seite kollabiert,
     // der Browser behält die alte Scroll-Position — User landet im Footer
