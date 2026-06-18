@@ -2,6 +2,7 @@
 title: "Golfgeschichte - Golf im 17. und 18. Jahrhundert"
 date: "2024-04-14"
 modified: "2026-06-16"
+reviewed: "2026-06-17"
 excerpt: "Vom ersten Royal Clubmaker (1603) über den golfenden König Charles I. und das erste Länderspiel 1682 bis zu den ersten 13 Regeln (1744) und den 18 Löchern von St. Andrews (1764) — wie Golf seine moderne Form bekam."
 categories:
   - "Golfgeschichte"

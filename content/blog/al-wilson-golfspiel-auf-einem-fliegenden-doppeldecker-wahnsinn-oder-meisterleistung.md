@@ -1,6 +1,8 @@
 ---
 title: "Al Wilson: Golfspiel auf einem fliegenden Doppeldecker – Wahnsinn oder Meisterleistung?"
 date: "2025-05-31"
+modified: "2026-06-16"
+reviewed: "2026-06-16"
 excerpt: "Späte 1920er, USA: Stuntpilot Al Wilson schlägt einen Golfball vom Oberflügel eines fliegenden Doppeldeckers — ein dokumentierter Stunt aus der Barnstorming-Ära und eine der waghalsigsten Szenen der Golfgeschichte."
 categories:
   - "Golfkultur"

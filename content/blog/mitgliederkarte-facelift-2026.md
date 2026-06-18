@@ -2,6 +2,7 @@
 title: "Die Mitgliederkarte bekommt ein Facelift"
 date: "2026-06-17"
 modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Unsere Mitgliederkarte hat ein neues Gesicht: schwarze Karte, Golfplatz-Panorama, Wortmarke im Webseiten-Design und ein QR-Code auf der Rückseite. Was sich ändert — und was bewusst gleich bleibt."
 categories:
   - "Club"

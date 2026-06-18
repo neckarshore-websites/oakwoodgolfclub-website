@@ -2,6 +2,7 @@
 title: "KI-generierte Golfbilder (April 2023): Amüsante Pannen und kreative Fehltritte"
 date: "2023-04-09"
 modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Momentaufnahme April 2023: Mehr Bälle als Tees, Schläger wie Angelruten, anatomisch fragwürdige Schwung-Posen — warum KI-Bildgenerierung damals bei Golf so spektakulär scheiterte."
 categories:
   - "Golfkultur"

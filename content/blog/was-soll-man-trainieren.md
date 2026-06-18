@@ -2,6 +2,7 @@
 title: "Was soll man als Amateur trainieren? (Die Antwort ist nicht Putten)"
 date: "2023-10-13"
 modified: "2026-06-18"
+reviewed: "2026-06-18"
 excerpt: "Die meisten Amateure stecken ihre Übungszeit ins Putten — und verschenken damit das größte Verbesserungspotenzial. Was die Strokes-Gained-Daten wirklich sagen."
 categories:
   - "Training"

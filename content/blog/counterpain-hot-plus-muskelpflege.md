@@ -1,6 +1,8 @@
 ---
 title: "Counterpain Hot Plus: Die Salbe, die japanische Golfer in der Tasche haben"
 date: "2026-02-20"
+modified: "2026-06-16"
+reviewed: "2026-06-16"
 excerpt: "Counterpain Hot Plus ist eine Muskel-Salbe aus Japan (Hersteller Taisho), die dort seit Jahrzehnten im Golfer-Kit steckt. Wir erklären, was drin ist, warum sie für Golfer interessant ist und wo die Grenzen liegen — ohne medizinischen Ratschlag."
 categories:
   - "Equipment"

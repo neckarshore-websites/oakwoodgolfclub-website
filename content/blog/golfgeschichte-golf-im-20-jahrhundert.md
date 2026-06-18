@@ -2,6 +2,7 @@
 title: "Golfgeschichte - Golf im 20. Jahrhundert"
 date: "2024-04-12"
 modified: "2026-06-16"
+reviewed: "2026-06-17"
 excerpt: "Olympia 1900, DGV 1907, die PGA ab 1916, Dimples und Stahlschäfte, das gemeinsame Regelwerk von USGA und R&A 1951 und die TV-Superstars Palmer, Nicklaus und Woods — wie Golf im 20. Jahrhundert zur globalen Sportart wurde."
 categories:
   - "Golfgeschichte"

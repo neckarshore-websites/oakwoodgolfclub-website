@@ -1,6 +1,8 @@
 ---
 title: "Sonnenschutz für 5 Stunden auf dem Platz: NIVEA UV Dry Protect Sport"
 date: "2026-02-28"
+modified: "2026-06-16"
+reviewed: "2026-06-16"
 excerpt: "Eine Golf-Runde dauert im Schnitt vier bis fünf Stunden. In voller Sonne. Warum Sonnenschutz auch im Spätherbst unterschätzt wird, und warum wir das NIVEA UV Dry Protect Sport Spray mit LSF 50 in der Tasche haben."
 categories:
   - "Equipment"

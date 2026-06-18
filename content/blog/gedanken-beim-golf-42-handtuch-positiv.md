@@ -1,7 +1,8 @@
 ---
 title: "42 positive Gedanken beim Golf"
 date: "2023-04-04"
-modified: "2024-07-10"
+modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Eine Mindmap der typischen Golfer-Gedanken — und warum die Sportpsychologie sagt: nur 3% einer Runde sind Schläge. Der Rest ist Kopf."
 categories:
   - "Training"

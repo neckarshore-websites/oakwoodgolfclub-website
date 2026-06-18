@@ -2,6 +2,7 @@
 title: "Lieblingsclub in Thailand"
 date: "2022-04-13"
 modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Santiburi Samui Country Club, Koh Samui: der erste und einzige Championship-Platz der Insel — 18 Löcher Par 72 durch Kokospalmen und Urwald, mit Panorama über den Golf von Thailand. Einer dieser Plätze, die man einmal gespielt haben sollte."
 categories:
   - "Golfplätze"

@@ -2,6 +2,7 @@
 title: "Golfgeschichte - Golf im 15. und 16. Jahrhundert"
 date: "2024-04-15"
 modified: "2026-06-16"
+reviewed: "2026-06-17"
 excerpt: "1457 verbot König James II den Schotten Golf — Bogenschießen sei wichtiger für die Wehrhaftigkeit des Landes. Doch schon im 16. Jahrhundert dokumentieren Hofrechnungen golfende Könige, und St. Andrews wird zur Wiege des Spiels."
 categories:
   - "Golfgeschichte"

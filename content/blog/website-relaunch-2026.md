@@ -2,6 +2,7 @@
 title: "Neue Webseite 2026: Was sich für Mitglieder ändert"
 date: "2026-04-19"
 modified: "2026-04-19"
+reviewed: "2026-06-18"
 excerpt: "Die Webseite des Oakwood Golf Club ist neu aufgebaut — schneller, auf dem Handy lesbar, datenschutzfreundlich und ohne Tracker Dritter. Was Mitglieder konkret davon haben, wie sich das Ganze anfühlt, und für die Neugierigen: womit wir es gebaut haben."
 categories:
   - "Club"

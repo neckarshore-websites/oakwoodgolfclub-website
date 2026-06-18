@@ -15,6 +15,14 @@ export type PostMeta = {
   date: string;
   /** Optional ISO date. Signals freshness to AI crawlers + search engines. */
   modified?: string;
+  /**
+   * Optional ISO date of the last editorial review. Internal marker — NOT
+   * rendered on the page. Lets a content-review pass tell "reviewed and
+   * consciously kept" from "never looked at" without git archaeology (git
+   * last-touch over-includes bulk/formatting commits). Set it whenever a
+   * post is reviewed, even if nothing changed.
+   */
+  reviewed?: string;
   /** 140–200 char summary. Used for meta description + listing teasers. */
   excerpt: string;
   /** Taxonomy — min 1 category, used for /blog/kategorie/[slug] pages. */

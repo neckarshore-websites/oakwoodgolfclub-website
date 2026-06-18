@@ -2,6 +2,7 @@
 title: "Bunkerspiel verbessern: Mit drei Schritten sicher aus dem Sand"
 date: "2023-04-05"
 modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Bunker-Technik in drei Schritten: stabile Stand-Basis, Ballposition vor dem vorderen Fuß, Loft und Bounce halten. Plus: wie Du den Sand richtig liest."
 categories:
   - "Training"

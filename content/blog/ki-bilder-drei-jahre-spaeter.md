@@ -2,6 +2,7 @@
 title: "KI-Bilder — drei Jahre später"
 date: "2026-04-24"
 modified: "2026-06-18"
+reviewed: "2026-06-18"
 excerpt: "2023: Golfer mit Angelruten, Schläger-Chimären, zu viele Bälle. 2026: fotorealistisch, aber mit neuen, subtileren Fehlern. Was sich verbessert hat — und was trotzdem noch nicht stimmt."
 categories:
   - "Golfkultur"

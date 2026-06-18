@@ -2,6 +2,7 @@
 title: "Greenfees als Fernmitglied"
 date: "2023-08-15"
 modified: "2026-06-16"
+reviewed: "2026-06-17"
 excerpt: "Lokale Mitgliedschaft 1.140 € im Jahr plus Greenfee, Fernmitgliedschaft 55 € plus Greenfee: ein konkretes Rechenbeispiel aus der Region Stuttgart — mit Vor- und Nachteilen."
 categories:
   - "Golfkultur"

@@ -2,6 +2,7 @@
 title: "Happy Gilmore 2 auf Netflix: Adam Sandler kehrt auf den Platz zurück"
 date: "2026-03-28"
 modified: "2026-04-19"
+reviewed: "2026-06-18"
 excerpt: "Fast 30 Jahre nach dem Kult-Original ist Adam Sandlers Happy Gilmore zurück — als Netflix-Sequel. Für Golfer ein kleiner Kultur-Moment, für alle anderen ein entspannter Abend. Warum das erste Happy Gilmore ein Genre für sich war und was wir vom zweiten Teil erwarten."
 categories:
   - "Golfkultur"

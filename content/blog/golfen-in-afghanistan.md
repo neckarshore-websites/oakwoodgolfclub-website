@@ -2,6 +2,7 @@
 title: "Golfen in Afghanistan"
 date: "2024-03-31"
 modified: "2026-06-16"
+reviewed: "2026-06-16"
 excerpt: "9 Löcher auf Wüstensand, Krater statt Bunker, Minenwarnschilder am Fairway: die Geschichte des Kabul Golf Club zwischen Sport, Krieg und Diplomatie."
 categories:
   - "Golfkultur"

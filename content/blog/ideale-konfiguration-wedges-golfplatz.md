@@ -2,6 +2,7 @@
 title: "Golf Technik Tipp: Mit welchen Wedges kommst Du garantiert an die Fahne?"
 date: "2024-04-05"
 modified: "2026-06-16"
+reviewed: "2026-06-16"
 excerpt: "Welche Wedges (44–58°) ins Bag gehören, warum die 4-6°-Gap-Regel zählt, und wie Du mit Griff-Technik aus vier Schlägern acht Distanzen holst."
 categories:
   - "Training"

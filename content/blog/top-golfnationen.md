@@ -2,6 +2,7 @@
 title: "Top-Golfnationen"
 date: "2023-04-16"
 modified: "2026-06-16"
+reviewed: "2026-06-17"
 excerpt: "Wo wird am dichtesten Golf gespielt? Plätze pro Einwohner (Schottland ~8.800, Deutschland ~119.000), der deutsche Rekord 2025, Frauen-Anteil, weltweite Entwicklung und 500 Jahre Tradition."
 categories:
   - "Golfkultur"

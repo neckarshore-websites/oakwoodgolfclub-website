@@ -2,6 +2,7 @@
 title: "StrokesIn: Unsere App-Empfehlung für Scorecard und Handicap-Tracking"
 date: "2026-03-15"
 modified: "2026-04-19"
+reviewed: "2026-06-18"
 excerpt: "StrokesIn ist die Scorecard- und Handicap-App, die wir unseren Mitgliedern empfehlen — besonders wegen ihrer durchdachten Statistik-Funktionen. Was sie kann, für wen sie passt, und warum wir sie auch dann noch empfehlen würden, wenn wir irgendwann eine eigene Lösung bauen."
 categories:
   - "Equipment"

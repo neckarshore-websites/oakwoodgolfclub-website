@@ -2,6 +2,7 @@
 title: "Golf für Körper und Geist: Warum die Runde mehr ist als ein Spaziergang"
 date: "2023-04-08"
 modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Konzentration, Ausdauer, Netzwerk und Stress-Reset in einer Disziplin: warum Golf für viele zum ultimativen Sport für Körper und Geist wird — und was die Forschung dazu sagt."
 categories:
   - "Golfkultur"

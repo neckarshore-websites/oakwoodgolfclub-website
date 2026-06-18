@@ -175,6 +175,7 @@ function loadAll(): CachedAll {
       title: data.title,
       date: data.date,
       modified: data.modified,
+      reviewed: data.reviewed,
       excerpt: data.excerpt,
       categories: data.categories,
       tags: data.tags,

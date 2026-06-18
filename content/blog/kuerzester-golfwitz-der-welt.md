@@ -1,6 +1,8 @@
 ---
 title: "Der kürzeste Golfwitz der Welt"
 date: "2026-01-10"
+modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Drei Worte. Kein Setup, keine Pointe. Und trotzdem erzählt er alles über das Golfspielen — die Hoffnung, den Moment der Klarheit, und den Schlag danach."
 categories:
   - "Golfkultur"

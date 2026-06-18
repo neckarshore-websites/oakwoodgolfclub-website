@@ -1,6 +1,8 @@
 ---
 title: "Bushnell Launch Pro: Wenn du es ernst meinst mit deiner Technik"
 date: "2026-04-02"
+modified: "2026-06-16"
+reviewed: "2026-06-16"
 excerpt: "Der Launch Pro ist ein kamera-basierter Launch Monitor für ambitionierte Amateure und Club-Fitter. 13+ Datenpunkte, Indoor + Outdoor, Tour-Level-Accuracy. Wir schauen ehrlich: für wen lohnt sich das — und für wen nicht."
 categories:
   - "Equipment"

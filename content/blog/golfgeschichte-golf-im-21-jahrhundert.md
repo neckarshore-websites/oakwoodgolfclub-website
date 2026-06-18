@@ -2,6 +2,7 @@
 title: "Golfgeschichte - Golf im 21. Jahrhundert"
 date: "2024-04-11"
 modified: "2026-06-16"
+reviewed: "2026-06-17"
 excerpt: "Die Tiger-Woods-Ära, Martin Kaymers Major-Sieg, die olympische Rückkehr, das World Handicap System, der LIV-PGA-Konflikt und der Golfball-Rollback — wie sich Golf im 21. Jahrhundert verdichtet und kommerzialisiert."
 categories:
   - "Golfgeschichte"

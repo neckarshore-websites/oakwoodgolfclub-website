@@ -1,6 +1,8 @@
 ---
 title: "Magnetischer Ballmarker am Puttergriff: Das kleinste Upgrade mit spürbarem Effekt"
 date: "2026-03-05"
+modified: "2026-06-17"
+reviewed: "2026-06-17"
 excerpt: "Der klassische Ballmarker verschwindet nach drei Löchern in der Hosentasche, landet im Waschgang oder ist genau dann weg, wenn man ihn braucht. Magnetische Puttergriff-Halter lösen das Problem auf verblüffend simple Art."
 categories:
   - "Equipment"
