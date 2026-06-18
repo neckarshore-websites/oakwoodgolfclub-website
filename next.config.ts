@@ -50,7 +50,15 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+  // Defense-in-depth: deny browser features the site never uses. `payment=()`
+  // is safe for the current redirect-based checkout; if an in-page Payment
+  // Request API surface (Stripe Payment Element / Apple-/Google-Pay button)
+  // is ever added, relax it to e.g. `payment=(self "https://js.stripe.com")`.
+  {
+    key: "Permissions-Policy",
+    value:
+      "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()",
+  },
   { key: "X-DNS-Prefetch-Control", value: "on" },
 ];
 
