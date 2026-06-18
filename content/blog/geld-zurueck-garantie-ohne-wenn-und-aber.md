@@ -10,9 +10,15 @@ author: "Oakwood Golf Club"
 draft: false
 ---
 
+## TL;DR / Zusammenfassung
+Der Oakwood Golf Club gibt dir den Mitgliedsbeitrag jederzeit zurück — lebenslang, formfrei und ohne Begründung. Eine kurze Mail genügt, erstattet wird über denselben Zahlungsweg, auf dem du gezahlt hast. Seit der Gründung 2007 wurde die Garantie viermal eingelöst. Sie ist freiwillig und zusätzlich zum gesetzlichen 14-Tage-Widerrufsrecht in AGB § 8 verankert.
+
 Die meisten Garantien im Netz sind ein Absatz Kleingedrucktes mit drei Sternchen. Unsere ist ein Satz: Wenn dir die Mitgliedschaft nicht passt, bekommst du dein Geld zurück. Ohne Wenn und Aber. Weil das schnell zu schön klingt, hier die ganze Sache — ehrlich und im Detail.
 
-![Stillleben von oben: ein weißer Golfball, ein goldfarbenes Tee und zwei leere, übereinanderliegende Karten in Creme und Dunkelgrün auf hellem Hintergrund — schlicht, in den Farben des Clubs.](/blog/images/geld-zurueck-garantie-ohne-wenn-und-aber.webp)
+<figure>
+  <img src="/blog/images/geld-zurueck-garantie-ohne-wenn-und-aber.webp" alt="Stillleben von oben: ein weißer Golfball, ein goldfarbenes Tee und zwei leere, übereinanderliegende Karten in Creme und Dunkelgrün auf hellem Hintergrund — schlicht, in den Farben des Clubs." width="600" height="400" />
+  <figcaption>Ein klares Versprechen statt Kleingedrucktem.</figcaption>
+</figure>
 
 ## Das Versprechen
 
