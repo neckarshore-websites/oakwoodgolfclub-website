@@ -1,4 +1,4 @@
-# AI-Surface-Monitoring — 2026-06-15
+# AI-Surface-Monitoring — 2026-06-22
 
 Server searches: 0 · Errors: 20 · Regression: no
 
@@ -11,6 +11,6 @@ Server searches: 0 · Errors: 20 · Regression: no
 | google     | · | · | · | · | · | 0/5 |
 | perplexity | · | · | · | · | · | 0/5 |
 
-## Drift vs (none)
+## Drift vs 2026-06-15
 
-- No prior run — baseline only.
+- No regression vs prior run.
