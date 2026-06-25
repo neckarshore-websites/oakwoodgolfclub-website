@@ -188,6 +188,18 @@ export default function DatenschutzPage() {
           </a>
           .
         </p>
+        <p>
+          <strong>Vercel Speed Insights (Core Web Vitals)</strong>
+        </p>
+        <p>
+          Zusätzlich zu Vercel Web Analytics nutzen wir{" "}
+          <strong>Vercel Speed Insights</strong> zur Messung realer
+          Seitenladezeiten und Core Web Vitals (LCP, INP, CLS, FCP, TTFB).
+          Der Dienst arbeitet cookiefrei und ohne Speicherung
+          personenbezogener Daten; erhoben werden ausschließlich aggregierte
+          Performance-Metriken (Ladezeiten, Gerätetyp, Land). Eine
+          Identifikation einzelner Besucher ist nicht möglich.
+        </p>
 
         <h2>5. Kontaktformulare und Mitgliedschafts-Formulare</h2>
         <p>
