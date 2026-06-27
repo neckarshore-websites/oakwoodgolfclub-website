@@ -238,7 +238,7 @@ export default async function BlogPostPage(
           Designsprache (kein "callout box"-Klischee). Eine Hairline trennt
           oben, das Auge erkennt: Fine-Print am Footer, nicht Hauptinhalt.
         */}
-        <aside className="mt-10 max-w-2xl border-t border-[var(--color-border)] pt-5 text-xs leading-relaxed text-[var(--color-muted)]">
+        <aside className="mt-10 max-w-2xl border-t border-[var(--color-border)] pt-5 text-sm leading-relaxed text-[var(--color-muted)]">
           <strong className="font-semibold uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">
             Bild- und Markenhinweis
           </strong>
