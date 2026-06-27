@@ -8,7 +8,6 @@ categories:
   - "Equipment"
 author: "Oakwood Golf Club"
 draft: false
-pinned: true  # User-Direktive 04-18: StrokesIn propagiert die Handicap-Verwaltung — gehört auf /blog immer ganz oben.
 ---
 
 ## TL;DR / Zusammenfassung

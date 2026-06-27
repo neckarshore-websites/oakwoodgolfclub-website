@@ -188,23 +188,17 @@ function loadAll(): CachedAll {
       author: data.author ?? "Oakwood Golf Club",
       coverImage: data.coverImage,
       draft: isDraft,
-      pinned: data.pinned === true,
       content: parsed.content,
       html,
       readingTime,
     });
   }
 
-  // Sort: pinned posts first (they sit at position 0 regardless of date),
-  // remaining posts by date desc. The same order is reused by the
-  // adjacent-posts (prev/next) helper so blog navigation matches the
-  // listing order.
-  posts.sort((a, b) => {
-    const aPinned = a.pinned ? 0 : 1;
-    const bPinned = b.pinned ? 0 : 1;
-    if (aPinned !== bPinned) return aPinned - bPinned;
-    return b.date.localeCompare(a.date);
-  });
+  // Sort strictly by date, newest first — no pinning override (German Rauhut
+  // directive 2026-06-27: "der jeweils neueste Beitrag oben in jeder
+  // Kategorie"). The same order is reused by the adjacent-posts (prev/next)
+  // helper so blog navigation matches the listing order.
+  posts.sort((a, b) => b.date.localeCompare(a.date));
 
   // Aggregate categories with counts.
   const catMap = new Map<string, { name: string; count: number }>();
