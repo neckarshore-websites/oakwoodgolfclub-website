@@ -66,6 +66,13 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // The /api/export route reads content/blog/*.md at REQUEST time (dynamic slug),
+  // which Next's file tracer can't follow — force-include the blog content dir so the
+  // serverless function bundles the source files on Vercel. Verified via the route's
+  // .nft.json trace + a prod/preview curl (a local `next start` would mask a missing-file gap).
+  outputFileTracingIncludes: {
+    "/api/export": ["content/blog/**/*.md"],
+  },
   // Trailing-slash normalization is handled in proxy.ts instead, so legacy
   // redirects collapse from 2 hops to 1 for the trailing-slash variant (JK-9).
   // proxy.ts re-implements the `/foo/` → `/foo` normalization for non-legacy
