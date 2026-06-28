@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PostNavigation } from "@/components/blog/PostNavigation";
 import { Prose } from "@/components/blog/Prose";
+import { ExportButton } from "@/components/export/ExportButton";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
 import { absoluteImageUrl, firstImageSrc } from "@/lib/blog/lead-image";
 import {
@@ -223,12 +224,15 @@ export default async function BlogPostPage(
             </div>
           </div>
 
-          <Link
-            href="/blog"
-            className="text-sm font-medium text-[var(--color-fairway)] underline-offset-4 hover:underline hover:text-[var(--color-fairway-hover)]"
-          >
-            ← Alle Beiträge
-          </Link>
+          <div className="flex flex-wrap items-center gap-4">
+            <ExportButton path={`/blog/${post.slug}`} />
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-[var(--color-fairway)] underline-offset-4 hover:underline hover:text-[var(--color-fairway-hover)]"
+            >
+              ← Alle Beiträge
+            </Link>
+          </div>
         </footer>
 
         {/*
