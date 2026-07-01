@@ -1,0 +1,44 @@
+name: Security Audit
+
+# Dependency CVE gate — fails on any HIGH or CRITICAL advisory in the
+# dependency tree. Moderate/low are reported by `npm audit` but do NOT gate
+# (they are largely transitive framework deps — e.g. @opentelemetry via
+# Next.js; see the #270 hardening PR triage).
+#
+# The actionable CVE truth is `npm audit` at the manifest root (package.json
+# is the repo root), NOT the scorecard OSV count nor the Dependabot-alert
+# count (the believe-the-ground lesson, #270 §1.5): the scorecard-reported
+# "3" was actually 19 advisories / 1 high (nodemailer) on the ground.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Weekly Monday 07:15 UTC — new advisories surface without a code change.
+    - cron: "15 7 * * 1"
+
+# Read-only: this workflow only audits; it never writes to the repo.
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: npm audit (fail on high/critical)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit (fail on high/critical)
+        run: npm audit --audit-level=high
