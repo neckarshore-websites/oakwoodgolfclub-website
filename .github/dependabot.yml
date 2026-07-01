@@ -1,0 +1,36 @@
+version: 2
+
+# Keeps dependencies + SHA-pinned Actions current. The github-actions
+# ecosystem is what maintains the commit-SHA pins added in the #270
+# hardening pass (a tag pin would not satisfy scorecard Pinned-Dependencies;
+# Dependabot bumps the SHA + version comment together).
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "05:00"
+      timezone: Europe/Berlin
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: chore(deps)
+      prefix-development: chore(deps-dev)
+    groups:
+      # Batch minor/patch bumps into one PR to reduce noise on a solo repo;
+      # majors stay individual so breaking changes get a dedicated review.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "05:00"
+      timezone: Europe/Berlin
+    commit-message:
+      prefix: chore(ci)
