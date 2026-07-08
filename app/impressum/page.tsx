@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
 
 /**
- * Impressum — § 5 TMG.
+ * Impressum — § 5 DDG.
  *
  * Inhalt basiert auf der WordPress-Vorgängerseite (oakwoodgolfclub.de/impressum,
  * Stand 2021), neu strukturiert für 2026:
@@ -16,7 +16,7 @@ import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
  *    04-18 fällt OGC in den Bereich "Digital Ventures" des angemeldeten
  *    Gewerbes.
  *  - Anschrift (User-Entscheidung 2026-04-19, D3=a): volle ladungsfähige
- *    Anschrift Rotebühlstr. 176, 70197 Stuttgart — TMG-sicher für
+ *    Anschrift Rotebühlstr. 176, 70197 Stuttgart — DDG-sicher für
  *    commercial-Site mit zahlenden Mitgliedern. Backlog #28 Done.
  *  - USt-Status (User-Entscheidung 2026-04-19, D2=Kleinunternehmer):
  *    Hinweis nach § 19 UStG ergänzt, keine USt-IdNr. ausgewiesen.
@@ -31,7 +31,7 @@ const STAND = "19. April 2026";
 
 const PAGE_TITLE = "Impressum";
 const PAGE_DESCRIPTION =
-  "Rechtliche Angaben gemäß § 5 TMG für oakwoodgolfclub.de — Anbieter, " +
+  "Rechtliche Angaben gemäß § 5 DDG für oakwoodgolfclub.de — Anbieter, " +
   "Anschrift, Kontakt, Verantwortlicher, Hinweise zur Streitbeilegung.";
 
 export const metadata: Metadata = {
@@ -62,7 +62,7 @@ export default function ImpressumPage() {
       </header>
 
       <div className="ogc-prose">
-        <h2>Anbieter im Sinne des § 5 TMG</h2>
+        <h2>Anbieter im Sinne des § 5 DDG</h2>
         <p>
           German Rauhut – IT Consulting &amp; Digital Ventures
           <br />
@@ -118,9 +118,9 @@ export default function ImpressumPage() {
           Die Inhalte dieser Seite werden mit größtmöglicher Sorgfalt
           erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der
           Inhalte können wir jedoch keine Gewähr übernehmen. Als
-          Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte
+          Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte
           auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
-          Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+          Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht
           verpflichtet, übermittelte oder gespeicherte fremde Informationen
           zu überwachen oder nach Umständen zu forschen, die auf eine
           rechtswidrige Tätigkeit hinweisen.
