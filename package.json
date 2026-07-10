@@ -52,25 +52,25 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.5",
-    "@playwright/test": "1.59.1",
-    "@tailwindcss/postcss": "4.2.2",
+    "@playwright/test": "1.61.1",
+    "@tailwindcss/postcss": "4.3.2",
     "@types/node": "25.6.0",
     "@types/nodemailer": "8.0.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/sanitize-html": "2.16.1",
-    "autoprefixer": "10.5.0",
+    "autoprefixer": "10.5.2",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.6",
-    "lighthouse": "13.0.3",
-    "playwright": "1.59.1",
-    "postcss": "8.5.15",
-    "tailwindcss": "4.2.2",
-    "tsx": "4.22.4",
+    "eslint-config-next": "16.2.10",
+    "lighthouse": "13.4.0",
+    "playwright": "1.61.1",
+    "postcss": "8.5.16",
+    "tailwindcss": "4.3.2",
+    "tsx": "4.23.0",
     "typescript": "6.0.3"
   },
   "overrides": {
-    "postcss": "8.5.15",
+    "postcss": "8.5.16",
     "@babel/core": "7.29.7"
   }
 }
