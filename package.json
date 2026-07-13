@@ -51,7 +51,7 @@
     "zod": "4.3.6"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "3.3.5",
+    "@eslint/eslintrc": "3.3.6",
     "@playwright/test": "1.61.1",
     "@tailwindcss/postcss": "4.3.2",
     "@types/node": "25.6.0",
@@ -64,13 +64,13 @@
     "eslint-config-next": "16.2.10",
     "lighthouse": "13.4.0",
     "playwright": "1.61.1",
-    "postcss": "8.5.16",
+    "postcss": "8.5.18",
     "tailwindcss": "4.3.2",
     "tsx": "4.23.0",
     "typescript": "6.0.3"
   },
   "overrides": {
-    "postcss": "8.5.16",
+    "postcss": "8.5.18",
     "@babel/core": "7.29.7"
   }
 }
