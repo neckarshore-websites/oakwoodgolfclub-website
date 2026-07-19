@@ -4,8 +4,35 @@ name: Unit
 # suite must run in CI). Green locally but invoked by no workflow. Fast, no
 # browser, no secrets — kept in their own lightweight job.
 #
-# Deliberately excluded: test:search:unit (currently RED — a real bug, tracked
-# separately) and smoke:* (need SMTP secrets via .env.local — a later slice).
+# Suite classification (2026-07-19, ungated-suites routing work order):
+#
+#   Class A (gated below):  test:search:unit, smoke:templates
+#   Class C (NOT gated):    smoke:smtp, smoke:send — see justifications below
+#
+# CORRECTION — the previous note here read "test:search:unit (currently RED —
+# a real bug, tracked separately)". That was stale on two counts: the suite was
+# red because of a STALE FIXTURE, not a product bug (it asserted one hardcoded
+# slug was absent from the index; that post was later published in dd2347a),
+# and the prod draft filter in lib/blog/posts.ts was verified correct. The
+# assertion is now invariant-based and the suite is green — so it is gated.
+#
+# smoke:smtp — Class C. Ungated: needs the six SMTP_* credentials, which are
+#   NOT provisioned in this repo's Actions secrets (verified 2026-07-19: repo
+#   secret list is empty; e2e.yml likewise records "no SMTP creds" in CI). It
+#   connects + authenticates against the live IONOS mailbox and sends nothing.
+#   It is a manual pre-launch validator: `npm run smoke:smtp` with a populated
+#   .env.local. Gating it as a required check without secrets would mean a
+#   permanently red gate; skipping it on a missing secret would be a silent
+#   false-green. Neither is acceptable, so it stays an explicit manual step.
+#   PROMOTE to a fail-closed-visible nightly the moment SMTP_* secrets are
+#   provisioned — that decision is open, not forgotten.
+#
+# smoke:send — Class C. Ungated by design: it sends SIX REAL EMAILS through the
+#   live IONOS pipeline and refuses to run without an explicit
+#   `--confirm-real-send` flag, with manual inbox verification via a printed
+#   Run-ID. Automating it on a schedule would add recurring real-mail traffic to
+#   the club's live inbox and IONOS rate-limit exposure. Manual validator —
+#   correctly not a CI suite.
 
 on:
   push:
@@ -41,3 +68,12 @@ jobs:
           npm run test:sitemap:unit
           npm run test:export:unit
           npm run test:ai-surface:unit
+          # Class A, gated 2026-07-19. Pure tsx unit suites, no network, no secrets.
+          # Both exit non-zero on failure, so these are real gates, not cosmetic.
+          npm run test:search:unit
+          # NB smoke:templates is a CRASH-GUARD, not an assertion suite: it renders all
+          # three autoresponder templates and prints them, with zero asserts. Green here
+          # means "compose*() imports and runs without throwing" — it does NOT verify the
+          # rendered copy. Kept honest rather than dressed up as coverage; deepening it
+          # into a real assertion suite is out of this work order's scope.
+          npm run smoke:templates
