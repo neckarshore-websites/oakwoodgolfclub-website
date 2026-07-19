@@ -1,6 +1,6 @@
 {
   "repo": "neckarshore-websites/oakwoodgolfclub-website",
-  "audited_sha": "336acb8aa88fc77ad4e796e5d769f44e7b0ad8a6",
+  "audited_sha": "57bdbbacdc4f6fcbc0215f411098800e9e6c8f32",
   "red": false,
   "red_detail": null,
   "tests": {
@@ -11,5 +11,5 @@
     "declared": {},
     "lenses": {}
   },
-  "updatedAt": "2026-07-18T16:47:53Z"
+  "updatedAt": "2026-07-19T12:19:00Z"
 }
