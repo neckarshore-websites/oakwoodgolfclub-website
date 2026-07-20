@@ -21,9 +21,15 @@ function currentDraftSlugs(): string[] {
     });
 }
 
-let pass = 0, fail = 0;
-function check(label: string, fn: () => void) {
-  try { fn(); pass++; } catch (e) { fail++; console.error(`  ✗ ${label}\n    ${(e as Error).message.split("\n")[0]}`); }
+let pass = 0, fail = 0, skip = 0;
+/** Returned by a check whose assertion has nothing to exercise — a visible third
+ *  state, never a silent pass. Matches the repo's e2e skip semantics (test.skip). */
+const SKIP = Symbol("skip");
+function check(label: string, fn: () => unknown) {
+  try {
+    if (fn() === SKIP) { skip++; console.log(`  ⊘ ${label} (skipped — assertion vacuous, nothing to verify)`); }
+    else pass++;
+  } catch (e) { fail++; console.error(`  ✗ ${label}\n    ${(e as Error).message.split("\n")[0]}`); }
 }
 const docs = buildSearchDocs();
 
@@ -49,11 +55,15 @@ check("drafts excluded under production", () => {
   // maintaining across future publishes.
   //
   // HONEST LIMITATION: the repo currently holds zero `draft: true` posts, so
-  // this assertion is vacuously true today — it would still pass if the filter
-  // broke. Making it non-vacuous needs an injection seam in buildSearchDocs()
-  // (product-code change, deliberately out of scope here). It regains teeth the
-  // moment a draft exists, which is exactly when the regression could bite.
-  for (const slug of currentDraftSlugs()) {
+  // there is nothing to exercise today. Rather than pass silently (a green that
+  // proves nothing), the empty case returns SKIP below — so a reader of CI output
+  // can tell "0 drafts leaked" from "0 drafts existed". Making the assertion
+  // genuinely non-vacuous needs an injection seam in buildSearchDocs() (product-
+  // code change, deliberately out of scope — L-OGC-SEARCHDOCS-INJECTION-SEAM). It
+  // regains real teeth the moment a draft exists, which is when the regression bites.
+  const draftSlugs = currentDraftSlugs();
+  if (draftSlugs.length === 0) return SKIP; // 0 drafts existed — not 0 leaked
+  for (const slug of draftSlugs) {
     assert.equal(
       docs.find((d) => d.id === `blog:${slug}`),
       undefined,
@@ -68,5 +78,5 @@ check("minisearch finds the ballmarker post with a typo (fuzzy)", () => {
   assert.ok(hits.some((h) => String(h.url).includes("magnetischer-ballmarker")));
 });
 
-console.log(`index-data: ${pass} passed, ${fail} failed`);
+console.log(`index-data: ${pass} passed, ${skip} skipped, ${fail} failed`);
 process.exit(fail ? 1 : 0);
