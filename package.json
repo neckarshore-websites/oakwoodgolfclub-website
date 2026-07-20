@@ -53,24 +53,24 @@
   "devDependencies": {
     "@eslint/eslintrc": "3.3.6",
     "@playwright/test": "1.61.1",
-    "@tailwindcss/postcss": "4.3.2",
+    "@tailwindcss/postcss": "4.3.3",
     "@types/node": "25.6.0",
     "@types/nodemailer": "8.0.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@types/sanitize-html": "2.16.1",
-    "autoprefixer": "10.5.2",
+    "autoprefixer": "10.5.4",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.10",
     "lighthouse": "13.4.0",
     "playwright": "1.61.1",
-    "postcss": "8.5.18",
-    "tailwindcss": "4.3.2",
-    "tsx": "4.23.0",
+    "postcss": "8.5.20",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.1",
     "typescript": "6.0.3"
   },
   "overrides": {
-    "postcss": "8.5.18",
+    "postcss": "8.5.20",
     "@babel/core": "7.29.7"
   }
 }
