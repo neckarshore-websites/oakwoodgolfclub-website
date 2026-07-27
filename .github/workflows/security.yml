@@ -40,5 +40,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Was `npm audit --audit-level=high`. That command has no way to express
+      # "known, no forward fix", so ONE unfixable transitive advisory turned this
+      # required check permanently red and blocked every merge — including the
+      # merge that fixed the other advisories. On 2026-07-27 sharp/libvips pinned
+      # this repo shut while six Next.js advisories waited behind it.
+      #
+      # audit-gate.mjs keeps the same severity floor and adds an EXPIRING,
+      # per-advisory allowlist. It fails closed on anything unexpected and turns
+      # red when an entry passes its date, so an acceptance cannot quietly become
+      # permanent. The allowlist and its reasoning live in the script.
       - name: Audit (fail on high/critical)
-        run: npm audit --audit-level=high
+        run: node scripts/audit-gate.mjs

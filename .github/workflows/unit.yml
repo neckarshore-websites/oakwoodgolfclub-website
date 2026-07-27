@@ -68,6 +68,11 @@ jobs:
           npm run test:sitemap:unit
           npm run test:export:unit
           npm run test:ai-surface:unit
+          # Guards the dependency CVE gate itself (scripts/audit-gate.mjs). That gate decides
+          # whether a REQUIRED status check goes green, so its fail-closed properties need a
+          # gate of their own — a security gate that silently passes looks exactly like a
+          # healthy repo. Pure node, no network.
+          npm run test:audit-gate:unit
           # Class A, gated 2026-07-19. Pure tsx unit suites, no network, no secrets.
           # Both exit non-zero on failure, so these are real gates, not cosmetic.
           npm run test:search:unit
