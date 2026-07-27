@@ -33,7 +33,8 @@
     "lighthouse:desktop": "node scripts/lighthouse.mjs --quick --profile=desktop",
     "lighthouse:mobile": "node scripts/lighthouse.mjs --quick --profile=mobile-4g",
     "lighthouse:5g": "node scripts/lighthouse.mjs --quick --profile=mobile-5g",
-    "test:lighthouse:unit": "node --test scripts/lighthouse-profiles.test.mjs"
+    "test:lighthouse:unit": "node --test scripts/lighthouse-profiles.test.mjs",
+    "test:audit-gate:unit": "node scripts/audit-gate.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",
@@ -43,7 +44,7 @@
     "lucide-react": "1.8.0",
     "marked": "18.0.6",
     "minisearch": "7.2.0",
-    "next": "16.2.10",
+    "next": "16.2.12",
     "nodemailer": "9.0.3",
     "react": "19.2.7",
     "react-dom": "19.2.7",
