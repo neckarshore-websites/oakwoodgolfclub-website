@@ -1,0 +1,783 @@
+<title>E-Mail-Signatur-Kit — Oakwood Golf Club</title>
+
+<style>
+  :root {
+    --paper:      #F7F6F2;
+    --surface:    #FFFFFF;
+    --ink:        #14140F;
+    --ink-2:      #43443B;
+    --muted:      #75776B;
+    --rule:       #E2E0D7;
+    --rule-firm:  #C7C5B8;
+    --ring:       #1b6640;
+    --sheet:      #FFFFFF;
+    --sheet-edge: #E6E4DA;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:      #101210;
+      --surface:    #191C18;
+      --ink:        #EDEDE6;
+      --ink-2:      #BFC1B6;
+      --muted:      #8D9086;
+      --rule:       #262A25;
+      --rule-firm:  #3A3F38;
+      --ring:       #52b27f;
+      --sheet:      #FFFFFF;
+      --sheet-edge: #2E332D;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:      #101210;
+    --surface:    #191C18;
+    --ink:        #EDEDE6;
+    --ink-2:      #BFC1B6;
+    --muted:      #8D9086;
+    --rule:       #262A25;
+    --rule-firm:  #3A3F38;
+    --ring:       #52b27f;
+    --sheet:      #FFFFFF;
+    --sheet-edge: #2E332D;
+  }
+
+  :root[data-theme="light"] {
+    --paper:      #F7F6F2;
+    --surface:    #FFFFFF;
+    --ink:        #14140F;
+    --ink-2:      #43443B;
+    --muted:      #75776B;
+    --rule:       #E2E0D7;
+    --rule-firm:  #C7C5B8;
+    --ring:       #1b6640;
+    --sheet:      #FFFFFF;
+    --sheet-edge: #E6E4DA;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 20px 96px;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; }
+
+  .masthead { padding: 72px 0 0; }
+
+  .eyebrow {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  h1 {
+    font-family: "Playfair Display", Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 400;
+    font-size: clamp(32px, 6vw, 46px);
+    line-height: 1.12;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+    color: var(--ink);
+    margin: 14px 0 0;
+  }
+
+  .lede {
+    color: var(--ink-2);
+    font-size: 17px;
+    max-width: 60ch;
+    margin: 20px 0 0;
+  }
+
+  .masthead-rule { border: 0; border-top: 1px solid var(--rule-firm); margin: 40px 0 0; }
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    padding: 20px 0 0;
+  }
+
+  .controls-label {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .seg { display: inline-flex; border: 1px solid var(--rule-firm); border-radius: 2px; overflow: hidden; }
+
+  .seg button {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    color: var(--ink-2);
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 14px;
+    cursor: pointer;
+  }
+
+  .seg button + button { border-left: 1px solid var(--rule-firm); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+
+  .specimen { padding: 56px 0 0; }
+
+  .specimen-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+
+  .tag {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--rule-firm);
+    border-radius: 2px;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+
+  h2 {
+    font-family: "Playfair Display", Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 12px 0 0;
+  }
+
+  .why { color: var(--ink-2); font-size: 15px; max-width: 62ch; margin: 8px 0 0; }
+
+  .sheet {
+    background: var(--sheet);
+    border: 1px solid var(--sheet-edge);
+    border-radius: 3px;
+    margin: 22px 0 0;
+    padding: 28px 28px 30px;
+    overflow-x: auto;
+  }
+
+  .sheet-hint {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9AA096;
+    margin: 0 0 8px;
+  }
+
+  .sheet-divider { border: 0; border-top: 1px solid #E9E7DE; margin: 0 0 22px; }
+
+  body[data-ground="dark"] .sheet { background: #1B1C1A; border-color: #2E312C; }
+  body[data-ground="dark"] .sheet-hint { color: #6E7369; }
+  body[data-ground="dark"] .sheet-divider { border-top-color: #353A34; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+
+  .btn {
+    appearance: none;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1;
+    padding: 10px 16px;
+    border-radius: 2px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--surface);
+    cursor: pointer;
+    transition: opacity 140ms ease;
+  }
+
+  .btn:hover { opacity: 0.84; }
+  .btn.ghost { background: transparent; color: var(--ink-2); border-color: var(--rule-firm); }
+  .btn.ghost:hover { border-color: var(--ink); color: var(--ink); }
+  .btn.done { background: var(--surface); color: var(--ink); border-color: var(--ink); }
+
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+  .drawer {
+    margin: 14px 0 0;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    background: var(--surface);
+    padding: 16px 18px;
+    overflow-x: auto;
+  }
+
+  .drawer[hidden] { display: none; }
+
+  .drawer pre {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .section { padding: 72px 0 0; }
+  .section > hr { border: 0; border-top: 1px solid var(--rule-firm); margin: 0 0 28px; }
+
+  h3 {
+    font-family: "Playfair Display", Georgia, "Iowan Old Style", "Times New Roman", serif;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+
+  h4 {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    margin: 26px 0 8px;
+  }
+
+  p { max-width: 66ch; }
+  .section p { color: var(--ink-2); }
+  ol, ul { max-width: 66ch; color: var(--ink-2); padding-left: 20px; }
+  li { margin: 5px 0; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1px 5px;
+  }
+
+  .table-scroll { overflow-x: auto; margin: 12px 0 0; }
+
+  table.facts { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14.5px; }
+
+  table.facts th, table.facts td {
+    text-align: left;
+    padding: 9px 14px 9px 0;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-2);
+  }
+
+  table.facts th {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  table.facts td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .note {
+    border-left: 2px solid var(--rule-firm);
+    padding: 2px 0 2px 16px;
+    margin: 18px 0 0;
+    color: var(--ink-2);
+    font-size: 15px;
+  }
+
+  .note strong { color: var(--ink); }
+
+  footer { padding: 72px 0 0; color: var(--muted); font-size: 13.5px; }
+  footer hr { border: 0; border-top: 1px solid var(--rule-firm); margin: 0 0 20px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  @media (max-width: 600px) {
+    .masthead { padding-top: 48px; }
+    .sheet { padding: 20px 18px 22px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Brand-Asset · Oakwood Golf Club · 05. August 2026</p>
+    <h1>E-Mail-Signatur-Kit</h1>
+    <p class="lede">
+      Zwei Layouts — <strong>Stapel</strong> und <strong>Spalte</strong> — jeweils mit
+      persönlichem und neutralem Absender. Dazu eine eigene Fassung fürs iPhone.
+      Die Vorschau <em>ist</em> die Quelle: der Kopieren-Button greift exakt das ab,
+      was hier steht.
+    </p>
+    <hr class="masthead-rule" />
+
+    <div class="controls">
+      <span class="controls-label">Mail-Hintergrund</span>
+      <div class="seg" role="group" aria-label="Hintergrund der Vorschau umschalten">
+        <button type="button" data-ground="light" aria-pressed="true">Hell</button>
+        <button type="button" data-ground="dark" aria-pressed="false">Dunkel</button>
+      </div>
+      <span class="controls-label" style="text-transform:none;letter-spacing:0;font-family:inherit;font-size:13.5px;">
+        Prüft, wie die Signatur im Dark-Mode-Postfach des Empfängers steht.
+      </span>
+    </div>
+  </header>
+
+  <!-- ============ Stapel · persönlich ============ -->
+
+  <section class="specimen">
+    <div class="specimen-head">
+      <span class="tag">Stapel</span>
+      <span class="tag">persönlich</span>
+    </div>
+    <h2>Für Korrespondenz</h2>
+    <p class="why">
+      Vertikal, mit der Fairway-Kante. Robusteste Variante: bricht auf schmalen
+      Mobil-Clients nicht um, weil es nichts zu brechen gibt.
+    </p>
+
+    <div class="sheet">
+      <p class="sheet-hint">Vorschau · Ende der Nachricht</p>
+      <hr class="sheet-divider" />
+
+      <div class="sig" id="sig-stapel-person"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="3" style="width:3px;background-color:#1b6640;font-size:0;line-height:0;">&nbsp;</td><td style="padding-left:16px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-size:17px;line-height:23px;color:#0a0a0a;">Oakwood Golf Club</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#4b5563;padding-bottom:12px;">German Rauhut</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;color:#0a0a0a;"><a href="mailto:info@oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;">info@oakwoodgolfclub.de</a>&nbsp; &middot; &nbsp;<a href="tel:+491603859135" style="color:#0a0a0a;text-decoration:none;">+49 160 385 9135</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;padding-bottom:12px;"><a href="https://oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;font-weight:600;">oakwoodgolfclub.de</a></td></tr><tr><td style="font-size:0;line-height:0;padding-bottom:12px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;max-width:360px;"><tr><td height="1" style="height:1px;background-color:#e5e7eb;font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;font-weight:600;color:#0a0a0a;">Fernmitgliedschaft im Golfclub &mdash; <span style="color:#7a5a0e;font-weight:700;">55&nbsp;&euro;</span> im Jahr</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:19px;color:#4b5563;padding-bottom:10px;">Offizielle Mitgliederkarte, akzeptiert auf rund 95&nbsp;% der &ouml;sterreichischen Golfpl&auml;tze &middot; seit 2007</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;padding-bottom:12px;"><a href="https://oakwoodgolfclub.de/mitglied-werden" style="color:#1b6640;text-decoration:none;font-weight:600;">Mitglied werden &rarr;</a></td></tr><tr><td style="font-size:0;line-height:0;padding-bottom:10px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;max-width:360px;"><tr><td height="1" style="height:1px;background-color:#e5e7eb;font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;line-height:17px;color:#4b5563;">German Rauhut &ndash; IT Consulting &amp; Digital Ventures &middot; Gesch&auml;ftsbereich Oakwood Golf Club<br>Roteb&uuml;hlstr. 176 &middot; 70197 Stuttgart</td></tr></table></td></tr></table></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" data-copy="sig-stapel-person" data-plain-src="plain-stapel-person">Signatur kopieren</button>
+      <button type="button" class="btn ghost" data-html="sig-stapel-person">HTML-Quelltext</button>
+      <button type="button" class="btn ghost" data-plain="plain-stapel-person">Plain-Text ansehen</button>
+    </div>
+    <div class="drawer" id="drawer-sig-stapel-person" hidden><pre></pre></div>
+    <div class="drawer" id="drawer-plain-stapel-person" hidden><pre id="plain-stapel-person">Oakwood Golf Club
+German Rauhut
+
+info@oakwoodgolfclub.de · +49 160 385 9135
+oakwoodgolfclub.de
+
+Fernmitgliedschaft im Golfclub — 55 € im Jahr
+Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze · seit 2007
+Mitglied werden: oakwoodgolfclub.de/mitglied-werden
+
+German Rauhut – IT Consulting & Digital Ventures · Geschäftsbereich Oakwood Golf Club
+Rotebühlstr. 176 · 70197 Stuttgart</pre></div>
+  </section>
+
+  <!-- ============ Stapel · neutral ============ -->
+
+  <section class="specimen">
+    <div class="specimen-head">
+      <span class="tag">Stapel</span>
+      <span class="tag">neutral</span>
+    </div>
+    <h2>Für Mitgliederservice</h2>
+    <p class="why">
+      Gleiches Layout, ohne Personennamen. Für Karten-Versand, Verlängerungen und alles,
+      was auch dann noch stimmen soll, wenn jemand anderes antwortet.
+    </p>
+
+    <div class="sheet">
+      <p class="sheet-hint">Vorschau · Ende der Nachricht</p>
+      <hr class="sheet-divider" />
+
+      <div class="sig" id="sig-stapel-service"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td width="3" style="width:3px;background-color:#1b6640;font-size:0;line-height:0;">&nbsp;</td><td style="padding-left:16px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-size:17px;line-height:23px;color:#0a0a0a;">Oakwood Golf Club</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#4b5563;padding-bottom:12px;">Mitgliederservice</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;color:#0a0a0a;"><a href="mailto:info@oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;">info@oakwoodgolfclub.de</a>&nbsp; &middot; &nbsp;<a href="tel:+491603859135" style="color:#0a0a0a;text-decoration:none;">+49 160 385 9135</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;padding-bottom:12px;"><a href="https://oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;font-weight:600;">oakwoodgolfclub.de</a></td></tr><tr><td style="font-size:0;line-height:0;padding-bottom:12px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;max-width:360px;"><tr><td height="1" style="height:1px;background-color:#e5e7eb;font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;font-weight:600;color:#0a0a0a;">Fernmitgliedschaft im Golfclub &mdash; <span style="color:#7a5a0e;font-weight:700;">55&nbsp;&euro;</span> im Jahr</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:19px;color:#4b5563;padding-bottom:10px;">Offizielle Mitgliederkarte, akzeptiert auf rund 95&nbsp;% der &ouml;sterreichischen Golfpl&auml;tze &middot; seit 2007</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;padding-bottom:12px;"><a href="https://oakwoodgolfclub.de/mitglied-werden" style="color:#1b6640;text-decoration:none;font-weight:600;">Mitglied werden &rarr;</a></td></tr><tr><td style="font-size:0;line-height:0;padding-bottom:10px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;max-width:360px;"><tr><td height="1" style="height:1px;background-color:#e5e7eb;font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;line-height:17px;color:#4b5563;">German Rauhut &ndash; IT Consulting &amp; Digital Ventures &middot; Gesch&auml;ftsbereich Oakwood Golf Club<br>Roteb&uuml;hlstr. 176 &middot; 70197 Stuttgart</td></tr></table></td></tr></table></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" data-copy="sig-stapel-service" data-plain-src="plain-stapel-service">Signatur kopieren</button>
+      <button type="button" class="btn ghost" data-html="sig-stapel-service">HTML-Quelltext</button>
+      <button type="button" class="btn ghost" data-plain="plain-stapel-service">Plain-Text ansehen</button>
+    </div>
+    <div class="drawer" id="drawer-sig-stapel-service" hidden><pre></pre></div>
+    <div class="drawer" id="drawer-plain-stapel-service" hidden><pre id="plain-stapel-service">Oakwood Golf Club
+Mitgliederservice
+
+info@oakwoodgolfclub.de · +49 160 385 9135
+oakwoodgolfclub.de
+
+Fernmitgliedschaft im Golfclub — 55 € im Jahr
+Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze · seit 2007
+Mitglied werden: oakwoodgolfclub.de/mitglied-werden
+
+German Rauhut – IT Consulting & Digital Ventures · Geschäftsbereich Oakwood Golf Club
+Rotebühlstr. 176 · 70197 Stuttgart</pre></div>
+  </section>
+
+  <!-- ============ Spalte · persönlich ============ -->
+
+  <section class="specimen">
+    <div class="specimen-head">
+      <span class="tag">Spalte</span>
+      <span class="tag">persönlich</span>
+    </div>
+    <h2>Die Spalte</h2>
+    <p class="why">
+      Club und Absender links, Kontakt rechts, dazwischen eine Haarlinie. Baut flacher
+      und wirkt gestalteter — der Preis ist ein Umbruchrisiko in sehr schmalen Mail-Clients.
+    </p>
+
+    <div class="sheet">
+      <p class="sheet-hint">Vorschau · Ende der Nachricht</p>
+      <hr class="sheet-divider" />
+
+      <div class="sig" id="sig-spalte-person"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td valign="top" style="padding-right:22px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-size:18px;line-height:24px;color:#0a0a0a;padding-bottom:6px;"><a href="https://oakwoodgolfclub.de" style="color:#0a0a0a;text-decoration:none;">Oakwood Golf Club</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#4b5563;">German Rauhut</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:19px;color:#4b5563;">seit 2007</td></tr></table></td><td valign="top" style="border-left:1px solid #e5e7eb;padding-left:22px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;"><a href="mailto:info@oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;">info@oakwoodgolfclub.de</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;color:#0a0a0a;"><a href="tel:+491603859135" style="color:#0a0a0a;text-decoration:none;">+49 160 385 9135</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;padding-bottom:8px;"><a href="https://oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;font-weight:600;">oakwoodgolfclub.de</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;"><a href="https://oakwoodgolfclub.de/mitglied-werden" style="color:#1b6640;text-decoration:none;font-weight:600;">Mitglied werden &rarr;</a></td></tr></table></td></tr><tr><td colspan="2" style="font-size:0;line-height:0;padding-top:14px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;max-width:440px;"><tr><td height="1" style="height:1px;background-color:#e5e7eb;font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr><tr><td colspan="2" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:19px;font-weight:600;color:#0a0a0a;padding-top:10px;">Fernmitgliedschaft im Golfclub &mdash; <span style="color:#7a5a0e;font-weight:700;">55&nbsp;&euro;</span> im Jahr</td></tr><tr><td colspan="2" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#4b5563;padding-top:2px;">Offizielle Mitgliederkarte, akzeptiert auf rund 95&nbsp;% der &ouml;sterreichischen Golfpl&auml;tze</td></tr><tr><td colspan="2" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;line-height:17px;color:#4b5563;padding-top:8px;">German Rauhut &ndash; IT Consulting &amp; Digital Ventures &middot; Gesch&auml;ftsbereich Oakwood Golf Club &middot; Roteb&uuml;hlstr. 176 &middot; 70197 Stuttgart</td></tr></table></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" data-copy="sig-spalte-person" data-plain-src="plain-spalte-person">Signatur kopieren</button>
+      <button type="button" class="btn ghost" data-html="sig-spalte-person">HTML-Quelltext</button>
+      <button type="button" class="btn ghost" data-plain="plain-spalte-person">Plain-Text ansehen</button>
+    </div>
+    <div class="drawer" id="drawer-sig-spalte-person" hidden><pre></pre></div>
+    <div class="drawer" id="drawer-plain-spalte-person" hidden><pre id="plain-spalte-person">Oakwood Golf Club — seit 2007
+German Rauhut
+
+info@oakwoodgolfclub.de · +49 160 385 9135
+oakwoodgolfclub.de
+Mitglied werden: oakwoodgolfclub.de/mitglied-werden
+
+Fernmitgliedschaft im Golfclub — 55 € im Jahr
+Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze
+
+German Rauhut – IT Consulting & Digital Ventures · Geschäftsbereich Oakwood Golf Club · Rotebühlstr. 176 · 70197 Stuttgart</pre></div>
+  </section>
+
+  <!-- ============ Spalte · neutral ============ -->
+
+  <section class="specimen">
+    <div class="specimen-head">
+      <span class="tag">Spalte</span>
+      <span class="tag">neutral</span>
+    </div>
+    <h2>Die Spalte, neutral</h2>
+    <p class="why">
+      Dieselbe Aufteilung, Absenderzeile auf Mitgliederservice.
+    </p>
+
+    <div class="sheet">
+      <p class="sheet-hint">Vorschau · Ende der Nachricht</p>
+      <hr class="sheet-divider" />
+
+      <div class="sig" id="sig-spalte-service"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td valign="top" style="padding-right:22px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-size:18px;line-height:24px;color:#0a0a0a;padding-bottom:6px;"><a href="https://oakwoodgolfclub.de" style="color:#0a0a0a;text-decoration:none;">Oakwood Golf Club</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#4b5563;">Mitgliederservice</td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:19px;color:#4b5563;">seit 2007</td></tr></table></td><td valign="top" style="border-left:1px solid #e5e7eb;padding-left:22px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;"><a href="mailto:info@oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;">info@oakwoodgolfclub.de</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;color:#0a0a0a;"><a href="tel:+491603859135" style="color:#0a0a0a;text-decoration:none;">+49 160 385 9135</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:22px;padding-bottom:8px;"><a href="https://oakwoodgolfclub.de" style="color:#1b6640;text-decoration:none;font-weight:600;">oakwoodgolfclub.de</a></td></tr><tr><td style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;"><a href="https://oakwoodgolfclub.de/mitglied-werden" style="color:#1b6640;text-decoration:none;font-weight:600;">Mitglied werden &rarr;</a></td></tr></table></td></tr><tr><td colspan="2" style="font-size:0;line-height:0;padding-top:14px;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;width:100%;max-width:440px;"><tr><td height="1" style="height:1px;background-color:#e5e7eb;font-size:0;line-height:0;">&nbsp;</td></tr></table></td></tr><tr><td colspan="2" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:19px;font-weight:600;color:#0a0a0a;padding-top:10px;">Fernmitgliedschaft im Golfclub &mdash; <span style="color:#7a5a0e;font-weight:700;">55&nbsp;&euro;</span> im Jahr</td></tr><tr><td colspan="2" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#4b5563;padding-top:2px;">Offizielle Mitgliederkarte, akzeptiert auf rund 95&nbsp;% der &ouml;sterreichischen Golfpl&auml;tze</td></tr><tr><td colspan="2" style="font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;line-height:17px;color:#4b5563;padding-top:8px;">German Rauhut &ndash; IT Consulting &amp; Digital Ventures &middot; Gesch&auml;ftsbereich Oakwood Golf Club &middot; Roteb&uuml;hlstr. 176 &middot; 70197 Stuttgart</td></tr></table></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" data-copy="sig-spalte-service" data-plain-src="plain-spalte-service">Signatur kopieren</button>
+      <button type="button" class="btn ghost" data-html="sig-spalte-service">HTML-Quelltext</button>
+      <button type="button" class="btn ghost" data-plain="plain-spalte-service">Plain-Text ansehen</button>
+    </div>
+    <div class="drawer" id="drawer-sig-spalte-service" hidden><pre></pre></div>
+    <div class="drawer" id="drawer-plain-spalte-service" hidden><pre id="plain-spalte-service">Oakwood Golf Club — seit 2007
+Mitgliederservice
+
+info@oakwoodgolfclub.de · +49 160 385 9135
+oakwoodgolfclub.de
+Mitglied werden: oakwoodgolfclub.de/mitglied-werden
+
+Fernmitgliedschaft im Golfclub — 55 € im Jahr
+Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze
+
+German Rauhut – IT Consulting & Digital Ventures · Geschäftsbereich Oakwood Golf Club · Rotebühlstr. 176 · 70197 Stuttgart</pre></div>
+  </section>
+
+  <!-- ============ Einbau ============ -->
+
+  <section class="section">
+    <hr />
+    <h3>Einbau</h3>
+    <p>
+      Auf <em>Signatur kopieren</em> klicken, dann im Mail-Client einfügen. Der Button legt
+      formatiertes HTML <em>und</em> reinen Text in die Zwischenablage — der Client nimmt sich,
+      was er versteht.
+    </p>
+
+    <h4>Apple Mail (macOS) — der Weg, der funktioniert</h4>
+    <ol>
+      <li>Diese Seite in <strong>Safari</strong> öffnen. Safari übergibt formatiertes HTML sauberer an Mail als Chrome.</li>
+      <li>Mail → Einstellungen → Signaturen. Links das Konto wählen, nicht „Alle Signaturen".</li>
+      <li><code>+</code> drücken. Dann <strong>Häkchen „Immer meine Standardschriftart verwenden" entfernen</strong> — sonst wirft Mail Farben und die Fairway-Kante weg.</li>
+      <li>Rechts <code>⌘A</code>, löschen, einfügen (<code>⌘V</code>).</li>
+      <li>Verliert das Einfügen die Formatierung: Signatur im Browser markieren und ins Feld <strong>ziehen</strong>. Drag-and-drop umgeht Mails Zwischenablage-Filter.</li>
+    </ol>
+
+    <h4>Outlook (Web / Microsoft 365) und Gmail</h4>
+    <ol>
+      <li>Outlook: Einstellungen → E-Mail → Verfassen und Antworten → Signatur. Web-Outlook übernimmt HTML zuverlässiger als die Desktop-App.</li>
+      <li>Gmail: Einstellungen → Allgemein → Signatur → Neu erstellen.</li>
+    </ol>
+  </section>
+
+  <!-- ============ iPhone ============ -->
+
+  <section class="section">
+    <hr />
+    <h3>iPhone und iPad</h3>
+    <p>
+      Das iOS-Signaturfeld speichert kein HTML, sondern formatierten Text. Farben und Fettung
+      überstehen das Einfügen — <strong>Hyperlinks nicht</strong>. Beim Senden verlinkt iOS
+      anschließend automatisch alles neu, was wie eine Adresse aussieht, in seiner eigenen
+      Systemfarbe. Ein beschrifteter Link wie „Mitglied werden" bleibt deshalb als toter Text
+      zurück: es gibt nichts zu erkennen.
+    </p>
+    <p>
+      Die Fassung unten löst das, indem jede Adresse ausgeschrieben ist. Kein
+      <code>&lt;a&gt;</code>-Tag, keine Beschriftung — die automatische Erkennung macht daraus
+      auf jedem Gerät wieder klickbare Links.
+    </p>
+
+    <h4>persönlich</h4>
+    <div class="sheet">
+      <div class="sig ios" id="sig-ios-person"><div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:21px;color:#0a0a0a;">Oakwood Golf Club<br>German Rauhut<br><br>info@oakwoodgolfclub.de<br>+49 160 385 9135<br>oakwoodgolfclub.de<br><br>Fernmitgliedschaft im Golfclub &mdash; 55 &euro; im Jahr<br>Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der &ouml;sterreichischen Golfpl&auml;tze<br>Mitglied werden: oakwoodgolfclub.de/mitglied-werden<br><br>German Rauhut &ndash; IT Consulting &amp; Digital Ventures<br>Gesch&auml;ftsbereich Oakwood Golf Club<br>Roteb&uuml;hlstr. 176, 70197 Stuttgart</div></div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn" data-copy="sig-ios-person" data-plain-src="plain-ios-person">Für iPhone kopieren</button>
+    </div>
+    <div hidden><pre id="plain-ios-person">Oakwood Golf Club
+German Rauhut
+
+info@oakwoodgolfclub.de
++49 160 385 9135
+oakwoodgolfclub.de
+
+Fernmitgliedschaft im Golfclub — 55 € im Jahr
+Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze
+Mitglied werden: oakwoodgolfclub.de/mitglied-werden
+
+German Rauhut – IT Consulting & Digital Ventures
+Geschäftsbereich Oakwood Golf Club
+Rotebühlstr. 176, 70197 Stuttgart</pre></div>
+
+    <h4>neutral</h4>
+    <div class="sheet">
+      <div class="sig ios" id="sig-ios-service"><div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:21px;color:#0a0a0a;">Oakwood Golf Club<br>Mitgliederservice<br><br>info@oakwoodgolfclub.de<br>+49 160 385 9135<br>oakwoodgolfclub.de<br><br>Fernmitgliedschaft im Golfclub &mdash; 55 &euro; im Jahr<br>Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der &ouml;sterreichischen Golfpl&auml;tze<br>Mitglied werden: oakwoodgolfclub.de/mitglied-werden<br><br>German Rauhut &ndash; IT Consulting &amp; Digital Ventures<br>Gesch&auml;ftsbereich Oakwood Golf Club<br>Roteb&uuml;hlstr. 176, 70197 Stuttgart</div></div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn" data-copy="sig-ios-service" data-plain-src="plain-ios-service">Für iPhone kopieren</button>
+    </div>
+    <div hidden><pre id="plain-ios-service">Oakwood Golf Club
+Mitgliederservice
+
+info@oakwoodgolfclub.de
++49 160 385 9135
+oakwoodgolfclub.de
+
+Fernmitgliedschaft im Golfclub — 55 € im Jahr
+Offizielle Mitgliederkarte, akzeptiert auf rund 95 % der österreichischen Golfplätze
+Mitglied werden: oakwoodgolfclub.de/mitglied-werden
+
+German Rauhut – IT Consulting & Digital Ventures
+Geschäftsbereich Oakwood Golf Club
+Rotebühlstr. 176, 70197 Stuttgart</pre></div>
+
+    <ol>
+      <li><strong>Einstellungen → Apps → Mail → Signatur</strong> (nicht in der Mail-App selbst).</li>
+      <li>Feld leeren, einfügen. Reiner Text — hier geht nichts kaputt.</li>
+      <li>Erkennt ein Empfänger-Client eine Adresse nicht: <code>https://</code> davorsetzen.</li>
+    </ol>
+  </section>
+
+  <!-- ============ Entscheidungen ============ -->
+
+  <section class="section">
+    <hr />
+    <h3>Warum es so aussieht</h3>
+
+    <div class="table-scroll">
+      <table class="facts">
+        <thead>
+          <tr><th>Entscheidung</th><th>Grund</th><th>Messwert</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Links in Fairway <code>#1b6640</code></td>
+            <td>Der Markenakzent trägt kleinen Text auf Weiß, ohne dass er nachgedunkelt werden muss.</td>
+            <td class="num">6,95:1 — AA</td>
+          </tr>
+          <tr>
+            <td>Preis in Gold-deep <code>#7a5a0e</code></td>
+            <td>Gold nur an der einen Stelle, die überzeugen soll — dem Preis. Genau die sparsame Verwendung, die der Token-Kommentar vorsieht.</td>
+            <td class="num">6,37:1 — AA</td>
+          </tr>
+          <tr>
+            <td>Gold <code>#d4a12e</code> kommt als Schrift nicht vor</td>
+            <td>Auf Weiß gemessen fällt es durch. Der Token-Kommentar „NOT a fill" ist damit auch rechnerisch belegt, nicht nur Konvention.</td>
+            <td class="num">2,35:1 — fällt durch</td>
+          </tr>
+          <tr>
+            <td>Clubname in Serif</td>
+            <td>Playfair Display lädt im Postfach nicht. Anders als bei einer Grotesk gibt es hier einen guten Ersatz: Georgia ist auf macOS und Windows vorinstalliert und trägt denselben Ton.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Kein Logo-Bild</td>
+            <td>Gmail und Outlook blockieren externe Bilder per Default. Ein gehostetes Logo erscheint dann als kaputtes Platzhalter-Icon.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Tabellen statt <code>div</code>/Flexbox</td>
+            <td>Outlook rendert mit der Word-Engine. Flexbox, Grid und <code>margin</code> auf Blockelementen fallen dort still aus.</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Telefon-Link nicht eingefärbt</td>
+            <td>Bleibt klickbar, sieht aber nicht nach Link aus — sonst hat die Kontaktzeile drei bunte Elemente.</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Dark-Mode-Warnung.</strong> Schalte oben auf „Dunkel". Ink <code>#0a0a0a</code>
+      und das Fairway-Grün verlieren dort deutlich an Kontrast. Apple Mail und Gmail hellen
+      dunkle Textfarben meist automatisch auf, Outlook nicht zuverlässig. Deshalb ist keine
+      Fläche eingefärbt: eine Signatur ohne eigenen Hintergrund überlebt jede Client-Invertierung.
+    </div>
+  </section>
+
+  <!-- ============ Offene Punkte ============ -->
+
+  <section class="section">
+    <hr />
+    <h3>Was du noch entscheiden musst</h3>
+    <ol>
+      <li>
+        <strong>Die Telefonnummer im Repo ist defekt.</strong> <code>lib/site-config.ts</code>
+        führt <code>phone: "+4916038591350"</code> — 13 Ziffern, eine zu viel gegenüber der
+        angezeigten <code>+49 (160) 385 9135</code> (12). Jeder <code>tel:</code>-Link auf der
+        Live-Site wählt damit eine falsche Nummer. Die Signaturen hier nutzen die korrigierte
+        Fassung <code>+491603859135</code>. Die Site selbst habe ich nicht angefasst — ein Push
+        ginge dort direkt in Produktion.
+      </li>
+      <li>
+        <strong>„Mitgliederservice" ist mein Wort</strong>, keine bestehende Bezeichnung aus dem
+        Repo. Falls der Club die Rolle anders nennt, ist das eine Textänderung an einer Zeile.
+      </li>
+      <li>
+        <strong>Kein § 19 UStG-Hinweis.</strong> Bewusst weggelassen — der gehört auf die
+        Rechnung, nicht unter jede Mail. Anschrift ist drin.
+      </li>
+      <li>
+        <strong>Social-Kanäle fehlen bewusst.</strong> Facebook, Instagram und X stehen in
+        <code>site-config.ts</code>, sind aber auf deinen Wunsch nicht in der Signatur.
+      </li>
+    </ol>
+  </section>
+
+  <footer>
+    <hr />
+    <p>
+      Quellen: <code>lib/site-config.ts</code> (Name, Tagline, E-Mail, Telefon, Gründungsjahr) ·
+      <code>app/impressum/page.tsx</code> (Anbieter, Anschrift) ·
+      <code>app/globals.css</code> (Farb-Token). Kontaktdaten und Claims sind aus diesen Quellen
+      übernommen — mit der einen oben genannten Korrektur an der Telefonnummer.
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    "use strict";
+
+    var body = document.body;
+    body.setAttribute("data-ground", "light");
+
+    var groundButtons = document.querySelectorAll(".seg button[data-ground]");
+    Array.prototype.forEach.call(groundButtons, function (btn) {
+      btn.addEventListener("click", function () {
+        body.setAttribute("data-ground", btn.getAttribute("data-ground"));
+        Array.prototype.forEach.call(groundButtons, function (b) {
+          b.setAttribute("aria-pressed", String(b === btn));
+        });
+      });
+    });
+
+    function flash(btn, label) {
+      var original = btn.textContent;
+      btn.textContent = label;
+      btn.classList.add("done");
+      window.setTimeout(function () {
+        btn.textContent = original;
+        btn.classList.remove("done");
+      }, 1800);
+    }
+
+    function legacyCopy(node) {
+      var range = document.createRange();
+      range.selectNodeContents(node);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      sel.removeAllRanges();
+      return ok;
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-copy]"), function (btn) {
+      btn.addEventListener("click", function () {
+        var node = document.getElementById(btn.getAttribute("data-copy"));
+        if (!node) { return; }
+        var html = node.innerHTML;
+        var plainId = btn.getAttribute("data-plain-src");
+        var plainNode = plainId ? document.getElementById(plainId) : null;
+        var text = plainNode
+          ? plainNode.textContent.trim()
+          : (node.innerText || node.textContent || "").replace(/\n{3,}/g, "\n\n").trim();
+
+        if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+          var item = new window.ClipboardItem({
+            "text/html": new Blob([html], { type: "text/html" }),
+            "text/plain": new Blob([text], { type: "text/plain" })
+          });
+          navigator.clipboard.write([item]).then(function () {
+            flash(btn, "Kopiert ✓");
+          })["catch"](function () {
+            flash(btn, legacyCopy(node) ? "Kopiert ✓" : "Fehlgeschlagen");
+          });
+        } else {
+          flash(btn, legacyCopy(node) ? "Kopiert ✓" : "Fehlgeschlagen");
+        }
+      });
+    });
+
+    function toggleDrawer(drawer) {
+      var isHidden = drawer.hasAttribute("hidden");
+      if (isHidden) { drawer.removeAttribute("hidden"); }
+      else { drawer.setAttribute("hidden", ""); }
+      return isHidden;
+    }
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-html]"), function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-html");
+        var drawer = document.getElementById("drawer-" + id);
+        var source = document.getElementById(id);
+        if (!drawer || !source) { return; }
+        drawer.querySelector("pre").textContent = source.innerHTML;
+        btn.textContent = toggleDrawer(drawer) ? "HTML ausblenden" : "HTML-Quelltext";
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll("[data-plain]"), function (btn) {
+      btn.addEventListener("click", function () {
+        var drawer = document.getElementById("drawer-" + btn.getAttribute("data-plain"));
+        if (!drawer) { return; }
+        btn.textContent = toggleDrawer(drawer) ? "Plain-Text ausblenden" : "Plain-Text ansehen";
+      });
+    });
+  })();
+</script>

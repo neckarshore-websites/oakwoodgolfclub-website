@@ -40,7 +40,10 @@ export const SITE = {
   language: "de",
   founded: 2007,
   email: "info@oakwoodgolfclub.de",
-  phone: "+4916038591350", // international format for tel: links
+  // E.164 for tel: links. MUST carry exactly the digits of phoneDisplay — a 13th
+  // digit lived here until 2026-08-12 and every tel: link on the site dialled a
+  // number that does not exist. Guarded by tests/contact/phone.test.ts.
+  phone: "+491603859135",
   phoneDisplay: "+49 (160) 385 9135", // human-readable
   memberCount: 300,
   social: {
