@@ -46,53 +46,45 @@ import { execFileSync } from "node:child_process";
  * be answered in the reason: why can this not be fixed today, and what would
  * have to change for it to be removed.
  */
+// Five entries removed 2026-08-12, each because the thing it accepted stopped
+// existing — not because anyone decided to tolerate more:
+//   sharp    GHSA-f88m-g3jw-g9cj  -> next@16.3.0 widened its sharp range
+//   js-yaml  GHSA-h67p-54hq-rp68  -> resolved by `npm audit fix` after the freeze lift
+//   js-yaml  GHSA-52cp-r559-cp3m  -> same
+//   brace-expansion  GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg -> same
+// All five were confirmed inert by the gate's own "listed but no longer reported"
+// output before removal. An acceptance that outlives its reason is how a temporary
+// exception turns into permanent silence, which design rule 2 exists to prevent.
 export const ALLOWLIST = [
   {
-    id: "GHSA-f88m-g3jw-g9cj",
-    pkg: "sharp",
+    id: "GHSA-w3rx-r6r6-pgpr",
+    pkg: "image-size",
     devOnly: false,
-    expires: "2026-10-31",
+    expires: "2026-11-30",
     reason:
-      "sharp <0.35.0 inherits libvips CVEs. No forward fix inside Next's dependency range — " +
-      "next@16.2.12 still resolves sharp to 0.34.5, and npm's proposed remedy is next@14.2.35, " +
-      "a downgrade across two majors. Removable when Next widens its sharp range to >=0.35.0.",
+      "image-size ICNS parser infinite loop. THERE IS NO FIX TO TAKE: this and GHSA-5p2g-fcmc-qvqq " +
+      "both report first_patched_version = null against '<= 2.0.2', and 2.0.2 is what we run — so " +
+      "this is not a bump being postponed. Reachability is why it is acceptable rather than urgent: " +
+      "image-size is called ONLY from lib/blog/image-dimensions.ts at BUILD time, over files in our " +
+      "own public/ directory, to inject width/height into markdown images against CLS. No upload " +
+      "path, no request path, no untrusted byte reaches it — feeding it a crafted image requires " +
+      "commit access to this repo first. Re-decide at expiry; if upstream still has nothing, the " +
+      "cheap exit is to read the two dimension fields ourselves, which is all we use.",
   },
   {
-    id: "GHSA-h67p-54hq-rp68",
-    pkg: "js-yaml",
+    id: "GHSA-5p2g-fcmc-qvqq",
+    pkg: "image-size",
     devOnly: false,
-    expires: "2026-10-31",
+    expires: "2026-11-30",
     reason:
-      "js-yaml <=3.14.2 via gray-matter (blog front-matter). 3.14.2 is the LAST 3.x, so there is " +
-      "no non-vulnerable 3.x, and gray-matter@4.0.3 — already the latest — declares js-yaml ^3.13.1 " +
-      "and binds yaml.safeLoad at module load, which js-yaml 4 removed. An override to 4.x throws " +
-      "at build time. Removable when gray-matter ships a js-yaml 4 release, or we replace it.",
+      "image-size JXL/HEIF parser infinite loops. Same package, same build-time-only reachability, " +
+      "and the same absence of any patched version as GHSA-w3rx-r6r6-pgpr.",
   },
-  {
-    id: "GHSA-52cp-r559-cp3m",
-    pkg: "js-yaml",
-    devOnly: false,
-    expires: "2026-10-31",
-    reason: "Second js-yaml advisory, same package and same blocker as GHSA-h67p-54hq-rp68.",
-  },
-  {
-    id: "GHSA-3jxr-9vmj-r5cp",
-    pkg: "brace-expansion",
-    devOnly: true,
-    expires: "2026-10-31",
-    reason:
-      "DoS in brace-expansion, reached only via minimatch@3 under ESLint tooling — dev-only, not in " +
-      "the production bundle. A global override to 5.x would force a four-major jump on minimatch@3 " +
-      "and risks breaking lint for a lint-time glob matcher. Removable once the ESLint chain moves off " +
-      "minimatch@3 (eslint 10 does).",
-  },
-  {
-    id: "GHSA-mh99-v99m-4gvg",
-    pkg: "brace-expansion",
-    devOnly: true,
-    expires: "2026-10-31",
-    reason: "Second brace-expansion advisory, same package and same blocker as GHSA-3jxr-9vmj-r5cp.",
-  },
+  // Both brace-expansion entries (GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg) removed
+  // 2026-08-12: `npm audit fix` resolved them once the install freeze lifted, and the
+  // gate's own "listed but no longer reported" line confirmed they had gone inert.
+  // An acceptance that outlives its reason is how a temporary exception becomes
+  // permanent silence.
 ];
 
 const GATED = new Set(["high", "critical"]);

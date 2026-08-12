@@ -64,6 +64,12 @@ jobs:
         run: |
           npm run test:lighthouse:unit
           npm run test:blog:unit
+          # Kontaktdaten-Invariante: der tel:-Wert muss exakt die Ziffern der angezeigten
+          # Nummer tragen. Bis 2026-08-12 tat er das nicht — eine Ziffer zuviel, und jeder
+          # tel:-Link der Seite (Impressum, Datenschutz, Kontakt und der Footer, also jede
+          # Seite) waehlte eine Nummer, die es nicht gibt. Gefunden hat das nichts und
+          # niemand; es fiel bei einem zufaelligen Quervergleich auf.
+          npm run test:contact:unit
           npm run test:seo:unit
           npm run test:sitemap:unit
           npm run test:export:unit
