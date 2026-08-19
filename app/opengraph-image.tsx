@@ -130,7 +130,7 @@ export default async function OpengraphImage() {
               color: "#fafafa",
             }}
           >
-            im Golfclub für{" "}
+            im Golfclub für&nbsp;
             <span
               style={{
                 color: "#52b27f",
