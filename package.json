@@ -23,6 +23,7 @@
     "test:export:unit": "tsx tests/export/export-markdown.test.ts",
     "test:sitemap:unit": "NODE_ENV=production tsx tests/sitemap/sitemap.test.ts",
     "test:seo:unit": "tsx tests/seo/indexnow.test.ts",
+    "test:og:unit": "tsx tests/seo/opengraph-image.test.ts",
     "indexnow:dry-run": "node scripts/indexnow-submit.mjs --all --dry-run",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test --grep-invert @external",
