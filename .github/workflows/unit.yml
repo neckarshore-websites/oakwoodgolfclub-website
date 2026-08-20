@@ -71,6 +71,15 @@ jobs:
           # niemand; es fiel bei einem zufaelligen Quervergleich auf.
           npm run test:contact:unit
           npm run test:seo:unit
+          # Wirkungstest der Social-Kachel (2026-08-20). RENDERT das Bild und misst den
+          # Zwischenraum zwischen "fuer" und "55 Euro" in Pixeln — ein Test, der die
+          # Quelldatei liest, haette den Defekt NICHT gefunden: dort stand ein voellig
+          # korrekt aussehendes Leerzeichen, das Satori als alleinstehenden Knoten
+          # verwirft. Der Fehler stand seit PR #21 auf jedem geteilten Link.
+          # NETZWERK: laedt die drei Schriften vom fontsource-CDN. Das ist KEINE neue
+          # Abhaengigkeit — `next build` holt dieselben Dateien im Prerender-Durchlauf,
+          # der Bau faellt also ohnehin um, wenn das CDN weg ist. Laufzeit rund 2 s.
+          npm run test:og:unit
           npm run test:sitemap:unit
           npm run test:export:unit
           npm run test:ai-surface:unit
