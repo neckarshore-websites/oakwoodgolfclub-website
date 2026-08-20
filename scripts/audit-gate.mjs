@@ -57,6 +57,27 @@ import { execFileSync } from "node:child_process";
 // exception turns into permanent silence, which design rule 2 exists to prevent.
 export const ALLOWLIST = [
   {
+    id: "GHSA-2v37-7h3g-55p8",
+    pkg: "nanoid",
+    devOnly: false,
+    expires: "2026-09-30",
+    reason:
+      "nanoid: custom generators can loop indefinitely when size is zero. THIS ENTRY IS A " +
+      "DIFFERENT ANIMAL FROM THE TWO ABOVE AND MUST NOT BE READ AS ONE OF THEM: there IS a fix. " +
+      "nanoid 3.3.18 patches it and npm reports fixAvailable=true. It is not installable HERE " +
+      "because this estate pins the registry to a cutoff date (npm `before` = 2026-08-05) and " +
+      "3.3.18 was published after it — `npm install` answers 'No matching version found for " +
+      "nanoid@3.3.18 with a date before 5.8.2026'. So what is accepted is the PIN, not the " +
+      "vulnerability, and the exit is a config decision that does not belong to this repo. " +
+      "Reachability is why waiting is acceptable: nanoid arrives solely through postcss " +
+      "(`npm ls nanoid` shows exactly one path), postcss runs at BUILD time, and the advisory " +
+      "needs a custom generator invoked with size 0 — postcss generates fixed-length ids and " +
+      "passes no request data. No untrusted input reaches it at run time. " +
+      "SHORT EXPIRY ON PURPOSE: the other entries expire in November because upstream has " +
+      "nothing to take; this one expires 2026-09-30 because the moment the date pin moves, the " +
+      "fix installs itself and this entry should disappear rather than quietly ride along.",
+  },
+  {
     id: "GHSA-w3rx-r6r6-pgpr",
     pkg: "image-size",
     devOnly: false,
