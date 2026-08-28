@@ -38,17 +38,36 @@ jobs:
       # June forever and report "no regression" on a permanently stale baseline — a silent
       # failure, and strictly worse than the loud one this change removes.
       # Union semantics on purpose: the data branch is laid OVER main's seeds, never wipes them.
+      # FAIL CLOSED. The first draft of this step swallowed every fetch error with `|| true`
+      # and then fell through to main's June seeds — which would have reproduced, inside the
+      # error path, the exact silent stale-baseline failure this step exists to prevent
+      # (CodeRabbit on PR #134). Only a CONFIRMED absent branch is the first-run case; an
+      # auth, network or server failure stops the job instead of quietly comparing to June.
+      # ls-remote exit codes, measured: 0 = branch present, 2 = no matching ref, 128 = the
+      # remote could not be reached or read.
       - name: Restore report history from the ai-surface-data branch
         run: |
           set -euo pipefail
           mkdir -p docs/reports/ai-surface
-          git fetch origin +refs/heads/ai-surface-data:refs/remotes/origin/ai-surface-data 2>/dev/null || true
-          if git rev-parse --verify origin/ai-surface-data >/dev/null 2>&1; then
-            git archive origin/ai-surface-data | tar -x -C docs/reports/ai-surface
-            echo "Restored history from ai-surface-data:"
-          else
-            echo "ai-surface-data does not exist yet (first run) — using the seeds on main:"
-          fi
+          set +e
+          git ls-remote --exit-code --heads origin ai-surface-data >/dev/null 2>&1
+          rc=$?
+          set -e
+          case "$rc" in
+            0)
+              # Branch exists — from here a failure is a real failure, never a first run.
+              git fetch origin +refs/heads/ai-surface-data:refs/remotes/origin/ai-surface-data
+              git archive origin/ai-surface-data | tar -x -C docs/reports/ai-surface
+              echo "Restored history from ai-surface-data:"
+              ;;
+            2)
+              echo "ai-surface-data does not exist yet (first run) — using the seeds on main:"
+              ;;
+            *)
+              echo "::error::git ls-remote failed (exit $rc). Refusing to run: without the report history the monitor would silently compare against the stale seeds on main and report no regression."
+              exit 1
+              ;;
+          esac
           ls -1 docs/reports/ai-surface/
 
       - name: Run AI-surface monitor
