@@ -9,7 +9,7 @@ on:
   workflow_dispatch: {}
 
 # Least-privilege: top-level read-only; the single job elevates only the
-# writes it actually needs (commit the report + open a regression issue).
+# writes it actually needs (publish the report + open a regression issue).
 permissions:
   contents: read
 
@@ -17,9 +17,11 @@ jobs:
   monitor:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # commit + push the weekly AI-surface report
+      contents: write # publish the weekly report to the ai-surface-data branch
       issues: write # open a regression issue on detected drift
     steps:
+      # Default persist-credentials (true) — the publish step below pushes to the
+      # UNPROTECTED ai-surface-data branch via this job's contents:write GITHUB_TOKEN.
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
@@ -29,6 +31,26 @@ jobs:
 
       - run: npm ci
 
+      # Restore the report history into the workspace BEFORE the run. This step is not
+      # cosmetic: tests/ai-surface/run.ts (loadPrevious) picks the newest *-raw.json sitting
+      # in docs/reports/ai-surface/ and diffs against it. main only carries the three seed
+      # reports up to 2026-06-29, so without this step every future run would compare against
+      # June forever and report "no regression" on a permanently stale baseline — a silent
+      # failure, and strictly worse than the loud one this change removes.
+      # Union semantics on purpose: the data branch is laid OVER main's seeds, never wipes them.
+      - name: Restore report history from the ai-surface-data branch
+        run: |
+          set -euo pipefail
+          mkdir -p docs/reports/ai-surface
+          git fetch origin +refs/heads/ai-surface-data:refs/remotes/origin/ai-surface-data 2>/dev/null || true
+          if git rev-parse --verify origin/ai-surface-data >/dev/null 2>&1; then
+            git archive origin/ai-surface-data | tar -x -C docs/reports/ai-surface
+            echo "Restored history from ai-surface-data:"
+          else
+            echo "ai-surface-data does not exist yet (first run) — using the seeds on main:"
+          fi
+          ls -1 docs/reports/ai-surface/
+
       - name: Run AI-surface monitor
         run: npm run test:ai-surface
         env:
@@ -37,16 +59,15 @@ jobs:
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
 
-      - name: Commit report
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/reports/ai-surface/
-          git diff --staged --quiet || git commit -m "chore(ai-surface): weekly monitoring report"
-          git push
-
+      # ORDER IS LOAD-BEARING — DO NOT MOVE THIS BELOW THE PUBLISH STEP.
+      # The alarm must not ride on the transport of its own report. Until 2026-08-28 this step
+      # sat behind a plain push to protected main: the push was rejected every week, this step
+      # went to `skipped`, and the monitor ran eight weeks with a dead alarm on a customer site
+      # (neckarshore-planning#1988). Firing the alarm BEFORE the publish, and guarding it with
+      # always(), means a broken publish path can no longer swallow a real regression.
+      # The summary read here is written into the workspace by the monitor step, not by a commit.
       - name: Open issue on regression
-        if: env.HAS_REGRESSION == 'true'
+        if: always() && env.HAS_REGRESSION == 'true'
         uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         with:
           script: |
@@ -60,3 +81,45 @@ jobs:
               body,
               labels: ['ai-surface-regression', 'P2'],
             });
+
+      # Publish to the UNPROTECTED `ai-surface-data` branch — never main. main is protected by
+      # four required checks, and the previous plain push from this step was rejected by that
+      # protection every single week. The protection was right; this job was wrong to go that
+      # way at all.
+      #
+      # Built with git PLUMBING (hash-object -> mktree -> commit-tree -> push), mirroring the
+      # emit-stats publisher in e2e.yml. A `git checkout` to the data branch would abort: it
+      # shares no history with main, so git treats every main file as "would be overwritten".
+      # Plumbing never touches the working tree — it writes blobs + one flat tree + one commit
+      # and pushes the ref. The tree is FLAT (report files at the branch root), which is exactly
+      # what the restore step above relies on: `git archive | tar -x` into the report dir then
+      # lands the files where loadPrevious() looks.
+      - name: Publish the report to the ai-surface-data branch
+        if: always()
+        env:
+          GIT_AUTHOR_NAME: "github-actions[bot]"
+          GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"
+          GIT_COMMITTER_NAME: "github-actions[bot]"
+          GIT_COMMITTER_EMAIL: "github-actions[bot]@users.noreply.github.com"
+        run: |
+          set -euo pipefail
+          # mktree does NOT sort its input; unsorted entries produce a malformed tree.
+          TREE=$(cd docs/reports/ai-surface && for f in *; do
+                   [ -f "$f" ] || continue
+                   printf '100644 blob %s\t%s\n' "$(git hash-object -w "$f")" "$f"
+                 done | LC_ALL=C sort | git mktree)
+          MSG="chore(ai-surface): weekly monitoring report @ ${GITHUB_SHA:0:7}"
+          if git rev-parse --verify origin/ai-surface-data >/dev/null 2>&1; then
+            if [ "$TREE" = "$(git rev-parse origin/ai-surface-data^{tree})" ]; then
+              echo "Report tree unchanged — nothing to publish."
+              exit 0
+            fi
+            COMMIT=$(git commit-tree "$TREE" -p origin/ai-surface-data -m "$MSG")
+          else
+            COMMIT=$(git commit-tree "$TREE" -m "$MSG")
+          fi
+          # Belt: a push with an EMPTY source refspec (":refs/heads/ai-surface-data") is a
+          # DELETE command. set -e already aborts on a failed commit-tree substitution; this is
+          # the explicit guard so a branch deletion can never depend on implicit -e.
+          [ -n "$COMMIT" ] || { echo "::error::commit-tree produced no commit — refusing to publish (would delete ai-surface-data)"; exit 1; }
+          git push origin "${COMMIT}:refs/heads/ai-surface-data"
