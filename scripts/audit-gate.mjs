@@ -56,27 +56,19 @@ import { execFileSync } from "node:child_process";
 // output before removal. An acceptance that outlives its reason is how a temporary
 // exception turns into permanent silence, which design rule 2 exists to prevent.
 export const ALLOWLIST = [
-  {
-    id: "GHSA-2v37-7h3g-55p8",
-    pkg: "nanoid",
-    devOnly: false,
-    expires: "2026-09-30",
-    reason:
-      "nanoid: custom generators can loop indefinitely when size is zero. THIS ENTRY IS A " +
-      "DIFFERENT ANIMAL FROM THE TWO ABOVE AND MUST NOT BE READ AS ONE OF THEM: there IS a fix. " +
-      "nanoid 3.3.18 patches it and npm reports fixAvailable=true. It is not installable HERE " +
-      "because this estate pins the registry to a cutoff date (npm `before` = 2026-08-05) and " +
-      "3.3.18 was published after it — `npm install` answers 'No matching version found for " +
-      "nanoid@3.3.18 with a date before 5.8.2026'. So what is accepted is the PIN, not the " +
-      "vulnerability, and the exit is a config decision that does not belong to this repo. " +
-      "Reachability is why waiting is acceptable: nanoid arrives solely through postcss " +
-      "(`npm ls nanoid` shows exactly one path), postcss runs at BUILD time, and the advisory " +
-      "needs a custom generator invoked with size 0 — postcss generates fixed-length ids and " +
-      "passes no request data. No untrusted input reaches it at run time. " +
-      "SHORT EXPIRY ON PURPOSE: the other entries expire in November because upstream has " +
-      "nothing to take; this one expires 2026-09-30 because the moment the date pin moves, the " +
-      "fix installs itself and this entry should disappear rather than quietly ride along.",
-  },
+  // nanoid GHSA-2v37-7h3g-55p8 removed 2026-09-01 — by ITS OWN exit condition, 29 days
+  // before its expiry. The entry accepted the PIN, not the vulnerability: it said the fix
+  // was unreachable because the registry was pinned to `before` = 2026-08-05. That premise
+  // no longer holds. Measured on this machine 2026-09-01: no `before` in .npmrc (repo,
+  // parent, home), `npm config get before` = null, no npm_config_before in .github/, and
+  // `npm view nanoid@3.3.18 version` resolves. Whether the pin was ever estate-wide is NOT
+  // established here — only that it is not in effect for this repo today.
+  // The fix is taken via overrides ("nanoid": "3.3.18"), and the gate's own
+  // "listed but no longer reported" line confirmed the advisory had gone before removal.
+  // NOTE FOR ANYONE READING THE OLD TICKET (planning#1586): its table names 3.3.17 as the
+  // first patched version. That is wrong today — GitHub reports vulnerable `< 3.3.18`,
+  // first_patched 3.3.18. The lockfile was ALREADY at 3.3.17, so following the ticket
+  // literally would have changed nothing and left the gate red with no visible reason.
   {
     id: "GHSA-w3rx-r6r6-pgpr",
     pkg: "image-size",
