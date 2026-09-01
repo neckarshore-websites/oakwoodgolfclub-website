@@ -11,7 +11,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "ANTHROPIC_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -25,7 +25,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "OPENAI_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -39,7 +39,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "GOOGLE_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -53,7 +53,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "PERPLEXITY_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -67,7 +67,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "ANTHROPIC_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -81,7 +81,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "OPENAI_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -95,7 +95,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "GOOGLE_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -109,7 +109,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "PERPLEXITY_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -123,7 +123,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "ANTHROPIC_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -137,7 +137,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "OPENAI_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -151,7 +151,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "GOOGLE_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -165,7 +165,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "PERPLEXITY_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -179,7 +179,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "ANTHROPIC_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -193,7 +193,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "OPENAI_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -207,7 +207,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "GOOGLE_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -221,7 +221,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "PERPLEXITY_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -235,7 +235,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "ANTHROPIC_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -249,7 +249,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "OPENAI_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -263,7 +263,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "GOOGLE_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     },
@@ -277,7 +277,7 @@
       "serverSearchCount": 0,
       "durationMs": 0,
       "error": "PERPLEXITY_API_KEY is not set — activation blocked (see tests/ai-surface/README.md)",
-      "rating": "pass",
+      "rating": "refused",
       "factsReproduced": {},
       "hallucinations": []
     }
