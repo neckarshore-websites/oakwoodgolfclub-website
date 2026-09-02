@@ -74,6 +74,7 @@
   },
   "overrides": {
     "postcss": "8.5.26",
+    "nanoid": "3.3.18",
     "@babel/core": "7.29.7"
   }
 }
