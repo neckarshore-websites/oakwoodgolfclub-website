@@ -528,9 +528,11 @@ export default function DatenschutzPage() {
           </li>
           <li>
             <strong>Cloudflare, Inc., USA</strong> — als Anbieter des
-            Formular-Spam-Schutzes (Turnstile). Die Übermittlung in die USA
-            erfolgt auf Basis der EU-Standardvertragsklauseln (Art. 46 Abs. 2
-            lit. c DSGVO) sowie ergänzender technischer Schutzmaßnahmen.
+            Formular-Spam-Schutzes (Turnstile). Cloudflare ist unter dem EU-US
+            Data Privacy Framework zertifiziert, die Übermittlung stützt sich
+            daher auf den Angemessenheitsbeschluss der EU-Kommission
+            (Art. 45 DSGVO); ergänzend gelten die EU-Standardvertragsklauseln
+            (Art. 46 Abs. 2 lit. c DSGVO) und technische Schutzmaßnahmen.
           </li>
           <li>
             <strong>PayPal</strong> — Konzerngesellschaften außerhalb des
