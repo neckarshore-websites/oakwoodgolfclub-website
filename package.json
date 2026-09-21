@@ -9,6 +9,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "typecheck": "tsc --noEmit",
+    "check:agent-files": "node scripts/check-agent-files.mjs",
     "smoke:templates": "tsx scripts/smoke-autoresponse.ts",
     "smoke:smtp": "tsx --env-file=.env.local scripts/smoke-smtp-connect.ts",
     "smoke:send": "tsx --env-file=.env.local scripts/smoke-smtp-send.ts",
@@ -36,7 +37,8 @@
     "lighthouse:mobile": "node scripts/lighthouse.mjs --quick --profile=mobile-4g",
     "lighthouse:5g": "node scripts/lighthouse.mjs --quick --profile=mobile-5g",
     "test:lighthouse:unit": "node --test scripts/lighthouse-profiles.test.mjs",
-    "test:audit-gate:unit": "node scripts/audit-gate.test.mjs"
+    "test:audit-gate:unit": "node scripts/audit-gate.test.mjs",
+    "test:agent-files:unit": "node --test scripts/check-agent-files.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",
