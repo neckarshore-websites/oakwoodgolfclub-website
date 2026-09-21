@@ -97,3 +97,12 @@ jobs:
           # rendered copy. Kept honest rather than dressed up as coverage; deepening it
           # into a real assertion suite is out of this work order's scope.
           npm run smoke:templates
+          # Agent-file drift gate (#2360). Reads the REAL AGENTS.md and CLAUDE.md in the
+          # checkout — not a fixture, not node_modules — and fails when the foreign
+          # nextjs-agent-rules block differs from scripts/nextjs-agent-rules.expected.md,
+          # when it vanishes from AGENTS.md, or when it turns up in CLAUDE.md. The unit
+          # test covers the pure logic and would go green without ever opening AGENTS.md,
+          # so BOTH lines have to stand here. No `next dev` runs in this job, so the
+          # generator cannot repair the very deviation being measured.
+          npm run test:agent-files:unit
+          npm run check:agent-files
