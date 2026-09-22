@@ -128,6 +128,29 @@ jobs:
       - name: Capture e2e reporter (playwright --list)
         run: npx playwright test --grep-invert @external --list > /tmp/e2e-list.out 2>&1 || true
 
+      # Die GEGATETEN Unit-Suiten aus unit.yml. `needs:` greift NICHT workflow-uebergreifend,
+      # dieser Job muss sie selbst fahren; das ist die einzige Art, an ihre Zahl zu kommen.
+      # `|| true`: ein roter Lauf soll trotzdem eine stats.json schreiben; die Rotfaerbung traegt
+      # sich selbst ueber fail>0 im Reporter.
+      #
+      # test:lighthouse:unit laeuft in ZWEI Workflows (unit.yml UND lighthouse.yml). Gezaehlt wird
+      # es trotzdem genau EINMAL — tests.total ist per Vertrag die Summe DISJUNKTER Runner-Zahlen:
+      # eine Reporterdatei, eine runners:-Zeile (#131).
+      - name: Capture node-test reporters (gated unit suites)
+        run: |
+          npm run test:lighthouse:unit > /tmp/lighthouse-unit.out 2>&1 || true
+          npm run test:agent-files:unit > /tmp/agent-files-unit.out 2>&1 || true
+
+      # Neun tsx-Suiten haengen in EINE Datei an (blog und search fahren je mehrere Aufrufe, der
+      # Handler liest jede "<N> passed, <M> failed"-Zeile einzeln und summiert). audit-gate ist
+      # weder node --test noch tsx, wird aber mitgezaehlt: die Handler unterscheiden nach
+      # AUSGABEFORMAT, nicht nach Sprache, und das Geruest schreibt genau diese Zeile.
+      - name: Capture tsx reporter (gated unit suites)
+        run: |
+          for s in blog contact seo og sitemap export ai-surface audit-gate search; do
+            npm run "test:${s}:unit" >> /tmp/tsx-unit.out 2>&1 || true
+          done
+
       # Pinned to the full commit SHA of test-stats-action (third-party actions are SHA-pinned,
       # never tag-floated). 54ae407 is the PIR-passed pin (fixes the 7a53ad0d manifest-load bug)
       # — the same pin md-viewer + trustscope run. declared left empty: no executed-but-ungated
@@ -141,6 +164,9 @@ jobs:
           test_result: ${{ needs.e2e.result }}
           runners: |
             e2e:playwright:/tmp/e2e-list.out
+            unit:node-test:/tmp/lighthouse-unit.out
+            unit:node-test:/tmp/agent-files-unit.out
+            unit:tsx:/tmp/tsx-unit.out
 
       # Structural contract gate — invariants that hold on BOTH green and red runs. Deliberately
       # does NOT assert a golden total (a red run legitimately undercounts and must still emit
