@@ -79,4 +79,9 @@ check("minisearch finds the ballmarker post with a typo (fuzzy)", () => {
 });
 
 console.log(`index-data: ${pass} passed, ${skip} skipped, ${fail} failed`);
+// Zweite Zeile fuer den Estate-Zaehler: der tsx-Handler von test-stats-action liest
+// "<N> passed, <M> failed" mit nichts dazwischen — das "N skipped," oben macht die Zeile
+// fuer ihn unsichtbar, die Suite floss damit still mit 0 ein (#131). Die uebersprungenen
+// Pruefungen bleiben ausdruecklich UNGEZAEHLT: eine vakante Behauptung ist kein gruener Test.
+console.log(`${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
