@@ -9,7 +9,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "typecheck": "tsc --noEmit",
-    "check:agent-files": "node scripts/check-agent-files.mjs",
+    "check:agent-files": "tsx scripts/check-agent-files.mjs",
     "smoke:templates": "tsx scripts/smoke-autoresponse.ts",
     "smoke:smtp": "tsx --env-file=.env.local scripts/smoke-smtp-connect.ts",
     "smoke:send": "tsx --env-file=.env.local scripts/smoke-smtp-send.ts",
