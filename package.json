@@ -50,10 +50,10 @@
     "minisearch": "7.2.0",
     "next": "16.4.2",
     "nodemailer": "10.0.10",
-    "react": "19.3.0",
-    "react-dom": "19.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "sanitize-html": "2.17.7",
-    "zod": "4.6.5"
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.7",
