@@ -56,6 +56,25 @@ import { execFileSync } from "node:child_process";
 // output before removal. An acceptance that outlives its reason is how a temporary
 // exception turns into permanent silence, which design rule 2 exists to prevent.
 export const ALLOWLIST = [
+  {
+    // Same advisory, same path and same expiry as neckarshore-website#293 (Founder decision
+    // there 2026-10-05; for this repo Founder decision 2026-10-19, in Linus' session).
+    // The other packages npm lists as "high" (micromatch, fast-glob, @next/eslint-plugin-next,
+    // eslint-config-next) are parent pointers to this one and carry no advisory of their own.
+    id: "GHSA-vfj7-8cjw-p6xm",
+    pkg: "braces",
+    devOnly: true,
+    expires: "2026-11-04",
+    reason:
+      "No forward fix exists: the advisory covers braces <=3.0.3, 3.0.3 is the latest release " +
+      "(npm view braces version, measured 2026-10-19). The single path is eslint-config-next -> " +
+      "@next/eslint-plugin-next -> fast-glob -> micromatch -> braces, lint-time only: " +
+      "`npm ls braces --omit=dev` is empty, so nothing served to a visitor loads it, and the " +
+      "patterns it expands come from our own lint config, not from request input. Removable when " +
+      "braces >3.0.3 is published, or when fast-glob or micromatch drops braces, or when " +
+      "@next/eslint-plugin-next drops fast-glob. If the expiry arrives and none of these " +
+      "happened, re-measure reachability before extending.",
+  },
   // nanoid GHSA-2v37-7h3g-55p8 removed 2026-09-01 — by ITS OWN exit condition, 29 days
   // before its expiry. The entry accepted the PIN, not the vulnerability: it said the fix
   // was unreachable because the registry was pinned to `before` = 2026-08-05. That premise
