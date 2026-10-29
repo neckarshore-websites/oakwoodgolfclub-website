@@ -73,10 +73,5 @@
     "tailwindcss": "4.3.3",
     "tsx": "4.23.15",
     "typescript": "6.0.3"
-  },
-  "overrides": {
-    "postcss": "8.5.31",
-    "nanoid": "3.3.18",
-    "@babel/core": "7.29.7"
   }
 }
