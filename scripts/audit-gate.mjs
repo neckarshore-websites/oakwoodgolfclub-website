@@ -38,6 +38,7 @@
  */
 
 import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 
 /**
  * Advisories we consciously accept, each with a reason and a hard expiry.
@@ -56,68 +57,29 @@ import { execFileSync } from "node:child_process";
 // output before removal. An acceptance that outlives its reason is how a temporary
 // exception turns into permanent silence, which design rule 2 exists to prevent.
 export const ALLOWLIST = [
-  {
-    // Same advisory, same path and same expiry as neckarshore-website#293 (Founder decision
-    // there 2026-10-05; for this repo Founder decision 2026-10-19, in Linus' session).
-    // The other packages npm lists as "high" (micromatch, fast-glob, @next/eslint-plugin-next,
-    // eslint-config-next) are parent pointers to this one and carry no advisory of their own.
-    id: "GHSA-vfj7-8cjw-p6xm",
-    pkg: "braces",
-    devOnly: true,
-    expires: "2026-11-04",
-    reason:
-      "No forward fix exists: the advisory covers braces <=3.0.3, 3.0.3 is the latest release " +
-      "(npm view braces version, measured 2026-10-19). The single path is eslint-config-next -> " +
-      "@next/eslint-plugin-next -> fast-glob -> micromatch -> braces, lint-time only: " +
-      "`npm ls braces --omit=dev` is empty, so nothing served to a visitor loads it, and the " +
-      "patterns it expands come from our own lint config, not from request input. Removable when " +
-      "braces >3.0.3 is published, or when fast-glob or micromatch drops braces, or when " +
-      "@next/eslint-plugin-next drops fast-glob. If the expiry arrives and none of these " +
-      "happened, re-measure reachability before extending.",
-  },
-  // nanoid GHSA-2v37-7h3g-55p8 removed 2026-09-01 — by ITS OWN exit condition, 29 days
-  // before its expiry. The entry accepted the PIN, not the vulnerability: it said the fix
-  // was unreachable because the registry was pinned to `before` = 2026-08-05. That premise
-  // no longer holds. Measured on this machine 2026-09-01: no `before` in .npmrc (repo,
-  // parent, home), `npm config get before` = null, no npm_config_before in .github/, and
-  // `npm view nanoid@3.3.18 version` resolves. Whether the pin was ever estate-wide is NOT
-  // established here — only that it is not in effect for this repo today.
-  // The fix is taken via overrides ("nanoid": "3.3.18"), and the gate's own
-  // "listed but no longer reported" line confirmed the advisory had gone before removal.
-  // NOTE FOR ANYONE READING THE OLD TICKET (planning#1586): its table names 3.3.17 as the
-  // first patched version. That is wrong today — GitHub reports vulnerable `< 3.3.18`,
-  // first_patched 3.3.18. The lockfile was ALREADY at 3.3.17, so following the ticket
-  // literally would have changed nothing and left the gate red with no visible reason.
-  {
-    id: "GHSA-w3rx-r6r6-pgpr",
-    pkg: "image-size",
-    devOnly: false,
-    expires: "2026-11-30",
-    reason:
-      "image-size ICNS parser infinite loop. THERE IS NO FIX TO TAKE: this and GHSA-5p2g-fcmc-qvqq " +
-      "both report first_patched_version = null against '<= 2.0.2', and 2.0.2 is what we run — so " +
-      "this is not a bump being postponed. Reachability is why it is acceptable rather than urgent: " +
-      "image-size is called ONLY from lib/blog/image-dimensions.ts at BUILD time, over files in our " +
-      "own public/ directory, to inject width/height into markdown images against CLS. No upload " +
-      "path, no request path, no untrusted byte reaches it — feeding it a crafted image requires " +
-      "commit access to this repo first. Re-decide at expiry; if upstream still has nothing, the " +
-      "cheap exit is to read the two dimension fields ourselves, which is all we use.",
-  },
-  {
-    id: "GHSA-5p2g-fcmc-qvqq",
-    pkg: "image-size",
-    devOnly: false,
-    expires: "2026-11-30",
-    reason:
-      "image-size JXL/HEIF parser infinite loops. Same package, same build-time-only reachability, " +
-      "and the same absence of any patched version as GHSA-w3rx-r6r6-pgpr.",
-  },
-  // Both brace-expansion entries (GHSA-3jxr-9vmj-r5cp, GHSA-mh99-v99m-4gvg) removed
-  // 2026-08-12: `npm audit fix` resolved them once the install freeze lifted, and the
-  // gate's own "listed but no longer reported" line confirmed they had gone inert.
-  // An acceptance that outlives its reason is how a temporary exception becomes
-  // permanent silence.
+  // Empty since 2026-10-29 — every entry had gone inert, confirmed by the gate's own "listed but
+  // no longer reported" line and against the advisory API before removal:
+  //   GHSA-vfj7-8cjw-p6xm  braces      advisory WITHDRAWN by GitHub 2026-10-23
+  //   GHSA-w3rx-r6r6-pgpr  image-size  fixed: first_patched 2.0.3, main carries 2.0.4
+  //   GHSA-5p2g-fcmc-qvqq  image-size  fixed: same
+  // Earlier retirements (nanoid 2026-09-01, brace-expansion 2026-08-12) live in `git log -p`.
+  // An entry has the shape { id, pkg, devOnly, expires: "YYYY-MM-DD", reason }.
 ];
+
+/**
+ * `overrides` in package.json, each with a reason and a hard expiry (planning #1961; same
+ * mechanism as neckarshore-website#342). An override is an acceptance in disguise and it ages
+ * AGAINST the repair: on 2026-10-29 all three here (postcss 8.5.31, nanoid 3.3.18, @babel/core
+ * 7.29.7) were unneeded — `npm audit` reports 0 at every level without them — and the postcss
+ * one was being bumped along by Dependabot, so it looked maintained while doing nothing.
+ *
+ * Every key under `overrides` needs an entry here and every entry an override; an entry past
+ * its date turns the gate red. The reason names when the override may go.
+ * Shape: { "<override key>": { expires: "YYYY-MM-DD", reason: "..." } }
+ */
+export const OVERRIDES = {
+  // Empty since 2026-10-29 (all three overrides removed, see above).
+};
 
 const GATED = new Set(["high", "critical"]);
 
@@ -194,6 +156,32 @@ export function findExpired(allowlist, today) {
   return expired;
 }
 
+/**
+ * Holds package.json `overrides` against the OVERRIDES register; throws on a malformed entry.
+ *   unregistered: override with no entry · expired: entry past its date · orphaned: entry, no override
+ */
+export function checkOverrides(overrides, register, today) {
+  const keys = Object.keys(overrides ?? {});
+  const result = { unregistered: [], expired: [], orphaned: [] };
+  for (const [key, entry] of Object.entries(register)) {
+    if (!entry?.expires || !entry?.reason) {
+      throw new Error(`overrides register entry "${key}" is missing expires/reason`);
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.expires)) {
+      throw new Error(`overrides register entry "${key}" has a malformed expires date: ${entry.expires}`);
+    }
+    if (!keys.includes(key)) result.orphaned.push(key);
+    else if (entry.expires < today) result.expired.push({ key, ...entry });
+  }
+  result.unregistered = keys.filter((k) => !Object.hasOwn(register, k));
+  return result;
+}
+
+/** package.json's `overrides`, read from the file the install actually used. */
+export function readOverrides(path = new URL("../package.json", import.meta.url)) {
+  return JSON.parse(readFileSync(path, "utf8")).overrides ?? {};
+}
+
 export function evaluate(raw, allowlist, today) {
   const found = collectAdvisories(raw);
   const expired = findExpired(allowlist, today);
@@ -208,8 +196,10 @@ export function evaluate(raw, allowlist, today) {
 function main() {
   const today = new Date().toISOString().slice(0, 10);
   let result;
+  let ov;
   try {
     result = evaluate(runAudit(), ALLOWLIST, today);
+    ov = checkOverrides(readOverrides(), OVERRIDES, today);
   } catch (err) {
     die(err.message);
     return;
@@ -253,10 +243,25 @@ function main() {
     }
   }
 
-  if (result.expired.length || result.unlisted.length) {
+  if (ov.unregistered.length) {
+    console.error("[31mOVERRIDES without a register entry (scripts/audit-gate.mjs OVERRIDES):[0m");
+    for (const k of ov.unregistered) console.error(`  [31mx[0m ${k}  — add { expires, reason }, or drop the override`);
+  }
+  if (ov.expired.length) {
+    console.error("[31mEXPIRED overrides — is the pin still needed, and is it now a cap?[0m");
+    for (const e of ov.expired) console.error(`  [31mx[0m ${e.key}  expired ${e.expires} — ${e.reason}`);
+  }
+  if (ov.orphaned.length) {
+    console.error("[31mRegister entries without an override — drop the line:[0m");
+    for (const k of ov.orphaned) console.error(`  [31mx[0m ${k}`);
+  }
+  const ovProblems = ov.unregistered.length + ov.expired.length + ov.orphaned.length;
+
+  if (result.expired.length || result.unlisted.length || ovProblems) {
     die(
       `${result.unlisted.length} unaccepted advisory/advisories, ` +
-        `${result.expired.length} expired allowlist entry/entries.`,
+        `${result.expired.length} expired allowlist entry/entries, ` +
+        `${ovProblems} override problem(s).`,
     );
   }
 
