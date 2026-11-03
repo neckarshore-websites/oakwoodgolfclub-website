@@ -338,15 +338,39 @@ export default function DatenschutzPage() {
           ob die Eingabe von einem Menschen stammt. Dabei verarbeitet
           Cloudflare technische Daten deines Browsers (u.&nbsp;a. IP-Adresse,
           Browser-Eigenschaften) sowie das Prüf-Ergebnis (einen Token).
-          Turnstile arbeitet <strong>ohne Cookies</strong> und ohne
-          Cross-Site-Tracking; die Daten werden nicht für Werbezwecke
-          verwendet.
+          Turnstile setzt keine Cookies, legt aber im lokalen Speicher deines
+          Browsers einen Eintrag von Cloudflare an (cf.turnstile.u). Deine
+          Eingaben im Formular erhält Cloudflare nicht.
         </p>
         <p>
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
           (berechtigtes Interesse an der Abwehr von Spam und missbräuchlichen
-          Formular-Einsendungen). Cloudflare agiert als Auftragsverarbeiter
-          nach Art. 28 DSGVO.
+          Formular-Einsendungen). Das Speichern im und das Auslesen aus dem
+          Browser beruhen auf § 25 Abs. 2 Nr. 2 TDDDG.
+        </p>
+        <p>
+          <strong>Rollen und Speicherdauer:</strong> Nach Angaben von
+          Cloudflare erfolgt die Prüfung im Auftrag des Websitebetreibers. Zur
+          Verbesserung seiner Bot-Erkennung verarbeitet Cloudflare diese Daten
+          außerdem in eigener Verantwortung und stützt sich dafür auf sein
+          berechtigtes Interesse. Für die Prüfung im Auftrag sehen die
+          Bedingungen von Cloudflare vor, dass die Daten gespeichert werden,
+          bis der Vertrag mit dem Websitebetreiber endet oder sie zur
+          Vertragserfüllung nicht mehr nötig sind, je nachdem, was früher
+          eintritt. Für die Verarbeitung in eigener Verantwortung richtet sich
+          die Dauer nach den Zwecken und nach gesetzlichen Pflichten.
+          Cloudflare berücksichtigt dabei den Erhebungszweck, Umfang, Art und
+          Sensibilität der Daten, das Risiko bei unbefugter Nutzung, ob der
+          Zweck auch mit weniger Daten erreichbar ist, und rechtliche Vorgaben
+          wie Verjährungsfristen. Näheres:{" "}
+          <a
+            href="https://www.cloudflare.com/turnstile-privacy-policy/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Turnstile Privacy Addendum
+          </a>{" "}
+          (cloudflare.com/turnstile-privacy-policy).
         </p>
         <p>
           Datenschutz:{" "}
