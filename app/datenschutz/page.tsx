@@ -346,7 +346,7 @@ export default function DatenschutzPage() {
           <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO
           (berechtigtes Interesse an der Abwehr von Spam und missbräuchlichen
           Formular-Einsendungen). Das Speichern im und das Auslesen aus dem
-          Browser beruhen auf § 25 Abs. 2 Nr. 2 TDDDG. Cloudflare agiert als Auftragsverarbeiter nach Art. 28 DSGVO.
+          Browser beruhen auf § 25 Abs. 2 Nr. 2 TDDDG.
         </p>
         <p>
           <strong>Rollen und Speicherdauer:</strong> Nach Angaben von
