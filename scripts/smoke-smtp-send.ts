@@ -1,7 +1,7 @@
 /**
  * L3 SMTP full-send smoke — sends real mail through the full compose +
  * send pipeline for all three forms (Kontakt, Signup, Renewal). Two
- * messages per form: the notification to SMTP_TO and the autoresponder
+ * messages per form: the notification to the club inbox and the autoresponder
  * back to the caller-supplied test address.
  *
  * Run from repo root:
@@ -16,7 +16,7 @@
  *     Override with `--to=<email>` for CI or alt-mailbox testing.
  *
  * What lands where:
- *   - 3 notifications → SMTP_TO (= info@oakwoodgolfclub.de by default)
+ *   - 3 notifications → the club inbox (KONTAKT.empfaenger in lib/kontakt-config.ts)
  *   - 3 autoresponders → the --to address
  *   Each mail carries the run-ID and ISO timestamp in the free-text
  *   field so individual runs are easy to locate in the inbox.
@@ -152,9 +152,9 @@ async function main() {
 
   const config = getSmtpConfig();
   if (!config) {
-    console.error("[smoke:send] SMTP env vars missing — cannot send.");
+    console.error("[smoke:send] SMTP_PASSWORD missing — cannot send.");
     console.error(
-      "  Populate .env.local with SMTP_* vars (see scripts/smoke-smtp-connect.ts header for instructions).",
+      "  Put SMTP_PASSWORD in .env.local (see scripts/smoke-smtp-connect.ts header for instructions).",
     );
     process.exit(1);
   }
@@ -165,7 +165,7 @@ async function main() {
 
   console.log(`[smoke:send] Run-ID            : ${runId}`);
   console.log(`[smoke:send] Timestamp         : ${stamp}`);
-  console.log(`[smoke:send] Notification → to : ${config.to} (SMTP_TO)`);
+  console.log(`[smoke:send] Notification → to : ${config.to} (lib/kontakt-config.ts)`);
   console.log(`[smoke:send] Autoresponse → to : ${to}`);
   console.log("");
 
