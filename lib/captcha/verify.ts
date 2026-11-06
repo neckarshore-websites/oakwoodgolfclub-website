@@ -21,13 +21,15 @@
  *     noch-nicht-konfigurierte Preview), wird die Verifikation übersprungen
  *     (`ok: true`). Hält den Funnel lauffähig während der Account-Einrichtung.
  *     In Production MUSS das Secret gesetzt sein, sonst fail-closed.
- *   - Wenn `NEXT_PUBLIC_TURNSTILE_SITEKEY` NICHT gesetzt ist, rendert das
- *     Widget clientseitig nichts und die Form hat kein Token-Feld. Der
- *     Server-Check sieht dann einen leeren String und — bei gesetztem Secret
- *     — schlägt fehl. Beide Vars müssen gemeinsam gesetzt werden.
+ *   - Wenn `captchaSitekey()` null liefert (kein Secret), rendert das
+ *     Widget clientseitig nichts und die Form hat kein Token-Feld. Schalter
+ *     und Sitekey stehen in lib/kontakt-config.ts (#2879), das Secret allein
+ *     in Vercel.
  *
  * Docs: https://developers.cloudflare.com/turnstile/get-started/server-side-validation/
  */
+
+import { CAPTCHA_AKTIV, TURNSTILE_SITEKEY } from "@/lib/kontakt-config";
 
 const TURNSTILE_VERIFY_URL =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
@@ -43,12 +45,9 @@ export type CaptchaVerifyResult =
 export async function verifyCaptchaToken(
   token: string | undefined | null,
 ): Promise<CaptchaVerifyResult> {
-  // Feature-Flag: Spam-Schutz greift nur, wenn explizit aktiviert. Sonst
-  // kommt der Schutz aus dem Rate-Limit (lib/ratelimit.ts). `=== "true"` als
-  // strikter Check: unset, leer, "false" oder irgendein anderer Wert → aus.
-  // Sicherer Default: aus.
-  const captchaEnabled = process.env.CAPTCHA_ENABLED === "true";
-  if (!captchaEnabled) {
+  // Schalter im Code (lib/kontakt-config.ts, #2879), nicht mehr in Vercel.
+  // Aus: Schutz kommt allein aus Honeypot und Rate-Limit (lib/ratelimit.ts).
+  if (!CAPTCHA_AKTIV) {
     return { ok: true, skipped: true };
   }
 
@@ -56,10 +55,18 @@ export async function verifyCaptchaToken(
 
   // Flag aktiv, aber Secret fehlt → in Production fail-closed, sonst graceful
   // (Dev/Preview-Komfort, kein Launch-Blocker).
+  //
+  // UEBERSPRINGEN NUR AUSDRUECKLICH (#2879): in Entwicklung oder in einer
+  // Vercel-Vorschau. NODE_ENV allein reicht nicht, es ist auch in jeder Vorschau
+  // "production" und haette dort jede Anfrage abgewiesen, seit der Schalter im
+  // Code steht. Ein FEHLENDES VERCEL_ENV winkt nicht durch: ein Produktionsbau
+  // ausserhalb von Vercel ist fail-closed.
   if (!secretKey) {
-    if (process.env.NODE_ENV === "production") {
+    const darfUeberspringen =
+      process.env.NODE_ENV !== "production" || process.env.VERCEL_ENV === "preview";
+    if (!darfUeberspringen) {
       console.error(
-        "[captcha] CAPTCHA_ENABLED=true but TURNSTILE_SECRET_KEY missing in production — rejecting submit.",
+        "[captcha] captcha on but TURNSTILE_SECRET_KEY missing in production — rejecting submit.",
       );
       return {
         ok: false,
@@ -68,7 +75,7 @@ export async function verifyCaptchaToken(
       };
     }
     console.warn(
-      "[captcha] CAPTCHA_ENABLED=true but secret missing — dev/preview fallback (submit accepted).",
+      "[captcha] captcha on but secret missing — dev/preview fallback (submit accepted).",
     );
     return { ok: true, skipped: true };
   }
@@ -129,3 +136,17 @@ export async function verifyCaptchaToken(
  * default — keep in sync with the widget in components/forms/Turnstile.tsx.
  */
 export const CAPTCHA_FORM_FIELD = "cf-turnstile-response";
+
+/**
+ * The site key the forms render with, or null for no widget (#2879).
+ *
+ * Null wherever the secret is missing (previews, `npm run dev`, E2E): a widget
+ * whose token the server cannot verify would only produce a failing submit.
+ * Lives here, not in kontakt-config.ts, because it has to name the secret.
+ * Server-side only: the pages call it and hand the result to the form as a prop.
+ */
+export function captchaSitekey(
+  umgebung: Record<string, string | undefined> = process.env,
+): string | null {
+  return CAPTCHA_AKTIV && umgebung.TURNSTILE_SECRET_KEY ? TURNSTILE_SITEKEY : null;
+}

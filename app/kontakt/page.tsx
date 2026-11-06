@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { captchaSitekey } from "@/lib/captcha/verify";
 import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
 
 const PAGE_TITLE = "Kontakt";
@@ -37,7 +38,7 @@ export default function KontaktPage() {
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">
         <div className="md:col-span-3">
-          <ContactForm />
+          <ContactForm turnstileSitekey={captchaSitekey()} />
         </div>
 
         <aside className="md:col-span-2 md:pl-8 md:border-l md:border-[var(--color-ink)]/10">

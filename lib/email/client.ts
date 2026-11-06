@@ -1,19 +1,18 @@
 import nodemailer, { type Transporter } from "nodemailer";
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
+import { KONTAKT } from "@/lib/kontakt-config";
 
 /**
- * Lazy-initialised SMTP transporter — reads env vars on first use.
+ * Lazy-initialised SMTP transporter.
  *
- * Required env vars (set in Vercel project settings, NEVER committed):
- *   SMTP_HOST         e.g. smtp.ionos.de
- *   SMTP_PORT         587 (STARTTLS) or 465 (SSL)
- *   SMTP_USER         info@oakwoodgolfclub.de
- *   SMTP_PASSWORD     the IONOS mailbox password
- *   SMTP_FROM         info@oakwoodgolfclub.de (can equal SMTP_USER)
- *   SMTP_TO           info@oakwoodgolfclub.de (the inbox receiving form submissions)
+ * Host, port, user, sender and recipient are configuration and live in
+ * lib/kontakt-config.ts (planning #2879). The only value read from the
+ * environment is the mailbox password, SMTP_PASSWORD, set in Vercel for
+ * Production only and NEVER committed.
  *
- * If any of the required vars are missing, `getTransporter()` returns null
- * and the caller falls back to dev-mode logging. This keeps local dev runnable
- * without secrets and keeps Vercel preview deploys safe by default.
+ * Without the password `getTransporter()` returns null and the caller falls
+ * back to dev-mode logging (or refuses in production, see lib/email/send.ts).
+ * That keeps local dev and Vercel previews from sending mail.
  */
 
 type SmtpConfig = {
@@ -26,18 +25,17 @@ type SmtpConfig = {
 };
 
 function readConfig(): SmtpConfig | null {
-  const host = process.env.SMTP_HOST;
-  const portStr = process.env.SMTP_PORT;
-  const user = process.env.SMTP_USER;
   const password = process.env.SMTP_PASSWORD;
-  const from = process.env.SMTP_FROM;
-  const to = process.env.SMTP_TO;
+  if (!password) return null;
 
-  if (!host || !portStr || !user || !password || !from || !to) return null;
-  const port = Number(portStr);
-  if (!Number.isFinite(port)) return null;
-
-  return { host, port, user, password, from, to };
+  return {
+    host: KONTAKT.smtpHost,
+    port: KONTAKT.smtpPort,
+    user: KONTAKT.smtpUser,
+    password,
+    from: KONTAKT.absender,
+    to: KONTAKT.empfaenger,
+  };
 }
 
 let cachedTransporter: Transporter | null = null;
@@ -55,12 +53,19 @@ export function getTransporter(): Transporter | null {
   const config = getSmtpConfig();
   if (!config) return null;
 
-  cachedTransporter = nodemailer.createTransport({
+  // Pin to the SMTPTransport.Options overload of createTransport; the generic
+  // last overload otherwise picks `TransportOptions`, which lacks host/port/secure.
+  const transportOptions: SMTPTransport.Options = {
     host: config.host,
     port: config.port,
-    secure: config.port === 465, // implicit TLS on 465, STARTTLS otherwise
+    // Port 465 is implicit TLS; 587 starts plain and upgrades via STARTTLS.
+    secure: config.port === 465,
+    // Without requireTLS a stripped STARTTLS would send the mailbox password in
+    // the clear. smtp.ionos.de:587 offers STARTTLS (#2879).
+    requireTLS: true,
     auth: { user: config.user, pass: config.password },
-  });
+  };
+  cachedTransporter = nodemailer.createTransport(transportOptions);
 
   return cachedTransporter;
 }

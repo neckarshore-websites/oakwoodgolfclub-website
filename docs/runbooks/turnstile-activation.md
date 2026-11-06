@@ -15,6 +15,14 @@ lessons the hard way.
 > automated happy-path against prod as a broken config — confirm with a human
 > round-trip first.
 
+> **Note (2026-11-05, planning #2879):** on oakwoodgolfclub.de the on/off switch
+> and the public site key no longer live in Vercel. They are constants in
+> `lib/kontakt-config.ts`, and the widget renders only where
+> `TURNSTILE_SECRET_KEY` is set (Production). The only Vercel variable left is
+> that secret. Steps 2 and 4 below describe the original env-based activation
+> and stay as history; to validate locally with Cloudflare test keys now, put
+> the test site key into `lib/kontakt-config.ts` for the run and do not commit it.
+
 ## Prerequisites
 
 1. The site already has the Turnstile code wired (the dormant state):

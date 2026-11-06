@@ -28,8 +28,9 @@ export const test = base.extend({});
 /**
  * Wait for the Cloudflare Turnstile widget to inject a non-empty
  * `cf-turnstile-response` token into the form — but ONLY when the widget is
- * actually rendered (`NEXT_PUBLIC_CAPTCHA_ENABLED=true` + sitekey set). When
- * the captcha flag is off the `<Turnstile />` component renders nothing, so
+ * actually rendered (the page found TURNSTILE_SECRET_KEY, so `captchaSitekey()`
+ * gave a key, see lib/captcha/verify.ts). Without it the `<Turnstile />`
+ * component renders nothing, so
  * this is a no-op and the same happy-path specs stay green in BOTH contexts:
  * captcha-off (default) and captcha-on (local/preview with test keys, prod
  * after activation).
