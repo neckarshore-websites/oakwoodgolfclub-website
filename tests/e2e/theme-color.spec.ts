@@ -15,7 +15,9 @@ function toHex(color: string): string {
 
 test("theme-color equals the sticky header on every page", async ({ page }) => {
   for (const path of PAGES) {
-    await page.goto(path);
+    // A 404 page carries the same layout and would pass the checks below.
+    const res = await page.goto(path);
+    expect(res?.status(), `${path}: status`).toBe(200);
     const tags = page.locator('meta[name="theme-color"]');
     expect(await tags.count(), `${path}: theme-color tags`).toBe(1);
     const header = await page
