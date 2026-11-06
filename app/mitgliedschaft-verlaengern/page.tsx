@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { RenewalForm } from "@/components/forms/RenewalForm";
+import { captchaSitekey } from "@/lib/captcha/verify";
 import { pageOpenGraph } from "@/lib/site-config";
 
 const PAGE_TITLE = "Mitgliedschaft verlängern";
@@ -38,7 +39,7 @@ export default function VerlaengernPage() {
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">
         <div className="md:col-span-3">
-          <RenewalForm />
+          <RenewalForm turnstileSitekey={captchaSitekey()} />
         </div>
 
         <aside className="md:col-span-2 md:pl-8 md:border-l md:border-[var(--color-ink)]/10">

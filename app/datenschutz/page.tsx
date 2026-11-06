@@ -19,10 +19,9 @@ import { MAILTO_FEEDBACK, pageOpenGraph, SITE } from "@/lib/site-config";
  *  - Spam-Schutz auf Formularen: serverseitige Zod-Validierung + TLD-Block
  *    auf dem E-Mail-Feld (.ru/.cn/.in/.id) + Honeypot + Cloudflare Turnstile
  *    (privacy-friendly CAPTCHA, kein Cookie, kein Cross-Site-Tracking).
- *    Turnstile aktiviert sich nur, wenn NEXT_PUBLIC_CAPTCHA_ENABLED +
- *    CAPTCHA_ENABLED + die beiden Keys (NEXT_PUBLIC_TURNSTILE_SITEKEY +
- *    TURNSTILE_SECRET_KEY) in Vercel gesetzt sind — sonst rendert das Widget
- *    nichts (graceful degrade).
+ *    Schalter und oeffentlicher Sitekey stehen in lib/kontakt-config.ts
+ *    (#2879); das Widget erscheint nur, wo TURNSTILE_SECRET_KEY in Vercel
+ *    gesetzt ist (Production) — sonst rendert es nichts (graceful degrade).
  *  - Zahlungen aktuell: Banküberweisung an DKB-Konto (kein AV — normale
  *    Bankkundenbeziehung) ODER PayPal (eigenverantwortlicher Empfänger
  *    nach Art. 4 Nr. 7 DSGVO, in §6.2 dokumentiert — PayPal ist KEIN
