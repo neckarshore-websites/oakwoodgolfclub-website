@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SignupForm } from "@/components/forms/SignupForm";
+import { captchaSitekey } from "@/lib/captcha/verify";
 import { pageOpenGraph, PRICING, SITE } from "@/lib/site-config";
 
 const PAGE_TITLE = "Fernmitglied werden";
@@ -38,7 +39,7 @@ export default function MitgliedWerdenPage() {
 
       <div className="mt-14 grid gap-14 md:grid-cols-5">
         <div className="md:col-span-3">
-          <SignupForm />
+          <SignupForm turnstileSitekey={captchaSitekey()} />
         </div>
 
         <aside className="md:col-span-2 md:pl-8 md:border-l md:border-[var(--color-ink)]/10">

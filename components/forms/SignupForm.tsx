@@ -53,7 +53,12 @@ function defaultStartDate(): string {
   return `${year}-${month}-${day}`;
 }
 
-export function SignupForm() {
+export function SignupForm({
+  turnstileSitekey,
+}: {
+  /** From the server page (`captchaSitekey()`); null = no widget. */
+  turnstileSitekey: string | null;
+}) {
   const [state, formAction] = useActionState(submitSignupAction, INITIAL);
   const errors = state.fieldErrors ?? {};
   const values = state.values ?? {};
@@ -236,7 +241,7 @@ export function SignupForm() {
         zur Kenntnis genommen.
       </ConsentField>
 
-      <Turnstile />
+      <Turnstile sitekey={turnstileSitekey} />
 
       <FormStatus state={state} />
 

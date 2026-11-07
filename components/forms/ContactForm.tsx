@@ -19,7 +19,12 @@ import { Turnstile } from "@/components/forms/Turnstile";
 
 const INITIAL: FormActionState = { ok: null };
 
-export function ContactForm() {
+export function ContactForm({
+  turnstileSitekey,
+}: {
+  /** From the server page (`captchaSitekey()`); null = no widget. */
+  turnstileSitekey: string | null;
+}) {
   const [state, formAction] = useActionState(submitContactAction, INITIAL);
   const errors = state.fieldErrors ?? {};
   const values = state.values ?? {};
@@ -92,7 +97,7 @@ export function ContactForm() {
         zur Kenntnis genommen.
       </ConsentField>
 
-      <Turnstile />
+      <Turnstile sitekey={turnstileSitekey} />
 
       <FormStatus state={state} />
 

@@ -6,9 +6,10 @@
  *   npm run smoke:smtp
  *
  * Requirements:
- *   - `.env.local` with all six SMTP_* vars populated.
- *     SMTP_PASSWORD is sensitive in Vercel and is NOT returned by
- *     `vercel env pull` — paste it manually once into `.env.local`.
+ *   - `.env.local` with SMTP_PASSWORD. Host, port, user, sender and
+ *     recipient live in lib/kontakt-config.ts (#2879). SMTP_PASSWORD is
+ *     sensitive in Vercel and is NOT returned by `vercel env pull` — paste
+ *     it manually once into `.env.local`.
  *
  * Exit codes:
  *   0 — SMTP connect + auth + TLS handshake OK
@@ -24,15 +25,12 @@ import { getSmtpConfig, getTransporter } from "../lib/email/client.ts";
 async function main() {
   const config = getSmtpConfig();
   if (!config) {
-    console.error("[smoke:smtp] SMTP env vars missing.");
+    console.error("[smoke:smtp] SMTP_PASSWORD missing.");
     console.error(
-      "  Required in .env.local: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, SMTP_FROM, SMTP_TO",
+      "  Required in .env.local: SMTP_PASSWORD (the rest is in lib/kontakt-config.ts).",
     );
     console.error(
-      "  Hint: run `npx vercel env pull .env.local --environment=production --yes`,",
-    );
-    console.error(
-      "        then paste the SMTP_PASSWORD value manually (it is marked sensitive and pulls empty).",
+      "  It is marked sensitive in Vercel and pulls empty, so paste it manually.",
     );
     process.exit(1);
   }

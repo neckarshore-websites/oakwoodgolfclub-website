@@ -26,7 +26,12 @@ const COUNTRY_OPTIONS = COUNTRY_VALUES.map((country) => ({
   label: country,
 }));
 
-export function RenewalForm() {
+export function RenewalForm({
+  turnstileSitekey,
+}: {
+  /** From the server page (`captchaSitekey()`); null = no widget. */
+  turnstileSitekey: string | null;
+}) {
   const [state, formAction] = useActionState(submitRenewalAction, INITIAL);
   const errors = state.fieldErrors ?? {};
   const values = state.values ?? {};
@@ -173,7 +178,7 @@ export function RenewalForm() {
         zur Kenntnis genommen.
       </ConsentField>
 
-      <Turnstile />
+      <Turnstile sitekey={turnstileSitekey} />
 
       <FormStatus state={state} />
 
