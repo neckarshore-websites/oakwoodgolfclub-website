@@ -29,7 +29,10 @@ const inter = Inter({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#1b6640", // synced with --color-fairway in globals.css (v0.2)
+  // Browser chrome tint = the sticky black header (components/Nav.tsx, `bg-black`)
+  // since the header went black on 2026-04-18; it was fairway before and went stale.
+  // tests/e2e/theme-color.spec.ts holds the tag against the painted header.
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
