@@ -74,7 +74,7 @@ function receivedAt(): string {
  * `expectedKeys` definiert die stabile Schlüsselliste pro Formular, damit
  * der Admin IMMER alle Felder sieht — leere / nicht ausgefüllte Werte
  * stehen als leerer String `""` im JSON statt komplett zu fehlen
- * (User-Feedback 2026-04-18 nach UAT). Honeypot-Feld `website` wird
+ * (User-Feedback 2026-04-18 nach UAT). Honeypot-Feld (lib/forms/honeypot.ts) wird
  * NICHT in die Keys aufgenommen.
  */
 function rawDataBlock<T extends Record<string, unknown>>(
