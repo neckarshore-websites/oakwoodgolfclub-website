@@ -1,10 +1,11 @@
 import { z } from "zod";
+import { HONEYPOT_FELD } from "./honeypot";
 
 /**
  * Zod schemas for the three Phase-1 forms (Kontakt, Signup, Renewal).
  *
  * Rules shared across all forms:
- *   - Honeypot field is named `website` — real users never fill it.
+ *   - Honeypot field is HONEYPOT_FELD (lib/forms/honeypot.ts) — real users never fill it.
  *     Bots that auto-fill every field submit with a non-empty value and get
  *     dropped silently on the server.
  *   - `consent` must equal "on" (the DSGVO-acknowledgement checkbox).
@@ -77,7 +78,7 @@ const consentField = z
   .transform(() => true);
 
 // Honeypot — accepts anything the bot submits. The silent-drop check lives
-// in the Server Action (`if (parsed.data.website && website.length > 0)`),
+// in the Server Action (`honeypotAusgeloest(...)`, lib/forms/honeypot.ts),
 // NOT in the schema.
 //
 // Previously this used `z.string().max(0, "")` which rejected any non-empty
@@ -129,7 +130,7 @@ export const contactFormSchema = z.object({
       .max(5000, "Nachricht ist zu lang (max. 5000 Zeichen)."),
   ),
   consent: consentField,
-  website: honeypotField,
+  [HONEYPOT_FELD]: honeypotField,
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -237,7 +238,7 @@ export const signupFormSchema = z.object({
     .or(z.literal("")),
 
   consent: consentField,
-  website: honeypotField,
+  [HONEYPOT_FELD]: honeypotField,
 });
 
 export type SignupFormData = z.infer<typeof signupFormSchema>;
@@ -297,7 +298,7 @@ export const renewalFormSchema = z.object({
     .or(z.literal("")),
 
   consent: consentField,
-  website: honeypotField,
+  [HONEYPOT_FELD]: honeypotField,
 });
 
 export type RenewalFormData = z.infer<typeof renewalFormSchema>;

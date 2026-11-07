@@ -1,5 +1,6 @@
 "use server";
 
+import { HONEYPOT_FELD, honeypotAusgeloest } from "@/lib/forms/honeypot";
 import { headers } from "next/headers";
 import { contactFormSchema } from "@/lib/forms/schemas";
 import {
@@ -39,8 +40,8 @@ export async function submitContactAction(
     };
   }
 
-  // Silently accept honeypot hits — a real user never fills `website`.
-  if (parsed.data.website && parsed.data.website.length > 0) {
+  // Silently accept honeypot hits; the drop is logged (lib/forms/honeypot.ts).
+  if (honeypotAusgeloest(parsed.data[HONEYPOT_FELD], "kontakt")) {
     return { ok: true, status: "blocked", submitCount: nextSubmitCount };
   }
 

@@ -1,5 +1,6 @@
 "use server";
 
+import { HONEYPOT_FELD, honeypotAusgeloest } from "@/lib/forms/honeypot";
 import { headers } from "next/headers";
 import { renewalFormSchema } from "@/lib/forms/schemas";
 import {
@@ -37,7 +38,8 @@ export async function submitRenewalAction(
     };
   }
 
-  if (parsed.data.website && parsed.data.website.length > 0) {
+  // Silently accept honeypot hits; the drop is logged (lib/forms/honeypot.ts).
+  if (honeypotAusgeloest(parsed.data[HONEYPOT_FELD], "mitgliedschaft-verlaengern")) {
     return { ok: true, status: "blocked", submitCount: nextSubmitCount };
   }
 

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { HONEYPOT_FELD } from "@/lib/forms/honeypot";
 
 /**
  * Form field primitives — label, input, error. Consistent spacing + error
@@ -309,8 +310,10 @@ export function ConsentField({
 
 /**
  * Honeypot — always hidden from real users (off-screen, tab-index-negative,
- * aria-hidden, autocomplete=off). A bot auto-filling every field leaves a
- * non-empty value here; the server silently drops those submissions.
+ * aria-hidden, autocomplete=off, ignore marks for password managers). A bot
+ * auto-filling every field leaves a non-empty value here; the server drops
+ * those submissions with the success panel and one log line. The name must
+ * carry no word autofill looks for (lib/forms/honeypot.ts).
  */
 export function HoneypotField() {
   return (
@@ -319,13 +322,17 @@ export function HoneypotField() {
       className="absolute left-[-9999px] top-[-9999px] h-0 w-0 overflow-hidden"
     >
       <label>
-        Website (leer lassen)
+        Bitte leer lassen
         <input
           type="text"
-          name="website"
+          name={HONEYPOT_FELD}
           tabIndex={-1}
           autoComplete="off"
           defaultValue=""
+          data-1p-ignore
+          data-lpignore="true"
+          data-bwignore
+          data-form-type="other"
         />
       </label>
     </div>

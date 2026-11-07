@@ -145,7 +145,7 @@ test.describe("Signup-Form (/mitglied-werden)", () => {
     // Honeypot is off-screen (absolute left:-9999px) — simulate bot fill
     // via force to skip actionability checks.
     await page
-      .locator('input[name="website"]')
+      .locator('input[name="nicht_ausfuellen"]')
       .fill("http://spam.example", { force: true });
 
     await page.getByRole("button", { name: "Anmeldung absenden" }).click();
