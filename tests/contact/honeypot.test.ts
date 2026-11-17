@@ -90,3 +90,5 @@ check("each schema passes the trap through under the new name", () => {
 });
 
 console.log(`${checks} checks passed`);
+// The line the estate counter reads (tsx handler in e2e.yml), as in tests/search/index-data.test.ts (#131).
+console.log(`${checks} passed, 0 failed`);
