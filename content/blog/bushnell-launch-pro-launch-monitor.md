@@ -1,9 +1,10 @@
 ---
 title: "Bushnell Launch Pro: Wenn du es ernst meinst mit deiner Technik"
+metaTitle: "Bushnell Launch Pro: Kamera-Launch-Monitor für Amateure"
 date: "2026-04-02"
 modified: "2026-06-16"
 reviewed: "2026-06-16"
-excerpt: "Der Launch Pro ist ein kamera-basierter Launch Monitor für ambitionierte Amateure und Club-Fitter. 13+ Datenpunkte, Indoor + Outdoor, Tour-Level-Accuracy. Wir schauen ehrlich: für wen lohnt sich das — und für wen nicht."
+excerpt: "Kamerabasierter Launch Monitor für rund 3.200 Euro, indoor und outdoor, 13+ Datenpunkte: für wen sich der Bushnell Launch Pro lohnt und für wen nicht."
 categories:
   - "Equipment"
 author: "Oakwood Golf Club"

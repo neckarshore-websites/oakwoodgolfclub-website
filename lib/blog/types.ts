@@ -11,6 +11,12 @@ export type PostMeta = {
   slug: string;
   /** Headline — H1 on the post page, link text in listings. */
   title: string;
+  /**
+   * Optional search-result title (<title>, og:title, twitter:title). Falls
+   * back to `title`. Use it when the snippet should be plainer or shorter
+   * than the H1; the H1 itself stays `title`.
+   */
+  metaTitle?: string;
   /** ISO 8601 date (YYYY-MM-DD). First-published. */
   date: string;
   /** Optional ISO date. Signals freshness to AI crawlers + search engines. */

@@ -122,6 +122,16 @@ BLOG_POST_OVERRIDES = {
     'greenfees-als-ffernmitglied': '/blog/greenfees-als-fernmitglied',
 }
 
+# Posts that WERE migrated and later deleted from content/blog/. Both the
+# legacy WP path and the new /blog/<slug> path must leave in one hop to the
+# target, or the old 308 lands on the 404 template (agent-bridge #29,
+# Search Console 2026-11-21). Each slug here also overrides the legacy entry.
+DELETED_BLOG_POSTS = {
+    'dgv-stetiges-wachstum-der-altesten-golfnation': '/blog',
+    'mitglieder-pro-land': '/blog',
+}
+BLOG_POST_OVERRIDES.update(DELETED_BLOG_POSTS)
+
 
 def collect_post_redirects():
     """post/publish: /<slug>/ → /blog/<slug>, with override map for posts
@@ -146,6 +156,12 @@ def collect_post_redirects():
                 'destination': destination,
                 'category': 'blog-post',
             })
+    for slug, destination in DELETED_BLOG_POSTS.items():
+        entries.append({
+            'source': normalize_source(f'/blog/{slug}/'),
+            'destination': destination,
+            'category': 'blog-post',
+        })
     return entries
 
 

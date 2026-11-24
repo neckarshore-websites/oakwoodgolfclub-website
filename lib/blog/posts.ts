@@ -179,6 +179,7 @@ function loadAll(): CachedAll {
     posts.push({
       slug,
       title: data.title,
+      metaTitle: data.metaTitle,
       date: data.date,
       modified: data.modified,
       reviewed: data.reviewed,

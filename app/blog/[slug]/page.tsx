@@ -6,6 +6,7 @@ import { Prose } from "@/components/blog/Prose";
 import { ExportButton } from "@/components/export/ExportButton";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
 import { absoluteImageUrl, firstImageSrc } from "@/lib/blog/lead-image";
+import { buildPostMetadata } from "@/lib/blog/post-metadata";
 import {
   categorySlug,
   getAdjacentPosts,
@@ -26,23 +27,7 @@ export async function generateMetadata(
   const post = getPostBySlug(slug);
   if (!post) return { title: "Beitrag nicht gefunden" };
 
-  return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: {
-      type: "article",
-      locale: SITE.locale,
-      url: `${SITE.url}/blog/${post.slug}`,
-      siteName: SITE.name,
-      title: post.title,
-      description: post.excerpt,
-      publishedTime: post.date,
-      modifiedTime: post.modified,
-      authors: [post.author],
-      tags: post.tags,
-    },
-  };
+  return buildPostMetadata(post);
 }
 
 function formatDate(iso: string): string {
