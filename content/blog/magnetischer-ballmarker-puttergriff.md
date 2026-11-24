@@ -1,9 +1,10 @@
 ---
 title: "Magnetischer Ballmarker am Puttergriff: Das kleinste Upgrade mit spürbarem Effekt"
+metaTitle: "Magnetischer Ballmarker am Puttergriff: immer dabei"
 date: "2026-03-05"
 modified: "2026-06-17"
 reviewed: "2026-06-17"
-excerpt: "Der klassische Ballmarker verschwindet nach drei Löchern in der Hosentasche, landet im Waschgang oder ist genau dann weg, wenn man ihn braucht. Magnetische Puttergriff-Halter lösen das Problem auf verblüffend simple Art."
+excerpt: "Ballmarker verschwinden in der Hosentasche. Ein magnetischer Halter am Puttergriff hält ihn am Schläger. Worauf Du beim Kauf achtest, etwa die Haltekraft."
 categories:
   - "Equipment"
 author: "Oakwood Golf Club"

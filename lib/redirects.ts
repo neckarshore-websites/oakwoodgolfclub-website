@@ -56,10 +56,10 @@ export const BLOG_POST_REDIRECTS: RedirectEntry[] = [
   { source: "/lieblingsclub-in-thailand", destination: "/blog/lieblingsclub-in-thailand", permanent: true },
   { source: "/gedanken-beim-golf-42-handtuch-positiv", destination: "/blog/gedanken-beim-golf-42-handtuch-positiv", permanent: true },
   { source: "/was-soll-man-trainieren", destination: "/blog/was-soll-man-trainieren", permanent: true },
-  { source: "/dgv-stetiges-wachstum-der-altesten-golfnation", destination: "/blog/dgv-stetiges-wachstum-der-altesten-golfnation", permanent: true },
+  { source: "/dgv-stetiges-wachstum-der-altesten-golfnation", destination: "/blog", permanent: true },
   { source: "/mygolf-app", destination: "/faq#warum-aktuell-keine-handicap-verwaltung", permanent: true },
   { source: "/greenfees-als-ffernmitglied", destination: "/blog/greenfees-als-fernmitglied", permanent: true },
-  { source: "/mitglieder-pro-land", destination: "/blog/mitglieder-pro-land", permanent: true },
+  { source: "/mitglieder-pro-land", destination: "/blog", permanent: true },
   { source: "/golfgeschichte-golf-im-20-jahrhundert", destination: "/blog/golfgeschichte-golf-im-20-jahrhundert", permanent: true },
   { source: "/golfgeschichte-golf-im-19-jahrhundert", destination: "/blog/golfgeschichte-golf-im-19-jahrhundert", permanent: true },
   { source: "/golfgeschichte-golf-im-15-und-16-jahrhundert", destination: "/blog/golfgeschichte-golf-im-15-und-16-jahrhundert", permanent: true },
@@ -73,6 +73,8 @@ export const BLOG_POST_REDIRECTS: RedirectEntry[] = [
   { source: "/golf_ultimativer_sport_fuer_koerper_und_geist", destination: "/blog/golf_ultimativer_sport_fuer_koerper_und_geist", permanent: true },
   { source: "/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte", destination: "/blog/ki-generierte-golfbilder-amuesante-pannen-kreative-fehltritte", permanent: true },
   { source: "/al-wilson-golfspiel-auf-einem-fliegenden-doppeldecker-wahnsinn-oder-meisterleistung", destination: "/blog/al-wilson-golfspiel-auf-einem-fliegenden-doppeldecker-wahnsinn-oder-meisterleistung", permanent: true },
+  { source: "/blog/dgv-stetiges-wachstum-der-altesten-golfnation", destination: "/blog", permanent: true },
+  { source: "/blog/mitglieder-pro-land", destination: "/blog", permanent: true },
 ];
 
 /** FAQ items — each WP /faq-items/<slug>/ maps to /faq#<slug>. */

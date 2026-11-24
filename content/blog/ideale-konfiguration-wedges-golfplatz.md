@@ -1,9 +1,10 @@
 ---
-title: "Golf Technik Tipp: Mit welchen Wedges kommst Du garantiert an die Fahne?"
+title: "Welche Wedges gehören ins Bag? Lofts, Abstände und Griff-Technik"
+metaTitle: "Welche Wedges ins Bag? Lofts von 44 bis 58° und die Gap-Regel"
 date: "2024-04-05"
 modified: "2026-06-16"
 reviewed: "2026-06-16"
-excerpt: "Welche Wedges (44–58°) ins Bag gehören, warum die 4-6°-Gap-Regel zählt, und wie Du mit Griff-Technik aus vier Schlägern acht Distanzen holst."
+excerpt: "Welche Wedges zwischen 44 und 58 Grad ins Bag gehören, warum 4 bis 6 Grad Abstand zählen und wie Du mit vier Schlägern acht Distanzen abdeckst."
 categories:
   - "Training"
 tags:

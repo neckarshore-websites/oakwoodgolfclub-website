@@ -101,6 +101,28 @@ test.describe("JK-9 — single-hop legacy redirects (proxy.ts)", () => {
     expect(hop.path).toBe("/blog/lieblingsclub-in-thailand");
   });
 
+  test("deleted posts: every variant leaves in 1 hop to /blog (agent-bridge #29)", async ({
+    request,
+    baseURL,
+  }) => {
+    const base = baseURL ?? "http://localhost:3000";
+    for (const slug of [
+      "dgv-stetiges-wachstum-der-altesten-golfnation",
+      "mitglieder-pro-land",
+    ]) {
+      for (const path of [`/${slug}`, `/${slug}/`, `/blog/${slug}`, `/blog/${slug}/`]) {
+        const hop = await firstHop(request, base, path);
+        expect(hop.status, path).toBe(308);
+        expect(hop.path, path).toBe("/blog");
+      }
+    }
+    // The listing itself and a live post must not be caught by these entries.
+    expect((await request.get("/blog", { maxRedirects: 0 })).status()).toBe(200);
+    expect(
+      (await request.get("/blog/top-golfnationen", { maxRedirects: 0 })).status(),
+    ).toBe(200);
+  });
+
   test("faq mapping: 1 hop preserves the #anchor", async ({
     request,
     baseURL,
