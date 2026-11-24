@@ -104,3 +104,7 @@ jobs:
           # config, so BOTH lines have to stand here.
           npm run test:agent-files:unit
           npm run check:agent-files
+          # Completeness guard (website test plan gap row 12, 2026-11-24): every *.test file
+          # is named by a package.json script, and every test:*:unit script runs here.
+          # tests/search/route.test.ts sat unrun from June to November before this line.
+          npm run check:unit-suites
