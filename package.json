@@ -39,7 +39,8 @@
     "lighthouse:5g": "node scripts/lighthouse.mjs --quick --profile=mobile-5g",
     "test:lighthouse:unit": "node --test scripts/lighthouse-profiles.test.mjs",
     "test:audit-gate:unit": "node scripts/audit-gate.test.mjs",
-    "test:agent-files:unit": "node --test scripts/check-agent-files.test.mjs"
+    "test:agent-files:unit": "node --test scripts/check-agent-files.test.mjs",
+    "test:unit-suites:unit": "node --test scripts/check-unit-suites.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "2.0.1",
