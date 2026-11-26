@@ -107,4 +107,5 @@ jobs:
           # Completeness guard (website test plan gap row 12, 2026-11-24): every *.test file
           # is named by a package.json script, and every test:*:unit script runs here.
           # tests/search/route.test.ts sat unrun from June to November before this line.
+          npm run test:unit-suites:unit
           npm run check:unit-suites
